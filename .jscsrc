@@ -1,0 +1,9 @@
+{
+    "preset": "crockford",
+    "validateIndentation": 2,
+    "disallowDanglingUnderscores": null,
+    "excludeFiles": [
+        "node_modules",
+        "bower_components"
+    ]
+}

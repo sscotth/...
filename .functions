@@ -1,0 +1,6 @@
+function md () {
+  mkdir -p $1 && cd $1;
+}
+
+# Start an HTTP server from a directory, optionally specifying the port
+function server() {}

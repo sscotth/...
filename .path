@@ -1,0 +1,25 @@
+# /Users/scott/.gem/ruby/2.2.3/bin
+# /Users/scott/.rubies/ruby-2.2.3/lib/ruby/gems/2.2.0/bin
+# /Users/scott/.rubies/ruby-2.2.3/bin
+# /Users/scott/.nvm/versions/node/v5.0.0/bin
+# ./bin
+# /usr/local/opt/coreutils/libexec/gnubin
+# /usr/local/bin
+# /usr/local/sbin
+# /Users/scott/.dotfiles/bin
+# /usr/bin
+# /bin
+# /usr/sbin
+# /sbin
+# /opt/X11/bin
+
+# PATH begins with topmost location and then continues down
+
+# PATH=/usr/local/bin
+# PATH=$PATH:/usr/bin
+# PATH=$PATH:/bin
+# PATH=$PATH:/usr/sbin
+# PATH=$PATH:/sbin
+#
+# echo "Setting new path:" $PATH
+# export PATH
