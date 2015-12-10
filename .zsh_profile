@@ -39,6 +39,9 @@ bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 bindkey -s "^[OX" "="
 
+# Set input to vi mode
+set -o vi
+
 # # Case-insensitive globbing (used in pathname expansion)
 # shopt -s nocaseglob;
 #
