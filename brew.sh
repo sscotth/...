@@ -23,11 +23,16 @@ brew upgrade --all
 brew cask update
 brew doctor
 
-# cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar -j3 "echo {}; sudo xcodebuild -license accept; eval {}"
-# cat ~/.dotfiles/Caskfile | grep 'brew cask' | parallel --bar -j3 "echo {}"
+# Fetch Brews
+cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | parallel -j3 "brew fetch {}"
 
-###########
-# CLEANUP #
-###########
+# Install Brews
+cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar -j3 "echo {}; sudo xcodebuild -license accept; eval {}" &
+# Fetch and install Casks
+cat ~/.dotfiles/Caskfile | grep 'brew cask' | parallel --bar -j3 "echo {}" &
+
+wait
+
+# Cleanup
 brew cleanup -s
 brew cask cleanup
