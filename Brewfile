@@ -20,8 +20,8 @@ brew install less
 brew install make --with-default-names
 brew install moreutils --without-parallel --force
 brew install nano
-brew install openssl
 brew install openssh
+brew install openssl
 brew install python
 brew install rsync
 brew install screen
