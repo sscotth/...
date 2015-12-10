@@ -1,10 +1,9 @@
-unalias --
-unalias d="cd ~/Documents/Dropbox"
-unalias dl="cd ~/Downloads"
-unalias dt="cd ~/Desktop"
-unalias p="cd ~/projects"
-unalias h="history"
-unalias j="jobs"
+unalias d
+unalias dl
+unalias dt
+unalias p
+unalias h
+unalias j
 
 # List direcory contents with / after directory names
 alias lsa='ls -lahF'
