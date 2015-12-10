@@ -115,7 +115,7 @@ sh /tmp/.osx_nokill
 cd ..
 
 echo "loading personal osx preferences"
-sh osx_supplement
+sh .osx_supplement
 
 # Install Oh-My-ZSH
 echo "Installing Oh-My-Zsh"
