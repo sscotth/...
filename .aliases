@@ -64,3 +64,15 @@ alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
+
+# Alias `git` as `hub`		
+eval "$(hub alias -s)"
+
+alias top="sudo htop"
+
+alias code="cd ~/code"
+
+alias sha1="shasum -a 1"		
+alias sha256="shasum -a 256"
+
+
