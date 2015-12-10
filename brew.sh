@@ -19,7 +19,7 @@ brew doctor
 brew upgrade --all
 
 # Fetch Brews
-cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | sed -e 's/\s.*$//' | parallel --bar -j3 \
+cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | sed -e 's/ .*$//' | parallel --bar -j3 \
   "brew fetch {}"
 
 # Install Brews
