@@ -27,33 +27,8 @@ brew doctor
 ### FETCH ###
 #############
 
-# UPDATE OS X APPS
-brew fetch bash
-brew fetch coreutils
-brew fetch diffutils
-brew fetch ed
-brew fetch emacs
-brew fetch findutils
-brew fetch gawk
-brew fetch git
-brew fetch gnu-indent
-brew fetch gnu-sed
-brew fetch gnu-tar
-brew fetch gnu-units
-brew fetch gpatch
-brew fetch grep
-brew fetch gzip
-brew fetch less
-brew fetch make
-brew fetch nano
-brew fetch openssh
-brew fetch python
-brew fetch rsync
-brew fetch screen
-brew fetch svn
-brew fetch vim
-brew fetch wget
-brew fetch zsh
+# cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar -j3 "echo {}; sudo xcodebuild -license accept; eval {}"
+# cat ~/.dotfiles/Caskfile | grep 'brew cask' | parallel --bar -j3 "echo {}"
 
 # APPS
 brew fetch ack
@@ -194,70 +169,6 @@ brew cask fetch logitech-unifying
 brew cask fetch seil
 brew cask fetch teamviewer
 
-# XCODE REQUIRED
-brew fetch archey
-brew fetch macvim
-
-###############
-### INSTALL ###
-###############
-
-# UPDATE OS X APPS
-brew install bash
-# brew install binutils # How to install without "g" prefix?
-brew install coreutils
-brew install diffutils
-brew install ed --default-names
-brew install emacs
-brew install findutils --with-default-names
-brew install gawk
-brew install git
-brew install gnu-indent --with-default-names
-brew install gnu-sed --default-names
-brew install gnu-tar --with-default-names
-brew install gnu-units --with-default-names
-# brew install gnu-which --default-names # How to override?
-brew install gpatch
-brew install grep --with-default-names
-brew install gzip
-brew install less
-brew install make --with-default-names
-brew install nano
-brew install openssh #? --with-ldns --with-libressl
-brew install python
-brew install rsync
-brew install screen
-brew install svn
-brew install vim --override-system-vi
-brew install wget
-brew install zsh
-
-# APPS
-brew install ack
-brew install chruby
-brew install flow
-brew install htop-osx
-brew install httpie
-brew install hub
-brew install mackup
-brew install mongodb
-brew install neovim --HEAD
-brew install python3
-brew install r
-brew install ranger
-brew install rethinkdb
-brew install ruby-install --HEAD
-brew install s3cmd
-brew install shellcheck
-brew install syncthing
-brew install tccutil
-brew install the_platinum_searcher
-brew install the_silver_searcher
-brew install tmux
-brew install tree
-brew install watchman
-brew install z
-
 # CASK APPS
 brew cask install 1password-beta
 brew cask install airmail-beta
@@ -381,12 +292,8 @@ brew cask install seil
 brew cask install teamviewer
 brew cask install vagrant
 
-# XCODE REQUIRED
-brew install archey
-brew install macvim --override-system-vim --custom-system-icons # Error?
-
 ###########
 # CLEANUP #
 ###########
-brew cleanup
+brew cleanup -s
 brew cask cleanup
