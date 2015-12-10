@@ -2,6 +2,7 @@
 
 # TAPS
 brew tap homebrew/dupes
+brew tap homebrew/fuse
 brew tap homebrew/science
 
 brew tap caskroom/versions
