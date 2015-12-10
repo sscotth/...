@@ -1,0 +1,135 @@
+# PREREQ
+brew cask install xquartz
+
+# CASK APPS
+brew cask install 1password-beta
+brew cask install airmail-beta
+brew cask install alfred
+brew cask install apache-couchdb
+brew cask install appcleaner
+brew cask install appcleaner
+brew cask install asepsis
+brew cask install atom-beta
+brew cask install balsamiq-mockups
+brew cask install bartender
+brew cask install bettertouchtool
+brew cask install brackets
+brew cask install camtasia
+brew cask install ccleaner
+brew cask install charles-beta
+brew cask install codekit
+brew cask install dropbox-experimental
+brew cask install epic
+brew cask install evernote
+brew cask install fantastical
+brew cask install filezilla
+brew cask install firefox
+brew cask install firefoxdeveloperedition
+brew cask install flash
+brew cask install flux
+brew cask install fontprep
+brew cask install free-ruler
+brew cask install genymotion
+brew cask install gisto
+brew cask install github-desktop
+brew cask install gitter
+brew cask install glueprint
+brew cask install glyphs
+brew cask install google-chrome
+brew cask install google-chrome-canary
+brew cask install google-drive
+brew cask install grandperspective
+brew cask install handbrake
+brew cask install hyperswitch
+brew cask install insomniax
+brew cask install integrity
+brew cask install istat-menus
+brew cask install iterm2-beta
+brew cask install java
+brew cask install kaleidoscope
+brew cask install karabiner
+brew cask install keka
+brew cask install kismac
+brew cask install limechat
+brew cask install liteicon
+brew cask install livereload
+brew cask install logitech-unifying
+brew cask install macaw
+brew cask install macid
+brew cask install makemkv
+brew cask install mamp
+brew cask install marked
+brew cask install microsoft-office
+brew cask install mongohub
+brew cask install monodraw
+brew cask install mplayerx
+brew cask install mysqlworkbench
+brew cask install navicat-premium
+brew cask install ngrok
+brew cask install nvalt
+brew cask install obs
+brew cask install omnifocus
+brew cask install omnigraffle
+brew cask install onyx
+brew cask install parallels-desktop
+brew cask install paw
+brew cask install plex-home-theater
+brew cask install plex-media-server
+brew cask install postgres
+brew cask install psequel
+brew cask install rescuetime
+brew cask install robofont
+brew cask install robomongo
+brew cask install rstudio
+brew cask install sabnzbd
+brew cask install screenhero
+brew cask install scroll-reverser
+brew cask install seil
+brew cask install sketch-beta
+brew cask install skype
+brew cask install slack
+brew cask install soundflower
+brew cask install sourcetree
+brew cask install spectacle
+brew cask install steam
+brew cask install sublime-text3
+brew cask install switchresx
+brew cask install teamviewer
+brew cask install textexpander
+brew cask install totalspaces
+brew cask install tower
+brew cask install transmission
+brew cask install twitterrific
+brew cask install vagrant
+brew cask install virtualbox
+brew cask install viscosity
+brew cask install vlc
+brew cask install vmware-fusion
+brew cask install webstorm-eap
+brew cask install xld
+brew cask install xtrafinder
+
+# [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins#install-all)
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+
+# FONTS
+brew cask search /powerline/ | grep font | xargs brew cask install
+# font-anonymous-pro-for-powerline
+# font-dejavu-sans-mono-for-powerline
+# font-droid-sans-mono-for-powerline
+# font-fira-mono-for-powerline
+# font-inconsolata-dz-for-powerline
+# font-inconsolata-for-powerline
+# font-inconsolata-g-for-powerline
+# font-liberation-mono-for-powerline
+# font-meslo-lg-for-powerline
+# font-sauce-code-powerline
+# font-source-code-pro-for-powerline
+# font-ubuntu-mono-powerline
+
+brew cask install font-hack
+brew cask install font-monoid
+
+# NEED PREREQ
+# XQUARTZ
+brew cask install fontforge
