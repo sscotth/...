@@ -56,6 +56,18 @@ if ! xcode-select -p &> /dev/null; then
     # sudo xcodebuild -license
 fi
 
+# Git Setup
+GIT_EMAIL_DOMAIN="sscotth.io"
+GIT_AUTHOR_NAME="Scott Humphries"
+GIT_AUTHOR_EMAIL=git@$GIT_EMAIL_DOMAIN
+GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+
+git config --global user.name $GIT_AUTHOR_NAME
+git config --global user.email $GIT_AUTHOR_EMAIL
+git config --global core.editor "atom --wait"
+git config --global push.default simple
+
 # download_mathiasbynens_dotfiles
 if [ -d "math_dotfiles" ]; then
   cd math_dotfiles
@@ -78,7 +90,7 @@ done;
 # symlink_personal_dotfiles
 echo "symlinking personal dotfiles"
 ln -sf ~/.gitignore_global ~/.gitignore
-for file in $(find . -name '.*' ! -name '.' ! -name '.git' ! -name '.gitignore' ! -path '*math_dotfiles*'); do
+for file in $(find . -name '.*' ! -name '.' ! -name '.git' ! -name '.gitignore' ! -name '.zshrc' ! -path '*math_dotfiles*'); do
   src="$(pwd)/$(basename $file)"
   dst="$HOME/$(basename $file)"
 
@@ -106,6 +118,12 @@ sed -E '/.*(chsh -s|env zsh)/d' /tmp/omz-install.sh > /tmp/omz-install-nochsh.sh
 
 # sh /tmp/omz-install.sh
 sh /tmp/omz-install-nochsh.sh
+
+# add .zsh_profile reference to .zshrc
+echo 'source ~/.zsh_profile' >> ~/.zshrc
+
+# symlink zshrc back to the .dotfiles repo
+ln -sf ~/.zshrc ~/.dotfiles/.zshrc
 
 # Install Homebrew
 echo Installing Homebrew
@@ -137,6 +155,79 @@ EOD
 
 # Homebrew installs
 sh brew.sh
+
+# Install NVM / Node.js
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+. ~/.nvm/nvm.sh
+
+if nvm which node &> /dev/null; then
+  nvm install stable --reinstall-packages-from=node
+else
+  nvm install node
+fi
+nvm alias default node
+npm install -g npm
+
+if nvm which v4.2 &> /dev/null; then
+  nvm install v4.2 --reinstall-packages-from=v4.2
+else
+  nvm install v4.2
+fi
+npm install -g npm
+nvm alias lts v4.2
+
+nvm use node
+
+npm config set init-author-name "Scott Humphries"
+npm config set init-author-email "npm@sscotth.io"
+npm config set init-author-url "https://sscotth.io"
+npm config set init-license "MIT"
+
+npm install -g bower
+npm install -g cordova
+npm install -g eslint
+npm install -g grunt-cli
+npm install -g gulp
+npm install -g http-server
+npm install -g ionic
+npm install -g jshint
+npm install -g pm2
+
+# Install atom plugins
+apm stars --user sscotth --install
+
+# Install Python apps
+pip install SpoofMAC
+# Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
+
+# Download the startup file for launchd
+curl https://raw.githubusercontent.com/feross/SpoofMAC/master/misc/local.macspoof.plist > local.macspoof.plist
+
+# Customize location of `spoof-mac.py` to match your system
+cat local.macspoof.plist | sed "s|/usr/local/bin/spoof-mac.py|`which spoof-mac.py`|" | tee local.macspoof.plist
+
+# Copy file to the OS X launchd folder
+sudo cp local.macspoof.plist /Library/LaunchDaemons
+
+# Set file permissions
+cd /Library/LaunchDaemons
+sudo chown root:wheel local.macspoof.plist
+sudo chmod 0644 local.macspoof.plist
+
+# Install Ruby
+ruby-install ruby
+chruby ruby
+gem install rails
+
+# MongoDB
+sudo mkdir -p /data/db
+sudo chown -R `whoami` /data
+
+# NTFS-3G
+if [ -f /sbin/mount_ntfs ]; then
+  sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
+fi
+sudo ln -sf /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
 
 # Install all available updates again before killing applications
 # sudo softwareupdate -iva
