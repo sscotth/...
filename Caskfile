@@ -7,7 +7,6 @@ brew cask install airmail-beta
 brew cask install alfred
 brew cask install apache-couchdb
 brew cask install appcleaner
-brew cask install appcleaner
 brew cask install asepsis
 brew cask install atom-beta
 brew cask install balsamiq-mockups
