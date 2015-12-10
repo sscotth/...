@@ -24,7 +24,7 @@ cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | para
 # Install Brews
 cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar -j3 "echo {}; sudo xcodebuild -license accept; eval {}" &
 # Fetch and install Casks
-cat ~/.dotfiles/Caskfile | grep 'brew cask' | parallel --bar -j3 "echo {}" &
+cat ~/.dotfiles/Caskfile | grep 'brew cask' | parallel --bar -j3 "echo {}; eval {}" &
 
 wait
 
