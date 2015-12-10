@@ -19,12 +19,16 @@ brew doctor
 brew upgrade --all
 
 # Fetch Brews
-cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | sed -e 's/\s.*$//' | parallel -j3 "brew fetch {}"
+cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | sed -e 's/\s.*$//' | parallel --bar -j3 \
+  "brew fetch {}"
 
 # Install Brews
-cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar -j3 "echo {}; sudo xcodebuild -license accept; eval {}" &
+cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar -j1 \
+  "echo {}; sudo xcodebuild -license accept > /dev/null; eval {}" &
+
 # Fetch and install Casks
-cat ~/.dotfiles/Caskfile | grep 'brew cask' | parallel --bar -j3 "echo {}; eval {}" &
+cat ~/.dotfiles/Caskfile | grep 'brew cask' | parallel --bar -j3 \
+  "echo {}; eval {}" &
 
 wait
 
