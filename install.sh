@@ -207,20 +207,19 @@ apm stars --user sscotth --install
 # Install Python apps
 pip install SpoofMAC
 # Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
+  # Download the startup file for launchd
+  curl https://raw.githubusercontent.com/feross/SpoofMAC/master/misc/local.macspoof.plist > local.macspoof.plist
+  
+  # Customize location of `spoof-mac.py` to match your system
+  cat local.macspoof.plist | sed "s|/usr/local/bin/spoof-mac.py|`which spoof-mac.py`|" | tee local.macspoof.plist
 
-# Download the startup file for launchd
-curl https://raw.githubusercontent.com/feross/SpoofMAC/master/misc/local.macspoof.plist > local.macspoof.plist
+  # Copy file to the OS X launchd folder
+  sudo cp local.macspoof.plist /Library/LaunchDaemons
 
-# Customize location of `spoof-mac.py` to match your system
-cat local.macspoof.plist | sed "s|/usr/local/bin/spoof-mac.py|`which spoof-mac.py`|" | tee local.macspoof.plist
-
-# Copy file to the OS X launchd folder
-sudo cp local.macspoof.plist /Library/LaunchDaemons
-
-# Set file permissions
-cd /Library/LaunchDaemons
-sudo chown root:wheel local.macspoof.plist
-sudo chmod 0644 local.macspoof.plist
+  # Set file permissions
+  cd /Library/LaunchDaemons
+  sudo chown root:wheel local.macspoof.plist
+  sudo chmod 0644 local.macspoof.plist
 
 # Install Ruby
 ruby-install ruby
