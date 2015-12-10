@@ -1,2 +1,5 @@
 # Make atom the default editor.
 export EDITOR=atom;
+
+# nvm use will not, by default, create a "current" symlink.
+NVM_SYMLINK_CURRENT=true
