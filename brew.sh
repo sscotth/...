@@ -10,18 +10,13 @@ brew tap caskroom/fonts
 
 brew tap neovim/neovim
 
-# CASK
-brew fetch caskroom/cask/brew-cask
-brew install caskroom/cask/brew-cask
-
 # Casks symlink in applications folder
-ln -s /opt/homebrew-cask/Caskroom /Applications/Caskroom
+ln -sf /opt/homebrew-cask/Caskroom /Applications/Caskroom
 
 # Make sure up to date
 brew update
-brew upgrade --all
-brew cask update
 brew doctor
+brew upgrade --all
 
 # Fetch Brews
 cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | parallel -j3 "brew fetch {}"
