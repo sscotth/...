@@ -17,7 +17,7 @@ expect eof
 EOD
 
 # Keep-alive: update existing `sudo` time stamp until script has finished
-while true; do sudo -n true; sleep 600; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Switch to zsh
 sudo chsh -s $(which zsh) scott
