@@ -17,6 +17,27 @@ load_own_zsh_dotfiles () {
 load_mathiasbynens_zsh_dotfiles
 load_own_zsh_dotfiles
 
+# ZSH NUMPAD now working		
+# http://superuser.com/questions/742171/zsh-z-shell-numpad-numlock-doesnt-work		
+# https://github.com/robbyrussell/oh-my-zsh/issues/2654#issuecomment-43887580
+# To get code press ^v release and press KEY
+bindkey -s "^[Op" "0"
+bindkey -s "^[On" "."
+bindkey -s "^[OM" "^M"
+bindkey -s "^[Oq" "1"
+bindkey -s "^[Or" "2"
+bindkey -s "^[Os" "3"
+bindkey -s "^[Ot" "4"
+bindkey -s "^[Ou" "5"
+bindkey -s "^[Ov" "6"
+bindkey -s "^[Ow" "7"
+bindkey -s "^[Ox" "8"
+bindkey -s "^[Oy" "9"
+bindkey -s "^[Ok" "+"
+bindkey -s "^[Om" "-"
+bindkey -s "^[Oj" "*"
+bindkey -s "^[Oo" "/"
+bindkey -s "^[OX" "="
 
 # # Case-insensitive globbing (used in pathname expansion)
 # shopt -s nocaseglob;
