@@ -1,5 +1,8 @@
 #!/bin/sh
 
+sudo -v
+while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
+
 # TAPS
 brew tap homebrew/dupes
 brew tap homebrew/fuse
