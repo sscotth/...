@@ -42,7 +42,7 @@ fi
 # alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 
-alias -g ......='../../../../..'
+alias ......='cd ../../../../..'
 
 alias 1='cd -'
 alias 2='cd -2'
