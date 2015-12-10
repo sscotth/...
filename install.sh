@@ -113,7 +113,7 @@ echo "Loading osx preferences. Note that some of these changes require a logout/
 
 echo "loading mathiasbynens' sensible hacker defaults"
 cd math_dotfiles
-sh /tmp/.osx_nokill
+yes | sh /tmp/.osx_nokill
 cd ..
 
 echo "loading personal osx preferences"
