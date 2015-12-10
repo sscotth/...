@@ -162,6 +162,7 @@ expect eof
 EOD
 
 # Homebrew installs
+brew install parallel
 sh brew.sh
 
 # Install NVM / Node.js
