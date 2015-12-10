@@ -72,8 +72,10 @@ git config --global push.default simple
 SSH_KEY_PW=""		
 # Ask for password		
 # read -s -p "SSH KEYPassword:" SSH_KEY_PW
-# echo ""		
-ssh-keygen -t rsa -b 4096 -C "scott@sscotth.io" -N "$ssh_key_pw" -f ~/.ssh/id_rsa		
+# echo ""
+if [ ! -f ~/.ssh/id_rsa ]; then
+  ssh-keygen -t rsa -b 4096 -C "scott@sscotth.io" -N "$ssh_key_pw" -f ~/.ssh/id_rsa
+fi
 ssh-add ~/.ssh/id_rsa
 
 # download_mathiasbynens_dotfiles
