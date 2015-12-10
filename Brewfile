@@ -1,10 +1,4 @@
 # UPDATE OS X APPS
-brew install bash
-brew install binutils
-brew install coreutils
-brew install diffutils
-brew install ed --default-names
-brew install emacs
 brew install findutils --with-default-names
 brew install gawk
 brew install git
@@ -60,5 +54,15 @@ brew install watchman
 brew install z
 
 # XCODE REQUIRED
+
+# UPDATE OS X APPS
+brew install bash
+brew install binutils
+brew install coreutils
+brew install diffutils
+brew install ed --withdefault-names
+brew install emacs
+
+# APPS
 brew install archey
 brew install macvim --with-custom-icons
