@@ -69,6 +69,7 @@ alias la='ls -lAh'
 eval "$(hub alias -s)"
 
 alias top="sudo htop"
+alias tree="tree --filelimit 100 --dirsfirst -L 5 -CRa -I '.git'"
 
 alias code="cd ~/code"
 
