@@ -42,6 +42,15 @@ bindkey -s "^[OX" "="
 # Set input to vi mode
 set -o vi
 
+# Switch node-version when directory changes
+# https://github.com/creationix/nvm/issues/603#issuecomment-91290448
+function chpwd() {
+  if [ -r $PWD/.node-version ]; then
+    nvm use `cat $PWD/.node-version`
+  fi
+}
+chpwd
+
 # # Case-insensitive globbing (used in pathname expansion)
 # shopt -s nocaseglob;
 #
