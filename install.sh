@@ -129,6 +129,8 @@ sed -E '/.*(chsh -s|env zsh)/d' /tmp/omz-install.sh > /tmp/omz-install-nochsh.sh
 # sh /tmp/omz-install.sh
 sh /tmp/omz-install-nochsh.sh
 
+# make sure .zshrc is fresh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 # add .zsh_profile reference to .zshrc
 echo 'source ~/.zsh_profile' >> ~/.zshrc
 
