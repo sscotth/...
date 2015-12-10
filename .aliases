@@ -37,7 +37,6 @@ alias la='ls -lAh'
 # Alias `git` as `hub`
 # if type hub &>/dev/null eval "$(hub alias -s)"
 
-alias parallel="parallel --bibtex"
 alias top="sudo htop"
 alias tree="tree --filelimit 100 --dirsfirst -L 5 -CRa -I '.git'"
 
