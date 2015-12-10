@@ -123,7 +123,7 @@ sh /tmp/omz-install-nochsh.sh
 echo 'source ~/.zsh_profile' >> ~/.zshrc
 
 # symlink zshrc back to the .dotfiles repo
-ln -sf ~/.zshrc ~/.dotfiles/.zshrc
+# ln -sf ~/.zshrc ~/.dotfiles/.zshrc
 
 # Install Homebrew
 echo Installing Homebrew
