@@ -61,4 +61,4 @@ brew install z
 
 # XCODE REQUIRED
 brew install archey
-brew install macvim	--with-custom-icons
+brew install macvim --with-custom-icons
