@@ -23,7 +23,7 @@ cat ~/.dotfiles/Brewfile | grep 'brew install' | sed 's/^brew install //' | sed 
   "brew fetch {}"
 
 # Install Brews
-cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar -j1 \
+cat ~/.dotfiles/Brewfile | grep 'brew install' | parallel --bar --timeout 300 -j 1 \
   "echo {}; sudo xcodebuild -license accept &> /dev/null; eval {}" &
 
 # Fetch and install Casks
