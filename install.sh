@@ -68,6 +68,14 @@ git config --global user.email $GIT_AUTHOR_EMAIL
 git config --global core.editor "atom --wait"
 git config --global push.default simple
 
+# Generate SSH Keys		
+SSH_KEY_PW=""		
+# Ask for password		
+# read -s -p "SSH KEYPassword:" SSH_KEY_PW
+# echo ""		
+ssh-keygen -t rsa -b 4096 -C "scott@sscotth.io" -N "$ssh_key_pw" -f ~/.ssh/id_rsa		
+ssh-add ~/.ssh/id_rsa
+
 # download_mathiasbynens_dotfiles
 if [ -d "math_dotfiles" ]; then
   cd math_dotfiles
