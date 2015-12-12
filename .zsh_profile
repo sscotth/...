@@ -17,8 +17,8 @@ load_own_zsh_dotfiles () {
 load_mathiasbynens_zsh_dotfiles
 load_own_zsh_dotfiles
 
-# ZSH NUMPAD now working		
-# http://superuser.com/questions/742171/zsh-z-shell-numpad-numlock-doesnt-work		
+# ZSH NUMPAD now working
+# http://superuser.com/questions/742171/zsh-z-shell-numpad-numlock-doesnt-work
 # https://github.com/robbyrussell/oh-my-zsh/issues/2654#issuecomment-43887580
 # To get code press ^v release and press KEY
 bindkey -s "^[Op" "0"

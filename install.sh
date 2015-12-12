@@ -68,9 +68,9 @@ git config --global user.email $GIT_AUTHOR_EMAIL
 git config --global core.editor "atom --wait"
 git config --global push.default simple
 
-# Generate SSH Keys		
-SSH_KEY_PW=""		
-# Ask for password		
+# Generate SSH Keys
+SSH_KEY_PW=""
+# Ask for password
 # read -s -p "SSH KEYPassword:" SSH_KEY_PW
 # echo ""
 if [ ! -f ~/.ssh/id_rsa ]; then
@@ -214,7 +214,7 @@ pip install SpoofMAC
 # Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
   # Download the startup file for launchd
   curl https://raw.githubusercontent.com/feross/SpoofMAC/master/misc/local.macspoof.plist > /tmp/local.macspoof.plist
-  
+
   # Customize location of `spoof-mac.py` to match your system
   cat /tmp/local.macspoof.plist | sed "s|/usr/local/bin/spoof-mac.py|`which spoof-mac.py`|" | tee /tmp/local.macspoof.plist
 
