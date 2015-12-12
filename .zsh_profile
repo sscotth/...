@@ -51,6 +51,12 @@ function chpwd() {
 }
 chpwd
 
+# load chruby
+# auto-switch the current version of Ruby when you cd between your different projects
+# https://github.com/postmodern/chruby#auto-switching
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
 # # Case-insensitive globbing (used in pathname expansion)
 # shopt -s nocaseglob;
 #

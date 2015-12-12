@@ -226,6 +226,7 @@ pip install SpoofMAC
   sudo chmod 0644 /Library/LaunchDaemonslocal.macspoof.plist
 
 # Install Ruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
 ruby-install ruby
 chruby ruby
 gem install rails
