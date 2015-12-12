@@ -56,18 +56,6 @@ if ! xcode-select -p &> /dev/null; then
     # sudo xcodebuild -license
 fi
 
-# Git Setup
-GIT_EMAIL_DOMAIN="sscotth.io"
-GIT_AUTHOR_NAME="Scott Humphries"
-GIT_AUTHOR_EMAIL=git@$GIT_EMAIL_DOMAIN
-GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
-GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
-
-git config --global user.name $GIT_AUTHOR_NAME
-git config --global user.email $GIT_AUTHOR_EMAIL
-git config --global core.editor "atom --wait"
-git config --global push.default simple
-
 # Generate SSH Keys
 SSH_KEY_PW=""
 # Ask for password
