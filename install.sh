@@ -184,6 +184,7 @@ npm config set init-author-email "npm@sscotth.io"
 npm config set init-author-url "https://sscotth.io"
 npm config set init-license "MIT"
 
+npm install -g babel-eslint
 npm install -g bower
 npm install -g cordova
 npm install -g eslint
@@ -193,6 +194,8 @@ npm install -g http-server
 npm install -g ionic
 npm install -g jshint
 npm install -g pm2
+npm install -g semistandard
+npm install -g semistandard-format
 
 # Install atom plugins
 apm stars --user sscotth --install
