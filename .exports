@@ -15,3 +15,6 @@ git config --global user.name $GIT_AUTHOR_NAME
 git config --global user.email $GIT_AUTHOR_EMAIL
 git config --global core.editor "atom-beta --wait"
 git config --global push.default simple
+
+git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+git config --global url.ssh://git@bitbucket.org/.insteadOf https://bitbucket.org/
