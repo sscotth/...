@@ -203,6 +203,7 @@ npm cache clean
 
 # Install atom plugins
 apm stars --user sscotth --install
+yes | apm upgrade
 
 # Install Python apps
 pip install SpoofMAC
