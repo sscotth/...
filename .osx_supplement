@@ -174,3 +174,10 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
 # Clicking scroll bar jumps to the spot that is clicked
 defaults write NSGlobalDomain AppleScrollerPagingBehavior -int 1
+
+# Add bluetooth icon to menu and reorder
+defaults write com.apple.systemuiserver menuExtras -array \
+  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+  "/System/Library/CoreServices/Menu Extras/Clock.menu"
