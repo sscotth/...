@@ -237,6 +237,11 @@ if [ -f /sbin/mount_ntfs ]; then
 fi
 sudo ln -sf /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
 
+# Set random computer name
+sudo scutil --set ComputerName `openssl rand -hex 16`
+sudo scutil --set LocalHostName `openssl rand -hex 16`
+sudo scutil --set HostName `openssl rand -hex 16`
+
 # Install all available updates again before killing applications
 # sudo softwareupdate -iva
 
