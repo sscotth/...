@@ -88,7 +88,12 @@ done;
 # symlink_personal_dotfiles
 echo "symlinking personal dotfiles"
 ln -sf ~/.gitignore_global ~/.gitignore
-for file in $(find . -name '.*' ! -name '.' ! -name '.git' ! -name '.gitignore' ! -name '.zshrc' ! -path '*math_dotfiles*'); do
+ln -sf ~/.dotfiles/.atom ~/.atom
+
+for file in $(find . -name '.*' ! -name '.' \
+  ! -name '.git' ! -name '.gitignore' ! -name '.zshrc' \
+  ! -path '*.atom*' ! -path '*math_dotfiles*'); do
+
   src="$(pwd)/$(basename $file)"
   dst="$HOME/$(basename $file)"
 
