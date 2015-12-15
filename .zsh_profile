@@ -61,6 +61,10 @@ chpwd
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
+# iTerm2 v3 Shell Integration
+# https://iterm2.com/shell_integration.html
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
 # # Case-insensitive globbing (used in pathname expansion)
 # shopt -s nocaseglob;
 #

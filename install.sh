@@ -162,6 +162,9 @@ EOD
 brew install parallel
 sh brew.sh
 
+# iTerm2 v3 Shell Integration
+curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
+
 # Install NVM / Node.js
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 . ~/.nvm/nvm.sh
