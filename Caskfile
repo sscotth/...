@@ -113,7 +113,7 @@ brew cask install xtrafinder
 
 # [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins#install-all)
 brew cask install qlcolorcode
-brew cask install qlstephen
+# brew cask install qlstephen
 brew cask install qlmarkdown
 brew cask install quicklook-json
 brew cask install qlprettypatch
