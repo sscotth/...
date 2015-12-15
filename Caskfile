@@ -141,6 +141,9 @@ brew cask search /powerline/ | grep font | xargs brew cask install
 brew cask install font-hack
 brew cask install font-monoid
 
+# DRIVERS
+brew cask install ax88179
+
 # NEED PREREQ
 # XQUARTZ
 brew cask install fontforge
