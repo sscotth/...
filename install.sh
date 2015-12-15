@@ -158,7 +158,7 @@ send "$SUDOPASS\n"
 expect eof
 EOD
 
-# Homebrew installs
+# Homebrew installs (parallelize)
 brew install parallel
 sh brew.sh
 
