@@ -108,6 +108,7 @@ brew cask install virtualbox-extension-pack
 brew cask install viscosity
 brew cask install vlc
 brew cask install vmware-fusion
+brew cask install webkit-nightly
 brew cask install webstorm-eap
 brew cask install xld
 brew cask install xtrafinder
