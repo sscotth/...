@@ -28,6 +28,7 @@ brew install zsh
 brew install ack
 brew install chruby --HEAD
 brew install flow
+brew install graphicsmagick
 brew install htop-osx
 brew install httpie
 brew install hub
