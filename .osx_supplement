@@ -189,3 +189,9 @@ defaults write com.pratikkumar.airserver-mac com.airserverapp.PasswordType -stri
 
 # Disable spotlight keyboard shortcut (NOT WORKING?)
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; }"
+
+# Allow installing user scripts from additional websites
+defaults write com.google.Chrome ExtensionInstallSources -array \
+  "https://*.github.com/*" "https://openuserjs.org/*" "https://greasyfork.org/*"
+defaults write com.google.Chrome.canary ExtensionInstallSources -array \
+  "https://*.github.com/*" "https://openuserjs.org/*" "https://greasyfork.org/*"
