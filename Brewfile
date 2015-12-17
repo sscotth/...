@@ -29,6 +29,7 @@ brew install ack
 brew install chruby --HEAD
 brew install flow
 brew install graphicsmagick
+brew install heroku-toolbelt
 brew install htop-osx
 brew install httpie
 brew install hub
