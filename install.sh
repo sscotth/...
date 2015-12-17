@@ -245,6 +245,9 @@ if [ -f /sbin/mount_ntfs ]; then
 fi
 sudo ln -sf /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
 
+# Fix asepsis failed update notifications
+asepsisctl uninstall_updater
+
 # Set random computer name
 sudo scutil --set ComputerName `openssl rand -hex 16`
 sudo scutil --set LocalHostName `openssl rand -hex 16`
