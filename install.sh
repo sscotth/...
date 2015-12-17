@@ -149,7 +149,7 @@ echo Installing App Store apps
 osascript -l JavaScript appstore.js
 
 echo Installing Homebrew Cask
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 /usr/bin/expect <<EOD
 set timeout 999
 spawn brew cask
