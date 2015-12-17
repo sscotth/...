@@ -186,3 +186,6 @@ defaults write com.apple.systemuiserver menuExtras -array \
 defaults write com.pratikkumar.airserver-mac com.airserverapp.dualAirPlay -bool true
 defaults write com.pratikkumar.airserver-mac com.airserverapp.linkMasterVolume -bool false
 defaults write com.pratikkumar.airserver-mac com.airserverapp.PasswordType -string "Fixed Password"
+
+# Disable spotlight keyboard shortcut (NOT WORKING?)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; }"
