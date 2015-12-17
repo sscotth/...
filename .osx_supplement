@@ -196,3 +196,8 @@ defaults write com.google.Chrome ExtensionInstallSources -array \
   "https://*.github.com/*" "https://openuserjs.org/*" "https://greasyfork.org/*"
 defaults write com.google.Chrome.canary ExtensionInstallSources -array \
   "https://*.github.com/*" "https://openuserjs.org/*" "https://greasyfork.org/*"
+
+# TotalFinder settings and keyboard shortcut
+defaults write com.binaryage.totalfinder TotalFinderNarrowTabsBar -bool true
+defaults write com.apple.universalaccess com.apple.custommenu.apps -array com.apple.finder
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Close Tab" "@q"

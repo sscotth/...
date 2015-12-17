@@ -99,7 +99,7 @@ brew cask install sublime-text3
 brew cask install switchresx
 brew cask install teamviewer
 brew cask install textexpander
-brew cask install totalspaces
+brew cask install totalfinder
 brew cask install tower
 brew cask install transmission
 brew cask install twitterrific
