@@ -80,6 +80,7 @@ brew cask install plex-home-theater
 brew cask install plex-media-server
 brew cask install postgres
 brew cask install psequel
+brew cask install quickbooks-desktop
 brew cask install rescuetime
 brew cask install robofont
 brew cask install robomongo
