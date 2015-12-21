@@ -20,3 +20,5 @@ git config --global url.ssh://git@github.com/.insteadOf https://github.com/ --re
 git config --global url.ssh://git@bitbucket.org/.insteadOf https://bitbucket.org/ --replace-all
 
 git config --global alias.co checkout --replace-all
+git config --global alias.lg  "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --graph"
+git config --global alias.log "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
