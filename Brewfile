@@ -51,6 +51,7 @@ brew install tccutil
 brew install the_platinum_searcher
 brew install the_silver_searcher
 brew install tmux
+brew install trash
 brew install tree
 brew install watchman
 brew install z
