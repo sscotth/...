@@ -36,6 +36,7 @@ alias la='ls -lAh'
 
 
 alias atom=atom-beta
+alias node="node --es_staging"
 
 # Alias `git` as `hub`
 type hub &>/dev/null && eval "$(hub alias -s)"
