@@ -237,6 +237,8 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 ruby-install ruby
 chruby ruby
 gem install rails
+gem install rubocop
+gem isntall reek
 
 # MongoDB
 sudo mkdir -p /data/db
