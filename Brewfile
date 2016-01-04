@@ -32,6 +32,7 @@ brew install graphicsmagick
 brew install heroku-toolbelt
 brew install htop-osx
 brew install httpie
+brew install httrack
 brew install hub
 brew install mackup
 brew install mongodb
