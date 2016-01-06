@@ -46,7 +46,5 @@ alias tree="tree --filelimit 100 --dirsfirst -L 5 -CRa -I '.git'"
 
 alias code="cd ~/code"
 
-alias sha1="$(brew --prefix)/opt/openssl/bin/openssl sha1"		
+alias sha1="$(brew --prefix)/opt/openssl/bin/openssl sha1"
 alias sha256="$(brew --prefix)/opt/openssl/bin/openssl sha256"
-
-
