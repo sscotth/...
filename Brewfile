@@ -1,5 +1,5 @@
 # UPDATE OS X APPS
-brew install findutils --with-default-names
+brew install findutils
 brew install gawk
 brew install git
 brew install gnu-indent --with-default-names
