@@ -292,7 +292,7 @@ temp/
 .flooignore
 
 # Ruby-Sass
-.sass_cache
+.sass-cache
 
 # Compiled Python files
 *.pyc
