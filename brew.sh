@@ -25,15 +25,17 @@ brew upgrade --all
 cat ~/.dotfiles/Brewfile | grep '^brew install' | sed 's/^brew install //' | sed -e 's/ .*$//' | parallel --bar -j3 \
   "brew fetch {}"
 
+# Fetch Casks
+cat ~/.dotfiles/Caskfile | grep '^brew cask install' | sed 's/^brew cask install //' | sed -e 's/ .*$//' | parallel --bar -j3 \
+  "brew cask fetch {}"
+
 # Install Brews
 cat ~/.dotfiles/Brewfile | grep '^brew install' | parallel --bar --timeout 300 -j 1 \
-  "echo {}; sudo xcodebuild -license accept; eval {}" &
+  "echo {}; sudo xcodebuild -license accept; eval {}"
 
-# Fetch and install Casks
-cat ~/.dotfiles/Caskfile | grep '^brew cask install' | parallel --bar -j3 \
-  "echo {}; eval {}" &
-
-wait
+# Install Casks
+cat ~/.dotfiles/Caskfile | grep '^brew cask' | parallel --bar -j3 \
+  "echo {}; eval {}"
 
 # Cleanup
 brew cleanup -s
