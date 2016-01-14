@@ -216,6 +216,9 @@ npm cache clean
 apm stars --user sscotth --install
 yes | apm upgrade
 
+# Install Sublime Text 3 settings
+ln -fs ~/.dotfiles/SublimeText/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+
 # Install Python apps
 pip install SpoofMAC
 # Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
