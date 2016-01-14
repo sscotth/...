@@ -201,3 +201,6 @@ defaults write com.google.Chrome.canary ExtensionInstallSources -array \
 defaults write com.binaryage.totalfinder TotalFinderNarrowTabsBar -bool true
 defaults write com.apple.universalaccess com.apple.custommenu.apps -array com.apple.finder
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Close Tab" "@q"
+
+# Alfred allow use of ~/Dropbox/Apps folder
+defaults write com.runningwithcrayons.Alfred-Preferences dropbox.allowappsfolder -bool true
