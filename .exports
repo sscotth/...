@@ -14,7 +14,7 @@ export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 git config --global --replace-all user.name $GIT_AUTHOR_NAME
 git config --global --replace-all user.email $GIT_AUTHOR_EMAIL
 
-git config --global --replace-all core.editor "atom-beta --wait"
+git config --global --replace-all core.editor nvim
 git config --global --replace-all push.default simple
 
 git config --global --replace-all url.ssh://git@github.com/.insteadOf https://github.com/
