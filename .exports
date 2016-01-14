@@ -11,14 +11,16 @@ export GIT_AUTHOR_EMAIL=git@$GIT_EMAIL_DOMAIN
 export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
 export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
 
-git config --global user.name $GIT_AUTHOR_NAME --replace-all
-git config --global user.email $GIT_AUTHOR_EMAIL --replace-all
-git config --global core.editor "atom-beta --wait" --replace-all
-git config --global push.default simple --replace-all
+git config --global --replace-all user.name $GIT_AUTHOR_NAME
+git config --global --replace-all user.email $GIT_AUTHOR_EMAIL
 
-git config --global url.ssh://git@github.com/.insteadOf https://github.com/ --replace-all
-git config --global url.ssh://git@bitbucket.org/.insteadOf https://bitbucket.org/ --replace-all
+git config --global --replace-all core.editor "atom-beta --wait"
+git config --global --replace-all push.default simple
 
-git config --global alias.co checkout --replace-all
-git config --global alias.lg  "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --graph"
-git config --global alias.log "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
+git config --global --replace-all url.ssh://git@github.com/.insteadOf https://github.com/
+git config --global --replace-all url.ssh://git@bitbucket.org/.insteadOf https://bitbucket.org/
+
+git config --global --replace-all alias.co checkout
+git config --global --replace-all alias.lg  "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --graph"
+git config --global --replace-all alias.log "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
+# git config --global --replace-all alias.sync "!bash -c 'REM=$(git remote | grep upstream &> /dev/null && echo upstream || echo origin) && git pull $REM && git checkout master && git merge $REM master && git push origin master'"
