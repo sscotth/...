@@ -17,6 +17,9 @@ git config --global --replace-all user.email $GIT_AUTHOR_EMAIL
 git config --global --replace-all core.editor nvim
 git config --global --replace-all push.default simple
 
+git config --global --replace-all color.status.added green
+git config --global --replace-all color.status.changed yellow
+
 git config --global --replace-all url.ssh://git@github.com/.insteadOf https://github.com/
 git config --global --replace-all url.ssh://git@bitbucket.org/.insteadOf https://bitbucket.org/
 
