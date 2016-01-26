@@ -195,6 +195,9 @@ npm config set init-author-email "npm@sscotth.io"
 npm config set init-author-url "https://sscotth.io"
 npm config set init-license "MIT"
 
+# https://github.com/npm/npm/issues/11283
+npm config set progress false
+
 npm cache clean
 
 npm install -g babel-eslint
