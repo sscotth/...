@@ -169,7 +169,7 @@ sh brew.sh
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
 # Install NVM / Node.js
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 . ~/.nvm/nvm.sh
 
 NVM_SYMLINK_CURRENT=true
