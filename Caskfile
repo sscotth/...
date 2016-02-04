@@ -84,6 +84,7 @@ brew cask install quickbooks-desktop
 brew cask install rescuetime
 brew cask install robofont
 brew cask install robomongo
+brew cask install rodeo
 brew cask install rstudio
 brew cask install sabnzbd
 brew cask install screenhero
