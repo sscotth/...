@@ -71,6 +71,7 @@ brew cask install mysqlworkbench
 brew cask install navicat-premium
 brew cask install ngrok
 brew cask install nvalt
+brew cask install nylas-n1
 brew cask install obs
 brew cask install omnifocus
 brew cask install omnigraffle
