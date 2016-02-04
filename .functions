@@ -30,4 +30,3 @@ function server() {
     echo "run \`npm install http-server -g\` or use python -m SimpleHTTPServer"
   fi
 }
-
