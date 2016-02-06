@@ -228,6 +228,10 @@ ln -fs ~/.dotfiles/SublimeText/Preferences.sublime-settings ~/Library/Applicatio
 # Upgrade pip
 pip install --upgrade pip
 
+# Virtual Environments for Python
+pip install virtualenv
+pip install virtualenvwrapper
+
 pip install SpoofMAC
 # Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
   # Download the startup file for launchd
