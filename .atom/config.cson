@@ -3,6 +3,10 @@
     userId: "3d441044-a613-92a3-c1ba-424300161faf"
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "one-light-ui":
+    layoutMode: "Compact"
   tabs:
     usePreviewTabs: true
   welcome:
