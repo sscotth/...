@@ -233,6 +233,14 @@ pip install --upgrade pip
 pip install virtualenv
 pip install virtualenvwrapper
 
+# Setup directories
+mkdir -p ~/code ~/.virtualenvs
+WORKON_HOME=~/.virtualenvs
+PROJECT_HOME=~/code
+VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+workon
+
 pip install SpoofMAC
 # Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
   # Download the startup file for launchd

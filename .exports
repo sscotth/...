@@ -39,3 +39,9 @@ git config --global --replace-all alias.log "log --pretty=format:'%Cred%h %C(bol
 # git config --global --replace-all alias.sync "!bash -c 'REM=$(git remote | grep upstream &> /dev/null && echo upstream || echo origin) && git pull $REM && git checkout master && git merge $REM master && git push origin master'"
 
 git config --global --replace-all core.pager "diff-highlight | diff-so-fancy | less --tabs=1,5 -R"
+
+# Python virtualenv
+export WORKON_HOME=~/.virtualenvs
+export PROJECT_HOME=~/code
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
