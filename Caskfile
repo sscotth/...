@@ -6,6 +6,7 @@ brew cask install 1password-beta
 brew cask install airmail-beta
 brew cask install airserver
 brew cask install alfred
+brew cask install anaconda
 brew cask install apache-couchdb
 brew cask install appcleaner
 brew cask install aerial
