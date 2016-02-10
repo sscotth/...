@@ -80,6 +80,9 @@ bindkey -M emacs '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+# [z - jump around](https://github.com/rupa/z)
+. `brew --prefix`/etc/profile.d/z.sh
+
 # # Case-insensitive globbing (used in pathname expansion)
 # shopt -s nocaseglob;
 #
