@@ -205,6 +205,7 @@ npm cache clean
 npm install -g babel-eslint
 npm install -g bower
 npm install -g cordova
+npm install -g diff-so-fancy
 npm install -g eslint
 npm install -g grunt-cli
 npm install -g gulp
