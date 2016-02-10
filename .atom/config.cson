@@ -14,5 +14,8 @@
     layoutMode: "Compact"
   tabs:
     usePreviewTabs: true
+  "vim-mode":
+    startInInsertMode: true
+    useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
