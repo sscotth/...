@@ -30,7 +30,7 @@ brew install chruby --HEAD
 brew install flow
 brew install graphicsmagick
 brew install heroku-toolbelt
-brew install htop-osx
+brew install htop
 brew install httpie
 brew install httrack
 brew install hub
