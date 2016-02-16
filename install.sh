@@ -165,6 +165,9 @@ EOD
 brew install parallel
 sh brew.sh
 
+# Setup Homebrew Bash
+echo /usr/local/bin/bash >> /etc/shells
+
 # iTerm2 v3 Shell Integration
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
