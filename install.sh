@@ -185,13 +185,13 @@ fi
 nvm alias default node
 npm install -g npm
 
-if nvm which v4.2 &> /dev/null; then
-  nvm install v4.2 --reinstall-packages-from=v4.2
+if nvm which v4 &> /dev/null; then
+  nvm install v4 --reinstall-packages-from=v4
 else
-  nvm install v4.2
+  nvm install v4
 fi
 npm install -g npm
-nvm alias lts v4.2
+nvm alias lts v4
 
 nvm use node
 
