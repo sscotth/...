@@ -21,6 +21,7 @@ brew cask install camtasia
 brew cask install ccleaner
 brew cask install charles-beta
 brew cask install codekit
+brew cask install discord
 brew cask install dropbox-experimental
 brew cask install duet
 brew cask install epic
