@@ -82,6 +82,7 @@ brew cask install parallels-desktop
 brew cask install plex-home-theater
 brew cask install plex-media-server
 brew cask install postgres
+brew cask install postico
 brew cask install psequel
 brew cask install quickbooks-desktop
 brew cask install rescuetime
