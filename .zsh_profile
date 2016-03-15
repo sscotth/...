@@ -51,6 +51,8 @@ export NVM_DIR="/Users/scott/.nvm"
 function chpwd() {
   if [ -r $PWD/.node-version ]; then
     nvm use `cat $PWD/.node-version`
+  elif [ -r $PWD/.nvmrc ]; then
+    nvm use
   fi
 }
 chpwd
