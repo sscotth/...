@@ -26,6 +26,7 @@ brew install zsh
 
 # APPS
 brew install ack
+brew install archey
 brew install chruby --HEAD
 brew install flow
 brew install graphicsmagick
@@ -45,7 +46,6 @@ brew install rethinkdb
 brew install ruby-install --HEAD
 brew install s3cmd
 brew install shellcheck
-brew install sshfs
 brew install syncthing
 brew install tccutil
 brew install the_platinum_searcher
@@ -56,9 +56,6 @@ brew install tree
 brew install watchman
 brew install z
 
-# XCODE REQUIRED
-brew install ntfs-3g
-
 # UPDATE OS X APPS
 brew install bash
 brew install binutils
@@ -67,6 +64,7 @@ brew install diffutils
 brew install ed --withdefault-names
 brew install emacs
 
-# APPS
-brew install archey
+# XCODE REQUIRED
+brew install sshfs
+brew install ntfs-3g
 brew install macvim --with-custom-icons
