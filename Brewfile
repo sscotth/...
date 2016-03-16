@@ -37,7 +37,6 @@ brew install hub
 brew install mackup
 brew install mongodb
 brew install neovim --HEAD
-brew install ntfs-3g
 brew install parallel --force
 brew install python3
 brew install r
@@ -58,6 +57,7 @@ brew install watchman
 brew install z
 
 # XCODE REQUIRED
+brew install ntfs-3g
 
 # UPDATE OS X APPS
 brew install bash
