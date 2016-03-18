@@ -1,0 +1,79 @@
+# https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
+
+# Base type for any audiovisual content
+org.videolan.vlc public.audiovisual-​content all
+
+# # Base type for movies (video with optional audio or other tracks)
+org.videolan.vlc public.movie all
+
+# # # Base type for video (no audio)
+org.videolan.vlc public.video all
+
+# # # QuickTime movie
+# # # # 'MooV', .mov, .qt, video/quicktime
+org.videolan.vlc com.apple.quicktime-movie all
+org.videolan.vlc mov all
+org.videolan.vlc qt all
+
+# # # AVI movie
+# # # # .avi, .vfw, 'Vfw ', video/avi, video/msvideo, video/x-msvideo
+org.videolan.vlc public.avi all
+org.videolan.vlc avi all
+org.videolan.vlc vfw all
+
+# # # MPEG-1 or MPEG-2 content
+# # # # 'MPG ', 'MPEG', .mpg, .mpeg, .m75, .m15, video/mpg, video/mpeg, video/x-mpg, video/x-mpeg
+org.videolan.vlc public.mpeg all
+org.videolan.vlc mpg all
+org.videolan.vlc mpeg all
+org.videolan.vlc m75 all
+org.videolan.vlc m15 all
+
+# # # MPEG-4 content
+# # # # 'mpg4', .mp4, video/mp4, video/mp4v
+org.videolan.vlc public.mpeg-4 all
+org.videolan.vlc mp4 all
+
+# # # 3GPP movie
+# # # # .3gp, .3gpp, '3gpp', video/3gpp, audio/3gpp
+org.videolan.vlc public.3gpp all
+org.videolan.vlc 3gp all
+org.videolan.vlc 3gpp all
+
+# # # 3GPP2 movie
+# # # # .3g2 , .3gp2 , '3gp2', video/3gpp2, audio/3gpp2
+org.videolan.vlc public.3gpp2 all
+org.videolan.vlc 3g2 all
+org.videolan.vlc 3gp2 all
+
+# # # RealMedia
+# # # # .rm, 'PNRM', application/vnd.rn-realmedia
+org.videolan.vlc com.real.realmedia all
+org.videolan.vlc rm all
+
+# # Microsoft Advanced Systems format
+# # # .asf , 'ASF_', video/x-ms-asf
+org.videolan.vlc com.microsoft.advanced-​systems-format all
+org.videolan.vlc asf all
+
+# # # Windows media
+# # # # .wm, video/x-ms-wm
+# # # # .wmv, video/x-ms-wmv
+# # # # .wmp, video/x-ms-wmp
+org.videolan.vlc com.microsoft.windows-​media-wm all
+org.videolan.vlc com.microsoft.windows-​media-wmv all
+org.videolan.vlc com.microsoft.windows-​media-wmp all
+org.videolan.vlc wm all
+org.videolan.vlc wmv all
+org.videolan.vlc wmp all
+
+# # Advanced Stream Redirector
+# # # .asx, 'ASX_', video/x-ms-asx
+org.videolan.vlc com.microsoft.advanced-​stream-redirector all
+org.videolan.vlc asx all
+
+# # OTHER
+org.videolan.vlc flv all
+org.videolan.vlc m4v all
+org.videolan.vlc rmvb all
+org.videolan.vlc webm all
