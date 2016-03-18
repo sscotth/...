@@ -19,6 +19,15 @@ EOD
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Never go into computer sleep mode
+sudo systemsetup -setcomputersleep Off > /dev/null
+
+# Never dim display
+sudo pmset force -a displaysleep 0
+
+# Disable screensaver
+defaults -currentHost write com.apple.screensaver idleTime 0
+
 # Switch to zsh
 sudo chsh -s $(which zsh) scott
 
