@@ -91,6 +91,7 @@ brew cask install robomongo
 brew cask install rodeo
 brew cask install rstudio
 brew cask install sabnzbd
+brew cask install safari-technology-preview
 brew cask install screenhero
 brew cask install scroll-reverser
 brew cask install seil
