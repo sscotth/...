@@ -17,6 +17,8 @@
     showErrorTabLine: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
+  "linter-sass-lint":
+    noConfigDisable: true
   "one-dark-ui":
     fontSize: 10
     layoutMode: "Compact"
