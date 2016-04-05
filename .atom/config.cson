@@ -18,8 +18,10 @@
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "one-dark-ui":
+    fontSize: 10
     layoutMode: "Compact"
   "one-light-ui":
+    fontSize: 10
     layoutMode: "Compact"
   tabs:
     usePreviewTabs: true
