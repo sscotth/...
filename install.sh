@@ -164,7 +164,7 @@ echo Installing Homebrew Cask
 brew tap caskroom/cask
 /usr/bin/expect <<EOD
 set timeout 999
-spawn brew cask
+spawn brew cask install atom
 expect "Password:"
 send "$SUDOPASS\n"
 expect eof
