@@ -26,6 +26,7 @@ brew install zsh
 
 # APPS
 brew install ack
+brew install aria2
 brew install archey
 brew install chruby --HEAD
 brew install flow
