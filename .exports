@@ -30,9 +30,6 @@ git config --global --replace-all color.diff-highlight.oldNormal "red bold"
 git config --global --replace-all color.status.added green
 git config --global --replace-all color.status.changed yellow
 
-git config --global --replace-all url.ssh://git@github.com/.insteadOf https://github.com/
-git config --global --replace-all url.ssh://git@bitbucket.org/.insteadOf https://bitbucket.org/
-
 git config --global --replace-all alias.co checkout
 git config --global --replace-all alias.lg  "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --graph"
 git config --global --replace-all alias.log "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
