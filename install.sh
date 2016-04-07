@@ -99,6 +99,9 @@ echo "symlinking personal dotfiles"
 ln -sf ~/.gitignore_global ~/.gitignore
 ln -sf ~/.dotfiles/.atom ~/.atom
 
+# use example .extra file
+cp -n .extra_example .extra
+
 for file in $(find . -name '.*' ! -name '.' \
   ! -name '.git' ! -name '.gitignore' ! -name '.zshrc' \
   ! -path '*.atom*' ! -path '*math_dotfiles*'); do
