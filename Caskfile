@@ -102,6 +102,7 @@ brew cask install soundflower
 brew cask install sourcetree
 brew cask install spectacle
 brew cask install steam
+brew cask install stremio
 brew cask install sublime-text3
 brew cask install switchresx
 brew cask install teamviewer
