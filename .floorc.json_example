@@ -1,0 +1,9 @@
+{
+  "auth": {
+    "floobits.com": {
+      "username": "sscotth",
+      "api_key": "user_0123456789",
+      "secret": "0123456789abcdef012345678"
+    }
+  }
+}

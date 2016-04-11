@@ -99,8 +99,14 @@ echo "symlinking personal dotfiles"
 ln -sf ~/.gitignore_global ~/.gitignore
 ln -sf ~/.dotfiles/.atom ~/.atom
 
-# use example .extra file
-cp -n .extra_example .extra
+# use example files
+for file in $(find . -name '.*_example'); do
+  src=$file
+  dst=${file/_example/}
+
+  echo "$src ==> $dst"
+  cp -n $src $dst
+done
 
 for file in $(find . -name '.*' ! -name '.' \
   ! -name '.git' ! -name '.gitignore' ! -name '.zshrc' \
