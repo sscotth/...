@@ -41,6 +41,8 @@ git config --global --replace-all alias.pr '!f() { local PR=0; local REMOTE=orig
 
 git config --global --replace-all credential.helper osxkeychain
 
+git config --global --replace-all hub.protocol https
+
 # Python virtualenv
 export WORKON_HOME=~/.virtualenvs
 export PROJECT_HOME=~/code
