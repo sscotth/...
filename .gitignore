@@ -2,3 +2,5 @@
 .zshrc
 math_dotfiles
 .floorc.json
+.logs
+bash-concurrent

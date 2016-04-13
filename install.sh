@@ -1,20 +1,32 @@
 #!/usr/bin/env bash
 
-# Ask for passwords upfront
-read -s -p "Apple ID Password:" APPLE_ID_PASSWORD
-export APPLE_ID_PASSWORD=$APPLE_ID_PASSWORD
-echo ''
+if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
+  echo "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
+  echo "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
+fi
 
-read -s -p "SUDO Password:" SUDOPASS
-echo ''
+echo "Enter passwords upfront to continue"
+if [ -z ${APPLE_ID_PASSWORD+x} ]; then
+  read -s -p "Apple ID Password:" APPLE_ID_PASSWORD
+  export APPLE_ID_PASSWORD=$APPLE_ID_PASSWORD
+  echo ''
+fi
 
-/usr/bin/expect <<EOD
-set timeout 999
-spawn sudo -v
-expect "Password:"
-send "$SUDOPASS\n"
-expect eof
+if [ -z ${SUDOPASS+x} ]; then
+  read -s -p "SUDO Password:" SUDOPASS
+  export SUDOPASS=$SUDOPASS
+  echo ''
+
+  /usr/bin/expect <<EOD
+  set timeout 999
+  spawn sudo -v
+  expect "Password:"
+  send "$SUDOPASS\n"
+  expect eof
 EOD
+fi
+
+sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
@@ -28,42 +40,81 @@ sudo pmset force -a displaysleep 0
 # Disable screensaver
 defaults -currentHost write com.apple.screensaver idleTime 0
 
+echo "Install Homebrew if not installed"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+
+echo "Update Homebrew"
+brew update
+
+if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
+  echo "Install Updated Bash"
+  brew install bash
+  brew upgrade bash
+
+  if cat /etc/shells | grep /usr/local/bin/bash &> /dev/null; then
+    echo "Add Homebrew's bash to available shells"
+
+    /usr/bin/expect <<EOD
+    set timeout 999
+    spawn sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
+    expect "Password:"
+    send "$SUDOPASS\n"
+    expect eof
+EOD
+  fi
+
+  echo "Change default shell to Homebrew bash"
+  /usr/bin/expect <<EOD
+    set timeout 999
+    spawn sudo chsh -s /usr/local/bin/bash $(whoami)
+    expect "Password:"
+    send "$SUDOPASS\n"
+    expect eof
+EOD
+
+  echo "Attempting to reload shell"
+  exec bash --login -c "./install.sh"
+
+  # Reload failed
+  echo "Reload Failed. Reload terminal and try again."
+  exit 1
+fi
+
+echo "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
+
 # Switch to zsh
+echo "Change default shell to zsh"
+/usr/bin/expect <<EOD
+set timeout 999
+spawn sudo -v
+expect "Password:"
+send "$SUDOPASS\n"
+expect eof
+EOD
+
+# /usr/bin/expect <<EOD
+#   set timeout 999
+#   spawn sudo chsh -s /usr/local/bin/bash $(whoami)
+#   expect "Password:"
+#   send "$SUDOPASS\n"
+#   expect eof
+# EOD
+
 sudo chsh -s $(which zsh) scott
+
+# Run concurrent test
+
+# Download concurrent (prefer git)
+git clone https://github.com/themattrix/bash-concurrent
+
+# Assuming concurrent is already there
+./bash-concurrent/demo.sh
+
+exit 1
 
 # Install all available updates
 echo "Update OSX in background"
 sudo softwareupdate -iva &> /dev/null &
-
-if ! xcode-select -p &> /dev/null; then
-    echo 'Install Xcode command line tools'
-    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-    PROD=$(softwareupdate -l |
-      grep "\*.*Command Line" |
-      head -n 1 | awk -F"*" '{print $2}' |
-      sed -e 's/^ *//' |
-      tr -d '\n')
-    softwareupdate -i "$PROD" -v;
-
-    # echo 'Installing Xcode Command Line Tools. Click "Install" and "Agree"'
-    # xcode-select --install &> /dev/null
-    #
-    # # Wait until the XCode Command Line Tools are installed
-    # while ! xcode-select -p &> /dev/null; do
-    #     sleep 5
-    # done
-    # echo 'Installed XCode Command Line Tools'
-    #
-    # # Point the `xcode-select` developer directory to the appropriate directory from within `Xcode.app` ?????
-    # # https://github.com/alrra/dotfiles/issues/13
-    # echo 'Make "xcode-select" developer directory point to Xcode'
-    # sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
-    #
-    # # Prompt user to agree to the terms of the Xcode license
-    # # https://github.com/alrra/dotfiles/issues/10
-    # echo 'Agree with the XCode Command Line Tools licence'
-    # sudo xcodebuild -license
-fi
 
 # Generate SSH Keys
 SSH_KEY_PW=""
