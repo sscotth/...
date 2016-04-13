@@ -107,8 +107,11 @@ sudo chsh -s $(which zsh) scott
 # Download concurrent (prefer git)
 git clone https://github.com/themattrix/bash-concurrent
 
-# Assuming concurrent is already there
-./bash-concurrent/demo.sh
+# Load concurrent tasks
+source ./lib/tasks.sh
+concurrent_install
+
+echo "Concurrent Tasks Complete"
 
 exit 1
 
