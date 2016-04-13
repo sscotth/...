@@ -15,12 +15,7 @@ restore_data () {
 }
 
 my_sleep () {
-    local seconds=${1}
-    local code=${2:-0}
-    echo "Yay! Sleeping for ${seconds} second(s)!"
-    sleep "${seconds}"
-    if [ "${code}" -ne 0 ]; then
-        echo "Oh no! Terrible failure!" 1>&2
-    fi
-    return "${code}"
+  local seconds=${1}
+  echo "Sleeping for ${seconds} second(s)!"
+  sleep "${seconds}"
 }

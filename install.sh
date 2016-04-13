@@ -129,49 +129,8 @@ if [ ! -f ~/.ssh/id_rsa ]; then
 fi
 ssh-add ~/.ssh/id_rsa
 
-# download_mathiasbynens_dotfiles
-if [ -d "math_dotfiles" ]; then
-  cd math_dotfiles
-  git pull origin master
-  cd ..
-else
-  git clone --depth 1 https://github.com/mathiasbynens/dotfiles math_dotfiles
-fi
-
 # remove kill affected applicaitons at end of mathiasbynens .osx script
 sed '/^# Kill affected applications/,$d' math_dotfiles/.osx > /tmp/.osx_nokill
-
-# symlink_selected_mathiasbynens_dotfiles
-echo "symlinking selected mathiasbynens dotfiles"
-for file in $HOME/.dotfiles/math_dotfiles/.{bashrc,curlrc,gitconfig,hushlogin,inputrc,wgetrc,extra}; do
-  dst="$HOME/$(basename $file)"
-  [ -r $file ] && [ -f $file ] && echo "$file ==> $dst" && ln -sf $file $dst
-done;
-
-# symlink_personal_dotfiles
-echo "symlinking personal dotfiles"
-ln -sf ~/.gitignore_global ~/.gitignore
-ln -sf ~/.dotfiles/.atom ~/.atom
-
-# use example files
-for file in $(find . -name '.*_example'); do
-  src=$file
-  dst=${file/_example/}
-
-  echo "$src ==> $dst"
-  cp -n $src $dst
-done
-
-for file in $(find . -name '.*' ! -name '.' \
-  ! -name '.git' ! -name '.gitignore' ! -name '.zshrc' \
-  ! -path '*.atom*' ! -path '*math_dotfiles*'); do
-
-  src="$(pwd)/$(basename $file)"
-  dst="$HOME/$(basename $file)"
-
-  echo "$src ==> $dst"
-  ln -sf "$src" "$dst"
-done
 
 # load_osx_defaults
 echo "Loading osx preferences. Note that some of these changes require a logout/restart to take effect."
