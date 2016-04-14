@@ -31,7 +31,7 @@ personal_dotfiles_symlink_unique () {
   ln -sf ~/.gitignore_global ~/.gitignore
 
   echo "~/.atom/ ==> ~/.atom/"
-  ln -sf ~/.dotfiles/.atom ~/.atom
+  /bin/ln -shF ~/.dotfiles/.atom ~/.atom
 
   echo "~/.dotfiles/SublimeText/Preferences.sublime-settings ==> ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings"
   ln -fs ~/.dotfiles/SublimeText/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
