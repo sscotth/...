@@ -3,12 +3,11 @@
 # SUDO: Load OSX defaults
 
 load_osx_defaults () {
+  mathiasbynens_osx_edit || true
+  mathiasbynens_osx_load || true
+  personal_osx_load || true
+
   echo "(may require restart)" >&3
-
-  mathiasbynens_osx_edit
-  mathiasbynens_osx_load
-  personal_osx_load
-
   my_sleep "${@}"
 }
 
