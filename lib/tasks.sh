@@ -12,9 +12,9 @@ done
 concurrent_install () {
     local args=(
         - "Install OSX updates"                 install_osx_updates                1.0
-        - "Loading Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_load        1.0
+        - "Load Mathias Bynens' Dotfiles"       mathiasbynens_dotfiles_load        1.0
         - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink     1.0
-        - "Loading Personal Dotfiles"           personal_dotfiles_load             1.0
+        - "Load Personal Dotfiles"              personal_dotfiles_load             1.0
         - "Symlink Personal Dotfiles"           personal_dotfiles_symlink          1.0
         - "Generate SSH Keys"                   generate_ssh_keys                  1.0
         - "Install Oh-My-ZSH"                   install_oh_my_zsh                  1.0
@@ -31,13 +31,14 @@ concurrent_install () {
         - "Clean .DS_Store files"               clean_DS_Store                     1.0
         - "Setup assistive devices"             setup_assistive_devices            1.0
         - "Install App Store apps"              install_app_store_apps             1.0
+        - "Load OSX Settings"                   load_osx_defaults                  1.0
         - "A Function"                          fn_1                               1.0
         - "Another Function"                    fn_2                               1.0
 
-        --require "Loading Mathias Bynens' Dotfiles"
+        --require "Load Mathias Bynens' Dotfiles"
         --before  "Symlink Mathias Bynens' Dotfiles"
 
-        --require "Loading Personal Dotfiles"
+        --require "Load Personal Dotfiles"
         --before  "Symlink Personal Dotfiles"
 
         --require "Install Oh-My-ZSH"
@@ -62,6 +63,9 @@ concurrent_install () {
 
         --require "Setup assistive devices"
         --before  "Install App Store apps"
+
+        --require "Load Mathias Bynens' Dotfiles"
+        --before  "Load OSX Settings"
     )
 
     concurrent "${args[@]}"

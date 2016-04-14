@@ -118,20 +118,6 @@ echo "Concurrent Tasks Complete"
 
 exit 1
 
-# remove kill affected applicaitons at end of mathiasbynens .osx script
-sed '/^# Kill affected applications/,$d' math_dotfiles/.osx > /tmp/.osx_nokill
-
-# load_osx_defaults
-echo "Loading osx preferences. Note that some of these changes require a logout/restart to take effect."
-
-echo "loading mathiasbynens' sensible hacker defaults"
-cd math_dotfiles
-yes | sh /tmp/.osx_nokill
-cd ..
-
-echo "loading personal osx preferences"
-sh .osx_supplement
-
 echo Installing Homebrew Cask
 brew tap caskroom/cask
 /usr/bin/expect <<EOD
