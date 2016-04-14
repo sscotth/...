@@ -43,6 +43,9 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 echo "Install Homebrew if not installed"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 
+echo "Run Homebrew Doctor"
+brew doctor
+
 echo "Update Homebrew"
 brew update
 
@@ -133,11 +136,6 @@ cd ..
 echo "loading personal osx preferences"
 sh .osx_supplement
 
-# Install Homebrew
-echo Installing Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
-brew doctor
-
 echo Adding Terminal to assistive devices
 brew install tccutil
 /usr/bin/expect <<EOD
@@ -164,9 +162,6 @@ EOD
 # Homebrew installs (parallelize)
 brew install parallel
 sh brew.sh
-
-# Setup Homebrew Bash
-sudo echo /usr/local/bin/bash >> /etc/shells
 
 # iTerm2 v3 Shell Integration
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
