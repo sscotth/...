@@ -118,10 +118,6 @@ echo "Concurrent Tasks Complete"
 
 exit 1
 
-# Install all available updates
-echo "Update OSX in background"
-sudo softwareupdate -iva &> /dev/null &
-
 # remove kill affected applicaitons at end of mathiasbynens .osx script
 sed '/^# Kill affected applications/,$d' math_dotfiles/.osx > /tmp/.osx_nokill
 

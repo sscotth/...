@@ -11,6 +11,7 @@ done
 
 concurrent_install () {
     local args=(
+        - "Install OSX updates"                 install_osx_updates                1.0
         - "Loading Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_load        1.0
         - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink     1.0
         - "Loading Personal Dotfiles"           personal_dotfiles_load             1.0
