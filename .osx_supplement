@@ -204,3 +204,8 @@ defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Close Tab" "@q"
 
 # Alfred allow use of ~/Dropbox/Apps folder
 defaults write com.runningwithcrayons.Alfred-Preferences dropbox.allowappsfolder -bool true
+
+# Set random computer name
+sudo scutil --set ComputerName `openssl rand -hex 16`
+sudo scutil --set LocalHostName `openssl rand -hex 16`
+sudo scutil --set HostName `openssl rand -hex 16`
