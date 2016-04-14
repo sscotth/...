@@ -132,16 +132,6 @@ cd ..
 echo "loading personal osx preferences"
 sh .osx_supplement
 
-echo Adding Terminal to assistive devices
-brew install tccutil
-/usr/bin/expect <<EOD
-set timeout 999
-spawn sudo tccutil -i com.apple.Terminal
-expect "Password:"
-send "$SUDOPASS\n"
-expect eof
-EOD
-
 echo Installing App Store apps
 osascript -l JavaScript appstore.js
 
