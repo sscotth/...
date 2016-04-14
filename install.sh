@@ -159,8 +159,6 @@ VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 workon
 
-~/anaconda3/bin/conda update conda -y
-
 pip install SpoofMAC
 # Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
   # Download the startup file for launchd
