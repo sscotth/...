@@ -9,7 +9,7 @@ personal_dotfiles_load () {
     dst=${file/_example/}
 
     echo "$src ==> $dst"
-    cp -n $src $dst
+    cp -n $src $dst || true
   done
 
   my_sleep "${@}"
