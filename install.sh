@@ -166,56 +166,6 @@ sh brew.sh
 # iTerm2 v3 Shell Integration
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
 
-# Install NVM / Node.js
-curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-. ~/.nvm/nvm.sh
-
-NVM_SYMLINK_CURRENT=true
-
-if nvm which node &> /dev/null; then
-  nvm install stable --reinstall-packages-from=node
-else
-  nvm install node
-fi
-nvm alias default node
-npm install -g npm
-
-if nvm which v4 &> /dev/null; then
-  nvm install v4 --reinstall-packages-from=v4
-else
-  nvm install v4
-fi
-npm install -g npm
-nvm alias lts v4
-
-nvm use node
-
-npm config set init-author-name "Scott Humphries"
-npm config set init-author-email "npm@sscotth.io"
-npm config set init-author-url "https://sscotth.io"
-npm config set init-license "MIT"
-
-# https://github.com/npm/npm/issues/11283
-npm config set progress false
-
-npm cache clean
-
-npm install -g babel-eslint
-npm install -g bower
-npm install -g cordova
-npm install -g diff-so-fancy
-npm install -g eslint
-npm install -g grunt-cli
-npm install -g gulp
-npm install -g http-server
-npm install -g ionic
-npm install -g jshint
-npm install -g pm2
-npm install -g semistandard
-npm install -g semistandard-format
-
-npm cache clean
-
 # Install atom plugins
 apm stars --user sscotth --install
 yes | apm upgrade
