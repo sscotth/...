@@ -133,17 +133,6 @@ cd ..
 echo "loading personal osx preferences"
 sh .osx_supplement
 
-# make sure .zshrc is fresh
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-# add .zsh_profile reference to .zshrc
-echo 'source ~/.zsh_profile' >> ~/.zshrc
-
-# ZSH Syntax Highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
-# symlink zshrc back to the .dotfiles repo
-# ln -sf ~/.zshrc ~/.dotfiles/.zshrc
-
 # Install Homebrew
 echo Installing Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null

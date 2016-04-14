@@ -11,20 +11,26 @@ done
 
 concurrent_install () {
     local args=(
-        - "Loading Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_load       1.0
-        - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink    1.0
-        - "Loading Personal Dotfiles"           personal_dotfiles_load            1.0
-        - "Symlink Personal Dotfiles"           personal_dotfiles_symlink         1.0
-        - "Generate SSH Keys"                   generate_ssh_keys                 1.0
-        - "Install Oh-My-ZSH"                   install_oh_my_zsh                 1.0
-        - "A Function"                          fn_1                              1.0
-        - "Another Function"                    fn_2                              1.0
+        - "Loading Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_load        1.0
+        - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink     1.0
+        - "Loading Personal Dotfiles"           personal_dotfiles_load             1.0
+        - "Symlink Personal Dotfiles"           personal_dotfiles_symlink          1.0
+        - "Generate SSH Keys"                   generate_ssh_keys                  1.0
+        - "Install Oh-My-ZSH"                   install_oh_my_zsh                  1.0
+        - "Load .zshrc from Oh-My-ZSH"          load_zshrc_from_oh_my_zsh          1.0
+        - "Install ZSH Syntax Highlighting"     install_zsh_syntax_highlighting    1.0
+        - "A Function"                          fn_1                               1.0
+        - "Another Function"                    fn_2                               1.0
 
         --require "Loading Mathias Bynens' Dotfiles"
         --before  "Symlink Mathias Bynens' Dotfiles"
 
         --require "Loading Personal Dotfiles"
         --before  "Symlink Personal Dotfiles"
+
+        --require "Install Oh-My-ZSH"
+        --before  "Load .zshrc from Oh-My-ZSH"
+        --before  "Install ZSH Syntax Highlighting"
     )
 
     concurrent "${args[@]}"
