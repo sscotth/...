@@ -26,6 +26,7 @@ concurrent_install () {
         - "Install Node.js LTS"                 install_node_lts                   1.0
         - "Install Node.js LTS Packages"        install_node_lts_packages          1.0
         - "Setup Node.js LTS"                   setup_node_lts                     1.0
+        - "Clean npm cache"                     clean_npm_cache                    1.0
         - "A Function"                          fn_1                               1.0
         - "Another Function"                    fn_2                               1.0
 
@@ -50,6 +51,10 @@ concurrent_install () {
         --require "Install Node.js LTS"
         --before  "Install Node.js LTS Packages"
         --before  "Setup Node.js LTS"
+
+        --require "Install Node.js Stable Packages"
+        --require "Install Node.js LTS Packages"
+        --before  "Clean npm cache"
     )
 
     concurrent "${args[@]}"

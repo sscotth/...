@@ -5,8 +5,8 @@
 export NVM_SYMLINK_CURRENT=true
 
 install_node_version_manager () {
-  # remove nvm and installed nodes
-  rm -rf ~/.nvm
+  # remove nvm, npm, and installed nodes
+  rm -rf ~/.nvm ~/.npm
 
   curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
   . ~/.nvm/nvm.sh
@@ -79,7 +79,6 @@ install_node_stable_packages () {
   . ~/.nvm/nvm.sh
 
   nvm use node
-  npm cache clean
 
   echo "(babel-eslint)" >&3
   npm install -g babel-eslint
@@ -108,9 +107,6 @@ install_node_stable_packages () {
   echo "(semistandard-format)" >&3
   npm install -g semistandard-format
 
-  echo "(# cleanup #)" >&3
-  npm cache clean
-
   echo "(done)" >&3
 
   my_sleep "${@}"
@@ -121,15 +117,17 @@ install_node_lts_packages () {
   . ~/.nvm/nvm.sh
 
   nvm use lts
-  npm cache clean
 
   echo "(ionic)" >&3
   npm install -g ionic
 
-  echo "(# cleanup #)" >&3
-  npm cache clean
-
   echo "(done)" >&3
+
+  my_sleep "${@}"
+}
+
+clean_npm_cache () {
+  npm cache clean
 
   my_sleep "${@}"
 }
