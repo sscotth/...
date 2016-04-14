@@ -240,13 +240,5 @@ sudo scutil --set HostName `openssl rand -hex 16`
 # Install all available updates again before killing applications
 # sudo softwareupdate -iva
 
-# clean .DS_Store files
-echo "clean .DS_Store files"
-clean_DS_Store () {
-  sudo find / -name ".DS_Store" -depth -exec rm {} \;
-  # find . -type f -name '*.DS_Store' -ls -delete
-}
-clean_DS_Store
-
 # echo "kill affected applications"
 # sh kill.sh
