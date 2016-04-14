@@ -81,21 +81,37 @@ install_node_stable_packages () {
   nvm use node
   npm cache clean
 
+  echo "(babel-eslint)" >&3
   npm install -g babel-eslint
+  echo "(bower)" >&3
   npm install -g bower
+  echo "(cordova)" >&3
   npm install -g cordova
+  echo "(diff-so-fancy)" >&3
   npm install -g diff-so-fancy
+  echo "(eslint)" >&3
   npm install -g eslint
+  echo "(grunt-cli)" >&3
   npm install -g grunt-cli
+  echo "(gulp)" >&3
   npm install -g gulp
+  echo "(http-server)" >&3
   npm install -g http-server
+  echo "(ionic)" >&3
   npm install -g ionic
+  echo "(jshint)" >&3
   npm install -g jshint
+  echo "(pm2)" >&3
   npm install -g pm2
+  echo "(semistandard)" >&3
   npm install -g semistandard
+  echo "(semistandard-format)" >&3
   npm install -g semistandard-format
 
+  echo "(# cleanup #)" >&3
   npm cache clean
+
+  echo "(done)" >&3
 
   my_sleep "${@}"
 }
@@ -107,9 +123,13 @@ install_node_lts_packages () {
   nvm use lts
   npm cache clean
 
+  echo "(ionic)" >&3
   npm install -g ionic
 
+  echo "(# cleanup #)" >&3
   npm cache clean
+
+  echo "(done)" >&3
 
   my_sleep "${@}"
 }
