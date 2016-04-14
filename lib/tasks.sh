@@ -15,6 +15,7 @@ concurrent_install () {
         - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink    1.0
         - "Loading Personal Dotfiles"           personal_dotfiles_load            1.0
         - "Symlink Personal Dotfiles"           personal_dotfiles_symlink         1.0
+        - "Generate SSH Keys"                   generate_ssh_keys                 1.0
         - "A Function"                          fn_1                              1.0
         - "Another Function"                    fn_2                              1.0
 
