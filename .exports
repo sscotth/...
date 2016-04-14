@@ -47,4 +47,7 @@ git config --global --replace-all hub.protocol https
 export WORKON_HOME=~/.virtualenvs
 export PROJECT_HOME=~/code
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
+  source /usr/local/bin/virtualenvwrapper_lazy.sh
+fi
