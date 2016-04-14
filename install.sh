@@ -182,12 +182,6 @@ gem install rails
 gem install rubocop
 gem isntall reek
 
-# NTFS-3G
-if [ -f /sbin/mount_ntfs ]; then
-  sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
-fi
-sudo ln -sf /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
-
 # Fix asepsis failed update notifications
 asepsisctl uninstall_updater
 
