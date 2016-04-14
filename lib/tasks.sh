@@ -27,6 +27,7 @@ concurrent_install () {
         - "Install Node.js LTS Packages"        install_node_lts_packages          1.0
         - "Setup Node.js LTS"                   setup_node_lts                     1.0
         - "Clean npm cache"                     clean_npm_cache                    1.0
+        - "Clean .DS_Store files"               clean_DS_Store                     1.0
         - "A Function"                          fn_1                               1.0
         - "Another Function"                    fn_2                               1.0
 
