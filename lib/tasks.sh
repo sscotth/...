@@ -32,6 +32,7 @@ concurrent_install () {
         - "Setup assistive devices"             setup_assistive_devices            1.0
         - "Install App Store apps"              install_app_store_apps             1.0
         - "Load OSX Settings"                   load_osx_defaults                  1.0
+        - "Prepare MongoDB"                     mongodb_prepare                    1.0
         - "A Function"                          fn_1                               1.0
         - "Another Function"                    fn_2                               1.0
 

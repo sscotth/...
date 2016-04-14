@@ -188,10 +188,6 @@ gem install rails
 gem install rubocop
 gem isntall reek
 
-# MongoDB
-sudo mkdir -p /data/db
-sudo chown -R `whoami` /data
-
 # NTFS-3G
 if [ -f /sbin/mount_ntfs ]; then
   sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
