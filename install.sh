@@ -143,6 +143,10 @@ yes | apm upgrade
 # Install Package Control
 curl https://packagecontrol.io/Package%20Control.sublime-package > ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package
 
+# Setup personal package control dotfile
+echo "~/.dotfiles/SublimeText/Preferences.sublime-settings ==> ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings"
+ln -sf ~/.dotfiles/SublimeText/Package\ Control.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
+
 # Install Python apps
 # Upgrade pip
 pip install --upgrade pip
