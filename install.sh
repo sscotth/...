@@ -133,16 +133,6 @@ cd ..
 echo "loading personal osx preferences"
 sh .osx_supplement
 
-# Install Oh-My-ZSH
-echo "Installing Oh-My-Zsh"
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -o /tmp/omz-install.sh
-
-# remove changing of shell actions from omz-install script
-sed -E '/.*(chsh -s|env zsh)/d' /tmp/omz-install.sh > /tmp/omz-install-nochsh.sh
-
-# sh /tmp/omz-install.sh
-sh /tmp/omz-install-nochsh.sh
-
 # make sure .zshrc is fresh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 # add .zsh_profile reference to .zshrc
