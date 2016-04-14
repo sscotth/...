@@ -30,6 +30,7 @@ concurrent_install () {
         - "Clean npm cache"                     clean_npm_cache                    1.0
         - "Clean .DS_Store files"               clean_DS_Store                     1.0
         - "Setup assistive devices"             setup_assistive_devices            1.0
+        - "Install App Store apps"              install_app_store_apps             1.0
         - "A Function"                          fn_1                               1.0
         - "Another Function"                    fn_2                               1.0
 
@@ -58,6 +59,9 @@ concurrent_install () {
         --require "Install Node.js Stable Packages"
         --require "Install Node.js LTS Packages"
         --before  "Clean npm cache"
+
+        --require "Setup assistive devices"
+        --before  "Install App Store apps"
     )
 
     concurrent "${args[@]}"

@@ -132,9 +132,6 @@ cd ..
 echo "loading personal osx preferences"
 sh .osx_supplement
 
-echo Installing App Store apps
-osascript -l JavaScript appstore.js
-
 echo Installing Homebrew Cask
 brew tap caskroom/cask
 /usr/bin/expect <<EOD
