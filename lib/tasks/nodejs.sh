@@ -5,6 +5,9 @@
 export NVM_SYMLINK_CURRENT=true
 
 install_node_version_manager () {
+  # remove nvm and installed nodes
+  rm -rf ~/.nvm
+
   curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
   . ~/.nvm/nvm.sh
 
@@ -12,13 +15,9 @@ install_node_version_manager () {
 }
 
 install_node_stable () {
-  if nvm which node &> /dev/null; then
-    echo "(Reinstalling Packages)" >&3
-    nvm install node --reinstall-packages-from=node
-  else
-    echo "Initial Install"
-    nvm install node
-  fi
+  . ~/.nvm/nvm.sh
+
+  nvm install node
 
   echo "Setup alias"
   nvm alias default node
@@ -30,15 +29,10 @@ install_node_stable () {
 }
 
 install_node_lts () {
-  local $version="v4"
+  local version=v4
+  . ~/.nvm/nvm.sh
 
-  if nvm which $version &> /dev/null; then
-    echo "(Reinstalling Packages)" >&3
-    nvm install $version --reinstall-packages-from=$version
-  else
-    echo "Initial Install"
-    nvm install $version
-  fi
+  nvm install $version
 
   echo "Setup alias"
   nvm alias lts $version
@@ -50,6 +44,8 @@ install_node_lts () {
 }
 
 setup_node_stable () {
+  . ~/.nvm/nvm.sh
+
   nvm use node
 
   npm config set init-author-name "Scott Humphries"
@@ -64,6 +60,8 @@ setup_node_stable () {
 }
 
 setup_node_lts () {
+  . ~/.nvm/nvm.sh
+
   nvm use lts
 
   npm config set init-author-name "Scott Humphries"
@@ -78,6 +76,8 @@ setup_node_lts () {
 }
 
 install_node_stable_packages () {
+  . ~/.nvm/nvm.sh
+
   nvm use node
   npm cache clean
 
@@ -102,6 +102,8 @@ install_node_stable_packages () {
 
 
 install_node_lts_packages () {
+  . ~/.nvm/nvm.sh
+
   nvm use lts
   npm cache clean
 

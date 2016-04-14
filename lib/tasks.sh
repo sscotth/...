@@ -21,11 +21,11 @@ concurrent_install () {
         - "Install ZSH Syntax Highlighting"     install_zsh_syntax_highlighting    1.0
         - "Install Node.js Version Manager"     install_node_version_manager       1.0
         - "Install Node.js Stable"              install_node_stable                1.0
-        - "Install Node.js LTS"                 install_node_lts                   1.0
-        - "Setup Node.js Stable"                setup_node_stable                  1.0
-        - "Setup Node.js LTS"                   setup_node_lts                     1.0
         - "Install Node.js Stable Packages"     install_node_stable_packages       1.0
+        - "Setup Node.js Stable"                setup_node_stable                  1.0
+        - "Install Node.js LTS"                 install_node_lts                   1.0
         - "Install Node.js LTS Packages"        install_node_lts_packages          1.0
+        - "Setup Node.js LTS"                   setup_node_lts                     1.0
         - "A Function"                          fn_1                               1.0
         - "Another Function"                    fn_2                               1.0
 
@@ -44,12 +44,12 @@ concurrent_install () {
         --before  "Install Node.js LTS"
 
         --require "Install Node.js Stable"
-        --before  "Setup Node.js Stable"
         --before  "Install Node.js Stable Packages"
+        --before  "Setup Node.js Stable"
 
         --require "Install Node.js LTS"
-        --before  "Setup Node.js LTS"
         --before  "Install Node.js LTS Packages"
+        --before  "Setup Node.js LTS"
     )
 
     concurrent "${args[@]}"
