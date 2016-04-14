@@ -127,6 +127,8 @@ install_node_lts_packages () {
 }
 
 clean_npm_cache () {
+  . ~/.nvm/nvm.sh
+
   npm cache clean
 
   my_sleep "${@}"
