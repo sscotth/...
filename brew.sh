@@ -7,6 +7,7 @@ while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null 
 brew tap homebrew/dupes
 brew tap homebrew/fuse
 brew tap homebrew/science
+brew tap ravenac95/sudolikeaboss
 
 brew tap caskroom/versions
 brew tap caskroom/fonts

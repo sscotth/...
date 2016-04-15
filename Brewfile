@@ -47,6 +47,7 @@ brew install rethinkdb
 brew install ruby-install --HEAD
 brew install s3cmd
 brew install shellcheck
+brew install sudolikeaboss
 brew install syncthing
 brew install tccutil
 brew install the_platinum_searcher
