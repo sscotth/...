@@ -5,6 +5,7 @@ brew cask install xquartz
 brew cask install 1password-beta
 brew cask install airmail-beta
 brew cask install airserver
+brew cask install airtool
 brew cask install alfred
 brew cask install anaconda
 brew cask install apache-couchdb
@@ -117,6 +118,7 @@ brew cask install virtualbox-extension-pack
 brew cask install viscosity
 brew cask install vlc
 brew cask install vmware-fusion
+brew cask install wireshark
 brew cask install webkit-nightly
 brew cask install webstorm-eap
 brew cask install xld
