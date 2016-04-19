@@ -209,3 +209,6 @@ defaults write com.runningwithcrayons.Alfred-Preferences dropbox.allowappsfolder
 sudo scutil --set ComputerName `openssl rand -hex 16`
 sudo scutil --set LocalHostName `openssl rand -hex 16`
 sudo scutil --set HostName `openssl rand -hex 16`
+
+# Set mouse tracking speed
+defaults write -g com.apple.mouse.scaling 0.1
