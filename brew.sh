@@ -36,13 +36,14 @@ cat ~/.dotfiles/Caskfile | \
   xargs -L 1 brew cask cat | \
   grep -E '^cask|^\s*sha256' | \
   tr '\n' ' ' | \
+  sed 's/cask /\'$'\n/g' | \
   sed "s/cask\s/\n/g" | \
   grep 'do' | \
   grep -v 'no_check' | \
   sed "s/do.*//g" | \
   sed "s/'//g" | \
   parallel --bar -j3 \
-    "echo brew cask fetch {}"
+    "echo brew cask fetch {}; eval brew cask fetch {}"
 
 # # Install Brews
 # cat ~/.dotfiles/Brewfile | grep '^brew install' | parallel --bar --timeout 300 -j 1 \
