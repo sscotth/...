@@ -26,8 +26,9 @@ brew install zsh
 
 # APPS
 brew install ack
-brew install aria2
 brew install archey
+brew install argon/mas/mas
+brew install aria2
 brew install chruby --HEAD
 brew install flow
 brew install graphicsmagick
@@ -67,6 +68,6 @@ brew install ed --with-default-names
 brew install emacs
 
 # XCODE REQUIRED
-brew install sshfs
-brew install ntfs-3g
 brew install macvim --with-custom-icons
+brew install ntfs-3g
+brew install sshfs
