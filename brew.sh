@@ -4,6 +4,7 @@ sudo -v
 while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
 
 # TAPS
+brew tap homebrew/bundle
 brew tap homebrew/dupes
 brew tap homebrew/fuse
 brew tap homebrew/science
@@ -43,13 +44,15 @@ cat ~/.dotfiles/Caskfile | \
   parallel --bar -j3 \
     "echo brew cask fetch {}"
 
-# Install Brews
-cat ~/.dotfiles/Brewfile | grep '^brew install' | parallel --bar --timeout 300 -j 1 \
-  "echo {}; sudo xcodebuild -license accept; eval {}"
+# # Install Brews
+# cat ~/.dotfiles/Brewfile | grep '^brew install' | parallel --bar --timeout 300 -j 1 \
+#   "echo {}; sudo xcodebuild -license accept; eval {}"
 
-# Install Casks
-cat ~/.dotfiles/Caskfile | grep '^brew cask' | parallel --bar -j3 \
-  "echo {}; eval {}"
+# # Install Casks
+# cat ~/.dotfiles/Caskfile | grep '^brew cask' | parallel --bar -j3 \
+#   "echo {}; eval {}"
+
+brew bundle --file=.Brewfile
 
 # Cleanup
 brew cleanup -s
