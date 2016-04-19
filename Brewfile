@@ -63,7 +63,7 @@ brew install bash
 brew install binutils
 brew install coreutils
 brew install diffutils
-brew install ed --withdefault-names
+brew install ed --with-default-names
 brew install emacs
 
 # XCODE REQUIRED
