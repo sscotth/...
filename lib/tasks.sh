@@ -11,6 +11,7 @@ done
 
 concurrent_install () {
     local args=(
+        - "Use NTP pool servers"                use_ntp_pool_servers               1.0
         - "Install OSX updates"                 install_osx_updates                1.0
         - "Load Mathias Bynens' Dotfiles"       mathiasbynens_dotfiles_load        1.0
         - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink     1.0
