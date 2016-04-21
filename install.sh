@@ -52,6 +52,10 @@ brew doctor
 echo "Update Homebrew"
 brew update
 
+echo "Install coreutils"
+brew install coreutils
+brew upgrade coreutils
+
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
   echo "Install Updated Bash"
   brew install bash
