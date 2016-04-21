@@ -10,7 +10,7 @@ source ./lib/utilities.sh
 concurrent_install () {
     local args=(
         - "Use NTP pool servers"                retry timeout 100 ./lib/tasks/osx/use_ntp_pool_servers.sh
-        - "Install OSX updates"                 retry timeout 100 ./lib/tasks/osx/install_osx_updates.sh
+        - "Install OSX updates"                 retry timeout 600 ./lib/tasks/osx/install_osx_updates.sh
         - "Load Mathias Bynens' Dotfiles"       retry timeout 100 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
         - "Symlink Mathias Bynens' Dotfiles"    retry timeout 100 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_symlink.sh
         - "Load Personal Dotfiles"              retry timeout 100 ./lib/tasks/dotfiles/personal_dotfiles_load.sh
