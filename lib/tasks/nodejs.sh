@@ -10,8 +10,6 @@ install_node_version_manager () {
 
   curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
   . ~/.nvm/nvm.sh
-
-  my_sleep "${@}"
 }
 
 install_node_stable () {
@@ -24,8 +22,6 @@ install_node_stable () {
 
   echo "Update npm"
   npm install -g npm
-
-  my_sleep "${@}"
 }
 
 install_node_lts () {
@@ -39,8 +35,6 @@ install_node_lts () {
 
   echo "Update npm"
   npm install -g npm
-
-  my_sleep "${@}"
 }
 
 setup_node_stable () {
@@ -55,8 +49,6 @@ setup_node_stable () {
 
   # https://github.com/npm/npm/issues/11283
   npm config set progress false
-
-  my_sleep "${@}"
 }
 
 setup_node_lts () {
@@ -71,8 +63,6 @@ setup_node_lts () {
 
   # https://github.com/npm/npm/issues/11283
   npm config set progress false
-
-  my_sleep "${@}"
 }
 
 install_node_stable_packages () {
@@ -108,8 +98,6 @@ install_node_stable_packages () {
   npm install -g semistandard-format
 
   echo "(done)" >&3
-
-  my_sleep "${@}"
 }
 
 
@@ -122,14 +110,10 @@ install_node_lts_packages () {
   npm install -g ionic
 
   echo "(done)" >&3
-
-  my_sleep "${@}"
 }
 
 clean_npm_cache () {
   . ~/.nvm/nvm.sh
 
   npm cache clean
-
-  my_sleep "${@}"
 }

@@ -13,8 +13,6 @@ mathiasbynens_dotfiles_load () {
     echo "(Cloning with git)" >&3
     git clone --depth 1 https://github.com/mathiasbynens/dotfiles math_dotfiles
   fi
-
-  my_sleep "${@}"
 }
 
 mathiasbynens_dotfiles_symlink () {
@@ -23,6 +21,4 @@ mathiasbynens_dotfiles_symlink () {
     dst="$HOME/$(basename $file)"
     [ -r $file ] && [ -f $file ] && echo "$file ==> $dst" && ln -sf $file $dst
   done;
-
-  my_sleep "${@}"
 }

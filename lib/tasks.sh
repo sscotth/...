@@ -11,32 +11,30 @@ done
 
 concurrent_install () {
     local args=(
-        - "Use NTP pool servers"                use_ntp_pool_servers               1.0
-        - "Install OSX updates"                 install_osx_updates                1.0
-        - "Load Mathias Bynens' Dotfiles"       mathiasbynens_dotfiles_load        1.0
-        - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink     1.0
-        - "Load Personal Dotfiles"              personal_dotfiles_load             1.0
-        - "Symlink Personal Dotfiles"           personal_dotfiles_symlink          1.0
-        - "Generate SSH Keys"                   generate_ssh_keys                  1.0
-        - "Install Oh-My-ZSH"                   install_oh_my_zsh                  1.0
-        - "Load .zshrc from Oh-My-ZSH"          load_zshrc_from_oh_my_zsh          1.0
-        - "Install ZSH Syntax Highlighting"     install_zsh_syntax_highlighting    1.0
-        - "Install Node.js Version Manager"     install_node_version_manager       1.0
-        - "Install Node.js Stable"              install_node_stable                1.0
-        - "Install Node.js Stable Packages"     install_node_stable_packages       1.0
-        - "Setup Node.js Stable"                setup_node_stable                  1.0
-        - "Install Node.js LTS"                 install_node_lts                   1.0
-        - "Install Node.js LTS Packages"        install_node_lts_packages          1.0
-        - "Setup Node.js LTS"                   setup_node_lts                     1.0
-        - "Clean npm cache"                     clean_npm_cache                    1.0
-        - "Clean .DS_Store files"               clean_DS_Store                     1.0
-        - "Setup assistive devices"             setup_assistive_devices            1.0
-        - "Install App Store apps"              install_app_store_apps             1.0
-        - "Load OSX Settings"                   load_osx_defaults                  1.0
-        - "Prepare MongoDB"                     mongodb_prepare                    1.0
-        - "Prepare NTFS"                        ntfs_prepare                       1.0
-        - "A Function"                          fn_1                               1.0
-        - "Another Function"                    fn_2                               1.0
+        - "Use NTP pool servers"                use_ntp_pool_servers
+        - "Install OSX updates"                 install_osx_updates
+        - "Load Mathias Bynens' Dotfiles"       mathiasbynens_dotfiles_load
+        - "Symlink Mathias Bynens' Dotfiles"    mathiasbynens_dotfiles_symlink
+        - "Load Personal Dotfiles"              personal_dotfiles_load
+        - "Symlink Personal Dotfiles"           personal_dotfiles_symlink
+        - "Generate SSH Keys"                   generate_ssh_keys
+        - "Install Oh-My-ZSH"                   install_oh_my_zsh
+        - "Load .zshrc from Oh-My-ZSH"          load_zshrc_from_oh_my_zsh
+        - "Install ZSH Syntax Highlighting"     install_zsh_syntax_highlighting
+        - "Install Node.js Version Manager"     install_node_version_manager
+        - "Install Node.js Stable"              install_node_stable
+        - "Install Node.js Stable Packages"     install_node_stable_packages
+        - "Setup Node.js Stable"                setup_node_stable
+        - "Install Node.js LTS"                 install_node_lts
+        - "Install Node.js LTS Packages"        install_node_lts_packages
+        - "Setup Node.js LTS"                   setup_node_lts
+        - "Clean npm cache"                     clean_npm_cache
+        - "Clean .DS_Store files"               clean_DS_Store
+        - "Setup assistive devices"             setup_assistive_devices
+        - "Install App Store apps"              install_app_store_apps
+        - "Load OSX Settings"                   load_osx_defaults
+        - "Prepare MongoDB"                     mongodb_prepare
+        - "Prepare NTFS"                        ntfs_prepare
 
         --require "Load Mathias Bynens' Dotfiles"
         --before  "Symlink Mathias Bynens' Dotfiles"

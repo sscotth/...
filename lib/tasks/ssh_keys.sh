@@ -14,6 +14,4 @@ generate_ssh_keys () {
   fi
 
   ssh-add ~/.ssh/id_rsa
-
-  my_sleep "${@}"
 }

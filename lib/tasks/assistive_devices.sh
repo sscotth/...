@@ -17,6 +17,4 @@ EOD
 
   # Check list before completing
   sudo tccutil -l | grep com.apple.Terminal
-
-  my_sleep "${@}"
 }

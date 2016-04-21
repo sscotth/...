@@ -8,7 +8,6 @@ load_osx_defaults () {
   personal_osx_load || true
 
   echo "(may require restart)" >&3
-  my_sleep "${@}"
 }
 
 ### LOCAL ###

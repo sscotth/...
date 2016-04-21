@@ -11,8 +11,6 @@ personal_dotfiles_load () {
     echo "$src ==> $dst"
     cp -n $src $dst || true
   done
-
-  my_sleep "${@}"
 }
 
 personal_dotfiles_symlink () {
@@ -20,8 +18,6 @@ personal_dotfiles_symlink () {
 
   personal_dotfiles_symlink_unique
   personal_dotfiles_symlink_normal
-
-  my_sleep "${@}"
 }
 
 ### LOCAL ###

@@ -10,8 +10,6 @@ install_oh_my_zsh () {
 
   # sh /tmp/omz-install.sh
   sh /tmp/omz-install-nochsh.sh
-
-  my_sleep "${@}"
 }
 
 load_zshrc_from_oh_my_zsh () {
@@ -24,13 +22,9 @@ load_zshrc_from_oh_my_zsh () {
 
   # symlink zshrc back to the .dotfiles repo
   # ln -sf ~/.zshrc ~/.dotfiles/.zshrc
-
-  my_sleep "${@}"
 }
 
 install_zsh_syntax_highlighting () {
   rm -rf ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
-  my_sleep "${@}"
 }

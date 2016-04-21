@@ -4,6 +4,4 @@
 
 install_osx_updates () {
   sudo softwareupdate -iva
-
-  my_sleep "${@}"
 }

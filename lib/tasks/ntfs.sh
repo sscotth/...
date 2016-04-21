@@ -12,6 +12,4 @@ ntfs_prepare () {
     echo "(ERROR: SIP Enabled)" >&3
     false
   fi
-
-  my_sleep "${@}"
 }
