@@ -10,8 +10,6 @@ load_osx_defaults () {
   echo "(may require restart)" >&3
 }
 
-load_osx_defaults
-
 ### LOCAL ###
 
 mathiasbynens_osx_edit () {
@@ -30,3 +28,5 @@ personal_osx_load () {
   echo "loading personal osx preferences"
   sh .osx_supplement
 }
+
+load_osx_defaults

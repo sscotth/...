@@ -9,8 +9,6 @@ personal_dotfiles_symlink () {
   personal_dotfiles_symlink_normal
 }
 
-personal_dotfiles_symlink
-
 ### LOCAL ###
 
 personal_dotfiles_symlink_unique () {
@@ -33,3 +31,5 @@ personal_dotfiles_symlink_normal () {
     ln -sf "$src" "$dst"
   done
 }
+
+personal_dotfiles_symlink
