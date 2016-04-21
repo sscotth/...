@@ -79,6 +79,7 @@ brew cask install obs
 brew cask install omnifocus
 brew cask install omnigraffle
 brew cask install onyx
+brew cask install opera-developer
 brew cask install parallels-desktop
 brew cask install plex-home-theater
 brew cask install plex-media-server
