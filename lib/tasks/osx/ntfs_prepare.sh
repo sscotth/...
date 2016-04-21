@@ -13,3 +13,5 @@ ntfs_prepare () {
     false
   fi
 }
+
+ntfs_prepare

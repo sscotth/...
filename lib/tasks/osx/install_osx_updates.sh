@@ -5,3 +5,5 @@
 install_osx_updates () {
   sudo softwareupdate -iva
 }
+
+install_osx_updates

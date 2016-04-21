@@ -15,3 +15,5 @@ generate_ssh_keys () {
 
   ssh-add ~/.ssh/id_rsa
 }
+
+generate_ssh_keys

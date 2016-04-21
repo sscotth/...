@@ -10,6 +10,8 @@ load_osx_defaults () {
   echo "(may require restart)" >&3
 }
 
+load_osx_defaults
+
 ### LOCAL ###
 
 mathiasbynens_osx_edit () {

@@ -7,3 +7,5 @@ use_ntp_pool_servers () {
 
   ntpq -np
 }
+
+use_ntp_pool_servers

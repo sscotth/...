@@ -18,3 +18,5 @@ EOD
   # Check list before completing
   sudo tccutil -l | grep com.apple.Terminal
 }
+
+setup_assistive_devices
