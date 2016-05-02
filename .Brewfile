@@ -7,6 +7,7 @@ tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 
+tap 'argon/mas'
 tap 'neovim/neovim'
 tap 'ravenac95/sudolikeaboss'
 
@@ -50,6 +51,7 @@ brew 'httpie'
 brew 'httrack'
 brew 'hub'
 brew 'mackup'
+brew 'mas'
 brew 'mongodb'
 brew 'neovim', args: ['HEAD']
 brew 'parallel', args: ['force']
