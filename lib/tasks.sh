@@ -7,6 +7,9 @@ source ./bash-concurrent/concurrent.lib.sh
 source ./lib/utilities.sh
 
 concurrent_install () {
+    local CONCURRENT_LIMIT=4
+    local CONCURRENT_COMPACT=0
+
     local args=(
 
         - "Load Mathias Bynens' Dotfiles"       retry gtimeout 100 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
