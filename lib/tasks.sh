@@ -75,3 +75,5 @@ concurrent_install () {
 
     concurrent "${args[@]}"
 }
+
+concurrent_install

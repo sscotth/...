@@ -118,24 +118,10 @@ sudo chsh -s $(which zsh) scott
 git clone https://github.com/themattrix/bash-concurrent
 
 # Load concurrent tasks
-source ./lib/tasks.sh
-concurrent_install
-
-echo "Concurrent Tasks Complete"
-
-echo Installing Homebrew Cask
-brew tap caskroom/cask
-/usr/bin/expect <<EOD
-set timeout 999
-spawn brew cask install atom
-expect "Password:"
-send "$SUDOPASS\n"
-expect eof
-EOD
+bash ./lib/tasks.sh
 
 # Homebrew installs (parallelize)
-brew install parallel
-sh brew.sh
+bash ./lib/tasks/osx/homebrew.sh
 
 # iTerm2 v3 Shell Integration
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
