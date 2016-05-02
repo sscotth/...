@@ -123,8 +123,6 @@ concurrent_install
 
 echo "Concurrent Tasks Complete"
 
-exit 1
-
 echo Installing Homebrew Cask
 brew tap caskroom/cask
 /usr/bin/expect <<EOD
