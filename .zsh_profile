@@ -47,9 +47,9 @@ export HOMEBREW_NO_ANALYTICS=1
 rm -f "$HOME/.homebrew_analytics_user_uuid"
 
 # Load nix
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
-  . ~/.nix-profile/etc/profile.d/nix.sh;
-fi
+# if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+#   . ~/.nix-profile/etc/profile.d/nix.sh;
+# fi
 
 # Load Node.js with nvm
 export NVM_DIR="/Users/scott/.nvm"
