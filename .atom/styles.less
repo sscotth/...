@@ -1,9 +1,18 @@
 @import "ui-variables";
 
+[theme-one-dark-ui-tabsizing="minimum"],
+[theme-one-light-ui-tabsizing="minimum"] {
+  .tab-bar .tab .title, .tab-bar .tab.active .title {
+    padding: 0 12px;
+  }
+}
+
 .theme-one-light-ui, .theme-one-dark-ui {
-  .icon::before {
-    font-size: @ui-size;
-    width: @ui-size;
+  .tree-view, .tab-bar {
+    .icon::before { // when (@ui-size) {
+      font-size: @ui-size;
+      width: @ui-size;
+    }
   }
 }
 
