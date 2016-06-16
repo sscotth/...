@@ -3,7 +3,11 @@
     dateFormat: " h:mm a"
     refreshInterval: 5
     showClockIcon: true
-  core: {}
+  core:
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
   editor:
     fontFamily: "Operator Mono"
     invisibles: {}
@@ -23,9 +27,11 @@
   "one-dark-ui":
     fontSize: 10
     layoutMode: "Compact"
+    tabSizing: "Minimum"
   "one-light-ui":
     fontSize: 10
     layoutMode: "Compact"
+    tabSizing: "Minimum"
   tabs:
     usePreviewTabs: true
   "vim-mode":
