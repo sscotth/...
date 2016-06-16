@@ -27,7 +27,7 @@ concurrent_install () {
     # sed "s/tap \|'//g"
     for tap in "${brew_taps[@]}"; do
       args=( "${args[@]}"
-          - "brew tap $tap" gtimeout 100 brew tap $tap
+          - "brew tap $tap" brew tap $tap
       )
     done
 
@@ -37,13 +37,13 @@ concurrent_install () {
       local cmd=`cat .Brewfile | grep "^brew '${brew}'" | sed "s/',[^']*/ --/g" | sed "s/'//g;s/]//g;" | sed "s/^brew/brew install/g"`
       # sed "s/'\|]//g" | sed "s/^brew/brew info/g"`
       args=( "${args[@]}"
-          - "brew install $brew" gtimeout 600 $cmd
+          - "brew install $brew" $cmd
       )
     done
 
     local cask_installs=(`cat .Brewfile | grep "^cask" | sed "s/^cask \|'//g"`)
     for cask in "${cask_installs[@]}"; do
-      args=("${args[@]}" - "brew cask install $cask" gtimeout 600 brew cask install $cask)
+      args=("${args[@]}" - "brew cask install $cask" brew cask install $cask)
     done
 
     for brew in "${brew_installs[@]}"; do
