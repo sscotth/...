@@ -5,12 +5,14 @@
 	],
 	"installed_packages":
 	[
+		"Babel",
 		"BracketHighlighter",
 		"Emmet",
 		"Floobits",
 		"GitGutter",
 		"Jade",
 		"Package Control",
+		"Sass",
 		"SideBarEnhancements"
 	]
 }
