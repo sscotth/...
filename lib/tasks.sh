@@ -12,6 +12,7 @@ concurrent_install () {
 
     local args=(
 
+        - "Remove previous Dotfiles"            retry gtimeout 100 ./lib/tasks/dotfiles/dotfiles_remove.sh
         - "Load Mathias Bynens' Dotfiles"       retry gtimeout 100 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
         - "Load Personal Dotfiles"              retry gtimeout 100 ./lib/tasks/dotfiles/personal_dotfiles_load.sh
         - "Symlink Mathias Bynens' Dotfiles"    retry gtimeout 100 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_symlink.sh
@@ -39,6 +40,10 @@ concurrent_install () {
         - "Install Node.js Version Manager"     retry gtimeout 100 ./lib/tasks/nodejs/install_node_version_manager.sh
         - "Setup Node.js LTS"                   retry gtimeout 100 ./lib/tasks/nodejs/setup_node_lts.sh
         - "Setup Node.js Stable"                retry gtimeout 100 ./lib/tasks/nodejs/setup_node_stable.sh
+
+        --require "Remove previous Dotfiles"
+        --before  "Symlink Mathias Bynens' Dotfiles"
+        --before  "Symlink Personal Dotfiles"
 
         --require "Load Mathias Bynens' Dotfiles"
         --before  "Symlink Mathias Bynens' Dotfiles"
