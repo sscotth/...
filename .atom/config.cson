@@ -5,6 +5,7 @@
     showClockIcon: true
   core: {}
   editor:
+    fontFamily: "Operator Mono"
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
