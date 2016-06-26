@@ -12,8 +12,8 @@ setup_node_stable () {
   npm config set init-author-url "https://sscotth.io"
   npm config set init-license "MIT"
 
-  # https://github.com/npm/npm/issues/11283
-  npm config set progress false
+  # https://github.com/npm/npm/issues/11283 (Fixed in v3.10.0: https://github.com/npm/npm/releases/tag/v3.10.0)
+  npm config set progress true
 }
 
 setup_node_stable
