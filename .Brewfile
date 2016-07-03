@@ -53,6 +53,7 @@ brew 'hub'
 brew 'mackup'
 brew 'mas'
 brew 'mongodb'
+brew 'mysql'
 brew 'neovim', args: ['HEAD']
 brew 'parallel', args: ['force']
 brew 'python3'
