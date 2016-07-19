@@ -33,6 +33,10 @@ install_node_stable_packages () {
   npm install -g semistandard
   echo "(semistandard-format)" >&3
   npm install -g semistandard-format
+  echo "(standard)" >&3
+  npm install -g standard
+  echo "(standard-format)" >&3
+  npm install -g standard-format
 
   echo "(done)" >&3
 }
