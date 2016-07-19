@@ -33,6 +33,8 @@ install_node_stable_packages () {
   npm install -g npm-check-updates
   echo "(pm2)" >&3
   npm install -g pm2
+  echo "(react-native-cli)" >&3
+  npm install -g react-native-cli
   echo "(semistandard)" >&3
   npm install -g semistandard
   echo "(semistandard-format)" >&3
