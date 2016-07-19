@@ -27,6 +27,8 @@ install_node_stable_packages () {
   npm install -g ionic
   echo "(jshint)" >&3
   npm install -g jshint
+  echo "(nativescript)" >&3
+  npm install -g nativescript
   echo "(npm-check-updates)" >&3
   npm install -g npm-check-updates
   echo "(pm2)" >&3
