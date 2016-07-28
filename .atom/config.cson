@@ -18,6 +18,7 @@
   "exception-reporting":
     userId: "3d441044-a613-92a3-c1ba-424300161faf"
   linter:
+    errorPanelHeight: 99999
     showErrorInline: false
     showErrorTabLine: true
   "linter-jshint":
