@@ -28,6 +28,7 @@ brew 'make', args: ['with-default-names']
 brew 'moreutils', args: ['without-parallel', 'force']
 brew 'nano'
 brew 'openssh'
+brew 'tidy-html5'
 brew 'openssl'
 brew 'python'
 brew 'rsync'
