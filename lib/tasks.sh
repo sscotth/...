@@ -67,11 +67,11 @@ concurrent_install () {
         --before  "Install Node.js LTS Packages"
         --before  "Setup Node.js LTS"
 
-        --require "Install Node.js Stable"
-        --before  "Install Node.js Nightly"
-
-        --require "Install Node.js Nightly"
-        --before  "Setup Node.js Nightly"
+        # --require "Install Node.js Stable"
+        # --before  "Install Node.js Nightly"
+        #
+        # --require "Install Node.js Nightly"
+        # --before  "Setup Node.js Nightly"
 
         --require "Install Node.js Stable Packages"
         --require "Install Node.js LTS Packages"
