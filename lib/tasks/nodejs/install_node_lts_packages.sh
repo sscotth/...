@@ -9,6 +9,7 @@ install_node_lts_packages () {
 
   echo "(ionic)" >&3
   npm install -g ionic
+  npm install -g node-inspector
 
   echo "(done)" >&3
 }
