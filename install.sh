@@ -44,7 +44,7 @@ EOD
   fi
 }
 
-cached_sudo -v
+sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until script has finished
 # while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
@@ -62,7 +62,7 @@ cached_sudo pmset force -a displaysleep 0
 defaults -currentHost write com.apple.screensaver idleTime 0
 
 echo "Install Homebrew if not installed"
-cached_psudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
 
 echo "Run Homebrew Doctor"
 brew doctor
