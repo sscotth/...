@@ -46,8 +46,8 @@ EOD
 
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until script has finished
-# while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
+# Keep-alive: update existing `sudo` time stamp if set, otherwise do nothing
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Update computer's time
 cached_sudo ntpdate -u us.pool.ntp.org
