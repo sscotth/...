@@ -3,11 +3,21 @@
     dateFormat: " h:mm a"
     refreshInterval: 5
     showClockIcon: true
-  core:
-    themes: [
-      "one-dark-ui"
-      "base16-tomorrow-dark-theme"
-    ]
+  "atom-material-ui":
+    colors:
+      genAccent: true
+    fonts:
+      fontSize: 12
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  core: {}
+  "dark-flat-ui":
+    accentColor: "green"
   editor:
     fontFamily: "Operator Mono"
     invisibles: {}
@@ -17,10 +27,21 @@
     softWrap: true
   "exception-reporting":
     userId: "3d441044-a613-92a3-c1ba-424300161faf"
+  "isotope-light-ui":
+    backgroundGradient: true
+    fontFamily: "Fira Sans"
+    fontWeight: "Light"
+    minimalMode: true
+  "isotope-ui":
+    fontFamily: "Fira Sans"
+    fontWeight: "Light"
+    minimalMode: true
   linter:
     errorPanelHeight: 99999
     showErrorInline: false
     showErrorTabLine: true
+  "linter-js-standard":
+    checkStyleDevDependencies: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "linter-sass-lint":

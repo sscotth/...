@@ -12,33 +12,51 @@ if [ -z ${APPLE_ID_PASSWORD+x} ]; then
   echo ''
 fi
 
-if [ -z ${SUDOPASS+x} ]; then
-  read -s -p "SUDO Password:" SUDOPASS
-  export SUDOPASS=$SUDOPASS
-  echo ''
+function cached_psudo () {
+  if [ -z ${SUDOPASS+x} ]; then
+    read -s -p "SUDO Password:" SUDOPASS
+    export SUDOPASS=$SUDOPASS
+    echo ''
 
-  /usr/bin/expect <<EOD
-  set timeout 999
-  spawn sudo -v
-  expect "Password:"
-  send "$SUDOPASS\n"
-  expect eof
+    /usr/bin/expect <<EOD
+      set timeout 99999
+      spawn $@
+      expect "*?assword:*"
+      send "$SUDOPASS\n"
+      expect eof
 EOD
-fi
+  fi
+}
+
+function cached_sudo () {
+  if [ -z ${SUDOPASS+x} ]; then
+    read -s -p "SUDO Password:" SUDOPASS
+    export SUDOPASS=$SUDOPASS
+    echo ''
+
+    /usr/bin/expect <<EOD
+      set timeout 99999
+      spawn sudo $@
+      expect "*?assword:*"
+      send "$SUDOPASS\n"
+      expect eof
+EOD
+  fi
+}
 
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until script has finished
-while true; do sudo -n true; sleep 6000; kill -0 "$$" || exit; done 2>/dev/null &
+# Keep-alive: update existing `sudo` time stamp if set, otherwise do nothing
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Update computer's time
-sudo ntpdate -u us.pool.ntp.org
+cached_sudo ntpdate -u us.pool.ntp.org
 
 # Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
+cached_sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Never dim display
-sudo pmset force -a displaysleep 0
+cached_sudo pmset force -a displaysleep 0
 
 # Disable screensaver
 defaults -currentHost write com.apple.screensaver idleTime 0

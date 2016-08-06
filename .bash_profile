@@ -23,3 +23,9 @@ test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_i
 
 # [z - jump around](https://github.com/rupa/z)
 . `brew --prefix`/etc/profile.d/z.sh
+
+###-tns-completion-start-###
+if [ -f /Users/scott/.tnsrc ]; then 
+    source /Users/scott/.tnsrc 
+fi
+###-tns-completion-end-###
