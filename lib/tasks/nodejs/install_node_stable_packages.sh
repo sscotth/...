@@ -13,8 +13,6 @@ install_node_stable_packages () {
   npm install -g bower
   echo "(cordova)" >&3
   npm install -g cordova
-  echo "(diff-so-fancy)" >&3
-  npm install -g diff-so-fancy
   echo "(eslint)" >&3
   npm install -g eslint
   echo "(grunt-cli)" >&3

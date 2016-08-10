@@ -5,13 +5,9 @@
 export NVM_SYMLINK_CURRENT=true
 
 install_node_lts () {
-  local version=v4
   . ~/.nvm/nvm.sh
 
-  nvm install $version
-
-  echo "Setup alias"
-  nvm alias lts $version
+  nvm install --lts
 
   echo "Update npm"
   npm install -g npm

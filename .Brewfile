@@ -44,6 +44,7 @@ brew 'archey'
 brew 'argon/mas/mas'
 brew 'aria2'
 brew 'chruby', args: ['HEAD']
+brew 'diff-so-fancy'
 brew 'flow'
 brew 'graphicsmagick'
 brew 'heroku-toolbelt'

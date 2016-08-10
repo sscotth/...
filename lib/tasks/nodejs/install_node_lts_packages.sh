@@ -5,7 +5,7 @@
 install_node_lts_packages () {
   . ~/.nvm/nvm.sh
 
-  nvm use lts
+  nvm use --lts
 
   echo "(ionic)" >&3
   npm install -g ionic
