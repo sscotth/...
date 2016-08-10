@@ -10,8 +10,8 @@ install_node_version_manager () {
   # remove nvm, npm, and installed nodes
   rm -rf ~/.nvm ~/.npm
 
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-  . ~/.nvm/nvm.sh
+  brew update
+  brew install nvm
 }
 
 install_node_version_manager
