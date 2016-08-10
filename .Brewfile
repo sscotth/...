@@ -12,6 +12,12 @@ tap 'neovim/neovim'
 tap 'ravenac95/sudolikeaboss'
 
 # UPDATE OS X APPS
+brew 'bash'
+brew 'binutils'
+brew 'coreutils'
+brew 'diffutils'
+brew 'ed', args: ['with-default-names']
+brew 'emacs'
 brew 'findutils'
 brew 'gawk'
 brew 'git'
@@ -28,12 +34,12 @@ brew 'make', args: ['with-default-names']
 brew 'moreutils', args: ['without-parallel', 'force']
 brew 'nano'
 brew 'openssh'
-brew 'tidy-html5'
 brew 'openssl'
 brew 'python'
 brew 'rsync'
 brew 'screen'
 brew 'svn'
+brew 'tidy-html5'
 brew 'vim', args: ['override-system-vi']
 brew 'wget'
 brew 'zsh'
@@ -75,14 +81,6 @@ brew 'trash'
 brew 'tree'
 brew 'watchman'
 brew 'z'
-
-# UPDATE OS X APPS
-brew 'bash'
-brew 'binutils'
-brew 'coreutils'
-brew 'diffutils'
-brew 'ed', args: ['with-default-names']
-brew 'emacs'
 
 # XCODE REQUIRED
 brew 'macvim', args: ['with-custom-icons']
