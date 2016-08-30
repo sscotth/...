@@ -27,6 +27,8 @@ install_node_stable_packages () {
   npm install -g jshint
   echo "(nativescript)" >&3
   npm install -g nativescript
+  echo "(node-gyp)" >&3
+  npm install -g node-gyp
   echo "(node-inspector)" >&3
   npm install -g node-inspector
   echo "(npm-check-updates)" >&3
