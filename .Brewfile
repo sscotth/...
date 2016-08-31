@@ -15,9 +15,12 @@ tap 'ravenac95/sudolikeaboss'
 brew 'bash'
 brew 'binutils'
 brew 'coreutils'
+brew 'diffstat'
 brew 'diffutils'
 brew 'ed', args: ['with-default-names']
 brew 'emacs'
+brew 'expect'
+brew 'file-formula'
 brew 'findutils'
 brew 'gawk'
 brew 'git'
@@ -27,7 +30,9 @@ brew 'gnu-tar', args: ['with-default-names']
 brew 'gnu-units', args: ['with-default-names']
 brew 'gnu-which', args: ['with-default-names']
 brew 'gpatch'
+brew 'gperf'
 brew 'grep', args: ['with-default-names']
+brew 'groff'
 brew 'gzip'
 brew 'less'
 brew 'make', args: ['with-default-names']
@@ -105,6 +110,7 @@ cask 'atom-beta'
 cask 'atom'
 cask 'audiobookbinder'
 cask 'balsamiq-mockups'
+cask 'gpgtools'
 cask 'bartender'
 cask 'bettertouchtool'
 cask 'brackets'
