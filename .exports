@@ -53,3 +53,6 @@ export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
   source /usr/local/bin/virtualenvwrapper_lazy.sh
 fi
+
+# Android
+export ANDROID_HOME=/usr/local/opt/android-sdk
