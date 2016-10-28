@@ -42,10 +42,6 @@ bindkey -s "^[OX" "="
 # Set input to vi mode
 set -o vi
 
-# Opt out of Homebrew analytics
-export HOMEBREW_NO_ANALYTICS=1
-rm -f "$HOME/.homebrew_analytics_user_uuid"
-
 # Load nix
 # if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
 #   . ~/.nix-profile/etc/profile.d/nix.sh;

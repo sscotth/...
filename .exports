@@ -56,3 +56,8 @@ fi
 
 # Android
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_AUTO_UPDATE=1
+rm -f "$HOME/.homebrew_analytics_user_uuid"
