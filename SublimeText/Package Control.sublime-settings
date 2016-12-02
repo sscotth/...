@@ -7,12 +7,15 @@
 	[
 		"Babel",
 		"BracketHighlighter",
+		"Color Highlighter",
 		"Emmet",
 		"Floobits",
 		"GitGutter",
+		"Highlighter",
 		"Jade",
 		"Markdown Preview",
 		"Package Control",
+		"Pug",
 		"Sass",
 		"SideBarEnhancements",
 		"Unicode Character Highlighter"
