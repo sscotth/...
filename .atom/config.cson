@@ -44,6 +44,8 @@
     checkStyleDevDependencies: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
+  "linter-pug":
+    onlyRunWhenConfig: true
   "linter-sass-lint":
     noConfigDisable: true
   "one-dark-ui":
