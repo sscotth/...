@@ -65,6 +65,8 @@
       "atom-dark-ui atom-dark-syntax"
       "one-light-ui fizzy"
     ]
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode":
     startInInsertMode: true
     useClipboardAsDefaultRegister: true
