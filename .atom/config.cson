@@ -60,6 +60,11 @@
     tabSizing: "Minimum"
   tabs:
     usePreviewTabs: true
+  "theme-switch":
+    profiles: [
+      "atom-dark-ui atom-dark-syntax"
+      "one-light-ui fizzy"
+    ]
   "vim-mode":
     startInInsertMode: true
     useClipboardAsDefaultRegister: true
