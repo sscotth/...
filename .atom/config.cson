@@ -15,7 +15,9 @@
     ui:
       panelContrast: true
       panelShadows: true
-  core: {}
+  core:
+    telemetryConsent: "no"
+    useCustomTitleBar: true
   "dark-flat-ui":
     accentColor: "green"
   editor:
