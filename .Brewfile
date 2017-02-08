@@ -121,6 +121,7 @@ cask 'charles-beta'
 cask 'chromium'
 cask 'codekit'
 cask 'controlplane'
+cask 'dash'
 cask 'discord'
 cask 'docker'
 cask 'dropbox-beta'
@@ -266,3 +267,10 @@ cask 'ax88179'
 # NEED PREREQ
 # XQUARTZ
 cask 'fontforge'
+
+# APP STORE
+mas 'Day One Classic', id: 422304217
+mas 'Deckset', id: 847496013
+mas 'Pixelmator', id: 407963104
+mas 'Reeder', id: 880001334
+mas 'Xcode', id: 497799835

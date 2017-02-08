@@ -20,7 +20,6 @@ concurrent_install () {
 
         - "Clean .DS_Store files"               retry gtimeout 100 ./lib/tasks/osx/clean_DS_Store.sh
         - "Generate SSH Keys"                   retry gtimeout 100 ./lib/tasks/osx/generate_ssh_keys.sh
-        - "Install App Store apps"              retry gtimeout 100 ./lib/tasks/osx/install_app_store_apps.sh
         - "Install Hosts file"                  retry gtimeout 100 ./lib/tasks/osx/install_hosts_file.sh
         - "Install Oh-My-ZSH"                   retry gtimeout 100 ./lib/tasks/osx/install_oh_my_zsh.sh
         - "Install OSX updates"                 retry gtimeout 600 ./lib/tasks/osx/install_osx_updates.sh
