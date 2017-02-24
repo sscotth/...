@@ -25,6 +25,8 @@ install_node_stable_packages () {
   npm install -g ionic
   echo "(jshint)" >&3
   npm install -g jshint
+  echo "(localtunnel)" >&3
+  npm install -g localtunnel
   echo "(nativescript)" >&3
   npm install -g nativescript
   echo "(node-gyp)" >&3
