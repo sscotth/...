@@ -73,8 +73,12 @@ cached_sudo chsh -s $(which zsh) scott
 
 # Run concurrent test
 
-# Download concurrent (prefer git)
-git clone https://github.com/themattrix/bash-concurrent
+# (Re-)Download concurrent and use nocompact branch
+rm -rf bash-concurrent
+git clone https://github.com/sscotth/bash-concurrent
+cd bash-concurrent
+git checkout nocompact
+cd ..
 
 # Load concurrent tasks
 bash ./lib/tasks.sh
