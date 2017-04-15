@@ -81,7 +81,7 @@ git checkout nocompact
 cd ..
 
 # Load concurrent tasks
-bash ./lib/tasks.sh
+bash ./lib/tasks/index.sh
 
 # Homebrew installs (parallelize)
 bash ./lib/tasks/osx/homebrew.sh
