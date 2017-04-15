@@ -54,7 +54,7 @@ brew 'ack'
 brew 'archey'
 brew 'argon/mas/mas'
 brew 'aria2'
-brew 'chruby', args: ['HEAD']
+brew 'chruby'
 brew 'diff-so-fancy'
 brew 'flow'
 brew 'graphicsmagick'
@@ -88,14 +88,6 @@ brew 'tree'
 brew 'watchman'
 brew 'z'
 
-# XCODE REQUIRED
-brew 'macvim', args: ['with-custom-icons']
-brew 'ntfs-3g'
-brew 'sshfs'
-
-# PREREQ
-cask 'xquartz'
-
 # CASK APPS
 cask '1password-beta'
 cask 'aerial'
@@ -103,7 +95,6 @@ cask 'airmail-beta'
 cask 'airserver'
 cask 'airtool'
 cask 'alfred'
-cask 'anatine'
 cask 'apache-couchdb'
 cask 'appcleaner'
 cask 'asepsis'
@@ -132,7 +123,7 @@ cask 'fantastical'
 cask 'filezilla'
 cask 'firefox'
 cask 'firefoxdeveloperedition'
-cask 'flash'
+cask 'flash-player'
 cask 'flux'
 cask 'fontprep'
 cask 'free-ruler'
@@ -149,6 +140,7 @@ cask 'google-trends'
 cask 'gpgtools'
 cask 'grandperspective'
 cask 'handbrake'
+cask 'hipchat'
 cask 'hyperswitch'
 cask 'insomniax'
 cask 'integrity'
@@ -187,6 +179,7 @@ cask 'omnifocus'
 cask 'omnigraffle'
 cask 'onyx'
 cask 'opera-developer'
+cask 'osxfuse'
 cask 'parallels-desktop'
 cask 'paw'
 cask 'plex-media-player'
@@ -277,3 +270,9 @@ mas 'Deckset', id: 847496013
 mas 'Pixelmator', id: 407963104
 mas 'Reeder', id: 880001334
 mas 'Xcode', id: 497799835
+
+# PREREQ
+brew 'macvim', args: ['with-custom-icons']
+brew 'ntfs-3g'
+brew 'sshfs'
+cask 'xquartz'

@@ -2,213 +2,217 @@
 
 # Supplement to mathiasbynens' ~/.osx — https://mths.be/osx
 
-# Enable transparency effects
+echo LOADING .OSX_SUPPLEMENT
+
+echo Enable transparency effects
 defaults write com.apple.universalaccess reduceTransparency -bool false
 
-# Set sidebar icon size to Small
+echo Set sidebar icon size to Small
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
-# Enable automatic termination of inactive apps
+echo Enable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
 
-# Enable Notification Center (After restart?)
+echo Enable Notification Center (After restart?)
 launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 
-# Enable “natural” (Lion-style) scrolling
+echo Enable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
-# Enable press-and-hold for keys rather than key repeat
+echo Enable press-and-hold for keys rather than key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
 
-# Set language and text formats
+echo Set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "en"
 defaults write NSGlobalDomain AppleLocale -string "en_US"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
 defaults write NSGlobalDomain AppleMetricUnits -bool false
 
-# Set the timezone; see `sudo systemsetup -listtimezones` for other values
+echo Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "America/Chicago" > /dev/null
 
-# Enable auto-correct
+echo Enable auto-correct
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool true
 
-# Require password immediately after sleep or 15 seconds after screen saver begins
+echo Require password immediately after sleep or 15 seconds after screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 15
 
-# Enable shadow in screenshots
+echo Enable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool false
 
-# Set Home (~/) as the default location for new Finder windows
-# For other paths, use `PfLo` and `file:///full/path/here/`
+echo Set Home (~/) as the default location for new Finder windows
+echo For other paths, use `PfLo` and `file:///full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
-# Hide icons for hard drives on the desktop
+echo Hide icons for hard drives on the desktop
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 
-# Finder: show hidden files by default
-# defaults write com.apple.Finder AppleShowAllFiles -bool true
+echo Finder: show hidden files by default
+echo defaults write com.apple.Finder AppleShowAllFiles -bool true
 
-# Enable the warning before emptying the Trash
+echo Enable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool true
 
-# Re-Enable Dropbox’s green checkmark icons in Finder
-# file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-# [ -e "${file}" ] && mv -f "${file}.bak" "${file}"
+echo Re-Enable Dropbox’s green checkmark icons in Finder
+echo file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+echo [ -e "${file}" ] && mv -f "${file}.bak" "${file}"
 
-# Enable grouping windows by application in Mission Control
-# (i.e. use the old Exposé behavior instead)
-# defaults write com.apple.dock expose-group-by-app -bool true
+echo Enable grouping windows by application in Mission Control
+echo (i.e. use the old Exposé behavior instead)
+echo defaults write com.apple.dock expose-group-by-app -bool true
 
-# Enable default 10.11 Mission Control behavior
+echo Enable default 10.11 Mission Control behavior
 defaults delete com.apple.dock expose-group-by-app
 
-# Dashboard is now disabled in 10.11
+echo Dashboard is now disabled in 10.11
 defaults delete com.apple.dashboard mcx-disabled
 defaults delete com.apple.dock dashboard-in-overlay
 
-# Disable Dashboard dev mode (keeping widgets on the desktop)
+echo Disable Dashboard dev mode (keeping widgets on the desktop)
 defaults delete com.apple.dashboard devmode
 
-# Hot corners
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-# Top left screen corner → Mission Control
-# defaults write com.apple.dock wvous-tl-corner -int 2
-# defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner → Desktop
-# defaults write com.apple.dock wvous-tr-corner -int 4
-# defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Start screen saver
-# defaults write com.apple.dock wvous-bl-corner -int 5
-# defaults write com.apple.dock wvous-bl-modifier -int 0
+echo Hot corners
+echo Possible values:
+echo  0: no-op
+echo  2: Mission Control
+echo  3: Show application windows
+echo  4: Desktop
+echo  5: Start screen saver
+echo  6: Disable screen saver
+echo  7: Dashboard
+echo 10: Put display to sleep
+echo 11: Launchpad
+echo 12: Notification Center
+echo Top left screen corner → Mission Control
+echo defaults write com.apple.dock wvous-tl-corner -int 2
+echo defaults write com.apple.dock wvous-tl-modifier -int 0
+echo Top right screen corner → Desktop
+echo defaults write com.apple.dock wvous-tr-corner -int 4
+echo defaults write com.apple.dock wvous-tr-modifier -int 0
+echo Bottom left screen corner → Start screen saver
+echo defaults write com.apple.dock wvous-bl-corner -int 5
+echo defaults write com.apple.dock wvous-bl-modifier -int 0
 
-# Safari: Remove Press Tab to highlight each item on a web page
+echo Safari: Remove Press Tab to highlight each item on a web page
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool false
 
-# Safari: Show Safari’s sidebar in Top Sites
+echo Safari: Show Safari’s sidebar in Top Sites
 defaults write com.apple.Safari ShowSidebarInTopSites -bool true
 
-# Safari: Enable default icons in Safari’s bookmarks bar
+echo Safari: Enable default icons in Safari’s bookmarks bar
 defaults delete com.apple.Safari ProxiesInBookmarksBar
 
-# Mail: Enable automatic spell checking
+echo Mail: Enable automatic spell checking
 defaults delete com.apple.mail SpellCheckingBehavior
 
-# Messages: Enable automatic emoji substitution (i.e. use plain text smileys)
+echo Messages: Enable automatic emoji substitution (i.e. use plain text smileys)
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool true
 
-# Messages: Disable continuous spell checking
+echo Messages: Disable continuous spell checking
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool true
 
 
 #########
-# Set a longer Delay until key repeat
+echo Set a longer Delay until key repeat
 defaults write NSGlobalDomain InitialKeyRepeat -int 100
 
-# Disable window animations ("new window" scale effect)
+echo Disable window animations ("new window" scale effect)
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
-# Auto-play videos when opened with QuickTime Player
+echo Auto-play videos when opened with QuickTime Player
 defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen 1
 
 #######
 
-# Menu bar: show battery percentage
+echo Menu bar: show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-# Menu bar: disable transparency
-# defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+echo Menu bar: disable transparency
+echo defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
-# Run Time Machine backups on battery power
-# defaults write /Library/Preferences/com.apple.TimeMachine RequiresACPower 0
+echo Run Time Machine backups on battery power
+echo defaults write /Library/Preferences/com.apple.TimeMachine RequiresACPower 0
 
-# Developer CrashReport dialog type
-# defaults write com.apple.CrashReporter DialogType developer
+echo Developer CrashReport dialog type
+echo defaults write com.apple.CrashReporter DialogType developer
 
-# Don't automatically switch to a Space with open windows for and application when switching to it
-# defaults write com.apple.dock workspaces-auto-swoosh -boolean NO
+echo Dont automatically switch to a Space with open windows for and application when switching to it
+echo defaults write com.apple.dock workspaces-auto-swoosh -boolean NO
 
 
-# Trackpad: swipe between pages with three fingers
-# defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
+echo Trackpad: swipe between pages with three fingers
+echo defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
+echo defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
+echo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
 
-# Follow the keyboard focus while zoomed in
-# defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+echo Follow the keyboard focus while zoomed in
+echo defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
-# Finder: allow text selection in Quick Look
-# As of OS X 10.11, it no longer has any effect?
-# defaults write com.apple.finder QLEnableTextSelection -bool true
+echo Finder: allow text selection in Quick Look
+echo As of OS X 10.11, it no longer has any effect?
+echo defaults write com.apple.finder QLEnableTextSelection -bool true
 
-# Position Dock on right of screen
-# defaults write com.apple.dock orientation -string right
+echo Position Dock on right of screen
+echo defaults write com.apple.dock orientation -string right
 
 ####################################
-# Change general appearahce color to Graphite
+echo Change general appearahce color to Graphite
 defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 
-# Change general highlight color to green
+echo Change general highlight color to green
 defaults write NSGlobalDomain AppleHighlightColor -string "0.752941 0.964706 0.678431"
 
-# Change Menu bar color to dark
+echo Change Menu bar color to dark
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
-# Automaticall hide and show the menu bar
+echo Automaticall hide and show the menu bar
 defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
-# Show scroll bars only when scrolling
+echo Show scroll bars only when scrolling
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
 
-# Clicking scroll bar jumps to the spot that is clicked
+echo Clicking scroll bar jumps to the spot that is clicked
 defaults write NSGlobalDomain AppleScrollerPagingBehavior -int 1
 
-# Add bluetooth icon to menu and reorder
+echo Add bluetooth icon to menu and reorder
 defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
   "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
   "/System/Library/CoreServices/Menu Extras/Battery.menu" \
   "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
-# AirServer settings
+echo AirServer settings
 defaults write com.pratikkumar.airserver-mac com.airserverapp.dualAirPlay -bool true
 defaults write com.pratikkumar.airserver-mac com.airserverapp.linkMasterVolume -bool false
 defaults write com.pratikkumar.airserver-mac com.airserverapp.PasswordType -string "Fixed Password"
 
-# Disable spotlight keyboard shortcut (NOT WORKING?)
+echo Disable spotlight keyboard shortcut (NOT WORKING?)
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; }"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; }"
 
-# Allow installing user scripts from additional websites
+echo Allow installing user scripts from additional websites
 defaults write com.google.Chrome ExtensionInstallSources -array \
   "https://*.github.com/*" "https://openuserjs.org/*" "https://greasyfork.org/*"
 defaults write com.google.Chrome.canary ExtensionInstallSources -array \
   "https://*.github.com/*" "https://openuserjs.org/*" "https://greasyfork.org/*"
 
-# TotalFinder settings and keyboard shortcut
+echo TotalFinder settings and keyboard shortcut
 defaults write com.binaryage.totalfinder TotalFinderNarrowTabsBar -bool true
 defaults write com.apple.universalaccess com.apple.custommenu.apps -array com.apple.finder
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Close Tab" "@q"
 
-# Alfred allow use of ~/Dropbox/Apps folder
+echo Alfred allow use of ~/Dropbox/Apps folder
 defaults write com.runningwithcrayons.Alfred-Preferences dropbox.allowappsfolder -bool true
 
-# Set random computer name
-sudo scutil --set ComputerName `openssl rand -hex 16`
-sudo scutil --set LocalHostName `openssl rand -hex 16`
-sudo scutil --set HostName `openssl rand -hex 16`
+echo Set random computer name
+sudo scutil --set ComputerName `openssl rand -hex 4`
+sudo scutil --set LocalHostName `openssl rand -hex 4`
+sudo scutil --set HostName `openssl rand -hex 4`
 
-# Set mouse tracking speed
+echo Set mouse tracking speed
 defaults write -g com.apple.mouse.scaling 0.1
+
+echo FINISHED LOADING .OSX_SUPPLEMENT

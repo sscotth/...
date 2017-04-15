@@ -2,8 +2,10 @@
 #
 # Node.js functions
 
+source ./lib/utilities.sh
+
 clean_npm_cache () {
-  . ~/.nvm/nvm.sh
+  load_nvm
 
   npm cache clean
 }

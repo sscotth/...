@@ -2,21 +2,24 @@
 #
 # SUDO: Setup Assistive Devices
 
+source ./lib/utilities.sh
+
 setup_assistive_devices () {
-  echo "Adding Terminal to assistive devices"
-  brew update
-  brew install tccutil
+  if csrutil status | grep "System Integrity Protection status: disabled"; then
+    echo "System Integrity Protection status: disabled."
+    echo "Adding Terminal to assistive devices"
+    brew update
+    brew install tccutil
 
-  /usr/bin/expect <<EOD
-  set timeout 999
-  spawn sudo tccutil -i com.apple.Terminal
-  expect "Password:"
-  send "$SUDOPASS\n"
-  expect eof
-EOD
+    cached_sudo tccutil -i com.apple.Terminal
 
-  # Check list before completing
-  sudo tccutil -l | grep com.apple.Terminal
+    # Check list before completing
+    cached_sudo tccutil -l | grep com.apple.Terminal
+  else
+    echo "System Integrity Protection status: enabled."
+    echo "(ERROR: SIP Enabled)" >&3
+    return 72
+  fi
 }
 
 setup_assistive_devices

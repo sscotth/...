@@ -2,8 +2,10 @@
 #
 # Node.js functions
 
+source ./lib/utilities.sh
+
 setup_node_nightly () {
-  . ~/.nvm/nvm.sh
+  load_nvm
 
   nvm use nightly
 

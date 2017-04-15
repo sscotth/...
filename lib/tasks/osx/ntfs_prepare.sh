@@ -2,15 +2,19 @@
 #
 # NTFS-3G functions
 
+source ./lib/utilities.sh
+
 ntfs_prepare () {
   if csrutil status | grep "System Integrity Protection status: disabled"; then
+    echo "System Integrity Protection status: disabled."
     if [ -f /sbin/mount_ntfs ]; then
-      sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
+      cached_sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
     fi
-    sudo ln -sf /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
+    cached_sudo ln -sf /usr/local/sbin/mount_ntfs /sbin/mount_ntfs
   else
+    echo "System Integrity Protection status: enabled."
     echo "(ERROR: SIP Enabled)" >&3
-    false
+    return 72
   fi
 }
 

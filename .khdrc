@@ -1,0 +1,456 @@
+
+# NOTE(koekeishiya) Modifier only binding
+# left shift    -> (    right shift   -> )
+# left cmd      -> {    right cmd     -> }
+
+# Add commands to modifier keys if pressed and released in a specified timeframe
+khd mod_trigger_timeout 0.1
+rshift : khd -w "⇧"
+rcmd   : khd -w "⌘"
+ralt   : khd -w "⌥"
+rctrl  : khd -w "⌃"
+
+# Bind mouse-buttons (other tools like BTT can interfere)
+- button3 : khd -p "cmd - 0x21" # ⌘ + [
+- button4 : khd -p "cmd - 0x1E" # ⌘ + ]
+
+# Extra function keys
+# - f1 : khd -p "0x69" # F13
+# - f2 : khd -p "0x6B" # F14
+# - f3 : khd -p "0x71" # F15
+# - f4 : khd -p "0x6A" # F16
+# - f5 : khd -p "0x40" # F17
+# - f6 : khd -p "0x4F" # F18
+# - f7 : khd -p "0x50" # F19
+# - f8 : khd -p "0x5A" # F20
+
+- f1 : say go && [[ $(kwmc query window focused float) == "true" ]] && say ok
+- f2 : say go && if [[ $(kwmc query window focused float) == "true" ]]; then say ok;  else; say not ok; fi
+# - f3 : khd -p "0x5A" # F15
+# - f4 : khd -p "0x60" # F16
+# - f5 : khd -p "0x61" # F17
+# - f6 : khd -p "0x62" # F18
+# - f7 : khd -p "0x63" # F19
+# - f8 : khd -p "0x64" # F20
+# - f9 : khd -p "0x65" # F21
+# - f10 : khd -p "0x66" # F22
+# - f11 : khd -p "0x67" # F23
+# - f20 : say F20
+
+# TODO(koekeishiya): possibly allow combined syntax such as
+# [switcher,ytd] + ctrl - f : khd -e "mode activate default"
+
+
+# vi-mode for non-terminal applications
+# remap left-control h/j/k/l -> arrow keys
+lctrl - h         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- left"
+lctrl - j         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- down"
+lctrl - k         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- up"
+lctrl - l         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- right"
+
+shift + lctrl - h ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - left"
+shift + lctrl - j ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - down"
+shift + lctrl - k ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - up"
+shift + lctrl - l ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - right"
+
+# remap left-control 0 / 4   -> start / end of line
+lctrl - 0         ![HyperTerm,Terminal,iTerm2]      :   khd -p "cmd - left"
+lctrl - 4         ![HyperTerm,Terminal,iTerm2]      :   khd -p "cmd - right"
+
+# remap left-control g / G   -> start / end of text
+lctrl - g         ![HyperTerm,Terminal,iTerm2]      :   khd -p "cmd - up"
+lctrl + shift - g ![HyperTerm,Terminal,iTerm2]      :   khd -p "cmd - down"
+
+shift + lctrl - 0 ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + cmd - left"
+shift + lctrl - 4 ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + cmd - right"
+
+# remap left-control b / e   -> start / end of word
+lctrl - b         ![HyperTerm,Terminal,iTerm2]      :   khd -p "alt - left"
+lctrl - e         ![HyperTerm,Terminal,iTerm2]      :   khd -p "alt - right"
+
+shift + lctrl - b ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + alt - left"
+shift + lctrl - e ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift + alt - right"
+
+# remap left-control x       -> forward delete
+lctrl - x         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- delete"
+
+# set color of focused border to color of active mode
+khd kwm on
+
+# set border color for different modes #AARRGGBB
+khd mode default color 0xddd5c4a1 # Wheat
+khd mode switcher color 0xddbdd322 # Green-Yellow ... Nvidia green
+khd mode tree color 0xddfabd2f # Goldenrod
+khd mode space color 0xddb16286 # Pale Violet Red
+khd mode info color 0xddcd950c # Dark GoldenRod
+
+# toggle between modes
+ctrl - f                :   khd -e "mode activate switcher" && \
+                            osascript -l JavaScript -e "var a=Application.currentApplication();a.includeStandardAdditions=true;a.displayNotification('Switcher Mode Activated',{withTitle:'KWM'})"
+switcher + ctrl - f     :   khd -e "mode activate default" && \
+                            osascript -e 'display notification "Default Mode Activated" with title "KWM"'
+space + ctrl - f        :   khd -e "mode activate default" && \
+                            osascript -e 'display notification "Default Mode Activated" with title "KWM"'
+tree + ctrl - f         :   khd -e "mode activate default" && \
+                            osascript -e 'display notification "Default Mode Activated" with title "KWM"'
+
+switcher - s            :   khd -e "mode activate space" && \
+                            osascript -e 'display notification "Space Mode Activated" with title "KWM"'
+switcher - d            :   khd -e "mode activate tree" && \
+                            osascript -e 'display notification "Tree Mode Activated" with title "KWM"'
+switcher - q            :   khd -e "mode activate info" && \
+                            osascript -e 'display notification "Info Mode Activated" with title "KWM"'
+
+
+# switcher mode changes between ⌥
+switcher - r            :   khd -e "reload" && \
+                            osascript -e 'display notification "Reload Config" with title "KWM"'
+
+switcher - return       :   open -na /Applications/iTerm2.app;\
+                            khd -e "mode activate default"
+
+switcher - h            :   kwmc window -f west && \
+                            osascript -e 'display notification "Switch West" with title "KWM"'
+switcher - l            :   kwmc window -f east && \
+                            osascript -e 'display notification "Switch East" with title "KWM"'
+switcher - j            :   kwmc window -f south && \
+                            osascript -e 'display notification "Switch South" with title "KWM"'
+switcher - k            :   kwmc window -f north && \
+                            osascript -e 'display notification "Switch North" with title "KWM"'
+switcher - n            :   kwmc window -fm prev && \
+                            osascript -e 'display notification "Switch Prev" with title "KWM"'
+switcher - m            :   kwmc window -fm next && \
+                            osascript -e 'display notification "Switch Next" with title "KWM"'
+
+switcher - 1            :   kwmc space -fExperimental 1 && \
+                            osascript -e 'display notification "Switch Space 1" with title "KWM"'
+switcher - 2            :   kwmc space -fExperimental 2 && \
+                            osascript -e 'display notification "Switch Space 2" with title "KWM"'
+switcher - 3            :   kwmc space -fExperimental 3 && \
+                            osascript -e 'display notification "Switch Space 3" with title "KWM"'
+switcher - 4            :   kwmc space -fExperimental 4 && \
+                            osascript -e 'display notification "Switch Space 4" with title "KWM"'
+switcher - 5            :   kwmc space -fExperimental 5 && \
+                            osascript -e 'display notification "Switch Space 5" with title "KWM"'
+switcher - 6            :   kwmc space -fExperimental 6 && \
+                            osascript -e 'display notification "Switch Space 6" with title "KWM"'
+
+switcher - z            :   kwmc space -fExperimental left && \
+                            osascript -e 'display notification "Switch Space Left" with title "KWM"'
+switcher - c            :   kwmc space -fExperimental right && \
+                            osascript -e 'display notification "Switch Space Right" with title "KWM"'
+switcher - f            :   kwmc space -fExperimental previous && \
+                            osascript -e 'display notification "Switch Space Prev" with title "KWM"'
+
+switcher + shift - z    :   kwmc window -m space left;\
+                            kwmc space -fExperimental left
+
+switcher + shift - c    :   kwmc window -m space right;\
+                            kwmc space -fExperimental right
+
+switcher + shift - 1    :   kwmc display -f 0 && \
+                            osascript -e 'display notification "Switch Display 0" with title "KWM"'
+switcher + shift - 2    :   kwmc display -f 1 && \
+                            osascript -e 'display notification "Switch Display 1" with title "KWM"'
+switcher + shift - 3    :   kwmc display -f 2 && \
+                            osascript -e 'display notification "Switch Display 2" with title "KWM"'
+
+
+# space mode
+space - a               :   kwmc space -t bsp
+space - s               :   kwmc space -t monocle
+space - d               :   kwmc space -t float
+
+space - x               :   kwmc space -g increase horizontal
+space - y               :   kwmc space -g increase vertical
+
+space + shift - x       :   kwmc space -g decrease horizontal
+space + shift - y       :   kwmc space -g decrease vertical
+
+space - left            :   kwmc space -p increase left
+space - right           :   kwmc space -p increase right
+space - up              :   kwmc space -p increase top
+space - down            :   kwmc space -p increase bottom
+space - p               :   kwmc space -p increase all
+
+space + shift - left    :   kwmc space -p decrease left
+space + shift - right   :   kwmc space -p decrease right
+space + shift - up      :   kwmc space -p decrease top
+space + shift - down    :   kwmc space -p decrease bottom
+space + shift - p       :   kwmc space -p decrease all
+
+
+
+# tree mode
+# tree - f                :   kwmc window -z fullscreen
+# tree - d                :   kwmc window -z parent # dont see value
+# tree - w                :   kwmc window -t focused
+# tree - r                :   kwmc tree rotate 90
+
+# tree - c                :   kwmc window -c type toggle # toggle between bsp and monocle
+
+
+tree - p                :   kwmc tree -pseudo create
+tree + shift - p        :   kwmc tree -pseudo destroy
+
+
+
+
+
+########## i3 Compat #########
+
+####################
+### DEFAULT MODE ###
+####################
+
+# Open new terminal
+lalt - return ![VMware Fusion] : open -na /Applications/iTerm.app
+
+# Kill focused window
+lalt + shift - q  ![VMware Fusion] : khd -p "cmd - q" # osascript alternative?
+alt - f4 ![VMware Fusion] : khd -p "cmd - q" # Windows compat
+
+# Start dmenu
+lalt - d ![VMware Fusion] : osascript -l JavaScript -e "Application('Alfred 3').search()"
+
+# Change Focus (IJKL)
+lalt - i    ![VMware Fusion] : kwmc window -f north
+lalt - j  ![VMware Fusion] : kwmc window -f west
+lalt - k  ![VMware Fusion] : kwmc window -f south
+lalt - l ![VMware Fusion] : kwmc window -f east
+
+# Change Focus (Arrows)
+lalt - up    ![VMware Fusion] : kwmc window -f north
+lalt - left  ![VMware Fusion] : kwmc window -f west
+lalt - down  ![VMware Fusion] : kwmc window -f south
+lalt - right ![VMware Fusion] : kwmc window -f east
+
+# Change Focus Between Displays (IJKL)
+lalt + ctrl - j  ![VMware Fusion] : kwmc window -fm prev
+lalt + ctrl - l ![VMware Fusion] : kwmc window -fm next
+
+# Change Focus Between Displays (Arrows)
+lalt + ctrl - left  ![VMware Fusion] : kwmc window -fm prev
+lalt + ctrl - right ![VMware Fusion] : kwmc window -fm next
+
+# Move Window (IJKL)
+lalt + shift - i    ![VMware Fusion] : kwmc window -m north
+lalt + shift - j  ![VMware Fusion] : kwmc window -m west
+lalt + shift - k  ![VMware Fusion] : kwmc window -m south
+lalt + shift - l ![VMware Fusion] : kwmc window -m east
+
+# Move Window (Arrows)
+lalt + shift - up    ![VMware Fusion] : kwmc window -m north
+lalt + shift - left  ![VMware Fusion] : kwmc window -m west
+lalt + shift - down  ![VMware Fusion] : kwmc window -m south
+lalt + shift - right ![VMware Fusion] : kwmc window -m east
+
+# Move Window Between Displays (IJKL)
+lalt + ctrl + shift - j  ![VMware Fusion] : kwmc window -m display prev
+lalt + ctrl + shift - l ![VMware Fusion] : kwmc window -m display next
+
+# Move Window Between Displays (Arrows)
+lalt + ctrl + shift - left  ![VMware Fusion] : kwmc window -m display prev
+lalt + ctrl + shift - right ![VMware Fusion] : kwmc window -m display next
+
+# Change split mode
+# next splits horizontal
+# next splits vertically
+
+# enter fullscreen mode for the focused container
+lalt - f ![VMware Fusion] : kwmc window -z fullscreen
+
+# change the container layout # stacking, tabble toggle split
+# lalt - s layout stacking
+# lalt - w layout tabbed
+# lalt - e layout toggle split # switches to split mode and toggles between vert and horiz split
+lalt - e ![VMware Fusion] : kwmc window -c split-mode toggle # toggles between vert and horiz split
+
+# toggle float / tiling
+lalt + shift - space ![VMware Fusion] : kwmc window -t focused # floating toggle
+
+# change focus between tiling / floating windows
+# lalt - space focus mode_toggle
+
+# focus the parent container
+# lalt - a focus parent
+
+# focus the child container
+# lalt - d focus child
+
+# switch to workspace
+# lalt - 1 workspace 1
+# lalt - 2 workspace 2
+# lalt - 3 workspace 3
+# lalt - 4 workspace 4
+# lalt - 5 workspace 5
+# lalt - 6 workspace 6
+# lalt - 7 workspace 7
+# lalt - 8 workspace 8
+# lalt - 9 workspace 9
+# lalt - 0 workspace 10
+
+# move focused container to workspace
+lalt + Shift - 1 ![VMware Fusion] : kwmc window -m space 1 # move container to workspace 1
+lalt + Shift - 2 ![VMware Fusion] : kwmc window -m space 2 # move container to workspace 2
+lalt + Shift - 3 ![VMware Fusion] : kwmc window -m space 3 # move container to workspace 3
+lalt + Shift - 4 ![VMware Fusion] : kwmc window -m space 4 # move container to workspace 4
+lalt + Shift - 5 ![VMware Fusion] : kwmc window -m space 5 # move container to workspace 5
+lalt + Shift - 6 ![VMware Fusion] : kwmc window -m space 6 # move container to workspace 6
+lalt + Shift - 7 ![VMware Fusion] : kwmc window -m space 7 # move container to workspace 7
+lalt + Shift - 8 ![VMware Fusion] : kwmc window -m space 8 # move container to workspace 8
+lalt + Shift - 9 ![VMware Fusion] : kwmc window -m space 9 # move container to workspace 9
+lalt + Shift - 0 ![VMware Fusion] : kwmc window -m space 0 # move container to workspace 10
+
+
+## Reload configuration
+# lalt + shift - c  :   brew services restart khd && osascript -e 'display notification "Reload configuration" with title "KWM"'
+## Reload layout
+# lalt + shift - r  :   brew services restart kwm && brew services restart khd && osascript -e 'display notification "Reload layout" with title "KWM"'
+
+# Logout of session
+# lalt + Shift - e logout
+
+###################
+### RESIZE MODE ###
+###################
+
+# AppleScript Used to resize floating windows
+# Be careful if attempting to go beyond the bounds of the screen
+# > "Kwm is not really supposed to be a manager for floating windows at all."
+# > -- https://github.com/koekeishiya/kwm/issues/82
+
+# Resize window Mode
+lalt - r ![VMware Fusion] : khd -e "mode activate resize" && \
+           osascript -e 'display notification "Resize Mode Activated" with title "KWM"'
+
+# Return to default Mode
+resize - return : khd -e "mode activate default" && \
+                  osascript -e 'display notification "Default Mode Activated" with title "KWM"'
+resize - escape : khd -e "mode activate default" && \
+                  osascript -e 'display notification "Default Mode Activated" with title "KWM"'
+
+# Make smaller (IJKL)
+resize - i ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                  then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h-c]" ;\
+                                  else kwmc window -c reduce 0.025 south ;\
+                              fi
+resize - j ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                  then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w-c,h]" ;\
+                                  else kwmc window -c reduce 0.025 east ;\
+                              fi
+resize - k ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                  then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h-c];a.position=[x,y+c]" ;\
+                                  else kwmc window -c reduce 0.025 north ;\
+                              fi
+resize - l ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                  then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w-c,h];a.position=[x+c,y]" ;\
+                                  else kwmc window -c reduce 0.025 west ;\
+                              fi
+
+# Make smaller (Arrows)
+resize - up ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                  then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h-c]" ;\
+                                  else kwmc window -c reduce 0.025 south ;\
+                              fi
+resize - left ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                  then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w-c,h]" ;\
+                                  else kwmc window -c reduce 0.025 east ;\
+                              fi
+resize - down ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                  then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h-c];a.position=[x,y+c]" ;\
+                                  else kwmc window -c reduce 0.025 north ;\
+                              fi
+resize - right ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                        then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w-c,h];a.position=[x+c,y]" ;\
+                                        else kwmc window -c reduce 0.025 west ;\
+                              fi
+
+# Make Larger (IJKL)
+resize + shift - i ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                        then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h+c];a.position=[x,y-c]" ;\
+                                        else kwmc window -c expand 0.025 north ;\
+                                      fi
+resize + shift - j ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                          then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w+c,h];a.position=[x-c,y]" ;\
+                                          else kwmc window -c expand 0.025 west ;\
+                                      fi
+resize + shift - k ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                          then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h+c]" ;\
+                                          else kwmc window -c expand 0.025 south ;\
+                                      fi
+resize + shift - l ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                          then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w+c,h]" ;\
+                                          else kwmc window -c expand 0.025 east ;\
+                                      fi
+
+# Make Larger (Arrows)
+resize + shift - up ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                            then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h+c];a.position=[x,y-c]" ;\
+                                            else kwmc window -c expand 0.025 north ;\
+                                        fi
+resize + shift - left ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                            then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w+c,h];a.position=[x-c,y]" ;\
+                                            else kwmc window -c expand 0.025 west ;\
+                                        fi
+resize + shift - down ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                            then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w,h+c]" ;\
+                                            else kwmc window -c expand 0.025 south ;\
+                                        fi
+resize + shift - right ![VMware Fusion] : if [[ $(kwmc query window focused float) == "true" ]] ;\
+                                            then osascript -l JavaScript -e "var c=30,a=Application('System Events').applicationProcesses.where({frontmost:true}).windows[0],[w,h]=a.size()[0],[x,y]=a.position()[0];a.size=[w+c,h]" ;\
+                                            else kwmc window -c expand 0.025 east ;\
+                                        fi
+
+#############
+### OTHER ###
+#############
+
+# # Display spaces using in a bar that accepts stdout
+# kwmc=`which kwmc`
+
+# # get active and previous space
+# active=$($kwmc query space active id)
+# previous=$($kwmc query space previous id)
+
+# # get array of spaces
+# typeset -A spaces # spaces=()
+# i=0
+# while read -r line
+# do
+#     spaces[i]="$line"
+#     (( i++ ))
+# done <<< "$($kwmc query space list)"
+
+# # populate bar with icons
+# typeset -A bar # bar=()
+# for (( i = 0; i < ${#spaces[@]}; i++ ))
+# do
+#   if [[ ${spaces[$i]} == *"[no tag]" ]] #|| "$i" -lt 5 ]]
+#   then
+#     bar[$i]=$(($i+1))
+#   else
+#     if [[ "$i" == "9" ]]
+#     then
+#       id="${spaces[$i]:4}"
+#     else
+#       id="${spaces[$i]:3}"
+#     fi
+#     # bar[$i]="$(echo $id | tr '[:lower:]' '[:upper:]')"
+#     bar[$i]="$[$i+1]/$id"
+#   fi
+# done
+
+# # style active and previous space icons
+# typeset -A bbar # bbar=()
+# for (( i = 0; i < ${#bar[@]}; i++ ))
+# do
+#   if [[ $(($i+1)) == "$active" ]]
+#   then
+#     bbar[(($i*3+1))]="("${bar[$i]}")"
+#   else
+#     bbar[(($i*3+1))]=" ${bar[$i]} "
+#   fi
+# done
+
+# echo "$($kwmc query space active mode)   ${bbar[*]}"

@@ -2,17 +2,17 @@
 #
 # Node.js functions
 
+source ./lib/utilities.sh
+
 install_node_lts_packages () {
-  . ~/.nvm/nvm.sh
+  load_nvm
 
   nvm use --lts
 
-  echo "(ionic)" >&3
-  npm install -g ionic
-  echo "(node-gyp)" >&3
-  npm install -g node-gyp
-  echo "(node-inspector)" >&3
-  npm install -g node-inspector
+  # echo "(ionic)" >&3
+  # npm install -g ionic
+  # echo "(node-gyp)" >&3
+  # npm install -g node-gyp
 
   echo "(done)" >&3
 }

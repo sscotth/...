@@ -2,12 +2,14 @@
 #
 # Node.js functions
 
+source ./lib/utilities.sh
+
 export NVM_SYMLINK_CURRENT=true
 
 install_node_nightly () {
-  . ~/.nvm/nvm.sh
+  NODEJS_ORG_MIRROR=https://nodejs.org/download/nightly nvm install node
 
-  NVM_NODEJS_ORG_MIRROR=https://nodejs.org/download/nightly nvm install node
+  load_nvm
 
   echo "Setup alias"
   nvm alias nightly node
