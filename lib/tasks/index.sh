@@ -18,7 +18,7 @@ concurrent_install () {
         - "Symlink Mathias Bynens' Dotfiles"    retry gtimeout 100 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_symlink.sh
         - "Symlink Personal Dotfiles"           retry gtimeout 100 ./lib/tasks/dotfiles/personal_dotfiles_symlink.sh
 
-        - "Clean .DS_Store files"               retry gtimeout 100 ./lib/tasks/osx/clean_DS_Store.sh
+        - "Clean .DS_Store files"               retry gtimeout 100 ./lib/tasks/osx/clean_ds_store.sh
         - "Generate SSH Keys"                   retry gtimeout 100 ./lib/tasks/osx/generate_ssh_keys.sh
         - "Install Hosts file"                  retry gtimeout 100 ./lib/tasks/osx/install_hosts_file.sh
         - "Install Oh-My-ZSH"                   retry gtimeout 100 ./lib/tasks/osx/install_oh_my_zsh.sh
