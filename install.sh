@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ./lib/utilities.sh
+
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
   echo "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
   echo "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
@@ -12,39 +14,7 @@ if [ -z ${APPLE_ID_PASSWORD+x} ]; then
   echo ''
 fi
 
-function cached_psudo () {
-  if [ -z ${SUDOPASS+x} ]; then
-    read -s -p "SUDO Password:" SUDOPASS
-    export SUDOPASS=$SUDOPASS
-    echo ''
-
-    /usr/bin/expect <<EOD
-      set timeout 99999
-      spawn $@
-      expect "*?assword:*"
-      send "$SUDOPASS\n"
-      expect eof
-EOD
-  fi
-}
-
-function cached_sudo () {
-  if [ -z ${SUDOPASS+x} ]; then
-    read -s -p "SUDO Password:" SUDOPASS
-    export SUDOPASS=$SUDOPASS
-    echo ''
-
-    /usr/bin/expect <<EOD
-      set timeout 99999
-      spawn sudo $@
-      expect "*?assword:*"
-      send "$SUDOPASS\n"
-      expect eof
-EOD
-  fi
-}
-
-sudo -v
+cached_sudo -v
 
 # Keep-alive: update existing `sudo` time stamp if set, otherwise do nothing
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -62,7 +32,7 @@ cached_sudo pmset force -a displaysleep 0
 defaults -currentHost write com.apple.screensaver idleTime 0
 
 echo "Install Homebrew if not installed"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
 
 echo "Run Homebrew Doctor"
 brew doctor
@@ -81,23 +51,11 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
 
   if cat /etc/shells | grep /usr/local/bin/bash &> /dev/null; then
     echo "Add Homebrew's bash to available shells"
-
-    /usr/bin/expect <<EOD
-    set timeout 999
-    spawn sudo bash -c "echo /usr/local/bin/bash >> /etc/shells"
-    expect "Password:"
-    send "$SUDOPASS\n"
-    expect eof
-EOD
+    cached_sudo 'bash -c "echo /usr/local/bin/bash >> /etc/shells"'
   fi
 
   echo "Change default shell to Homebrew bash"
-  /usr/bin/expect <<EOD
-    set timeout 999
-    spawn sudo chsh -s /usr/local/bin/bash $(whoami)
-    expect "Password:"
-    send "$SUDOPASS\n"
-    expect eof
+  cached_sudo chsh -s /usr/local/bin/bash $(whoami)
 EOD
 
   echo "Attempting to reload shell"
@@ -111,24 +69,7 @@ fi
 echo "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
 
 # Switch to zsh
-echo "Change default shell to zsh"
-/usr/bin/expect <<EOD
-set timeout 999
-spawn sudo -v
-expect "Password:"
-send "$SUDOPASS\n"
-expect eof
-EOD
-
-# /usr/bin/expect <<EOD
-#   set timeout 999
-#   spawn sudo chsh -s /usr/local/bin/bash $(whoami)
-#   expect "Password:"
-#   send "$SUDOPASS\n"
-#   expect eof
-# EOD
-
-sudo chsh -s $(which zsh) scott
+cached_sudo chsh -s $(which zsh) scott
 
 # Run concurrent test
 

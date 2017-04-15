@@ -11,11 +11,10 @@ brew uninstall --force brew-cask || true
 brew untap $(brew tap | grep -v core) || true
 brew update || true
 brew cleanup || true
-brew cask cleanup || true
-brew cask doctor || true
 
-# install  example cask app to trigger sudo
-brew cask install alfred
+# will trigger a Password prompt on first run
+cached_psudo brew cask cleanup || true
+brew cask doctor || true
 
 concurrent_install () {
     local CONCURRENT_LIMIT=4

@@ -22,3 +22,46 @@ retry () {
         fi
     done
 }
+
+# Caches the sudo password as a variable for scripts.
+# Some scripts cannot be as sudo like homebrew, but requires a password during certain tasks.
+# Use psudo for those scripts.
+function cached_psudo () {
+  if [ -z ${SUDOPASS+x} ]; then
+    read -s -p "SUDO Password:" SUDOPASS
+    export SUDOPASS=$SUDOPASS
+    echo ''
+  fi
+
+  base64_cmd=$(echo $@ | base64)
+
+  /usr/bin/expect <<EOD
+    set timeout -1
+    spawn ./lib/base64_eval.sh $base64_cmd
+    expect {
+      "*?assword:*" { send "$SUDOPASS\n"; exp_continue }
+      eof
+    }
+    catch wait result
+EOD
+}
+
+function cached_sudo () {
+  if [ -z ${SUDOPASS+x} ]; then
+    read -s -p "SUDO Password:" SUDOPASS
+    export SUDOPASS=$SUDOPASS
+    echo ''
+  fi
+
+  base64_cmd=$(echo sudo $@ | base64)
+
+  /usr/bin/expect <<EOD
+    set timeout -1
+    spawn ./lib/base64_eval.sh $base64_cmd
+    expect {
+      "*?assword:*" { send "$SUDOPASS\n"; exp_continue }
+      eof
+    }
+    catch wait result
+EOD
+}
