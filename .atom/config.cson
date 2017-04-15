@@ -18,6 +18,7 @@
   core:
     telemetryConsent: "no"
     useCustomTitleBar: true
+    titleBar: "hidden"
   "dark-flat-ui":
     accentColor: "green"
   editor:
