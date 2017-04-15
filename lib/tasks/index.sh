@@ -76,9 +76,6 @@ concurrent_install () {
         --require "Install Node.js LTS Packages"
         --before  "Clean npm cache"
 
-        --require "Setup assistive devices"
-        --before  "Install App Store apps"
-
         --require "Load Mathias Bynens' Dotfiles"
         --before  "Load OSX Settings"
     )
