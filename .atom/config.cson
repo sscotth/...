@@ -17,8 +17,7 @@
       panelShadows: true
   core:
     telemetryConsent: "no"
-    useCustomTitleBar: true
-    titleBar: "hidden"
+    titleBar: "custom"
   "dark-flat-ui":
     accentColor: "green"
   editor:
@@ -39,10 +38,7 @@
     fontFamily: "Fira Sans"
     fontWeight: "Light"
     minimalMode: true
-  linter:
-    errorPanelHeight: 99999
-    showErrorInline: false
-    showErrorTabLine: true
+  linter: {}
   "linter-js-standard":
     checkStyleDevDependencies: true
   "linter-jshint":
@@ -53,7 +49,6 @@
     noConfigDisable: true
   "one-dark-ui":
     fontSize: 10
-    layoutMode: "Compact"
     tabSizing: "Minimum"
   "one-light-ui":
     fontSize: 10
@@ -66,8 +61,7 @@
       "atom-dark-ui atom-dark-syntax"
       "one-light-ui fizzy"
     ]
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   "vim-mode":
     startInInsertMode: true
     useClipboardAsDefaultRegister: true
