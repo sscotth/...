@@ -144,6 +144,7 @@ ruby-install ruby
 chruby ruby
 gem install rails
 gem install rubocop
+gem install travis
 gem isntall reek
 
 # Fix asepsis failed update notifications
