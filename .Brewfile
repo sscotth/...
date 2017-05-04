@@ -4,6 +4,7 @@ tap 'homebrew/fuse'
 tap 'homebrew/science'
 
 tap 'caskroom/cask'
+tap 'caskroom/drivers'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 
