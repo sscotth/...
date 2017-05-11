@@ -38,3 +38,7 @@ function ssid () {
 function restart_network () {
   sudo ifconfig en0 down && sudo ifconfig en0 up
 }
+
+function network_restart () {
+  restart_network
+}
