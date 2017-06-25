@@ -51,6 +51,8 @@ install_node_stable_packages () {
   # npm install -g standard-format
   # echo "(verdaccio)" >&3
   # npm install -g verdaccio
+  # echo "(node-bin)" >&3
+  # npm install -g node-bin
 
   echo "(done)" >&3
 }
