@@ -2,8 +2,6 @@ unalias d
 unalias dl
 unalias dt
 unalias p
-unalias h
-unalias j
 
 # List direcory contents with / after directory names
 alias lsa='ls -lahF'
