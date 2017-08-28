@@ -83,8 +83,13 @@ cd ..
 # Load concurrent tasks
 bash ./lib/tasks/index.sh
 
-# Homebrew installs (parallelize)
+# Homebrew installs (parallelize) Attempt 3 times (allowing for ctrl-c)
 bash ./lib/tasks/osx/homebrew.sh
+bash ./lib/tasks/osx/homebrew.sh
+bash ./lib/tasks/osx/homebrew.sh
+
+# Bundle Homebrew for missing parallelized homebrew installs
+cached_psudo brew bundle --file=.Brewfile
 
 # iTerm2 v3 Shell Integration
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
@@ -127,11 +132,11 @@ pip install SpoofMAC
   cat /tmp/local.macspoof.plist | sed "s|/usr/local/bin/spoof-mac.py|`which spoof-mac.py`|" | tee /tmp/local.macspoof.plist
 
   # Copy file to the OS X launchd folder
-  sudo cp /tmp/local.macspoof.plist /Library/LaunchDaemons
+  cached_sudo cp /tmp/local.macspoof.plist /Library/LaunchDaemons
 
   # Set file permissions
-  sudo chown root:wheel /Library/LaunchDaemonslocal.macspoof.plist
-  sudo chmod 0644 /Library/LaunchDaemonslocal.macspoof.plist
+  cached_sudo chown root:wheel /Library/LaunchDaemonslocal.macspoof.plist
+  cached_sudo chmod 0644 /Library/LaunchDaemonslocal.macspoof.plist
 
 # Install Ruby
 source /usr/local/opt/chruby/share/chruby/chruby.sh
@@ -139,6 +144,7 @@ ruby-install ruby
 chruby ruby
 gem install rails
 gem install rubocop
+gem install travis
 gem isntall reek
 
 # Fix asepsis failed update notifications

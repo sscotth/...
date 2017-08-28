@@ -2,10 +2,12 @@
 #
 # Node.js functions
 
+source ./lib/utilities.sh
+
 export NVM_SYMLINK_CURRENT=true
 
 install_node_lts () {
-  . ~/.nvm/nvm.sh
+  load_nvm
 
   nvm install --lts
 

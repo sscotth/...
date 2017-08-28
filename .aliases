@@ -32,8 +32,6 @@ alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
 
-
-alias atom=atom-beta
 alias node="node --harmony"
 
 # Alias `git` as `hub`

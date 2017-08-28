@@ -2,9 +2,11 @@
 #
 # MongoDB functions
 
+source ./lib/utilities.sh
+
 mongodb_prepare () {
-  sudo mkdir -p /data/db
-  sudo chown -R `whoami` /data
+  cached_sudo mkdir -p /data/db
+  cached_sudo chown -R `whoami` /data
 }
 
 mongodb_prepare
