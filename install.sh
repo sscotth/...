@@ -56,7 +56,6 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
 
   echo "Change default shell to Homebrew bash"
   cached_sudo chsh -s /usr/local/bin/bash $(whoami)
-EOD
 
   echo "Attempting to reload shell"
   exec bash --login -c "./install.sh"
@@ -100,6 +99,7 @@ yes | apm upgrade
 
 # Sublime Text 3
 # Symlink settings
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 ln -fs ~/.dotfiles/SublimeText/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 ln -fs ~/.dotfiles/SublimeText/highlighter.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 # Install Package Control
@@ -110,10 +110,14 @@ ln -sf ~/.dotfiles/SublimeText/Package\ Control.sublime-settings ~/Library/Appli
 # Install Python apps
 # Upgrade pip
 pip install --upgrade pip
+pip3 install --upgrade pip
 
 # Virtual Environments for Python
-pip install virtualenv
-pip install virtualenvwrapper
+pip install --upgrade virtualenv
+pip3 install --upgrade virtualenv
+
+pip install --upgrade virtualenvwrapper
+pip3 install --upgrade virtualenvwrapper
 
 # Setup directories
 mkdir -p ~/code ~/.virtualenvs
