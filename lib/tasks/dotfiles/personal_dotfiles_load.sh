@@ -14,7 +14,7 @@ personal_dotfiles_load () {
     cp -n $src $dst || true
   done
 
-  cached_psudo ~/.osx_supplement
+  cached_psudo sh .osx_supplement
 }
 
 personal_dotfiles_load
