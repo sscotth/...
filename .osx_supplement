@@ -218,15 +218,15 @@ echo 'Alfred allow use of ~/Dropbox/Apps folder'
 defaults write com.runningwithcrayons.Alfred-Preferences dropbox.allowappsfolder -bool true
 
 echo 'Set computer name (as done via System Preferences → Sharing)'
-RAND_COMPUTERNAME="0x$(openssl rand -hex 4 | tr /[a-f]/ /[A-F]/)"
-RAND_LOCALHOSTNAME="0x$(openssl rand -hex 4 | tr /[a-f]/ /[A-F]/)"
-RAND_HOSTNAME="0x$(openssl rand -hex 4 | tr /[a-f]/ /[A-F]/)"
-RAND_NETBOISNAME="0x$(openssl rand -hex 4 | tr /[a-f]/ /[A-F]/)"
+RAND_COMPUTERNAME="0x$(openssl rand -hex 4 | tr \[a-f\] \[A-F\])"
+RAND_LOCALHOSTNAME="0x$(openssl rand -hex 4 | tr \[a-f\] \[A-F\])"
+RAND_HOSTNAME="0x$(openssl rand -hex 4 | tr \[a-f\] \[A-F\])"
+RAND_NETBOISNAME="0x$(openssl rand -hex 4 | tr \[a-f\] \[A-F\])"
 
-sudo scutil --set ComputerName "0x${RAND_COMPUTERNAME}"
-sudo scutil --set LocalHostName "0x${RAND_LOCALHOSTNAME}"
-sudo scutil --set HostName "0x${RAND_HOSTNAME}"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x${RAND_NETBOISNAME}"
+sudo scutil --set ComputerName ${RAND_COMPUTERNAME}
+sudo scutil --set LocalHostName ${RAND_LOCALHOSTNAME}
+sudo scutil --set HostName ${RAND_HOSTNAME}
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string ${RAND_NETBOISNAME}
 
 echo 'Set mouse tracking speed'
 defaults write -g com.apple.mouse.scaling 0.1
