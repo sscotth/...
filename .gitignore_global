@@ -402,7 +402,6 @@ Temporary Items
 ############
 tmp/
 temp/
-*.lock
 
 # Floobits
 .floo
