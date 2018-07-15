@@ -51,6 +51,11 @@ defaults write com.apple.screensaver askForPasswordDelay -int 15
 echo 'Enable shadow in screenshots'
 defaults write com.apple.screencapture disable-shadow -bool false
 
+echo 'Set screenshot save location'
+mkdir -p ~/Documents/Screenshots
+touch ~/Documents/Screenshots/.keep
+defaults write com.apple.screencapture location ~/Documents/Screenshots
+
 echo 'Set Home (~/) as the default location for new Finder windows'
 echo 'For other paths, use "PfLo" and "file:///full/path/here/"'
 defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
