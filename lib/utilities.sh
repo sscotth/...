@@ -2,16 +2,16 @@
 #
 # utility functions
 #
-boxecho () {
-    msg="# $* #"
-    edge=$(echo "$msg" | sed 's/./#/g')
-    echo -e "\n$edge\n$msg\n$edge\n"
-}
 
-lolboxecho () {
+boxecho () {
   msg="# $* #"
   edge=$(echo "$msg" | sed 's/./#/g')
-  echo -e "\n$edge\n$msg\n$edge\n" | lolcat
+
+  if [ -x "$(command -v lolcat)" ]; then
+    echo -e "\n$edge\n$msg\n$edge\n"
+  else
+    echo -e "\n$edge\n$msg\n$edge\n" | lolcat
+  fi
 }
 
 # Retries a command on failure

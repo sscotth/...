@@ -41,14 +41,14 @@ brew install lolcat
 brew upgrade lolcat
 
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
-  lolboxecho "Install Updated Bash"
+  boxecho "Install Updated Bash"
   brew install bash
   brew upgrade bash
 
   # In order to use this build of bash as your login shell, it must be added to /etc/shells.
 
   if cat /etc/shells | grep /usr/local/bin/bash &> /dev/null; then
-    lolboxecho "Add Homebrew's bash to available shells"
+    boxecho "Add Homebrew's bash to available shells"
 
     # Requires subshell
     # sudo echo /usr/local/bin/bash >> /etc/shells
@@ -57,21 +57,21 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
     cached_sudo 'bash -c "echo /usr/local/bin/bash >> /etc/shells"'
   fi
 
-  lolboxecho "Change default shell to Homebrew bash"
+  boxecho "Change default shell to Homebrew bash"
   # could use cached_psudo here, but password request is slightly different than normal sudo "Password for scott: "
   cached_sudo chsh -s /usr/local/bin/bash $(whoami)
 
-  lolboxecho "Attempting to reload shell"
+  boxecho "Attempting to reload shell"
   exec bash --login -c "./install.sh"
 
   # If you reach this line, the reload failed
-  lolboxecho "Reload Failed. Reload terminal and try again."
+  boxecho "Reload Failed. Reload terminal and try again."
   exit 1
 fi
 
-lolboxecho "BASH v4.2+ INSTALLED - BEGIN INSTALLATION"
+boxecho "BASH v4.2+ INSTALLED - BEGIN INSTALLATION"
 
-lolboxecho "Bash-Concurrent"
+boxecho "Bash-Concurrent"
 
 # Switch to zsh
 # cached_sudo chsh -s $(which zsh) scott
@@ -85,7 +85,7 @@ cd ..
 
 exit 1
 
-lolboxecho "Disable energy saving features during install"
+boxecho "Disable energy saving features during install"
 
 echo "Never go into computer sleep mode"
 
@@ -112,19 +112,19 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 # echo "==> 'Disable New to Mac notification'"
 # defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
 
-lolboxecho "Homebrew installs (parallelized)"
+boxecho "Homebrew installs (parallelized)"
 # Homebrew installs (parallelize) Attempt 3 times (allowing for ctrl-c)
 bash ./lib/tasks/osx/homebrew.sh
 bash ./lib/tasks/osx/homebrew.sh
 bash ./lib/tasks/osx/homebrew.sh
 
-lolboxecho "Homebrew installs (bundle)"
+boxecho "Homebrew installs (bundle)"
 # Bundle Homebrew for missing parallelized homebrew installs
 cached_psudo brew bundle --file=.Brewfile
 
 exit 1
 
-lolboxecho "Other concurrent tasks"
+boxecho "Other concurrent tasks"
 bash ./lib/tasks/index.sh
 
 # iTerm2 v3 Shell Integration
