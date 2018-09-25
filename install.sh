@@ -125,7 +125,8 @@ bash ./lib/tasks/osx/homebrew.sh
 
 boxecho "Homebrew installs (bundle)"
 # Bundle Homebrew for missing parallelized homebrew installs
-cached_psudo brew bundle --file=.Brewfile
+# brew bundle check
+cached_psudo brew bundle --verbose --file=.Brewfile
 
 exit 1
 

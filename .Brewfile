@@ -6,6 +6,8 @@ tap 'homebrew/cask-versions'
 tap 'vitorgalvao/tiny-scripts'
 tap 'buo/cask-upgrade'
 
+tap 'sscotth/homebrew-sip'
+
 # UPDATE OS X APPS
 brew 'bash'
 brew 'binutils'
@@ -66,7 +68,7 @@ brew 'mackup'
 brew 'mas'
 brew 'mongodb'
 brew 'mysql'
-brew 'neovim', args: ['HEAD']
+brew 'neovim'
 brew 'python3'
 brew 'r'
 brew 'ranger'
@@ -101,8 +103,10 @@ cask 'atom' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
 cask 'balsamiq-mockups' # Wireframing
 cask 'bartender' # Hides menubar items
+cask 'cardhop' # Contacts manager
 cask 'ccleaner' # System cleanup
 cask 'charles-beta' # Debugging Proxy
+cask 'chatology' # iMessage enhancer
 cask 'chromium' # Web browser
 cask 'dash' # Offline API Documentation
 cask 'devonthink-pro-office' # Evernote alternative
@@ -112,8 +116,8 @@ cask 'dropbox-beta' # Cloud backup
 cask 'duet' # ipad as second monitor
 cask 'fantastical' # Calendar
 cask 'filezilla' # FTP
+cask 'firefox-developer-edition' # Web broswer
 cask 'firefox' # Web broswer
-cask 'firefoxdeveloperedition' # Web broswer
 cask 'flash-npapi' # Flash for Safari & Firefox. PPAPI is for Chromium & Opera
 cask 'flux' # Screen colorization based on time
 cask 'fontplop' # create webfonts from .ttf
@@ -142,7 +146,6 @@ cask 'keka' # File compression
 cask 'kodi' # Media player
 cask 'leech' # Download manager
 cask 'libreoffice' # Office applications
-cask 'limechat' # IRC client
 cask 'little-snitch' # Firewall
 cask 'logitech-unifying' # Logitech drivers
 cask 'losslesscut' # Trim video and audio files
@@ -188,7 +191,7 @@ cask 'sublime-merge' # Git repo manager
 cask 'sublime-text' # Text editor
 cask 'synergy' # Mouse and keyboard sharing
 cask 'teamviewer' # Screen sharing
-cask 'totalfinder' # Finder enhancer
+cask 'totalfinder' # Finder enhancer (disable SIP)
 cask 'tower' # Git repo manager
 cask 'transmission' # Torrent downloader
 cask 'tripmode' # Mobile data blocker
@@ -249,6 +252,7 @@ cask 'xbox360-controller-driver-unofficial'
 # APP STORE
 mas 'Day One Classic', id: 422304217
 mas 'Deckset', id: 847496013
+mas 'LimeChat', id: 414030210
 mas 'Microsoft Remote Desktop', id: 1295203466
 mas 'Pixelmator', id: 407963104
 mas 'Reeder', id: 880001334
