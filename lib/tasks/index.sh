@@ -12,11 +12,11 @@ concurrent_install () {
 
     local args=(
 
-        - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
-        - "Load Mathias Bynens' Dotfiles"       retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
-        - "Load Personal Dotfiles"              retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_load.sh
-        - "Symlink Mathias Bynens' Dotfiles"    retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_symlink.sh
-        - "Symlink Personal Dotfiles"           retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_symlink.sh
+        # - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
+        # - "Load Mathias Bynens' Dotfiles"       retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
+        # - "Load Personal Dotfiles"              retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_load.sh
+        # - "Symlink Mathias Bynens' Dotfiles"    retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_symlink.sh
+        # - "Symlink Personal Dotfiles"           retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_symlink.sh
 
         - "Clean .DS_Store files"               retry gtimeout --preserve-status 300 ./lib/tasks/osx/clean_ds_store.sh
         - "Generate SSH Keys"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/generate_ssh_keys.sh

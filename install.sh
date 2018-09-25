@@ -119,14 +119,14 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 
 boxecho "Homebrew installs (parallelized)"
 # Homebrew installs (parallelize) Attempt 3 times (allowing for ctrl-c)
-bash ./lib/tasks/osx/homebrew.sh
-bash ./lib/tasks/osx/homebrew.sh
-bash ./lib/tasks/osx/homebrew.sh
+# bash ./lib/tasks/osx/homebrew.sh
+# bash ./lib/tasks/osx/homebrew.sh
+# bash ./lib/tasks/osx/homebrew.sh
 
 boxecho "Homebrew installs (bundle)"
 # Bundle Homebrew for missing parallelized homebrew installs
 # brew bundle check
-cached_psudo brew bundle --verbose --file=.Brewfile
+# cached_psudo brew bundle --verbose --file=.Brewfile
 
 exit 1
 
