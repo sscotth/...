@@ -3,15 +3,15 @@
 source ./lib/utilities.sh
 
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
-  echo "\n########################################################################"
-  echo "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
-  echo "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
-  echo "########################################################################\n"
+  echo -e "\n########################################################################"
+  echo -e "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
+  echo -e "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
+  echo -e "########################################################################\n"
 fi
 
-  echo "\n########################################################################"
-  echo "Enter passwords upfront to continue"
-  echo "########################################################################\n"
+  echo -e "\n########################################################################"
+  echo -e "Enter passwords upfront to continue"
+  echo -e "########################################################################\n"
 
 if [ -z ${APPLE_ID_PASSWORD+x} ]; then
   read -s -p "Apple ID Password:" APPLE_ID_PASSWORD
@@ -24,9 +24,9 @@ cached_sudo -v
 # Update computer's time (ntpdate removed from mojave)
 # cached_sudo ntpdate -u us.pool.ntp.org
 
-echo "\n########################################################################"
-echo "Never go into computer sleep mode during install"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "Never go into computer sleep mode during install"
+echo -e "########################################################################\n"
 
 # Never go into computer sleep mode during install
   # Usage: systemsetup -setcomputersleep <minutes>
@@ -38,9 +38,9 @@ cached_sudo systemsetup -setcomputersleep Off
 # Never dim display during install (needed?)
 # cached_sudo pmset force -a displaysleep 0
 
-echo "\n########################################################################"
-echo "Disable screensaver during install"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "Disable screensaver during install"
+echo -e "########################################################################\n"
 
 # Disable screensaver during install
 defaults -currentHost write com.apple.screensaver idleTime 0
@@ -58,37 +58,37 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 # defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
 
 
-echo "\n########################################################################"
-echo "Homebrew"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "Homebrew"
+echo -e "########################################################################\n"
 
 # Install Homebrew if not installed # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
 cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
 
-echo "\n########################################################################"
-echo "Homebrew Doctor"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "Homebrew Doctor"
+echo -e "########################################################################\n"
 brew doctor
 
-echo "\n########################################################################"
-echo "Homebrew Cask"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "Homebrew Cask"
+echo -e "########################################################################\n"
 brew cask
 
-echo "\n########################################################################"
-echo "Homebrew Update"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "Homebrew Update"
+echo -e "########################################################################\n"
 brew update
 
-echo "\n########################################################################"
-echo "coreutils"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "coreutils"
+echo -e "########################################################################\n"
 brew install coreutils
 brew upgrade coreutils
 
-echo "\n########################################################################"
-echo "lolcat"
-echo "########################################################################\n"
+echo -e "\n########################################################################"
+echo -e "lolcat"
+echo -e "########################################################################\n"
 brew install lolcat
 brew upgrade lolcat
 
@@ -110,7 +110,8 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
   fi
 
   echo "Change default shell to Homebrew bash" | lolcat
-  cached_psudo chsh -s /usr/local/bin/bash $(whoami)
+  # could use cached_psudo here, but password request is slightly different than normal sudo "Password for scott: "
+  cached_sudo chsh -s /usr/local/bin/bash $(whoami)
 
   echo "Attempting to reload shell" | lolcat
   exec bash --login -c "./install.sh"
