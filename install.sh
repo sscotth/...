@@ -110,6 +110,8 @@ cd ..
 # Load concurrent tasks
 bash ./lib/tasks/index.sh
 
+exit 1
+
 # Homebrew installs (parallelize) Attempt 3 times (allowing for ctrl-c)
 bash ./lib/tasks/osx/homebrew.sh
 bash ./lib/tasks/osx/homebrew.sh
