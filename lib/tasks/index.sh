@@ -20,7 +20,7 @@ concurrent_install () {
 
         - "Clean .DS_Store files"               retry gtimeout --preserve-status 300 ./lib/tasks/osx/clean_ds_store.sh
         - "Generate SSH Keys"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/generate_ssh_keys.sh
-        - "Install Hosts file"                  retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_hosts_file.sh
+        # - "Install Hosts file"                  retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_hosts_file.sh
         - "Install Oh-My-ZSH"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_oh_my_zsh.sh
         - "Install OSX updates"                 retry gtimeout --preserve-status 300 ./lib/tasks/osx/install_osx_updates.sh
         - "Install ZSH Syntax Highlighting"     retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_zsh_syntax_highlighting.sh

@@ -41,16 +41,13 @@ brew update
 
 boxecho "Coreutils"
 brew install coreutils
-brew upgrade coreutils
 
 boxecho "Lolcat"
 brew install lolcat
-brew upgrade lolcat
 
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
   boxecho "Install Updated Bash"
   brew install bash
-  brew upgrade bash
 
   # In order to use this build of bash as your login shell, it must be added to /etc/shells.
 
@@ -128,10 +125,10 @@ boxecho "Homebrew installs (bundle)"
 # brew bundle check
 # cached_psudo brew bundle --verbose --file=.Brewfile
 
-exit 1
-
 boxecho "Other concurrent tasks"
 bash ./lib/tasks/index.sh
+
+exit 1
 
 # iTerm2 v3 Shell Integration
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
