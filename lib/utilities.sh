@@ -14,11 +14,6 @@ lolboxecho () {
   echo -e "\n$edge\n$msg\n$edge\n" | lolcat
 }
 
-lolboxecho2 () {
-  boxecho $* | lolboxecho
-}
-
-
 # Retries a command on failure
 # Based on http://fahdshariff.blogspot.com/2014/02/retrying-commands-in-shell-scripts.html
 # TODO: Accept optional MAX_ATTEMPTS and DELAY arguments

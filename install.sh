@@ -48,7 +48,7 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
   # In order to use this build of bash as your login shell, it must be added to /etc/shells.
 
   if cat /etc/shells | grep /usr/local/bin/bash &> /dev/null; then
-    lolboxecho2 "Add Homebrew's bash to available shells"
+    lolboxecho "Add Homebrew's bash to available shells"
 
     # Requires subshell
     # sudo echo /usr/local/bin/bash >> /etc/shells
@@ -57,15 +57,15 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
     cached_sudo 'bash -c "echo /usr/local/bin/bash >> /etc/shells"'
   fi
 
-  echo "Change default shell to Homebrew bash" | lolcat
+  lolboxecho "Change default shell to Homebrew bash"
   # could use cached_psudo here, but password request is slightly different than normal sudo "Password for scott: "
   cached_sudo chsh -s /usr/local/bin/bash $(whoami)
 
-  echo "Attempting to reload shell" | lolcat
+  lolboxecho "Attempting to reload shell"
   exec bash --login -c "./install.sh"
 
-  # Reload failed
-  echo "Reload Failed. Reload terminal and try again." | lolcat
+  # If you reach this line, the reload failed
+  lolboxecho "Reload Failed. Reload terminal and try again."
   exit 1
 fi
 
@@ -85,10 +85,9 @@ cd ..
 
 exit 1
 
-# Update computer's time (ntpdate removed from mojave)
-# cached_sudo ntpdate -u us.pool.ntp.org
+lolboxecho "Disable energy saving features during install"
 
-boxecho "Never go into computer sleep mode during install"
+echo "Never go into computer sleep mode"
 
 # Never go into computer sleep mode during install
   # Usage: systemsetup -setcomputersleep <minutes>
@@ -100,15 +99,11 @@ cached_sudo systemsetup -setcomputersleep Off
 # Never dim display during install (needed?)
 # cached_sudo pmset force -a displaysleep 0
 
-boxecho "Disable screensaver during install"
+echo "Disable screensaver"
 
 # Disable screensaver during install
 defaults -currentHost write com.apple.screensaver idleTime 0
 
-#
-# echo "==> 'Disabling screensaver'"
-# defaults -currentHost write com.apple.screensaver idleTime 0
-# su $SSH_USERNAME -c "defaults -currentHost write com.apple.screensaver idleTime 0"
 # echo "==> 'Disabling login screensaver'"
 # defaults -currentHost write com.apple.screensaver loginWindowIdleTime 0
 # echo "==> 'Turning off energy saving'"
@@ -117,19 +112,20 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 # echo "==> 'Disable New to Mac notification'"
 # defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
 
-
-# Load concurrent tasks
-bash ./lib/tasks/index.sh
-
-exit 1
-
+lolboxecho "Homebrew installs (parallelized)"
 # Homebrew installs (parallelize) Attempt 3 times (allowing for ctrl-c)
 bash ./lib/tasks/osx/homebrew.sh
 bash ./lib/tasks/osx/homebrew.sh
 bash ./lib/tasks/osx/homebrew.sh
 
+lolboxecho "Homebrew installs (bundle)"
 # Bundle Homebrew for missing parallelized homebrew installs
 cached_psudo brew bundle --file=.Brewfile
+
+exit 1
+
+lolboxecho "Other concurrent tasks"
+bash ./lib/tasks/index.sh
 
 # iTerm2 v3 Shell Integration
 curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
