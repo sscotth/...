@@ -43,15 +43,15 @@ concurrent_install () {
 
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
-        --require "Remove previous Dotfiles"
-        --before  "Symlink Mathias Bynens' Dotfiles"
-        --before  "Symlink Personal Dotfiles"
-
-        --require "Load Mathias Bynens' Dotfiles"
-        --before  "Symlink Mathias Bynens' Dotfiles"
-
-        --require "Load Personal Dotfiles"
-        --before  "Symlink Personal Dotfiles"
+        # --require "Remove previous Dotfiles"
+        # --before  "Symlink Mathias Bynens' Dotfiles"
+        # --before  "Symlink Personal Dotfiles"
+        #
+        # --require "Load Mathias Bynens' Dotfiles"
+        # --before  "Symlink Mathias Bynens' Dotfiles"
+        #
+        # --require "Load Personal Dotfiles"
+        # --before  "Symlink Personal Dotfiles"
 
         --require "Install Oh-My-ZSH"
         --before  "Load .zshrc from Oh-My-ZSH"
@@ -79,8 +79,8 @@ concurrent_install () {
         --require "Install Node.js LTS Packages"
         --before  "Clean npm cache"
 
-        --require "Load Mathias Bynens' Dotfiles"
-        --before  "Load OSX Settings"
+        # --require "Load Mathias Bynens' Dotfiles"
+        # --before  "Load OSX Settings"
     )
 
     concurrent "${args[@]}"

@@ -17,7 +17,7 @@ fi
 
 cached_sudo -v
 
-boxecho "Homebrew"
+boxecho "Homebrew Basics"
 
 # Install Homebrew if not installed # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
 cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
