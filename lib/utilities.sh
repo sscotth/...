@@ -3,14 +3,18 @@
 # utility functions
 #
 
+command_exists () {
+	type "$1" &> /dev/null
+}
+
 boxecho () {
   msg="# $* #"
   edge=$(echo "$msg" | sed 's/./#/g')
 
-  if [ -x "$(command -v lolcat)" ]; then
-    echo -e "\n$edge\n$msg\n$edge\n"
-  else
+  if command_exists lolcat; then
     echo -e "\n$edge\n$msg\n$edge\n" | lolcat
+  else
+    echo -e "\n$edge\n$msg\n$edge\n"
   fi
 }
 
