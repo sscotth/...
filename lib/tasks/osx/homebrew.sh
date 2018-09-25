@@ -6,21 +6,6 @@ set -e -o pipefail
 source ./bash-concurrent/concurrent.lib.sh
 source ./lib/utilities.sh
 
-echo BREW CASK SETUP
-brew update || true
-
-echo "uninstall brew-cask"
-brew uninstall --force brew-cask || true
-echo "current taps"
-brew tap
-echo "remove taps"
-brew untap $(brew tap | grep -v core) || true
-echo "cleanup"
-brew cleanup || true
-
-# will trigger a Password prompt on first run
-cached_psudo brew cask cleanup || true
-brew cask doctor || true
 
 concurrent_install () {
     local CONCURRENT_LIMIT=8

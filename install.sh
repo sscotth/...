@@ -17,7 +17,6 @@ fi
 
 cached_sudo -v
 
-
 boxecho "Homebrew"
 
 # Install Homebrew if not installed # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
@@ -25,8 +24,16 @@ cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/H
 
 boxecho "Homebrew Doctor"
 brew doctor
+brew cask doctor
+
+boxecho "Remove Homebrew taps"
+brew untap $(brew tap | grep -v core)
+
+boxecho "Homebrew cleanup"
+brew cleanup
 
 boxecho "Homebrew Cask"
+brew uninstall --force brew-cask
 brew cask
 
 boxecho "Homebrew Update"
@@ -82,8 +89,6 @@ git clone https://github.com/sscotth/bash-concurrent
 cd bash-concurrent
 git checkout nocompact
 cd ..
-
-exit 1
 
 boxecho "Disable energy saving features during install"
 
