@@ -1,6 +1,23 @@
 #!/usr/bin/env bash
 #
 # utility functions
+#
+boxecho () {
+    msg="# $* #"
+    edge=$(echo "$msg" | sed 's/./#/g')
+    echo -e "\n$edge\n$msg\n$edge\n"
+}
+
+lolboxecho () {
+  msg="# $* #"
+  edge=$(echo "$msg" | sed 's/./#/g')
+  echo -e "\n$edge\n$msg\n$edge\n" | lolcat
+}
+
+lolboxecho2 () {
+  boxecho $* | lolcat
+}
+
 
 # Retries a command on failure
 # Based on http://fahdshariff.blogspot.com/2014/02/retrying-commands-in-shell-scripts.html

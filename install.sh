@@ -3,15 +3,11 @@
 source ./lib/utilities.sh
 
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
-  echo -e "\n########################################################################"
-  echo -e "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
-  echo -e "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
-  echo -e "########################################################################\n"
+  boxecho "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
+  boxecho "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
 fi
 
-  echo -e "\n########################################################################"
-  echo -e "Enter passwords upfront to continue"
-  echo -e "########################################################################\n"
+  boxecho "Enter passwords upfront to continue"
 
 if [ -z ${APPLE_ID_PASSWORD+x} ]; then
   read -s -p "Apple ID Password:" APPLE_ID_PASSWORD
@@ -24,9 +20,7 @@ cached_sudo -v
 # Update computer's time (ntpdate removed from mojave)
 # cached_sudo ntpdate -u us.pool.ntp.org
 
-echo -e "\n########################################################################"
-echo -e "Never go into computer sleep mode during install"
-echo -e "########################################################################\n"
+boxecho "Never go into computer sleep mode during install"
 
 # Never go into computer sleep mode during install
   # Usage: systemsetup -setcomputersleep <minutes>
@@ -38,9 +32,7 @@ cached_sudo systemsetup -setcomputersleep Off
 # Never dim display during install (needed?)
 # cached_sudo pmset force -a displaysleep 0
 
-echo -e "\n########################################################################"
-echo -e "Disable screensaver during install"
-echo -e "########################################################################\n"
+boxecho "Disable screensaver during install"
 
 # Disable screensaver during install
 defaults -currentHost write com.apple.screensaver idleTime 0
@@ -57,50 +49,37 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 # echo "==> 'Disable New to Mac notification'"
 # defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
 
-
-echo -e "\n########################################################################"
-echo -e "Homebrew"
-echo -e "########################################################################\n"
+boxecho "Homebrew"
 
 # Install Homebrew if not installed # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
 cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
 
-echo -e "\n########################################################################"
-echo -e "Homebrew Doctor"
-echo -e "########################################################################\n"
+boxecho "Homebrew Doctor"
 brew doctor
 
-echo -e "\n########################################################################"
-echo -e "Homebrew Cask"
-echo -e "########################################################################\n"
+boxecho "Homebrew Cask"
 brew cask
 
-echo -e "\n########################################################################"
-echo -e "Homebrew Update"
-echo -e "########################################################################\n"
+boxecho "Homebrew Update"
 brew update
 
-echo -e "\n########################################################################"
-echo -e "coreutils"
-echo -e "########################################################################\n"
+boxecho "Coreutils"
 brew install coreutils
 brew upgrade coreutils
 
-echo -e "\n########################################################################"
-echo -e "lolcat"
-echo -e "########################################################################\n"
+boxecho "Lolcat"
 brew install lolcat
 brew upgrade lolcat
 
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
-  echo "Install Updated Bash" | lolcat
+  lolboxecho "Install Updated Bash"
   brew install bash
   brew upgrade bash
 
   # In order to use this build of bash as your login shell, it must be added to /etc/shells.
 
   if cat /etc/shells | grep /usr/local/bin/bash &> /dev/null; then
-    echo "Add Homebrew's bash to available shells" | lolcat
+    lolboxecho2 "Add Homebrew's bash to available shells"
 
     # Requires subshell
     # sudo echo /usr/local/bin/bash >> /etc/shells
