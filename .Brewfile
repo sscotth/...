@@ -160,7 +160,7 @@ cask 'hyperswitch'
 cask 'insomniax'
 cask 'integrity'
 cask 'istat-menus'
-cask 'iterm2'
+cask 'iterm2-beta'
 cask 'itsycal'
 cask 'java'
 cask 'kaleidoscope'
@@ -211,7 +211,6 @@ cask 'rclone-browser'
 cask 'rescuetime'
 cask 'robo-3t'
 cask 'robofont'
-cask 'rocket'
 cask 'rodeo'
 cask 'rstudio'
 cask 'sabnzbd'
@@ -289,6 +288,7 @@ cask 'font-monoid'
 
 # DRIVERS
 cask 'asix-ax88179'
+cask 'xbox360-controller-driver-unofficial'
 
 # APP STORE
 mas 'Day One Classic', id: 422304217

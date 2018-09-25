@@ -19,23 +19,44 @@ cached_sudo -v
 # Keep-alive: update existing `sudo` time stamp if set, otherwise do nothing
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Update computer's time
-cached_sudo ntpdate -u us.pool.ntp.org
+# Update computer's time (ntpdate removed from mojave)
+# cached_sudo ntpdate -u us.pool.ntp.org
 
-# Never go into computer sleep mode
-cached_sudo systemsetup -setcomputersleep Off > /dev/null
+# Never go into computer sleep mode during install
+  # Usage: systemsetup -setcomputersleep <minutes>
+	# Set amount of idle time until compputer sleeps to <minutes>.
+	# Specify "Never" or "Off" for never.
 
-# Never dim display
-cached_sudo pmset force -a displaysleep 0
+cached_sudo systemsetup -setcomputersleep Off
 
-# Disable screensaver
+# Never dim display during install (needed?)
+# cached_sudo pmset force -a displaysleep 0
+
+# Disable screensaver during install
 defaults -currentHost write com.apple.screensaver idleTime 0
 
-echo "Install Homebrew if not installed"
+#
+# echo "==> 'Disabling screensaver'"
+# defaults -currentHost write com.apple.screensaver idleTime 0
+# su $SSH_USERNAME -c "defaults -currentHost write com.apple.screensaver idleTime 0"
+# echo "==> 'Disabling login screensaver'"
+# defaults -currentHost write com.apple.screensaver loginWindowIdleTime 0
+# echo "==> 'Turning off energy saving'"
+# pmset -a displaysleep 0 disksleep 0 sleep 0
+# # https://carlashley.com/2016/10/19/com-apple-touristd/
+# echo "==> 'Disable New to Mac notification'"
+# defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
+
+
+
+echo "Install Homebrew if not installed" # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
 cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
 
 echo "Run Homebrew Doctor"
 brew doctor
+
+echo "Install Homebrew cask"
+brew cask
 
 echo "Update Homebrew"
 brew update
@@ -49,13 +70,20 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
   brew install bash
   brew upgrade bash
 
+  # In order to use this build of bash as your login shell, it must be added to /etc/shells.
+
   if cat /etc/shells | grep /usr/local/bin/bash &> /dev/null; then
     echo "Add Homebrew's bash to available shells"
+
+    # Requires subshell
+    # sudo echo /usr/local/bin/bash >> /etc/shells
+    # -bash: /etc/shells: Permission denied
+
     cached_sudo 'bash -c "echo /usr/local/bin/bash >> /etc/shells"'
   fi
 
   echo "Change default shell to Homebrew bash"
-  cached_sudo chsh -s /usr/local/bin/bash $(whoami)
+  cached_psudo chsh -s /usr/local/bin/bash $(whoami)
 
   echo "Attempting to reload shell"
   exec bash --login -c "./install.sh"
@@ -72,7 +100,7 @@ cached_sudo chsh -s $(which zsh) scott
 
 # Run concurrent test
 
-# (Re-)Download concurrent and use nocompact branch
+# (Re-)Download my fork of bash-concurrent (https://github.com/themattrix/bash-concurrent) and use nocompact branch
 rm -rf bash-concurrent
 git clone https://github.com/sscotth/bash-concurrent
 cd bash-concurrent

@@ -1,0 +1,541 @@
+❯ git add -p
+diff --git a/.Brewfile b/.Brewfile
+index e26ecd0..c356241 100644
+--- a/.Brewfile
++++ b/.Brewfile
+@@ -12,6 +12,7 @@ tap 'argon/mas'
+ tap 'neovim/neovim'
+ tap 'ravenac95/sudolikeaboss'
+ tap 'vitorgalvao/tiny-scripts'
++tap 'buo/cask-upgrade'
+
+ # PREREQ
+ cask 'osxfuse'
+Stage this hunk [y,n,q,a,d,j,J,g,/,e,?]? y
+@@ -181,6 +182,7 @@ cask 'mamp'
+ cask 'mancy'
+ cask 'marked'
+ cask 'microsoft-office'
++cask 'mongodb-compass'
+ cask 'monodraw'
+ cask 'moom'
+ cask 'mp3tag'
+Stage this hunk [y,n,q,a,d,K,g,/,e,?]? y
+
+diff --git a/.aliases b/.aliases
+index a5b5d6f..6cf7793 100644
+--- a/.aliases
++++ b/.aliases
+@@ -32,16 +32,12 @@ alias l='ls -lah'
+ alias ll='ls -lh'
+ alias la='ls -lAh'
+
+-alias node="node --harmony"
+-
+ # Alias `git` as `hub`
+ type hub &>/dev/null && eval "$(hub alias -s)"
+
+ alias top="sudo htop"
+ alias tree="tree --filelimit 100 --dirsfirst -L 5 -CRa -I '.git'"
+
+-alias code="cd ~/code"
+-
+ alias sha1="$(brew --prefix)/opt/openssl/bin/openssl sha1"
+ alias sha256="$(brew --prefix)/opt/openssl/bin/openssl sha256"
+
+Stage this hunk [y,n,q,a,d,s,e,?]? n
+
+diff --git a/.bin/screens b/.bin/screens
+index aef30d2..0000000
+--- a/.bin/screens
++++ /dev/null
+deleted file mode 100755
+@@ -1,55 +0,0 @@
+-#!/bin/sh
+-
+-# Adapted from code I found relating to nerdbar.widgets.
+-# Not sure who the originator of this script is. The most stars on github that I could find is here:
+-# https://github.com/apierz/nerdbar.widget/blob/master/scripts/screens
+-
+-# Display spaces using in a bar that accepts stdout
+-kwmc=/usr/local/bin/kwmc
+-
+-# get active and previous space
+-active=$($kwmc query space active id)
+-previous=$($kwmc query space previous id)
+-
+-# get array of spaces
+-spaces=()
+-i=0
+-while read -r line
+-do
+-    spaces[i]="$line"
+-    (( i++ ))
+-done <<< "$($kwmc query space list)"
+-
+-# populate bar with icons
+-bar=()
+-for (( i = 0; i < ${#spaces[@]}; i++ ))
+-do
+-	if [[ ${spaces[$i]} == *"[no tag]" ]] #|| "$i" -lt 5 ]]
+-	then
+-		bar[$i]=$(($i+1))
+-	else
+-		if [[ "$i" == "9" ]]
+-		then
+-			id="${spaces[$i]:4}"
+-		else
+-			id="${spaces[$i]:3}"
+-		fi
+-		# bar[$i]="$(echo $id | tr '[:lower:]' '[:upper:]')"
+-		 bar[$i]="$(echo $id )"
+-	fi
+-done
+-
+-# style active and previous space icons
+-bbar=()
+-for (( i = 0; i < ${#bar[@]}; i++ ))
+-do
+-	if [[ $(($i+1)) == "$active" ]]
+-	then
+-		bbar[(($i*3+1))]="("${bar[$i]}")"
+-	else
+-		bbar[(($i*3+1))]=" (${bar[$i]} "
+-	fi
+-done
+-
+-echo "$($kwmc query space active mode) @ ${bbar[*]} @ $(/usr/local/bin/kwmc query window focused name)"
+-
+Stage deletion [y,n,q,a,d,?]? n
+
+diff --git a/.gitignore_global b/.gitignore_global
+index 3a5c8a4..8d57148 100644
+--- a/.gitignore_global
++++ b/.gitignore_global
+@@ -38,55 +38,6 @@
+ .dropbox.attr
+ .dropbox.cache
+
+-##########################################################################
+-# https://github.com/github/gitignore/blob/master/Global/Emacs.gitignore #
+-##########################################################################
+-# -*- mode: gitignore; -*-
+-*~
+-\#*\#
+-/.emacs.desktop
+-/.emacs.desktop.lock
+-*.elc
+-auto-save-list
+-tramp
+-.\#*
+-
+-# Org-mode
+-.org-id-locations
+-*_archive
+-
+-# flymake-mode
+-*_flymake.*
+-
+-# eshell files
+-/eshell/history
+-/eshell/lastdir
+-
+-# elpa packages
+-/elpa/
+-
+-# reftex files
+-*.rel
+-
+-# AUCTeX auto folder
+-/auto/
+-
+-# cask packages
+-.cask/
+-dist/
+-
+-# Flycheck
+-flycheck_*.el
+-
+-# server auth directory
+-/server/
+-
+-# projectiles files
+-.projectile
+-
+-# directory configuration
+-.dir-locals.el
+-
+ ########################################################################
+ # https://github.com/github/gitignore/blob/master/Global/GPG.gitignore #
+ ########################################################################
+Stage this hunk [y,n,q,a,d,j,J,g,/,e,?]?
+y - stage this hunk
+n - do not stage this hunk
+q - quit; do not stage this hunk or any of the remaining ones
+a - stage this hunk and all later hunks in the file
+d - do not stage this hunk or any of the later hunks in the file
+g - select a hunk to go to
+/ - search for a hunk matching the given regex
+j - leave this hunk undecided, see next undecided hunk
+J - leave this hunk undecided, see next hunk
+e - manually edit the current hunk
+? - print help
+@@ -38,55 +38,6 @@
+ .dropbox.attr
+ .dropbox.cache
+
+-##########################################################################
+-# https://github.com/github/gitignore/blob/master/Global/Emacs.gitignore #
+-##########################################################################
+-# -*- mode: gitignore; -*-
+-*~
+-\#*\#
+-/.emacs.desktop
+-/.emacs.desktop.lock
+-*.elc
+-auto-save-list
+-tramp
+-.\#*
+-
+-# Org-mode
+-.org-id-locations
+-*_archive
+-
+-# flymake-mode
+-*_flymake.*
+-
+-# eshell files
+-/eshell/history
+-/eshell/lastdir
+-
+-# elpa packages
+-/elpa/
+-
+-# reftex files
+-*.rel
+-
+-# AUCTeX auto folder
+-/auto/
+-
+-# cask packages
+-.cask/
+-dist/
+-
+-# Flycheck
+-flycheck_*.el
+-
+-# server auth directory
+-/server/
+-
+-# projectiles files
+-.projectile
+-
+-# directory configuration
+-.dir-locals.el
+-
+ ########################################################################
+ # https://github.com/github/gitignore/blob/master/Global/GPG.gitignore #
+ ########################################################################
+Stage this hunk [y,n,q,a,d,j,J,g,/,e,?]? n
+@@ -95,38 +46,37 @@ secring.*
+ ##############################################################################
+ # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore #
+ ##############################################################################
+-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
++# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
+ # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+-# User-specific stuff:
++# User-specific stuff
+ .idea/**/workspace.xml
+ .idea/**/tasks.xml
+-.idea/dictionaries
++.idea/**/dictionaries
++.idea/**/shelf
+
+-# Sensitive or high-churn files:
++# Sensitive or high-churn files
+ .idea/**/dataSources/
+ .idea/**/dataSources.ids
+-.idea/**/dataSources.xml
+ .idea/**/dataSources.local.xml
+ .idea/**/sqlDataSources.xml
+ .idea/**/dynamic.xml
+ .idea/**/uiDesigner.xml
+
+-# Gradle:
++# Gradle
+ .idea/**/gradle.xml
+ .idea/**/libraries
+
+ # CMake
+ cmake-build-debug/
++cmake-build-release/
+
+-# Mongo Explorer plugin:
++# Mongo Explorer plugin
+ .idea/**/mongoSettings.xml
+
+-## File-based project format:
++# File-based project format
+ *.iws
+
+-## Plugin-specific files:
+-
+ # IntelliJ
+ out/
+
+Stage this hunk [y,n,q,a,d,K,j,J,g,/,s,e,?]? n
+@@ -145,6 +95,9 @@ crashlytics.properties
+ crashlytics-build.properties
+ fabric.properties
+
++# Editor-based Rest Client
++.idea/httpRequests
++
+ ################################################################################
+ # https://github.com/github/gitignore/blob/master/Global/LibreOffice.gitignore #
+ ################################################################################
+Stage this hunk [y,n,q,a,d,K,j,J,g,/,e,?]? n
+@@ -397,6 +350,15 @@ Temporary Items
+ *.sqlite
+ *.log
+
++########################################################################################################
++# VISUAL STUDIO CODE https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore #
++########################################################################################################
++.vscode/*
++!.vscode/settings.json
++!.vscode/tasks.json
++!.vscode/launch.json
++!.vscode/extensions.json
++
+ ############
+ # PERSONAL #
+ ############
+Stage this hunk [y,n,q,a,d,K,j,J,g,/,e,?]? n
+@@ -413,3 +375,7 @@ temp/
+
+ # Compiled Python files
+ *.pyc
++
++# All Editor Stuff
++.idea/
++.vscode/
+Stage this hunk [y,n,q,a,d,K,g,/,e,?]? n
+
+diff --git a/.osx_supplement b/.osx_supplement
+index a1265b9..2f92e81 100755
+--- a/.osx_supplement
++++ b/.osx_supplement
+@@ -51,6 +51,11 @@ defaults write com.apple.screensaver askForPasswordDelay -int 15
+ echo 'Enable shadow in screenshots'
+ defaults write com.apple.screencapture disable-shadow -bool false
+
++echo 'Set screenshot save location'
++mkdir -p ~/Documents/Screenshots
++touch ~/Documents/Screenshots/.keep
++defaults write com.apple.screencapture location ~/Documents/Screenshots
++
+ echo 'Set Home (~/) as the default location for new Finder windows'
+ echo 'For other paths, use "PfLo" and "file:///full/path/here/"'
+ defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
+Stage this hunk [y,n,q,a,d,e,?]? n
+
+diff --git a/.path b/.path
+index d63153b..ae96402 100644
+--- a/.path
++++ b/.path
+@@ -24,6 +24,7 @@
+ # echo "Setting new path:" $PATH
+ # export PATH
+
++export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+ export PATH="/usr/local/sbin:$PATH"
+ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+ export PATH="./node_modules/.bin:$PATH"
+Stage this hunk [y,n,q,a,d,e,?]? n
+
+diff --git a/.zsh_profile b/.zsh_profile
+index 89234c3..22579e9 100644
+--- a/.zsh_profile
++++ b/.zsh_profile
+@@ -50,24 +50,27 @@ set -o vi
+ # Lazily load Node.js and nvm
+ # https://github.com/creationix/nvm/issues/730
+ # https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/
+-lazily_load_nvm_and_nodejs () {
+-  local -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+-
+-  NODE_GLOBALS+=("node")
+-  NODE_GLOBALS+=("nvm")
+-
+-  load_nvm() {
+-    export NVM_DIR=~/.nvm
+-    local NVM_PATH=$(brew --prefix nvm)/nvm.sh
+-    [ -s $NVM_PATH ] && . $NVM_PATH
+-  }
++#lazily_load_nvm_and_nodejs () {
++#  local -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
++#
++#  NODE_GLOBALS+=("node")
++#  NODE_GLOBALS+=("nvm")
++#
++#  load_nvm() {
++#    export NVM_DIR=~/.nvm
++#    local NVM_PATH=$(brew --prefix nvm)/nvm.sh
++#    [ -s $NVM_PATH ] && . $NVM_PATH
++#  }
++#
++#  for cmd in "${NODE_GLOBALS[@]}"; do
++#    eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
++#  done
++#}
+
+-  for cmd in "${NODE_GLOBALS[@]}"; do
+-    eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+-  done
+-}
++#lazily_load_nvm_and_nodejs
+
+-lazily_load_nvm_and_nodejs
++export NVM_DIR="$HOME/.nvm"
++  . "/usr/local/opt/nvm/nvm.sh"
+
+ # Switch node-version when directory changes
+ # https://github.com/creationix/nvm/issues/603#issuecomment-91290448
+Stage this hunk [y,n,q,a,d,j,J,g,/,s,e,?]? n
+@@ -149,3 +152,7 @@ fi
+ #
+ # # Add `killall` tab completion for common apps
+ # complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
++
++# Pure prompt (make sure ZSH_THEME="" in ohmyzsh .zshrc)
++autoload -U promptinit; promptinit
++prompt pure
+Stage this hunk [y,n,q,a,d,K,g,/,e,?]? n
+
+diff --git a/SublimeText/Package Control.sublime-settings b/SublimeText/Package Control.sublime-settings
+index 66ed8eb..c88f1ee 100644
+--- a/SublimeText/Package Control.sublime-settings
++++ b/SublimeText/Package Control.sublime-settings
+@@ -13,7 +13,7 @@
+ 		"GitGutter",
+ 		"Highlighter",
+ 		"Jade",
+-		"Markdown Preview",
++		"MarkdownPreview",
+ 		"Package Control",
+ 		"Pug",
+ 		"Sass",
+Stage this hunk [y,n,q,a,d,e,?]? n
+
+diff --git a/SublimeText/Preferences.sublime-settings b/SublimeText/Preferences.sublime-settings
+index 97b893f..ae90a01 100644
+--- a/SublimeText/Preferences.sublime-settings
++++ b/SublimeText/Preferences.sublime-settings
+@@ -11,7 +11,7 @@
+ 	[
+ 		"subpixel_antialias"
+ 	],
+-	"font_size": 22,
++	"font_size": 20,
+ 	"highlight_line": true,
+ 	"highlight_modified_tabs": true,
+ 	"ignored_packages":
+Stage this hunk [y,n,q,a,d,e,?]? n
+
+diff --git a/install.sh b/install.sh
+index bee36c6..8627ecc 100755
+--- a/install.sh
++++ b/install.sh
+@@ -44,6 +44,10 @@ echo "Install coreutils"
+ brew install coreutils
+ brew upgrade coreutils
+
++echo "Install iTerm2"
++brew tap caskroom/versions
++brew cask reinstall iterm2-beta
++
+ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
+   echo "Install Updated Bash"
+   brew install bash
+Stage this hunk [y,n,q,a,d,e,?]? n
+
+diff --git a/lib/tasks/dotfiles/dotfiles_remove.sh b/lib/tasks/dotfiles/dotfiles_remove.sh
+index c2e3e55..d174405 100755
+--- a/lib/tasks/dotfiles/dotfiles_remove.sh
++++ b/lib/tasks/dotfiles/dotfiles_remove.sh
+@@ -5,7 +5,7 @@
+ dotfiles_remove () {
+   echo "removing dotfiles"
+
+-  find ~ -type l -d 1 -delete
++  # find ~ -type l -d 1 -delete
+ }
+
+ dotfiles_remove
+Stage this hunk [y,n,q,a,d,e,?]? n
+
+diff --git a/lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh b/lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
+index 78525b7..e72e7fc 100755
+--- a/lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
++++ b/lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
+@@ -15,8 +15,10 @@ mathiasbynens_dotfiles_load () {
+     echo "(Cloning with git)" >&3
+     GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone --depth 1 https://github.com/mathiasbynens/dotfiles math_dotfiles
+   fi
+-
+-  cached_psudo sh math_dotfiles/.macos
++  echo "Removing Terminal from quit list"
++  sed -i '' '/\"Terminal\"\ \\/d' math_dotfiles/.macos
++  echo "Running"
++  cached_psudo "yes | sh math_dotfiles/.macos"
+ }
+
+ mathiasbynens_dotfiles_load
+Stage this hunk [y,n,q,a,d,e,?]? n
+
+diff --git a/lib/tasks/index.sh b/lib/tasks/index.sh
+index f792f2e..2b71cfe 100644
+--- a/lib/tasks/index.sh
++++ b/lib/tasks/index.sh
+@@ -8,15 +8,16 @@ source ./lib/utilities.sh
+
+ concurrent_install () {
+     local CONCURRENT_LIMIT=4
+-    local CONCURRENT_COMPACT=1
++    local CONCURRENT_COMPACT=0
++    local CONCURRENT_NONINTERACTIVE=1
+
+     local args=(
+
+         - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
+-        - "Load Mathias Bynens' Dotfiles"       retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
+-        - "Load Personal Dotfiles"              retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_load.sh
+         - "Symlink Mathias Bynens' Dotfiles"    retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_symlink.sh
+         - "Symlink Personal Dotfiles"           retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_symlink.sh
++        - "Load Mathias Bynens' Dotfiles"       retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
++        - "Load Personal Dotfiles"              retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_load.sh
+
+         - "Clean .DS_Store files"               retry gtimeout --preserve-status 300 ./lib/tasks/osx/clean_ds_store.sh
+         - "Generate SSH Keys"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/generate_ssh_keys.sh
+Stage this hunk [y,n,q,a,d,j,J,g,/,s,e,?]? n
+@@ -47,11 +48,11 @@ concurrent_install () {
+         --before  "Symlink Mathias Bynens' Dotfiles"
+         --before  "Symlink Personal Dotfiles"
+
+-        --require "Load Mathias Bynens' Dotfiles"
+-        --before  "Symlink Mathias Bynens' Dotfiles"
++        --require "Symlink Mathias Bynens' Dotfiles"
++        --before  "Load Mathias Bynens' Dotfiles"
+
+-        --require "Load Personal Dotfiles"
+-        --before  "Symlink Personal Dotfiles"
++        --require "Symlink Personal Dotfiles"
++        --before  "Load Personal Dotfiles"
+
+         --require "Install Oh-My-ZSH"
+         --before  "Load .zshrc from Oh-My-ZSH"
+Stage this hunk [y,n,q,a,d,K,g,/,s,e,?]? n
+
