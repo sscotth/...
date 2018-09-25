@@ -1,22 +1,10 @@
 tap 'homebrew/bundle'
-tap 'homebrew/dupes'
-tap 'homebrew/fuse'
-tap 'homebrew/science'
+tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
 
-tap 'caskroom/cask'
-tap 'caskroom/drivers'
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
-
-tap 'argon/mas'
-tap 'neovim/neovim'
-tap 'ravenac95/sudolikeaboss'
 tap 'vitorgalvao/tiny-scripts'
 tap 'buo/cask-upgrade'
-
-# PREREQ
-cask 'osxfuse'
-cask 'xquartz'
 
 # UPDATE OS X APPS
 brew 'bash'
@@ -87,7 +75,6 @@ brew 'rethinkdb'
 brew 'ruby-install', args: ['HEAD']
 brew 's3cmd'
 brew 'shellcheck'
-brew 'sudolikeaboss'
 brew 'syncthing-inotify'
 brew 'syncthing'
 brew 'tccutil'
@@ -100,162 +87,130 @@ brew 'watchman'
 brew 'z'
 
 # CASK APPS
-cask '1password-beta'
-cask 'aerial'
-cask 'airmail-beta'
-cask 'airserver'
-cask 'airtool'
-cask 'alfred'
-cask 'apache-couchdb'
-cask 'appcleaner'
-cask 'asepsis'
-cask 'atom-beta'
-cask 'atom'
-cask 'audiobookbinder'
-cask 'balsamiq-mockups'
-cask 'bartender'
-cask 'bettertouchtool'
-cask 'brackets'
-cask 'brave'
-cask 'calibre'
-cask 'camtasia'
-cask 'ccleaner'
-cask 'charles-beta'
-cask 'chromium'
-cask 'codekit'
-cask 'controlplane'
-cask 'dash'
-cask 'devonthink-pro-office'
-cask 'discord'
-cask 'docker'
-cask 'dropbox-beta'
-cask 'duet'
-cask 'endurance'
-cask 'evernote'
-cask 'fantastical'
-cask 'filezilla'
-cask 'firefox'
-cask 'firefoxdeveloperedition'
-cask 'flash-player'
-cask 'flux'
-cask 'fontprep'
-cask 'free-ruler'
-cask 'gas-mask'
-cask 'genymotion'
-cask 'gisto'
-cask 'github-beta'
-cask 'gitter'
-cask 'glueprint'
-cask 'glyphs'
-cask 'google-chrome-canary'
-cask 'google-chrome'
-cask 'google-drive-file-stream'
-cask 'google-trends'
-cask 'gpg-suite'
-cask 'grandperspective'
-cask 'handbrake'
-cask 'haskell-for-mac'
-cask 'hipchat'
-cask 'hyperswitch'
-cask 'insomniax'
-cask 'integrity'
-cask 'istat-menus'
-cask 'iterm2-beta'
-cask 'itsycal'
-cask 'java'
-cask 'kaleidoscope'
-cask 'karabiner-elements'
-cask 'keka'
-cask 'kodi'
-cask 'leech'
-cask 'libreoffice'
-cask 'limechat'
-cask 'liteicon'
-cask 'little-snitch'
-cask 'livereload'
-cask 'logitech-unifying'
-cask 'losslesscut'
-cask 'macaw'
-cask 'macid'
-cask 'makemkv'
-cask 'mamp'
-cask 'mancy'
-cask 'marked'
-cask 'microsoft-office'
-cask 'mongodb-compass'
-cask 'monodraw'
-cask 'moom'
-cask 'mp3tag'
-cask 'mplayerx'
-cask 'mpv'
-cask 'mysqlworkbench'
-cask 'navicat-premium'
-cask 'ngrok'
-cask 'nvalt'
-cask 'obs'
-cask 'omnifocus'
-cask 'omnigraffle'
-cask 'onyx'
-cask 'openpht'
-cask 'opera-developer'
-cask 'parallels'
-cask 'paw'
-cask 'plex-media-player'
-cask 'plex-media-server'
-cask 'postgres'
-cask 'postico'
-cask 'psequel'
-cask 'qsyncthingtray'
-cask 'quickbooks'
-cask 'rclone-browser'
-cask 'rescuetime'
-cask 'robo-3t'
-cask 'robofont'
-cask 'rodeo'
-cask 'rstudio'
-cask 'sabnzbd'
-cask 'safari-technology-preview'
-cask 'scroll-reverser'
-cask 'sketch-beta'
-cask 'skype'
-cask 'slack'
-cask 'soundflower'
-cask 'sourcetree'
-cask 'spectacle'
-cask 'steam'
-cask 'stremio'
-cask 'studio-3t'
-cask 'sublime-text'
-cask 'switchresx'
-cask 'synergy'
-cask 'teamviewer'
-cask 'textexpander'
-cask 'totalfinder'
-cask 'tower'
-cask 'transmission'
-cask 'tripmode'
-cask 'tunnelblick'
-cask 'vagrant'
-cask 'veracrypt'
-cask 'virtualbox-extension-pack'
-cask 'virtualbox'
-cask 'viscosity'
-cask 'vlc'
-cask 'vmware-fusion'
-cask 'webkit-nightly'
-cask 'webstorm'
-cask 'wireshark'
-cask 'xld'
-# cask 'xtrafinder', args: ['force']
+cask '1password6' # Password manager -- newest requires subscription
+cask 'aerial' # Apple TV Aerial Views Screen Saver
+cask 'airmail-beta' # Email client
+cask 'airserver' # Airplay & Google Cast screen mirroring receiver
+cask 'airtool' # Wireless configuration and capture
+cask 'alfred' # Spotlight alternative
+cask 'apache-couchdb' # Database
+cask 'appcleaner' # App uninstaller
+cask 'asepsis' # Prevents .DS_Store files (disable SIP)
+cask 'atom-beta' # Text editor
+cask 'atom' # Text editor
+cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
+cask 'balsamiq-mockups' # Wireframing
+cask 'bartender' # Hides menubar items
+cask 'ccleaner' # System cleanup
+cask 'charles-beta' # Debugging Proxy
+cask 'chromium' # Web browser
+cask 'dash' # Offline API Documentation
+cask 'devonthink-pro-office' # Evernote alternative
+cask 'discord' # Chat
+cask 'docker' # App containers
+cask 'dropbox-beta' # Cloud backup
+cask 'duet' # ipad as second monitor
+cask 'fantastical' # Calendar
+cask 'filezilla' # FTP
+cask 'firefox' # Web broswer
+cask 'firefoxdeveloperedition' # Web broswer
+cask 'flash-npapi' # Flash for Safari & Firefox. PPAPI is for Chromium & Opera
+cask 'flux' # Screen colorization based on time
+cask 'fontplop' # create webfonts from .ttf
+cask 'free-ruler' # Pixel ruler
+cask 'gas-mask' # Hosts file manager
+cask 'gisto' # Github gist manager
+cask 'github' # Github repo manager
+cask 'gitkraken' # Git repo manager
+cask 'gitter' # Chat
+cask 'glyphs' # Font editor
+cask 'google-chrome-canary' # Browser
+cask 'google-chrome' # Browser
+cask 'google-drive-file-stream' # Cloud backup
+cask 'gpg-suite' # OpenPGP
+cask 'grandperspective' # File system analyzer
+cask 'handbrake' # Video transcoder
+cask 'haskell-for-mac' # IDE for haskell
+cask 'integrity' # Website link checker (Also on app store)
+cask 'istat-menus' # Menubar widgets
+cask 'iterm2' # Terminal emulator
+cask 'itsycal' # Menubar calendar
+cask 'java' # Required for Java Apps
+cask 'kaleidoscope' # File diff
+cask 'karabiner-elements' # Keyboard customization
+cask 'keka' # File compression
+cask 'kodi' # Media player
+cask 'leech' # Download manager
+cask 'libreoffice' # Office applications
+cask 'limechat' # IRC client
+cask 'little-snitch' # Firewall
+cask 'logitech-unifying' # Logitech drivers
+cask 'losslesscut' # Trim video and audio files
+cask 'makemkv' # Bluray rip - Free registration https://www.makemkv.com/forum/viewtopic.php?f=5&t=1053
+cask 'mamp' # macOS, apache, mysql, php stack app
+cask 'marked' # preview markdown from any editor
+cask 'microsoft-office' # Office applications
+cask 'mongodb-compass' # MongoDB GUI
+cask 'monodraw' # Plain text drawing
+cask 'moom' # Window manager
+cask 'mp3tag' # Mp3 metadata editor
+cask 'mpv' # Media player
+cask 'mysqlworkbench' # MySQL GUI
+cask 'navicat-premium' # Multi-database GUI
+cask 'ngrok' # Public tunnel to localhost
+cask 'nvalt' # Notes
+cask 'obs' # Screen broadcasting
+cask 'omnifocus' # Task manager
+cask 'onyx' # System maintence
+cask 'parallels' # Virtual machines
+cask 'paw' # API tester
+cask 'plex-media-player' # Media player
+cask 'plex-media-server' # Media server
+cask 'postgres' # Database
+cask 'postico' # PostgresSQL GUI
+cask 'qsyncthingtray' # Syncthing tray icon
+cask 'quickbooks2016' # Accounting
+cask 'rclone-browser' # rclone GUI
+cask 'rescuetime' # Time tracker
+cask 'robo-3t' # MongoDB GUI
+cask 'robofont' # Font editor
+cask 'rstudio' # IDE for R
+cask 'scroll-reverser' # Mouse scroll wheel change
+cask 'sketch-beta' # Vector drawing
+cask 'slack' # Chat
+cask 'soundflower' # Virtual audio interface
+cask 'sourcetree' # Git repo manager
+cask 'spectacle' # Window manager
+cask 'steam' # Games
+cask 'stremio' # Media streaming
+cask 'studio-3t' # IDE for MongoDB
+cask 'sublime-merge' # Git repo manager
+cask 'sublime-text' # Text editor
+cask 'synergy' # Mouse and keyboard sharing
+cask 'teamviewer' # Screen sharing
+cask 'totalfinder' # Finder enhancer
+cask 'tower' # Git repo manager
+cask 'transmission' # Torrent downloader
+cask 'tripmode' # Mobile data blocker
+cask 'tunnelblick' # VPN client
+cask 'veracrypt' # Encryption. TrueCrypt fork
+cask 'virtualbox-extension-pack' # Support for USB 2.0 and USB 3.0 devices, VirtualBox RDP, disk encryption, NVMe and PXE boot for Intel cards
+cask 'virtualbox' # Virtual machines
+cask 'viscosity' # VPN client
+cask 'vlc' # Media player
+cask 'vmware-fusion' # Virtual machines
+cask 'webstorm' # IDE for JavaScript
+cask 'wireshark' # Network analyzer
+cask 'xld' # FLAC lossless audio
+# cask 'xtrafinder' # Finder enhancer
 
 # [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins)
+# Not sorted
 cask 'qlcolorcode'
 cask 'qlstephen'
 cask 'qlmarkdown'
 cask 'quicklook-json'
-cask 'qlprettypatch'
-cask 'quicklook-csv'
-cask 'betterzipql'
+# cask 'betterzipql'
 cask 'qlimagesize'
 cask 'webpquicklook'
 cask 'suspicious-package'
@@ -266,7 +221,7 @@ cask 'quicklookapk'
 cask 'quicklook-pat'
 
 # FONTS
-# brew cask search /powerline/ | grep font | xargs brew cask install
+# brew search /powerline/ | grep font | xargs brew cask install
 cask 'font-anonymice-powerline'
 cask 'font-consolas-for-powerline'
 cask 'font-dejavu-sans-mono-for-powerline'
@@ -279,6 +234,7 @@ cask 'font-liberation-mono-for-powerline'
 cask 'font-menlo-for-powerline'
 cask 'font-meslo-for-powerline'
 cask 'font-monofur-for-powerline'
+cask 'font-noto-mono-for-powerline'
 cask 'font-roboto-mono-for-powerline'
 cask 'font-source-code-pro-for-powerline'
 cask 'font-ubuntu-mono-derivative-powerline'
@@ -293,12 +249,16 @@ cask 'xbox360-controller-driver-unofficial'
 # APP STORE
 mas 'Day One Classic', id: 422304217
 mas 'Deckset', id: 847496013
+mas 'Microsoft Remote Desktop', id: 1295203466
 mas 'Pixelmator', id: 407963104
 mas 'Reeder', id: 880001334
 mas 'Xcode', id: 497799835
 
 # PREREQ
-brew 'macvim', args: ['with-custom-icons']
-brew 'ntfs-3g'
-brew 'sshfs'
-cask 'fontforge'
+cask 'osxfuse'
+# cask 'xquartz'
+#
+# brew 'ntfs-3g' # Requires osxfuse
+# brew 'sshfs' # Requires osxfuse
+# cask 'fontforge' # Requires xforce
+brew 'macvim', args: ['with-custom-icons'] # Requires Xcode
