@@ -17,37 +17,6 @@ fi
 
 cached_sudo -v
 
-# Update computer's time (ntpdate removed from mojave)
-# cached_sudo ntpdate -u us.pool.ntp.org
-
-boxecho "Never go into computer sleep mode during install"
-
-# Never go into computer sleep mode during install
-  # Usage: systemsetup -setcomputersleep <minutes>
-	# Set amount of idle time until compputer sleeps to <minutes>.
-	# Specify "Never" or "Off" for never.
-
-cached_sudo systemsetup -setcomputersleep Off
-
-# Never dim display during install (needed?)
-# cached_sudo pmset force -a displaysleep 0
-
-boxecho "Disable screensaver during install"
-
-# Disable screensaver during install
-defaults -currentHost write com.apple.screensaver idleTime 0
-
-#
-# echo "==> 'Disabling screensaver'"
-# defaults -currentHost write com.apple.screensaver idleTime 0
-# su $SSH_USERNAME -c "defaults -currentHost write com.apple.screensaver idleTime 0"
-# echo "==> 'Disabling login screensaver'"
-# defaults -currentHost write com.apple.screensaver loginWindowIdleTime 0
-# echo "==> 'Turning off energy saving'"
-# pmset -a displaysleep 0 disksleep 0 sleep 0
-# # https://carlashley.com/2016/10/19/com-apple-touristd/
-# echo "==> 'Disable New to Mac notification'"
-# defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
 
 boxecho "Homebrew"
 
@@ -100,12 +69,12 @@ if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINF
   exit 1
 fi
 
-echo "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})" | lolcat
+lolboxecho "BASH v4.2+ INSTALLED - BEGIN INSTALLATION"
+
+lolboxecho "Bash-Concurrent"
 
 # Switch to zsh
-cached_sudo chsh -s $(which zsh) scott
-
-# Run concurrent test
+# cached_sudo chsh -s $(which zsh) scott
 
 # (Re-)Download my fork of bash-concurrent (https://github.com/themattrix/bash-concurrent) and use nocompact branch
 rm -rf bash-concurrent
@@ -113,6 +82,41 @@ git clone https://github.com/sscotth/bash-concurrent
 cd bash-concurrent
 git checkout nocompact
 cd ..
+
+exit 1
+
+# Update computer's time (ntpdate removed from mojave)
+# cached_sudo ntpdate -u us.pool.ntp.org
+
+boxecho "Never go into computer sleep mode during install"
+
+# Never go into computer sleep mode during install
+  # Usage: systemsetup -setcomputersleep <minutes>
+	# Set amount of idle time until compputer sleeps to <minutes>.
+	# Specify "Never" or "Off" for never.
+
+cached_sudo systemsetup -setcomputersleep Off
+
+# Never dim display during install (needed?)
+# cached_sudo pmset force -a displaysleep 0
+
+boxecho "Disable screensaver during install"
+
+# Disable screensaver during install
+defaults -currentHost write com.apple.screensaver idleTime 0
+
+#
+# echo "==> 'Disabling screensaver'"
+# defaults -currentHost write com.apple.screensaver idleTime 0
+# su $SSH_USERNAME -c "defaults -currentHost write com.apple.screensaver idleTime 0"
+# echo "==> 'Disabling login screensaver'"
+# defaults -currentHost write com.apple.screensaver loginWindowIdleTime 0
+# echo "==> 'Turning off energy saving'"
+# pmset -a displaysleep 0 disksleep 0 sleep 0
+# # https://carlashley.com/2016/10/19/com-apple-touristd/
+# echo "==> 'Disable New to Mac notification'"
+# defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
+
 
 # Load concurrent tasks
 bash ./lib/tasks/index.sh

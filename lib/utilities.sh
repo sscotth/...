@@ -15,7 +15,7 @@ lolboxecho () {
 }
 
 lolboxecho2 () {
-  boxecho $* | lolcat
+  boxecho $* | lolboxecho
 }
 
 
