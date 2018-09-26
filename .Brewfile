@@ -104,7 +104,7 @@ cask 'anydesk' # Screen sharing
 cask 'apache-couchdb' # Database
 cask 'appcleaner' # App uninstaller
 cask 'arduino' # IDE for Arduino
-cask 'asepsis' # Prevents .DS_Store files (disable SIP)
+# cask 'asepsis' # Prevents .DS_Store files (disable SIP)
 cask 'atom-beta' # Text editor
 cask 'atom' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks

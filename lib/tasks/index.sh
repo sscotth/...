@@ -46,9 +46,6 @@ concurrent_install () {
         # - "homebrew"                            retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew.sh
         # - "homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
 
-        --and-then
-        - "Load OSX Settings"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_osx_defaults.sh
-
         --require "Remove previous Dotfiles"
         --before  "Mathias Bynens' Dotfiles"
         --before  "Personal Dotfiles"
