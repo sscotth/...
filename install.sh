@@ -24,9 +24,6 @@ if [[ $(command -v brew) == "" ]]; then
     boxecho "Installing Hombrew"
     # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
     cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
-else
-
-
 fi
 
 boxecho "Homebrew Doctor"
