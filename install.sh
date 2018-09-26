@@ -126,12 +126,12 @@ bash ./lib/tasks/index.sh
 
 
 # # Homebrew installs (parallelize) Attempt 3 times (allowing for ctrl-c)
-bash ./lib/tasks/osx/homebrew.sh
-bash ./lib/tasks/osx/homebrew.sh
-bash ./lib/tasks/osx/homebrew.sh
+# bash ./lib/tasks/osx/homebrew_concurrent.sh
+# bash ./lib/tasks/osx/homebrew_concurrent.sh
+# bash ./lib/tasks/osx/homebrew_concurrent.sh
 
 # Bundle Homebrew for missing parallelized homebrew installs
-cached_psudo brew bundle
+cached_psudo brew bundle --file=.Brewfile
 
 exit 1
 

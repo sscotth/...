@@ -53,7 +53,7 @@ cat ~/.dotfiles/Caskfile | \
 # cat ~/.dotfiles/Caskfile | grep '^brew cask' | parallel --bar -j3 \
 #   "echo {}; eval {}"
 
-brew bundle
+brew bundle --file=.Brewfile
 
 # Cleanup
 brew cleanup -s

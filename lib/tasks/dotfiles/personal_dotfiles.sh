@@ -23,9 +23,6 @@ personal_dotfiles_symlink_unique () {
 
   echo ".../.atom/ ==> ~/.atom/"
   /bin/ln -shF ~/.dotfiles/.atom ~/.atom
-
-  echo ".../Brewfile ==> ~/Brewfile"
-  /bin/ln -shF ~/.dotfiles/Brewfile ~/Brewfile
 }
 
 personal_dotfiles_symlink_normal () {
