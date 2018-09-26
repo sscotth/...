@@ -9,8 +9,8 @@ install_node_stable_packages () {
 
   nvm use node
 
-  echo "(babel-eslint)" >&3
-  npm install -g babel-eslint
+  # echo "(babel-eslint)" >&3
+  # npm install -g babel-eslint
   # echo "(bower)" >&3
   # npm install -g bower
   # echo "(cordova)" >&3

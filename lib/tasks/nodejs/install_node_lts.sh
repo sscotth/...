@@ -10,9 +10,10 @@ install_node_lts () {
   load_nvm
 
   nvm install --lts
+  nvm install --lts=Carbon # 8.x
+  nvm install --lts=Boron # 6.x
+  nvm install --lts=Argon # 4.x
 
-  echo "Update npm"
-  npm install -g npm
 }
 
 install_node_lts

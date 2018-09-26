@@ -20,27 +20,22 @@ concurrent_install () {
 
         - "Clean .DS_Store files"               retry gtimeout --preserve-status 300 ./lib/tasks/osx/clean_ds_store.sh
         - "Generate SSH Keys"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/generate_ssh_keys.sh
-        # - "Install Hosts file"                  retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_hosts_file.sh
+        # - "Install Hosts file"                  retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_hosts_file.sh # Use Gas Mask app
         - "Install Oh-My-ZSH"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_oh_my_zsh.sh
         - "Install OSX updates"                 retry gtimeout --preserve-status 300 ./lib/tasks/osx/install_osx_updates.sh
         - "Install ZSH Syntax Highlighting"     retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_zsh_syntax_highlighting.sh
         - "Load .zshrc from Oh-My-ZSH"          retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_zshrc_from_oh_my_zsh.sh
         - "Load OSX Settings"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_osx_defaults.sh
         - "Prepare MongoDB"                     retry gtimeout --preserve-status 120 ./lib/tasks/osx/mongodb_prepare.sh
-        - "Prepare NTFS"                        retry gtimeout --preserve-status 120 ./lib/tasks/osx/ntfs_prepare.sh
+        - "Prepare NTFS"                        retry gtimeout --preserve-status 120 ./lib/tasks/osx/ntfs_prepare.sh # Except for SIP check, SKIP FOR NOW
         - "Setup assistive devices"             retry gtimeout --preserve-status 120 ./lib/tasks/osx/setup_assistive_devices.sh
-        - "Use NTP pool servers"                retry gtimeout --preserve-status 120 ./lib/tasks/osx/use_ntp_pool_servers.sh
+        # - "Use NTP pool servers"                retry gtimeout --preserve-status 120 ./lib/tasks/osx/use_ntp_pool_servers.sh # Broken in mojave
 
         - "Install Node.js Version Manager"     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_version_manager.sh
-
         - "Install Node.js LTS"                 retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_lts.sh
-        - "Setup Node.js LTS Defaults"          retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/setup_node_lts.sh
         - "Install Node.js LTS Packages"        retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_lts_packages.sh
-
         - "Install Node.js Stable"              retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_stable.sh
-        - "Setup Node.js Stable Defaults"       retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/setup_node_stable.sh
         - "Install Node.js Stable Packages"     retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
-
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
         # --require "Remove previous Dotfiles"
@@ -63,17 +58,9 @@ concurrent_install () {
 
         --require "Install Node.js Stable"
         --before  "Install Node.js Stable Packages"
-        --before  "Setup Node.js Stable Defaults"
 
         --require "Install Node.js LTS"
         --before  "Install Node.js LTS Packages"
-        --before  "Setup Node.js LTS Defaults"
-
-        # --require "Install Node.js Stable"
-        # --before  "Install Node.js Nightly"
-        #
-        # --require "Install Node.js Nightly"
-        # --before  "Setup Node.js Nightly"
 
         --require "Install Node.js Stable Packages"
         --require "Install Node.js LTS Packages"
