@@ -116,7 +116,7 @@ boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
 # cached_psudo brew bundle --file=.Brewfile
 
 boxecho "Load macOS defaults"
-cached_psudo lib/tasks/macos/load_macos_defaults.sh
+# cached_psudo lib/tasks/macos/load_macos_defaults.sh
 
 boxecho "Homebrew cleanup"
 brew cleanup
