@@ -11,42 +11,42 @@ concurrent_install () {
     # local CONCURRENT_COMPACT=1
 
     local args=(
-        - "Homebrew cask"                       retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
-        - "Homebrew zap"                        retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
-        - "Homebrew quick"                      retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_quick.sh
-        - "Homebrew bundle"                     retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
+        - "Homebrew cask"                       retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
+        - "Homebrew zap"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
+        - "Homebrew quick"                      retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_quick.sh
+        - "Homebrew bundle"                     retry_command gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
 
-        - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
-        - "Mathias Bynens' Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
-        - "Personal Dotfiles"                   retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles.sh
+        - "Remove previous Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
+        - "Mathias Bynens' Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
+        - "Personal Dotfiles"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles.sh
 
-        - "Clean .DS_Store files"               retry gtimeout --preserve-status 300 ./lib/tasks/macos/clean_ds_store.sh
-        - "Generate SSH Keys"                   retry gtimeout --preserve-status 120 ./lib/tasks/macos/generate_ssh_keys.sh
-        # - "Install Hosts file"                  retry gtimeout --preserve-status 120 ./lib/tasks/macos/install_hosts_file.sh # Use Gas Mask app
-        - "Install Oh-My-ZSH"                   retry gtimeout --preserve-status 120 ./lib/tasks/macos/install_oh_my_zsh.sh
-        - "Install macOS updates"               retry gtimeout --preserve-status 300 ./lib/tasks/macos/install_macos_updates.sh
-        - "Install ZSH Syntax Highlighting"     retry gtimeout --preserve-status 120 ./lib/tasks/macos/install_zsh_syntax_highlighting.sh
-        - "Load .zshrc from Oh-My-ZSH"          retry gtimeout --preserve-status 120 ./lib/tasks/macos/load_zshrc_from_oh_my_zsh.sh
+        - "Clean .DS_Store files"               retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/clean_ds_store.sh
+        - "Generate SSH Keys"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/generate_ssh_keys.sh
+        # - "Install Hosts file"                  retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_hosts_file.sh # Use Gas Mask app
+        - "Install Oh-My-ZSH"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_oh_my_zsh.sh
+        - "Install macOS updates"               retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/install_macos_updates.sh
+        - "Install ZSH Syntax Highlighting"     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_zsh_syntax_highlighting.sh
+        - "Load .zshrc from Oh-My-ZSH"          retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/load_zshrc_from_oh_my_zsh.sh
 
-        - "Prepare MongoDB"                     retry gtimeout --preserve-status 120 ./lib/tasks/macos/mongodb_prepare.sh
-        - "Prepare NTFS"                        retry gtimeout --preserve-status 120 ./lib/tasks/macos/ntfs_prepare.sh # Except for SIP check, SKIP FOR NOW
-        - "Setup assistive devices"             retry gtimeout --preserve-status 120 ./lib/tasks/macos/setup_assistive_devices.sh
-        # - "Use NTP pool servers"                retry gtimeout --preserve-status 120 ./lib/tasks/macos/use_ntp_pool_servers.sh # Broken in mojave
+        - "Prepare MongoDB"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/mongodb_prepare.sh
+        - "Prepare NTFS"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/ntfs_prepare.sh # Except for SIP check, SKIP FOR NOW
+        - "Setup assistive devices"             retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/setup_assistive_devices.sh
+        # - "Use NTP pool servers"                retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/use_ntp_pool_servers.sh # Broken in mojave
 
-        - "Install Node.js Version Manager"     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_version_manager.sh # BREW
-        - "Install Node.js LTS"                 retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_lts.sh
-        - "Install Node.js LTS Packages"        retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_lts_packages.sh
-        - "Install Node.js Stable"              retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_stable.sh
-        - "Install Node.js Stable Packages"     retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
-        - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
+        - "Install Node.js Version Manager"     retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_version_manager.sh # BREW
+        - "Install Node.js LTS"                 retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_lts.sh
+        - "Install Node.js LTS Packages"        retry_command gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_lts_packages.sh
+        - "Install Node.js Stable"              retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_stable.sh
+        - "Install Node.js Stable Packages"     retry_command gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
+        - "Clean npm cache"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
-        - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
-        - "atom"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
-        - "python"                              retry gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
-        - "ruby"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
-        - "sublime text"                        retry gtimeout --preserve-status 120 ./lib/tasks/apps/sublime-text.sh
-        - "spoofmac"                            retry gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
-        - "asepsis"                             retry gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
+        - "iterm2"                              retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
+        - "atom"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
+        - "python"                              retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
+        - "ruby"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
+        - "sublime text"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/sublime-text.sh
+        - "spoofmac"                            retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
+        - "asepsis"                             retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
 
         --require "Remove previous Dotfiles"
         --before  "Mathias Bynens' Dotfiles"

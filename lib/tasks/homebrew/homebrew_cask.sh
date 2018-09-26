@@ -1,11 +1,14 @@
-# #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 homebrew_cask () {
-  echo "Remove Homebrew taps"
-  brew untap $(brew tap | grep -v core)
+  # echo "Cleanup Homebrew taps"
+  # if [[ $(brew tap | grep -v core) ]]; then
+  #   echo "Removing taps..."
+  #   brew untap $(brew tap | grep -v core)
+  # fi
 
   echo "Homebrew Cask"
-  brew uninstall --force brew-cask
+  # brew uninstall --force brew-cask
   brew cask
 
   echo "Homebrew Cask Doctor"

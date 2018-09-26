@@ -21,11 +21,11 @@ boxecho () {
 # Retries a command on failure
 # Based on http://fahdshariff.blogspot.com/2014/02/retrying-commands-in-shell-scripts.html
 # TODO: Accept optional MAX_ATTEMPTS and DELAY arguments
-retry () {
+retry_command () {
     local -r -i MAX_ATTEMPTS=3
     local -r -i DELAY=10
     local -i index=1
-    echo "retry"
+    echo "==> RETRY_COMMAND <=="
 
     until $@; do
       local exit_status=$?
