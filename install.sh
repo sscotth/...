@@ -90,10 +90,7 @@ echo "Never go into computer sleep mode"
 	# Specify "Never" or "Off" for never.
 
 cached_sudo systemsetup -setcomputersleep Off
-
 cached_sudo pmset -a displaysleep 0
-
-# pmset -a displaysleep 0 disksleep 0 sleep 0
 
 # Never dim display during install (needed?)
 # cached_sudo pmset force -a displaysleep 0
