@@ -125,18 +125,13 @@ boxecho "Other concurrent tasks"
 bash ./lib/tasks/index.sh
 
 
-# # Homebrew installs (parallelize) Attempt 3 times (allowing for ctrl-c)
-# bash ./lib/tasks/osx/homebrew_concurrent.sh
-# bash ./lib/tasks/osx/homebrew_concurrent.sh
-# bash ./lib/tasks/osx/homebrew_concurrent.sh
+# Bundle Homebrew 3 times to allow for ctrl-c in case of stall
+# cached_psudo brew bundle --file=.Brewfile
+# cached_psudo brew bundle --file=.Brewfile
+# cached_psudo brew bundle --file=.Brewfile
 
-# Bundle Homebrew for missing parallelized homebrew installs
-cached_psudo brew bundle --file=.Brewfile
-
-exit 1
-
-# --and-then
-# - "Load OSX Settings"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_osx_defaults.sh
+boxecho "Load macOS defaults"
+bash lib/tasks/osx/load_osx_defaults.sh
 
 # echo "kill affected applications"
 # sh kill.sh
