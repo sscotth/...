@@ -16,6 +16,9 @@ ruby_install () {
   echo "Activate ruby"
   chruby ruby
 
+  echo "Re-source chruby to detect new version"
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+
   echo "Install ruby apps"
   gem install rails
   gem install rubocop
