@@ -8,7 +8,7 @@ source ./lib/utilities.sh
 
 concurrent_install () {
     local CONCURRENT_LIMIT=4
-    local CONCURRENT_COMPACT=1
+    # local CONCURRENT_COMPACT=1
 
     local args=(
 
