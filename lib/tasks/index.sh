@@ -11,6 +11,10 @@ concurrent_install () {
     # local CONCURRENT_COMPACT=1
 
     local args=(
+        - "Homebrew cask"                       retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
+        - "Homebrew zap"                        retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
+        - "Homebrew bundle"                     retry gtimeout --preserve-status 30 ./lib/tasks/homebrew/homebrew_bundle.sh
+        - "Homebrew quick"                      retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_quick.sh
 
         - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
         - "Mathias Bynens' Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
@@ -36,10 +40,11 @@ concurrent_install () {
         - "Install Node.js Stable Packages"     retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
-        - "Homebrew cask"                       retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
-        - "Homebrew zap"                        retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
-        - "Homebrew bundle"                     retry gtimeout --preserve-status 30 ./lib/tasks/homebrew/homebrew_bundle.sh
-        - "Homebrew quick"                      retry gtimeout --preserve-status 30 ./lib/tasks/homebrew/homebrew_quick.sh # Just for needed apps below
+        # Just for needed apps below
+        # - "Homebrew atom"
+        # - "Homebrew python"
+        # - "Homebrew ruby"
+        # - "Homebrew sublime text"
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
         - "atom"                                retry gtimeout --preserve-status 30 ./lib/tasks/apps/atom.sh
