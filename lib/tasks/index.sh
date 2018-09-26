@@ -38,6 +38,8 @@ concurrent_install () {
         - "Install Node.js Stable Packages"     retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
+        - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
+
         # --require "Remove previous Dotfiles"
         # --before  "Symlink Mathias Bynens' Dotfiles"
         # --before  "Symlink Personal Dotfiles"
