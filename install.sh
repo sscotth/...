@@ -124,8 +124,14 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 boxecho "Other concurrent tasks"
 bash ./lib/tasks/index.sh
 
+boxecho "Homebrew extras"
+boxecho "Homebrew zaps"
+for i in ${HOMEBREW_ZAPS[@]}; do
+  echo ZAPPING: $i
+  brew cask zap $i
+done
 
-# Bundle Homebrew 3 times to allow for ctrl-c in case of stall
+boxecho "Homebrew bundle" # 3 times to allow for ctrl-c in case of stall
 # cached_psudo brew bundle --file=.Brewfile
 # cached_psudo brew bundle --file=.Brewfile
 # cached_psudo brew bundle --file=.Brewfile

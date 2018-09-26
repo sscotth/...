@@ -32,15 +32,11 @@ alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
 
-alias node="node --harmony"
-
 # Alias `git` as `hub`
 type hub &>/dev/null && eval "$(hub alias -s)"
 
 alias top="sudo htop"
 alias tree="tree --filelimit 100 --dirsfirst -L 5 -CRa -I '.git'"
-
-alias code="cd ~/code"
 
 alias sha1="$(brew --prefix)/opt/openssl/bin/openssl sha1"
 alias sha256="$(brew --prefix)/opt/openssl/bin/openssl sha256"
