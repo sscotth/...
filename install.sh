@@ -108,18 +108,25 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 # defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
 
 boxecho "Other concurrent tasks"
-bash ./lib/tasks/index.sh
+# bash ./lib/tasks/index.sh
 
 boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
 # cached_psudo brew bundle --file=.Brewfile
 # cached_psudo brew bundle --file=.Brewfile
 # cached_psudo brew bundle --file=.Brewfile
 
-boxecho "Load macOS defaults"
-# cached_psudo lib/tasks/macos/load_macos_defaults.sh
+
 
 boxecho "Homebrew cleanup"
 brew cleanup
 
-# echo "kill affected applications"
-# sh kill.sh
+boxecho "Load macOS defaults. RESTART WHEN FINISHED."
+
+read -p "Are you ready? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+fi
+
+cached_psudo lib/tasks/macos/load_macos_defaults.sh

@@ -13,8 +13,8 @@ concurrent_install () {
     local args=(
         - "Homebrew cask"                       retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
-        - "Homebrew bundle"                     retry gtimeout --preserve-status 30 ./lib/tasks/homebrew/homebrew_bundle.sh
         - "Homebrew quick"                      retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_quick.sh
+        - "Homebrew bundle"                     retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
 
         - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
         - "Mathias Bynens' Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
@@ -24,7 +24,7 @@ concurrent_install () {
         - "Generate SSH Keys"                   retry gtimeout --preserve-status 120 ./lib/tasks/macos/generate_ssh_keys.sh
         # - "Install Hosts file"                  retry gtimeout --preserve-status 120 ./lib/tasks/macos/install_hosts_file.sh # Use Gas Mask app
         - "Install Oh-My-ZSH"                   retry gtimeout --preserve-status 120 ./lib/tasks/macos/install_oh_my_zsh.sh
-        - "Install macOS updates"                 retry gtimeout --preserve-status 300 ./lib/tasks/macos/install_macos_updates.sh
+        - "Install macOS updates"               retry gtimeout --preserve-status 300 ./lib/tasks/macos/install_macos_updates.sh
         - "Install ZSH Syntax Highlighting"     retry gtimeout --preserve-status 120 ./lib/tasks/macos/install_zsh_syntax_highlighting.sh
         - "Load .zshrc from Oh-My-ZSH"          retry gtimeout --preserve-status 120 ./lib/tasks/macos/load_zshrc_from_oh_my_zsh.sh
 
@@ -40,17 +40,11 @@ concurrent_install () {
         - "Install Node.js Stable Packages"     retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
-        # Just for needed apps below
-        # - "Homebrew atom"
-        # - "Homebrew python"
-        # - "Homebrew ruby"
-        # - "Homebrew sublime text"
-
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
-        - "atom"                                retry gtimeout --preserve-status 30 ./lib/tasks/apps/atom.sh
+        - "atom"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
         - "python"                              retry gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
-        - "ruby"                                retry gtimeout --preserve-status 30 ./lib/tasks/apps/ruby.sh
-        - "sublime text"                        retry gtimeout --preserve-status 30 ./lib/tasks/apps/sublime-text.sh
+        - "ruby"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
+        - "sublime text"                        retry gtimeout --preserve-status 120 ./lib/tasks/apps/sublime-text.sh
         - "spoofmac"                            retry gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
         - "asepsis"                             retry gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
 
