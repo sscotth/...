@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
+source ./lib/utilities.sh
+
 homebrew_bundle () {
   echo "Homebrew installs (bundle)"
-  echo "Sleep 120"
-  sleep 120
-  echo "Brew bundle"
-  brew bundle --verbose --file=.Brewfile
+  cached_psudo brew bundle --file=.Brewfile
 }
 
 homebrew_bundle

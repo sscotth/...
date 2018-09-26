@@ -38,8 +38,7 @@ concurrent_install () {
 
         - "Homebrew cask"                       retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
-        # - "Homebrew"                            retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew.sh
-        # - "Homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
+        - "Homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
         - "atom"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
@@ -72,6 +71,9 @@ concurrent_install () {
 
         --require "Homebrew cask"
         --before  "Homebrew zap"
+
+        --require "Homebrew zap"
+        --before  "Homebrew bundle"
 
         --require "python"
         --before  "spoofmac"
