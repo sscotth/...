@@ -2,8 +2,6 @@
 
 sublime_text_plugins () {
 
-  [[ $(command -v subl) == "" ]] && echo "Installing sublime-text" && brew cask install sublime-text
-
   echo "Remove old sublime-text settings"
   rm -rf /Library/Application\ Support/Sublime\ Text\ 3/Packages/User
   mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User

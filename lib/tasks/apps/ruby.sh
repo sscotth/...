@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 ruby_install () {
-  [[ $(command -v ruby-install) == "" ]] && echo "Installing ruby-install" && brew install ruby-install
-  [[ $(command -v chruby) == "" ]] && echo "Installing chruby" && brew install chruby
 
   echo "Uninstall old rubies"
   rm -rf ~/.rubies
@@ -24,6 +22,7 @@ ruby_install () {
   gem install rubocop
   gem install travis
   gem install reek
+
 }
 
 ruby_install

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
 python_virtualenv () {
-  [[ $(command -v pip) == "" ]] && echo "Installing python v2" && brew install python@2
-  [[ $(command -v pip3) == "" ]] && echo "Installing python v3" && brew install python
 
-  # Install Python apps
   echo "Upgrade pip"
   pip install --upgrade pip
   pip3 install --upgrade pip
@@ -28,6 +25,7 @@ python_virtualenv () {
 
   echo "Exec Workon"
   workon || true
+
 }
 
 python_virtualenv

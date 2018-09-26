@@ -20,6 +20,7 @@ python_spoofmac () {
   echo "Set file permissions"
   cached_sudo chown root:wheel /Library/LaunchDaemons/local.macspoof.plist
   cached_sudo chmod 0644 /Library/LaunchDaemons/local.macspoof.plist
+
 }
 
 python_spoofmac

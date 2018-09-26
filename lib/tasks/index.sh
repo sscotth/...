@@ -39,11 +39,13 @@ concurrent_install () {
         - "Homebrew cask"                       retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
         - "Homebrew bundle"                     retry gtimeout --preserve-status 30 ./lib/tasks/homebrew/homebrew_bundle.sh
+        - "Homebrew quick"                      retry gtimeout --preserve-status 30 ./lib/tasks/homebrew/homebrew_quick.sh # Just for needed apps below
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
         - "atom"                                retry gtimeout --preserve-status 30 ./lib/tasks/apps/atom.sh
         - "python"                              retry gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
         - "ruby"                                retry gtimeout --preserve-status 30 ./lib/tasks/apps/ruby.sh
+        - "sublime text"                        retry gtimeout --preserve-status 30 ./lib/tasks/apps/sublime-text.sh
         - "spoofmac"                            retry gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
         - "asepsis"                             retry gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
 
@@ -74,7 +76,14 @@ concurrent_install () {
 
         --require "Install Node.js Version Manager"
         --require "Homebrew zap"
+        --require "Homebrew quick"
         --before  "Homebrew bundle"
+
+        --require "Homebrew quick"
+        --before  "atom"
+        --before  "python"
+        --before  "ruby"
+        --before  "sublime text"
 
         --require "python"
         --before  "spoofmac"
