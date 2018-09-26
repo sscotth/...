@@ -10,6 +10,8 @@ zap () {
     echo ZAPPING: $i
     brew cask zap $i
   done
+
+  true
 }
 
 zap
