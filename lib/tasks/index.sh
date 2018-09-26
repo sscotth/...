@@ -86,4 +86,4 @@ concurrent_install () {
     concurrent "${args[@]}"
 }
 
-concurrent_install
+cached_psudo concurrent_install
