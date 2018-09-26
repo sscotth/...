@@ -17,27 +17,32 @@ fi
 
 cached_sudo -v
 
-boxecho "Homebrew Basics"
+boxecho "Homebrew"
 
-# Install Homebrew if not installed # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
-cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
+
+if [[ $(command -v brew) == "" ]]; then
+    boxecho "Installing Hombrew"
+    # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
+    cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
+else
+
+    boxecho "Remove Homebrew taps"
+    brew untap $(brew tap | grep -v core)
+
+    boxecho "Updating Homebrew"
+    brew update
+
+    boxecho "Homebrew Cask"
+    brew uninstall --force brew-cask
+    brew cask
+
+    boxecho "Homebrew cleanup"
+    brew cleanup
+fi
 
 boxecho "Homebrew Doctor"
 brew doctor
 brew cask doctor
-
-boxecho "Remove Homebrew taps"
-brew untap $(brew tap | grep -v core)
-
-boxecho "Homebrew cleanup"
-brew cleanup
-
-boxecho "Homebrew Cask"
-brew uninstall --force brew-cask
-brew cask
-
-boxecho "Homebrew Update"
-brew update
 
 boxecho "Coreutils"
 brew install coreutils
