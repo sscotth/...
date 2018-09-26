@@ -23,8 +23,11 @@ python_virtualenv () {
   VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
   source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-  echo "Workon"
-  workon
+  echo "Workon Test"
+  which workon
+
+  echo "Exec Workon"
+  workon || true
 }
 
 python_virtualenv
