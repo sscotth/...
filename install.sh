@@ -123,11 +123,11 @@ afplay /System/Library/Sounds/Ping.aiff
 sleep 1
 say "Are you ready?"
 
+# https://stackoverflow.com/a/1885534
 read -p "Are you ready? " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+  [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
 fi
 
 cached_psudo lib/tasks/macos/load_macos_defaults.sh
