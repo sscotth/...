@@ -41,9 +41,9 @@ concurrent_install () {
         - "Homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
-        - "atom"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
+        - "atom"                                retry gtimeout --preserve-status 30 ./lib/tasks/apps/atom.sh
         - "python"                              retry gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
-        - "ruby"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
+        - "ruby"                                retry gtimeout --preserve-status 30 ./lib/tasks/apps/ruby.sh
         - "spoofmac"                            retry gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
         - "asepsis"                             retry gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
 
