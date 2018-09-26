@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
+source ./lib/utilities.sh
+
 python_spoofmac () {
 
   echo "Install SpoofMAC"
-
   pip install SpoofMAC
 
   # Finish SpoofMAC Install https://github.com/feross/SpoofMAC#startup-installation-instructions
@@ -14,11 +15,11 @@ python_spoofmac () {
   cat /tmp/local.macspoof.plist | sed "s|/usr/local/bin/spoof-mac.py|`which spoof-mac.py`|" | tee /tmp/local.macspoof.plist
 
   echo "Copy file to the OS X launchd folder"
-  sudo cp /tmp/local.macspoof.plist /Library/LaunchDaemons
+  cached_sudo cp /tmp/local.macspoof.plist /Library/LaunchDaemons
 
   echo "Set file permissions"
-  sudo chown root:wheel /Library/LaunchDaemonslocal.macspoof.plist
-  sudo chmod 0644 /Library/LaunchDaemonslocal.macspoof.plist
+  cached_sudo chown root:wheel /Library/LaunchDaemonslocal.macspoof.plist
+  cached_sudo chmod 0644 /Library/LaunchDaemonslocal.macspoof.plist
 }
 
 python_spoofmac
