@@ -131,7 +131,7 @@ bash ./lib/tasks/index.sh
 # cached_psudo brew bundle --file=.Brewfile
 
 boxecho "Load macOS defaults"
-bash lib/tasks/osx/load_osx_defaults.sh
+cached_psudo lib/tasks/macos/load_macos_defaults.sh
 
 # echo "kill affected applications"
 # sh kill.sh

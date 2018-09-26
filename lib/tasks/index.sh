@@ -50,9 +50,6 @@ concurrent_install () {
         --before  "Mathias Bynens' Dotfiles"
         --before  "Personal Dotfiles"
 
-        --require "Mathias Bynens' Dotfiles"
-        --before  "Load OSX Settings"
-
         --require "python"
         --before  "spoofmac"
 
