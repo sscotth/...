@@ -29,12 +29,12 @@ else
     boxecho "Remove Homebrew taps"
     brew untap $(brew tap | grep -v core)
 
-    boxecho "Updating Homebrew"
-    brew update
-
     boxecho "Homebrew Cask"
     brew uninstall --force brew-cask
     brew cask
+
+    boxecho "Updating Homebrew"
+    brew update
 
     boxecho "Homebrew cleanup"
     brew cleanup
