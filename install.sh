@@ -119,6 +119,8 @@ boxecho "Load macOS defaults. RESTART WHEN FINISHED."
 
 tput bel
 sleep 1
+afplay /System/Library/Sounds/Ping.aiff
+sleep 1
 say "Are you ready?"
 
 read -p "Are you ready? " -n 1 -r
