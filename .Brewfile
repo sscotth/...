@@ -58,7 +58,7 @@ brew 'diff-so-fancy'
 brew 'flow'
 brew 'graphicsmagick'
 brew 'handbrake'
-brew 'heroku-toolbelt'
+brew 'heroku'
 brew 'htop'
 brew 'httpie'
 brew 'httrack'
@@ -68,8 +68,10 @@ brew 'lolcat'
 brew 'mackup'
 brew 'mas'
 brew 'mongodb'
-brew 'mysql'
+brew 'mysql@5.7'
 brew 'neovim'
+brew 'nvm'
+brew 'node'
 brew 'python3'
 brew 'r'
 brew 'ranger'
@@ -78,6 +80,7 @@ brew 'rethinkdb'
 brew 'ruby-install', args: ['HEAD']
 brew 's3cmd'
 brew 'shellcheck'
+brew 'sshuttle'
 brew 'syncthing-inotify'
 brew 'syncthing'
 brew 'tccutil'
@@ -92,28 +95,34 @@ brew 'z'
 # CASK APPS
 cask '1password6' # Password manager -- newest requires subscription
 cask 'aerial' # Apple TV Aerial Views Screen Saver
-cask 'airmail-beta' # Email client
+cask 'airmail-beta' # Email client (beta only cask)
 cask 'airserver' # Airplay & Google Cast screen mirroring receiver
 cask 'airtool' # Wireless configuration and capture
 cask 'alfred' # Spotlight alternative
+cask 'anydesk' # Screen sharing
 cask 'apache-couchdb' # Database
 cask 'appcleaner' # App uninstaller
 cask 'asepsis' # Prevents .DS_Store files (disable SIP)
 cask 'atom-beta' # Text editor
+cask 'burn' # CD burner
 cask 'atom' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
 cask 'balsamiq-mockups' # Wireframing
 cask 'bartender' # Hides menubar items
+cask 'busycal' # Calendar manager
+cask 'busycontacts' # Contacts manager
 cask 'cardhop' # Contacts manager
 cask 'ccleaner' # System cleanup
-cask 'charles-beta' # Debugging Proxy
+cask 'charles' # Debugging Proxy
 cask 'chatology' # iMessage enhancer
 cask 'chromium' # Web browser
+cask 'clover-configurator' # Clover bootloader editor
 cask 'dash' # Offline API Documentation
 cask 'devonthink-pro-office' # Evernote alternative
 cask 'discord' # Chat
+cask 'discord-canary' # Chat
 cask 'docker' # App containers
-cask 'dropbox-beta' # Cloud backup
+cask 'dropbox' # Cloud backup
 cask 'duet' # ipad as second monitor
 cask 'fantastical' # Calendar
 cask 'filezilla' # FTP
@@ -140,7 +149,7 @@ cask 'integrity' # Website link checker (Also on app store)
 cask 'istat-menus' # Menubar widgets
 cask 'iterm2' # Terminal emulator
 cask 'itsycal' # Menubar calendar
-cask 'java' # Required for Java Apps
+cask 'java8' # Required for Java Apps
 cask 'kaleidoscope' # File diff
 cask 'karabiner-elements' # Keyboard customization
 cask 'keka' # File compression
@@ -163,6 +172,10 @@ cask 'mysqlworkbench' # MySQL GUI
 cask 'navicat-premium' # Multi-database GUI
 cask 'ngrok' # Public tunnel to localhost
 cask 'nvalt' # Notes
+cask 'lmms' # Digital audio
+cask 'lilypond-dev' # Music notation
+cask 'frescobaldi' # Music notation
+cask 'etcher' # Image writer
 cask 'obs' # Screen broadcasting
 cask 'omnifocus' # Task manager
 cask 'onyx' # System maintence
@@ -182,25 +195,31 @@ cask 'rstudio' # IDE for R
 cask 'scroll-reverser' # Mouse scroll wheel change
 cask 'sketch-beta' # Vector drawing
 cask 'slack' # Chat
+cask 'screens' # VNC client
 cask 'soundflower' # Virtual audio interface
 cask 'sourcetree' # Git repo manager
 cask 'spectacle' # Window manager
 cask 'steam' # Games
+cask 'steelseries-exactmouse-tool' # Mouse deacceleration
 cask 'stremio' # Media streaming
 cask 'studio-3t' # IDE for MongoDB
 cask 'sublime-merge' # Git repo manager
 cask 'sublime-text' # Text editor
 cask 'synergy' # Mouse and keyboard sharing
+cask 'tableplus' # Multi-database GUI
 cask 'teamviewer' # Screen sharing
+cask 'telegram' # Chat
 cask 'totalfinder' # Finder enhancer (disable SIP)
 cask 'tower' # Git repo manager
 cask 'transmission' # Torrent downloader
+cask 'tomighty' # Task timer
 cask 'tripmode' # Mobile data blocker
 cask 'tunnelblick' # VPN client
 cask 'veracrypt' # Encryption. TrueCrypt fork
 cask 'virtualbox-extension-pack' # Support for USB 2.0 and USB 3.0 devices, VirtualBox RDP, disk encryption, NVMe and PXE boot for Intel cards
 cask 'virtualbox' # Virtual machines
 cask 'viscosity' # VPN client
+cask 'visual-studio-code' # Text editor
 cask 'vlc' # Media player
 cask 'vmware-fusion' # Virtual machines
 cask 'webstorm' # IDE for JavaScript
