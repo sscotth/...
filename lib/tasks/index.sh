@@ -12,11 +12,9 @@ concurrent_install () {
 
     local args=(
 
-        # - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
-        # - "Load Mathias Bynens' Dotfiles"       retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_load.sh
-        # - "Load Personal Dotfiles"              retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_load.sh
-        # - "Symlink Mathias Bynens' Dotfiles"    retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles_symlink.sh
-        # - "Symlink Personal Dotfiles"           retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles_symlink.sh
+        - "Remove previous Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
+        - "Mathias Bynens' Dotfiles"            retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
+        - "Personal Dotfiles"                   retry gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles.sh
 
         - "Clean .DS_Store files"               retry gtimeout --preserve-status 300 ./lib/tasks/osx/clean_ds_store.sh
         - "Generate SSH Keys"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/generate_ssh_keys.sh
@@ -48,15 +46,12 @@ concurrent_install () {
         # - "homebrew"                            retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew.sh
         # - "homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
 
-        # --require "Remove previous Dotfiles"
-        # --before  "Symlink Mathias Bynens' Dotfiles"
-        # --before  "Symlink Personal Dotfiles"
-        #
-        # --require "Load Mathias Bynens' Dotfiles"
-        # --before  "Symlink Mathias Bynens' Dotfiles"
-        #
-        # --require "Load Personal Dotfiles"
-        # --before  "Symlink Personal Dotfiles"
+        --require "Remove previous Dotfiles"
+        --before  "Mathias Bynens' Dotfiles"
+        --before  "Personal Dotfiles"
+
+        --require "Mathias Bynens' Dotfiles"
+        --before  "Load OSX Settings"
 
         --require "python"
         --before  "spoofmac"

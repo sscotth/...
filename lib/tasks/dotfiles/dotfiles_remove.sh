@@ -3,7 +3,7 @@
 # General dotfiles functions
 
 dotfiles_remove () {
-  echo "removing dotfiles"
+  echo "Delete symlinks in the home directory"
 
   find ~ -type l -d 1 -delete
 }

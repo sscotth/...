@@ -47,7 +47,7 @@ concurrent_install () {
     echo "CASK LIST: ${cask_installs[*]}"
 
     for cask in "${cask_installs[@]}"; do
-      args=("${args[@]}" - "CASK INSTALL $cask" cached_psudo "lib/retry.sh gtimeout --preserve-status 120 brew cask install $cask")
+      args=("${args[@]}" - "CASK INSTALL $cask" cached_psudo "lib/retry.sh gtimeout --preserve-status 300 brew cask install $cask")
     done
 
     printf '%s\n' "${args[@]}"

@@ -131,7 +131,7 @@ bash ./lib/tasks/osx/homebrew.sh
 bash ./lib/tasks/osx/homebrew.sh
 
 # Bundle Homebrew for missing parallelized homebrew installs
-cached_psudo brew bundle --file=.Brewfile
+cached_psudo brew bundle
 
 exit 1
 
