@@ -36,6 +36,7 @@ concurrent_install () {
         - "Install Node.js Stable Packages"     retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
+        - "Homebrew cask"                       retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
         # - "Homebrew"                            retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew.sh
         # - "Homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
@@ -50,9 +51,6 @@ concurrent_install () {
         --require "Remove previous Dotfiles"
         --before  "Mathias Bynens' Dotfiles"
         --before  "Personal Dotfiles"
-
-        --require "python"
-        --before  "spoofmac"
 
         --require "Install Oh-My-ZSH"
         --before  "Load .zshrc from Oh-My-ZSH"
@@ -71,6 +69,12 @@ concurrent_install () {
         --require "Install Node.js Stable Packages"
         --require "Install Node.js LTS Packages"
         --before  "Clean npm cache"
+
+        --require "Homebrew cask"
+        --before  "Homebrew zap"
+
+        --require "python"
+        --before  "spoofmac"
 
     )
 

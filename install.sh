@@ -26,25 +26,11 @@ if [[ $(command -v brew) == "" ]]; then
     cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
 else
 
-    boxecho "Remove Homebrew taps"
-    brew untap $(brew tap | grep -v core)
 
-    boxecho "Homebrew Cask"
-    brew uninstall --force brew-cask
-    brew cask
-
-    boxecho "Updating Homebrew"
-    brew update
-
-    boxecho "Homebrew cleanup"
-    brew cleanup
 fi
 
 boxecho "Homebrew Doctor"
 brew doctor
-
-boxecho "Homebrew Cask Doctor"
-brew cask doctor
 
 boxecho "Coreutils"
 brew install coreutils
@@ -126,10 +112,7 @@ bash ./lib/tasks/index.sh
 
 boxecho "Homebrew extras"
 boxecho "Homebrew zaps"
-for i in ${HOMEBREW_ZAPS[@]}; do
-  echo ZAPPING: $i
-  brew cask zap $i
-done
+
 
 boxecho "Homebrew bundle" # 3 times to allow for ctrl-c in case of stall
 # cached_psudo brew bundle --file=.Brewfile
