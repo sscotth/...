@@ -12,7 +12,7 @@ mathiasbynens_dotfiles_symlink () {
   done;
 }
 
-mathiasbynens_dotfiles_load () {
+mathiasbynens_dotfiles_download () {
   if [ -d "math_dotfiles" ]; then
     echo "(Pulling with git)" >&3
     cd math_dotfiles
@@ -23,12 +23,10 @@ mathiasbynens_dotfiles_load () {
     echo "(Cloning with git)" >&3
     GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone --depth 1 https://github.com/mathiasbynens/dotfiles math_dotfiles
   fi
-
-  cached_psudo sh math_dotfiles/.macos
 }
 
 mathiasbynens_dotfiles () {
-  mathiasbynens_dotfiles_load
+  mathiasbynens_dotfiles_download
   mathiasbynens_dotfiles_symlink
 }
 

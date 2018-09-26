@@ -135,5 +135,8 @@ cached_psudo brew bundle --file=.Brewfile
 
 exit 1
 
+# --and-then
+# - "Load OSX Settings"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_osx_defaults.sh
+
 # echo "kill affected applications"
 # sh kill.sh

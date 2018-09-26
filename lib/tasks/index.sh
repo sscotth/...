@@ -23,7 +23,7 @@ concurrent_install () {
         - "Install OSX updates"                 retry gtimeout --preserve-status 300 ./lib/tasks/osx/install_osx_updates.sh
         - "Install ZSH Syntax Highlighting"     retry gtimeout --preserve-status 120 ./lib/tasks/osx/install_zsh_syntax_highlighting.sh
         - "Load .zshrc from Oh-My-ZSH"          retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_zshrc_from_oh_my_zsh.sh
-        - "Load OSX Settings"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_osx_defaults.sh
+
         - "Prepare MongoDB"                     retry gtimeout --preserve-status 120 ./lib/tasks/osx/mongodb_prepare.sh
         - "Prepare NTFS"                        retry gtimeout --preserve-status 120 ./lib/tasks/osx/ntfs_prepare.sh # Except for SIP check, SKIP FOR NOW
         - "Setup assistive devices"             retry gtimeout --preserve-status 120 ./lib/tasks/osx/setup_assistive_devices.sh
@@ -45,6 +45,9 @@ concurrent_install () {
 
         # - "homebrew"                            retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew.sh
         # - "homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
+
+        --and-then
+        - "Load OSX Settings"                   retry gtimeout --preserve-status 120 ./lib/tasks/osx/load_osx_defaults.sh
 
         --require "Remove previous Dotfiles"
         --before  "Mathias Bynens' Dotfiles"
@@ -74,8 +77,6 @@ concurrent_install () {
         --require "Install Node.js LTS Packages"
         --before  "Clean npm cache"
 
-        # --require "Load Mathias Bynens' Dotfiles"
-        # --before  "Load OSX Settings"
     )
 
     concurrent "${args[@]}"
