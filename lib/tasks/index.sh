@@ -74,9 +74,9 @@ concurrent_install () {
         --before  "Homebrew zap"
         --before  "Homebrew quick"
 
-        --require "Install Node.js Version Manager"
-        --require "Homebrew zap"
-        --require "Homebrew quick"
+        # --require "Install Node.js Version Manager"
+        # --require "Homebrew zap"
+        # --require "Homebrew quick"
         # --before  "Homebrew bundle"
 
         --require "Homebrew quick"
