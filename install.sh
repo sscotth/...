@@ -114,7 +114,12 @@ cached_psudo brew bundle --file=.Brewfile
 boxecho "Homebrew cleanup"
 brew cleanup
 
+
 boxecho "Load macOS defaults. RESTART WHEN FINISHED."
+
+tput bel
+sleep 1
+say "Are you ready?"
 
 read -p "Are you ready? " -n 1 -r
 echo    # (optional) move to a new line
