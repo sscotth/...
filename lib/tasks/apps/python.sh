@@ -22,6 +22,8 @@ python_virtualenv () {
   PROJECT_HOME=~/code
   VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
   source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+  echo "Workon"
   workon
 }
 

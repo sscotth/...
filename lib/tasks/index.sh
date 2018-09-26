@@ -40,9 +40,10 @@ concurrent_install () {
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
         - "atom"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
-        - "python"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/python.sh
+        - "python"                              retry gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
         - "ruby"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
         - "spoofmac"                            retry gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
+        - "asepsis"                             retry gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
 
         # --require "Remove previous Dotfiles"
         # --before  "Symlink Mathias Bynens' Dotfiles"
