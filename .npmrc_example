@@ -5,4 +5,4 @@ init-author-email=npm@sscotth.io
 init-author-url=https://sscotth.io/
 init-license=MIT
 progress=true
-//registry.npmjs.org/:_authToken=${NPM_TOKEN}
+# //registry.npmjs.org/:_authToken=${NPM_TOKEN}
