@@ -45,8 +45,8 @@ concurrent_install () {
         - "spoofmac"                            retry gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
         - "asepsis"                             retry gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
 
-        # - "homebrew"                            retry gtimeout --preserve-status 600 ./lib/tasks/osx/homebrew.sh
-        - "homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/osx/homebrew_bundle.sh
+        # - "homebrew"                            retry gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew.sh
+        - "homebrew bundle"                     retry gtimeout --preserve-status 999 ./lib/tasks/homebrew/homebrew_bundle.sh
 
         # --require "Remove previous Dotfiles"
         # --before  "Symlink Mathias Bynens' Dotfiles"
