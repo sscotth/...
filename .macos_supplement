@@ -236,4 +236,12 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 echo 'Set mouse tracking speed'
 defaults write -g com.apple.mouse.scaling 0.1
 
+# echo "==> 'Disabling login screensaver'"
+# defaults -currentHost write com.apple.screensaver loginWindowIdleTime 0
+# echo "==> 'Turning off energy saving'"
+# pmset -a displaysleep 0 disksleep 0 sleep 0
+# # https://carlashley.com/2016/10/19/com-apple-touristd/
+# echo "==> 'Disable New to Mac notification'"
+# defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
+
 echo "FINISHED LOADING .MACOS_SUPPLEMENT. Note that some of these changes require a logout/restart to take effect."

@@ -99,21 +99,13 @@ echo "Disable screensaver"
 # Disable screensaver during install
 defaults -currentHost write com.apple.screensaver idleTime 0
 
-# echo "==> 'Disabling login screensaver'"
-# defaults -currentHost write com.apple.screensaver loginWindowIdleTime 0
-# echo "==> 'Turning off energy saving'"
-# pmset -a displaysleep 0 disksleep 0 sleep 0
-# # https://carlashley.com/2016/10/19/com-apple-touristd/
-# echo "==> 'Disable New to Mac notification'"
-# defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
-
 boxecho "Other concurrent tasks"
-# bash ./lib/tasks/index.sh
+bash ./lib/tasks/index.sh
 
 boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
-# cached_psudo brew bundle --file=.Brewfile
-# cached_psudo brew bundle --file=.Brewfile
-# cached_psudo brew bundle --file=.Brewfile
+cached_psudo brew bundle --file=.Brewfile
+cached_psudo brew bundle --file=.Brewfile
+cached_psudo brew bundle --file=.Brewfile
 
 
 
