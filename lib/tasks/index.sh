@@ -39,7 +39,7 @@ concurrent_install () {
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
-        - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/atom.sh
+        - "atom"                                retry gtimeout --preserve-status 120 ./lib/tasks/apps/atom.sh
 
         # --require "Remove previous Dotfiles"
         # --before  "Symlink Mathias Bynens' Dotfiles"
