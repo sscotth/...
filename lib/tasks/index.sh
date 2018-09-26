@@ -29,7 +29,7 @@ concurrent_install () {
         - "Setup assistive devices"             retry gtimeout --preserve-status 120 ./lib/tasks/macos/setup_assistive_devices.sh
         # - "Use NTP pool servers"                retry gtimeout --preserve-status 120 ./lib/tasks/macos/use_ntp_pool_servers.sh # Broken in mojave
 
-        - "Install Node.js Version Manager"     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_version_manager.sh
+        - "Install Node.js Version Manager"     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_version_manager.sh # BREW
         - "Install Node.js LTS"                 retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_lts.sh
         - "Install Node.js LTS Packages"        retry gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_lts_packages.sh
         - "Install Node.js Stable"              retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_stable.sh
@@ -72,6 +72,7 @@ concurrent_install () {
         --require "Homebrew cask"
         --before  "Homebrew zap"
 
+        --require "Install Node.js Version Manager"
         --require "Homebrew zap"
         --before  "Homebrew bundle"
 

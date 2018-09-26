@@ -16,9 +16,6 @@ export NPM_TOKEN=12345678-90ab-cdef-gh12-34567890abcd
 alias sshuttleone="sshuttle -r abc@def:12345 1.2.3.4/24"
 
 # Homebrew Zaps
-export HOMEBREW_ZAPS=(hello world)
-
-# Homebrew Zaps
 export HOMEBREW_ZAPS=(
   hello
   world

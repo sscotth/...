@@ -13,9 +13,6 @@ homebrew_cask () {
 
   echo "Updating Homebrew"
   brew update
-
-  echo "Homebrew cleanup"
-  brew cleanup
 }
 
 homebrew_cask

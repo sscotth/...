@@ -24,6 +24,9 @@ if [[ $(command -v brew) == "" ]]; then
     boxecho "Installing Hombrew"
     # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
     cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'
+else
+  boxecho "Updating Homebrew"
+  brew update
 fi
 
 boxecho "Homebrew Doctor"
@@ -114,6 +117,9 @@ boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
 
 boxecho "Load macOS defaults"
 cached_psudo lib/tasks/macos/load_macos_defaults.sh
+
+boxecho "Homebrew cleanup"
+brew cleanup
 
 # echo "kill affected applications"
 # sh kill.sh
