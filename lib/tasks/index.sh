@@ -40,6 +40,8 @@ concurrent_install () {
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
         - "atom"                                retry gtimeout --preserve-status 120 ./lib/tasks/apps/atom.sh
+        - "python"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/python.sh
+        - "ruby"                                retry gtimeout --preserve-status 120 ./lib/tasks/apps/ruby.sh
 
         # --require "Remove previous Dotfiles"
         # --before  "Symlink Mathias Bynens' Dotfiles"
