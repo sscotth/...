@@ -14,7 +14,7 @@ concurrent_install () {
         - "Homebrew cask"                       retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
         - "Homebrew quick"                      retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_quick.sh
-        - "Homebrew bundle"                     retry_command gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
+        # - "Homebrew bundle"                     retry_command gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
 
         - "Remove previous Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
         - "Mathias Bynens' Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
@@ -77,7 +77,7 @@ concurrent_install () {
         --require "Install Node.js Version Manager"
         --require "Homebrew zap"
         --require "Homebrew quick"
-        --before  "Homebrew bundle"
+        # --before  "Homebrew bundle"
 
         --require "Homebrew quick"
         --before  "atom"
