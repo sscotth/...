@@ -112,8 +112,8 @@ cached_psudo brew bundle --file=.Brewfile
 cached_psudo brew bundle --file=.Brewfile
 
 boxecho "Homebrew cleanup"
-brew cleanup
-
+brew cleanup -s
+rm -rf "$(brew --cache)"
 
 boxecho "Load macOS defaults. RESTART WHEN FINISHED."
 
@@ -131,3 +131,7 @@ then
 fi
 
 cached_psudo lib/tasks/macos/load_macos_defaults.sh
+
+# Apps that still need to be activated for new installs
+#
+# Teamviewer for unattended

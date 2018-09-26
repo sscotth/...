@@ -215,7 +215,6 @@ cask 'tableplus' # Multi-database GUI
 cask 'teamviewer' # Screen sharing
 cask 'telegram' # Chat
 cask 'tomighty' # Task timer
-cask 'totalfinder' # Finder enhancer (disable SIP)
 cask 'tower' # Git repo manager
 cask 'transmission' # Torrent downloader
 cask 'tripmode' # Mobile data blocker
@@ -230,7 +229,7 @@ cask 'vmware-fusion' # Virtual machines
 cask 'webstorm' # IDE for JavaScript
 cask 'wireshark' # Network analyzer
 cask 'xld' # FLAC lossless audio
-# cask 'xtrafinder' # Finder enhancer
+cask 'xtrafinder' # Finder enhancer (disable SIP)
 
 # [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins)
 # Not sorted
