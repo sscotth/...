@@ -122,7 +122,7 @@ defaults -currentHost write com.apple.screensaver idleTime 0
 # defaults write com.apple.touristd seed-https://help.apple.com/osx/mac/10.12/whats-new -date "$(date)"
 
 boxecho "Other concurrent tasks"
-cached_psudo ./lib/tasks/index.sh
+bash ./lib/tasks/index.sh
 
 exit 1
 
