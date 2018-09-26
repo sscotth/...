@@ -39,9 +39,10 @@ concurrent_install () {
         - "Clean npm cache"                     retry gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
         - "iterm2"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
-        - "atom"                                retry gtimeout --preserve-status 120 ./lib/tasks/apps/atom.sh
+        - "atom"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
         - "python"                              retry gtimeout --preserve-status 120 ./lib/tasks/apps/python.sh
-        - "ruby"                                retry gtimeout --preserve-status 120 ./lib/tasks/apps/ruby.sh
+        - "ruby"                                retry gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
+        - "spoofmac"                            retry gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
 
         # --require "Remove previous Dotfiles"
         # --before  "Symlink Mathias Bynens' Dotfiles"
@@ -52,6 +53,9 @@ concurrent_install () {
         #
         # --require "Load Personal Dotfiles"
         # --before  "Symlink Personal Dotfiles"
+
+        --require "python"
+        --before  "spoofmac"
 
         --require "Install Oh-My-ZSH"
         --before  "Load .zshrc from Oh-My-ZSH"
