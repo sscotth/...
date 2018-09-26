@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-# General dotfiles functions
 
 iterm2 () {
   echo "iterm2 shell integration"
