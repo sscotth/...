@@ -91,6 +91,10 @@ echo "Never go into computer sleep mode"
 
 cached_sudo systemsetup -setcomputersleep Off
 
+cached_sudo pmset -a displaysleep 0
+
+# pmset -a displaysleep 0 disksleep 0 sleep 0
+
 # Never dim display during install (needed?)
 # cached_sudo pmset force -a displaysleep 0
 
@@ -106,8 +110,6 @@ boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
 cached_psudo brew bundle --file=.Brewfile
 cached_psudo brew bundle --file=.Brewfile
 cached_psudo brew bundle --file=.Brewfile
-
-
 
 boxecho "Homebrew cleanup"
 brew cleanup
