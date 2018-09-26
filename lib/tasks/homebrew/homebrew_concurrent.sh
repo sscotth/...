@@ -72,11 +72,11 @@ concurrent_install () {
     #
     # printf '%s\n' "${args[@]}"
     #
-    args=("${args[@]}"
-      --require "CASK INSTALL osxfuse"
-      --before "BREW INSTALL ntfs-3g"
-      --before "BREW INSTALL sshfs"
-    )
+    # args=("${args[@]}"
+    #   --require "CASK INSTALL osxfuse"
+    #   --before "BREW INSTALL ntfs-3g"
+    #   --before "BREW INSTALL sshfs"
+    # )
 
     concurrent "${args[@]}"
 }
