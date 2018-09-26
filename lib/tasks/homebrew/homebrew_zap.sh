@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ./.extra
+
 zap () {
   echo "Homebrew Zaps:"
   echo $HOMEBREW_ZAPS
