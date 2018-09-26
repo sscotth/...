@@ -41,6 +41,7 @@ brew 'python'
 brew 'rsync'
 brew 'screen'
 brew 'svn'
+brew 'tccutil'
 brew 'tidy-html5'
 brew 'vim', args: ['override-system-vi']
 brew 'wget'

@@ -13,7 +13,6 @@ install_node_version_manager () {
   rm -rf ~/.nvm ~/.npm
   mkdir ~/.nvm ~/.npm
 
-  brew update
   brew reinstall nvm
 
   load_nvm

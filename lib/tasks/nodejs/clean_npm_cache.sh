@@ -7,7 +7,7 @@ source ./lib/utilities.sh
 clean_npm_cache () {
   load_nvm
 
-  npm cache clean
+  npm cache clean --force
 }
 
 clean_npm_cache

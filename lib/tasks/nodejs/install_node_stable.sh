@@ -13,9 +13,6 @@ install_node_stable () {
 
   echo "Setup alias"
   nvm alias default node
-
-  echo "Update npm"
-  npm install -g npm
 }
 
 install_node_stable

@@ -18,7 +18,7 @@ setup_assistive_devices () {
   else
     echo "System Integrity Protection status: enabled."
     echo "(ERROR: SIP Enabled)" >&3
-    return 72
+    return 72 # critical OS file missing
   fi
 }
 
