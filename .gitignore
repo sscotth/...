@@ -1,6 +1,7 @@
 .extra
-.zshrc
-math_dotfiles
 .floorc.json
 .logs
+.npmrc
+.zshrc
 bash-concurrent
+math_dotfiles

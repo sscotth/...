@@ -70,8 +70,8 @@ brew 'mas'
 brew 'mongodb'
 brew 'mysql@5.7'
 brew 'neovim'
-brew 'nvm'
 brew 'node'
+brew 'nvm'
 brew 'python3'
 brew 'r'
 brew 'ranger'
@@ -99,16 +99,18 @@ cask 'airmail-beta' # Email client (beta only cask)
 cask 'airserver' # Airplay & Google Cast screen mirroring receiver
 cask 'airtool' # Wireless configuration and capture
 cask 'alfred' # Spotlight alternative
+cask 'angry-ip-scanner' # IP/Port scanner
 cask 'anydesk' # Screen sharing
 cask 'apache-couchdb' # Database
 cask 'appcleaner' # App uninstaller
+cask 'arduino' # IDE for Arduino
 cask 'asepsis' # Prevents .DS_Store files (disable SIP)
 cask 'atom-beta' # Text editor
-cask 'burn' # CD burner
 cask 'atom' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
 cask 'balsamiq-mockups' # Wireframing
 cask 'bartender' # Hides menubar items
+cask 'burn' # CD burner
 cask 'busycal' # Calendar manager
 cask 'busycontacts' # Contacts manager
 cask 'cardhop' # Contacts manager
@@ -119,11 +121,12 @@ cask 'chromium' # Web browser
 cask 'clover-configurator' # Clover bootloader editor
 cask 'dash' # Offline API Documentation
 cask 'devonthink-pro-office' # Evernote alternative
-cask 'discord' # Chat
 cask 'discord-canary' # Chat
+cask 'discord' # Chat
 cask 'docker' # App containers
 cask 'dropbox' # Cloud backup
 cask 'duet' # ipad as second monitor
+cask 'etcher' # Image writer
 cask 'fantastical' # Calendar
 cask 'filezilla' # FTP
 cask 'firefox-developer-edition' # Web broswer
@@ -132,6 +135,7 @@ cask 'flash-npapi' # Flash for Safari & Firefox. PPAPI is for Chromium & Opera
 cask 'flux' # Screen colorization based on time
 cask 'fontplop' # create webfonts from .ttf
 cask 'free-ruler' # Pixel ruler
+cask 'frescobaldi' # Music notation
 cask 'gas-mask' # Hosts file manager
 cask 'gisto' # Github gist manager
 cask 'github' # Github repo manager
@@ -150,32 +154,33 @@ cask 'istat-menus' # Menubar widgets
 cask 'iterm2' # Terminal emulator
 cask 'itsycal' # Menubar calendar
 cask 'java8' # Required for Java Apps
+cask 'jdownloader' # Download manager
 cask 'kaleidoscope' # File diff
 cask 'karabiner-elements' # Keyboard customization
 cask 'keka' # File compression
 cask 'kodi' # Media player
 cask 'leech' # Download manager
 cask 'libreoffice' # Office applications
+cask 'lilypond-dev' # Music notation
 cask 'little-snitch' # Firewall
+cask 'lmms' # Digital audio
 cask 'logitech-unifying' # Logitech drivers
 cask 'losslesscut' # Trim video and audio files
 cask 'makemkv' # Bluray rip - Free registration https://www.makemkv.com/forum/viewtopic.php?f=5&t=1053
 cask 'mamp' # macOS, apache, mysql, php stack app
 cask 'marked' # preview markdown from any editor
+cask 'meshcommander' # Intel AMT
 cask 'microsoft-office' # Office applications
 cask 'mongodb-compass' # MongoDB GUI
 cask 'monodraw' # Plain text drawing
 cask 'moom' # Window manager
 cask 'mp3tag' # Mp3 metadata editor
 cask 'mpv' # Media player
+cask 'musescore' # Music notation
 cask 'mysqlworkbench' # MySQL GUI
 cask 'navicat-premium' # Multi-database GUI
 cask 'ngrok' # Public tunnel to localhost
 cask 'nvalt' # Notes
-cask 'lmms' # Digital audio
-cask 'lilypond-dev' # Music notation
-cask 'frescobaldi' # Music notation
-cask 'etcher' # Image writer
 cask 'obs' # Screen broadcasting
 cask 'omnifocus' # Task manager
 cask 'onyx' # System maintence
@@ -192,10 +197,10 @@ cask 'rescuetime' # Time tracker
 cask 'robo-3t' # MongoDB GUI
 cask 'robofont' # Font editor
 cask 'rstudio' # IDE for R
+cask 'screens' # VNC client
 cask 'scroll-reverser' # Mouse scroll wheel change
 cask 'sketch-beta' # Vector drawing
 cask 'slack' # Chat
-cask 'screens' # VNC client
 cask 'soundflower' # Virtual audio interface
 cask 'sourcetree' # Git repo manager
 cask 'spectacle' # Window manager
@@ -209,10 +214,10 @@ cask 'synergy' # Mouse and keyboard sharing
 cask 'tableplus' # Multi-database GUI
 cask 'teamviewer' # Screen sharing
 cask 'telegram' # Chat
+cask 'tomighty' # Task timer
 cask 'totalfinder' # Finder enhancer (disable SIP)
 cask 'tower' # Git repo manager
 cask 'transmission' # Torrent downloader
-cask 'tomighty' # Task timer
 cask 'tripmode' # Mobile data blocker
 cask 'tunnelblick' # VPN client
 cask 'veracrypt' # Encryption. TrueCrypt fork

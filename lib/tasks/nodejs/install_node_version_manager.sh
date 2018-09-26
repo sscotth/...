@@ -11,9 +11,10 @@ echo $CONCURRENT_TASK_NAME
 install_node_version_manager () {
   # remove nvm, npm, and installed nodes
   rm -rf ~/.nvm ~/.npm
+  mkdir ~/.nvm ~/.npm
 
   brew update
-  brew install nvm
+  brew reinstall nvm
 
   load_nvm
 
