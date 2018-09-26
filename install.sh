@@ -110,7 +110,7 @@ cached_psudo brew bundle --file=.Brewfile
 
 boxecho "Homebrew cleanup"
 brew cleanup -s
-rm -rf "$(brew --cache)"
+cached_sudo rm -rf "$(brew --cache)"
 
 boxecho "Load macOS defaults. RESTART WHEN FINISHED."
 
