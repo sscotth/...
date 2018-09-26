@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 #
 # SUDO: Load OSX defaults
+#
+source ./lib/utilities.sh
 
 load_macos_defaults () {
   mathiasbynens_macos_edit
+
+  boxecho "mathiasbynens"
   mathiasbynens_macos_load
+
+  boxecho "personal"
   personal_macos_load
 
   echo "(may require restart)" >&3
