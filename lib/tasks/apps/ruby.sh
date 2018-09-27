@@ -11,11 +11,11 @@ ruby_install () {
   echo "Install ruby"
   ruby-install ruby
 
-  echo "Activate ruby"
-  chruby ruby
-
   echo "Re-source chruby to detect new version"
   source /usr/local/opt/chruby/share/chruby/chruby.sh
+
+  echo "Activate ruby"
+  chruby ruby
 
   echo "Install ruby apps"
   gem install rails

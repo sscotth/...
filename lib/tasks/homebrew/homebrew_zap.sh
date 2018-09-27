@@ -2,7 +2,7 @@
 
 source ./.extra
 
-zap () {
+homebrew_zap () {
   echo "Homebrew Zaps:"
   echo $HOMEBREW_ZAPS
 
@@ -10,9 +10,8 @@ zap () {
     echo ZAPPING: $i
 
     brew cask zap $i
+    brew cask zap -f $i
   done
-
-  true
 }
 
-zap
+homebrew_zap
