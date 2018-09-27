@@ -11,6 +11,8 @@ concurrent_install () {
     # local CONCURRENT_COMPACT=1
 
     local args=(
+        - "Disable energy savings"              retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/disable_energy_savings.sh
+
         - "Homebrew cask"                       retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
         - "Homebrew quick"                      retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_quick.sh

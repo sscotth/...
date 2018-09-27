@@ -30,8 +30,6 @@ mas_cli_signin
 
 boxecho "Bash v4.2+"
 
-exit 1
-
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
   boxecho "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
   boxecho "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
@@ -76,27 +74,9 @@ cd bash-concurrent
 git checkout nocompact
 cd ..
 
-boxecho "Disable energy saving features during install"
+exit 1
 
-echo "Never go into computer sleep mode"
-
-# Never go into computer sleep mode during install
-  # Usage: systemsetup -setcomputersleep <minutes>
-	# Set amount of idle time until compputer sleeps to <minutes>.
-	# Specify "Never" or "Off" for never.
-
-cached_sudo systemsetup -setcomputersleep Off
-cached_sudo pmset -a displaysleep 0
-
-# Never dim display during install (needed?)
-# cached_sudo pmset force -a displaysleep 0
-
-echo "Disable screensaver"
-
-# Disable screensaver during install
-defaults -currentHost write com.apple.screensaver idleTime 0
-
-boxecho "Other concurrent tasks"
+boxecho "Concurrent tasks"
 bash ./lib/tasks/index.sh
 
 boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
