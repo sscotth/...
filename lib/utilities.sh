@@ -27,6 +27,15 @@ mas_cli_signin () {
       echo
       brew install mas
       mas_cli_signin
+      echo
+      echo
+      echo "Sorry, the mas-cli is not working. Please log in to the app store..."
+      echo "https://github.com/mas-cli/mas/issues/107"
+      echo
+      open -a "/Applications/App Store.app"
+      until (mas account > /dev/null); do
+        sleep 3
+      done
     else
       echo "You need the mac app store command line interface. Install homebrew first"
       exit 1
