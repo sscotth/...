@@ -3,8 +3,35 @@
 # utility functions
 #
 
-command_exists () {
-	type "$1" &> /dev/null
+source ./.functions
+
+mas_cli_signin () {
+  if command_exists mas; then
+    if mas account; then
+      echo
+      echo "You have the mac app store command line interface and are signed in"
+      echo
+    else
+      echo
+      echo "You have the mac app store command line interface and are NOT signed in"
+      echo
+      echo
+      read -p "Apple ID Email:" APPLE_ID_EMAIL
+      mas signin --dialog $APPLE_ID_EMAIL
+      mas_cli_signin
+    fi
+  else
+    if command_exists brew; then
+      echo
+      echo "You need the mac app store command line interface"
+      echo
+      brew install mas
+      mas_cli_signin
+    else
+      echo "You need the mac app store command line interface. Install homebrew first"
+      exit 1
+    fi
+  fi
 }
 
 boxecho () {
