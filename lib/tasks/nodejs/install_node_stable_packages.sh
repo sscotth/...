@@ -2,6 +2,8 @@
 #
 # Node.js functions
 
+set -Eeoux pipefail
+
 source ./lib/utilities.sh
 
 install_node_stable_packages () {

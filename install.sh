@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+set -Eeou pipefail
+# -E listens for ERR Traps
+# -e exit immediately when a command fails. Use command || true to exempt
+# -o pipefail sets the exit code of a pipeline to that of the rightmost command to exit with a non-zero status
+# -u treat unset variables as an error and exit immediately. Prefer ${VAR:-$DEFAULT} or ${MY_VAR:-} if you don't want a default value.
+# -x print each command before executing it.
+
 source ./lib/utilities.sh
 
 cached_sudo -v
@@ -16,7 +23,7 @@ else
 fi
 
 boxecho "Homebrew Doctor"
-brew doctor
+brew doctor || true
 
 boxecho "Coreutils"
 brew install coreutils
@@ -67,15 +74,24 @@ boxecho "Bash-Concurrent"
 # Switch to zsh
 # cached_sudo chsh -s $(which zsh) scott
 
-# (Re-)Download my fork of bash-concurrent (https://github.com/themattrix/bash-concurrent) and use nocompact branch
+# (Re-)Download my fork of bash-concurrent and use nocompact branch
 rm -rf bash-concurrent
+# git clone https://github.com/themattrix/bash-concurrent/
 git clone https://github.com/sscotth/bash-concurrent
 cd bash-concurrent
 git checkout nocompact
 cd ..
 
-boxecho "Concurrent tasks"
-bash ./lib/tasks/index.sh
+boxecho "Concurrent tasks (Restart if this fails instantly)"
+bash ./lib/tasks/index.sh || true
+
+tput bel
+sleep 1
+afplay /System/Library/Sounds/Ping.aiff
+sleep 1
+boxecho "Sleep 30"
+say "sleep 30"
+sleep 30
 
 boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
 cached_psudo brew bundle --file=.Brewfile

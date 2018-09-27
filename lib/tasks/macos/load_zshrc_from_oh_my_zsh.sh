@@ -2,6 +2,8 @@
 #
 # ZSH Functions
 
+set -Eeoux pipefail
+
 load_zshrc_from_oh_my_zsh () {
   # make sure .zshrc is fresh
   rm ~/.zshrc
@@ -12,6 +14,8 @@ load_zshrc_from_oh_my_zsh () {
 
   # symlink zshrc back to the .dotfiles repo
   # ln -sf ~/.zshrc ~/.dotfiles/.zshrc
+
+  echo "(done)" >&3
 }
 
 load_zshrc_from_oh_my_zsh

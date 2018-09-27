@@ -2,6 +2,8 @@
 #
 # ZSH Functions
 
+set -Eeoux pipefail
+
 install_oh_my_zsh () {
   curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -o /tmp/omz-install.sh
 
@@ -10,6 +12,8 @@ install_oh_my_zsh () {
 
   # sh /tmp/omz-install.sh
   sh /tmp/omz-install-nochsh.sh
+
+  echo "(done)" >&3
 }
 
 install_oh_my_zsh

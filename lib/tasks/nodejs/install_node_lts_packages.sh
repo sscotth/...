@@ -2,6 +2,9 @@
 #
 # Node.js functions
 
+set -Eeox pipefail
+# Cant use -u:  /usr/local/opt/nvm/nvm.sh: line 2960: PROVIDED_VERSION: unbound variable
+
 source ./lib/utilities.sh
 
 install_node_lts_packages () {

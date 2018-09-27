@@ -2,11 +2,16 @@
 #
 # General dotfiles functions
 
+set -Eeoux pipefail
+
+source ./lib/utilities.sh
+
 dotfiles_remove () {
-  echo "Find symlinks in the home directory"
+  boxecho "Find symlinks in the home directory"
   find ~ -type l -maxdepth 1
-  echo "Delete symlinks in the home directory"
+  boxecho "Delete symlinks in the home directory"
   find ~ -type l -maxdepth 1 -delete
+  echo "(done)" >&3
 }
 
 dotfiles_remove

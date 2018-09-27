@@ -2,11 +2,15 @@
 #
 # Personal dotfiles functions
 
+set -Eeoux pipefail
+
+source ./lib/utilities.sh
+
 personal_dotfiles_symlink_unique () {
-  echo "~/.gitignore_global ==> ~/.gitignore"
+  boxecho "~/.gitignore_global ==> ~/.gitignore"
   ln -sf ~/.gitignore_global ~/.gitignore
 
-  echo ".../.atom/ ==> ~/.atom/"
+  boxecho ".../.atom/ ==> ~/.atom/"
   /bin/ln -shF ~/.dotfiles/.atom ~/.atom
 }
 
@@ -18,26 +22,30 @@ personal_dotfiles_symlink_normal () {
     src="$(pwd)/$(basename $file)"
     dst="$HOME/$(basename $file)"
 
-    echo "$src ==> $dst"
+    boxecho "$src ==> $dst"
     ln -sf "$src" "$dst"
   done
 }
 
 personal_dotfiles_load () {
-  echo "copy example files"
+  boxecho "copy example files"
   for file in $(find . -name '.*_example'); do
     src=$file
     dst=${file/_example/}
 
-    echo "$src ==> $dst"
+    boxecho "$src ==> $dst"
     cp -n $src $dst || true
   done
 }
 
 personal_dotfiles () {
+  echo "(unique)" >&3
   personal_dotfiles_symlink_unique
+  echo "(normal)" >&3
   personal_dotfiles_symlink_normal
+  echo "(load)" >&3
   personal_dotfiles_load
+  echo "(done)" >&3
 }
 
 personal_dotfiles

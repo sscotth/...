@@ -2,6 +2,8 @@
 #
 # SUDO: Setup Assistive Devices
 
+set -Eeoux pipefail
+
 source ./lib/utilities.sh
 
 setup_assistive_devices () {
@@ -15,6 +17,8 @@ setup_assistive_devices () {
 
     # Check list before completing
     cached_sudo tccutil -l | grep com.apple.Terminal
+
+    echo "(done)" >&3
   else
     echo "System Integrity Protection status: enabled."
     echo "(ERROR: SIP Enabled)" >&3

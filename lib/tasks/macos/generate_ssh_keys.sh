@@ -2,6 +2,8 @@
 #
 # Generate SSH KEY
 
+set -Eeoux pipefail
+
 generate_ssh_keys () {
   SSH_KEY_PW=""
 
@@ -14,6 +16,7 @@ generate_ssh_keys () {
   fi
 
   ssh-add ~/.ssh/id_rsa
+  echo "(done)" >&3
 }
 
 generate_ssh_keys

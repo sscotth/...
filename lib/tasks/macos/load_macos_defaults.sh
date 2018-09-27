@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
 # SUDO: Load OSX defaults
-#
+
+set -Eeoux pipefail
+
 source ./lib/utilities.sh
 
 load_macos_defaults () {
@@ -13,7 +15,7 @@ load_macos_defaults () {
   boxecho "personal"
   personal_macos_load
 
-  echo "(may require restart)" >&3
+  echo "(done. restart computer.)" >&3
 }
 
 ### LOCAL ###
