@@ -25,11 +25,11 @@ fi
 boxecho "Homebrew Doctor"
 brew doctor || true
 
-boxecho "Coreutils"
-brew install coreutils
-
 boxecho "Lolcat"
 brew install lolcat
+
+boxecho "Coreutils"
+brew install coreutils
 
 boxecho "Bash"
 brew install bash
@@ -69,14 +69,9 @@ boxecho "Bash v4.2+"
 #   boxecho "Reload Failed. Reload terminal and try again."
 #   exit 1
 # fi
-
-boxecho "BASH v4.2+ INSTALLED - BEGIN INSTALLATION"
+# boxecho "BASH v4.2+ INSTALLED - BEGIN INSTALLATION"
 
 boxecho "Bash-Concurrent"
-
-# Switch to zsh
-# cached_sudo chsh -s $(which zsh) scott
-
 # (Re-)Download my fork of bash-concurrent and use nocompact branch
 rm -rf bash-concurrent
 # git clone https://github.com/themattrix/bash-concurrent/
