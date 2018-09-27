@@ -6,7 +6,7 @@
 source ./.functions
 
 mas_cli_signin () {
-  echo "Sorry, mas-cli signin is not working. Please log in to the app store..."
+  echo "Sorry, mas-cli signin is not working. Please login to the app store..."
   echo "https://github.com/mas-cli/mas/issues/107"
   open -a "/Applications/App Store.app"
 
