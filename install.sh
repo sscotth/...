@@ -1,26 +1,40 @@
 #!/usr/bin/env bash
 
+source ./.functions
 source ./lib/utilities.sh
+
+cached_sudo -v
+
+if ! [ $(command_exists mas) ] || [ $(mas account) ] ; then
+  echo
+  echo "You have the mac app store command line interface and are signed in"
+  echo
+else
+  if [ -z ${APPLE_ID_EMAIL+x} ]; then
+    echo
+    read -s -p "Apple ID Email:" APPLE_ID_EMAIL
+    export APPLE_ID_EMAIL=$APPLE_ID_EMAIL
+    echo
+  fi
+
+  if [ -z ${APPLE_ID_PASSWORD+x} ]; then
+    echo
+    read -s -p "Apple ID Password:" APPLE_ID_PASSWORD
+    export APPLE_ID_PASSWORD=$APPLE_ID_PASSWORD
+    echo
+  fi
+fi
+
+exit 1
 
 if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
   boxecho "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
   boxecho "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
 fi
 
-  boxecho "Enter passwords upfront to continue"
-
-if [ -z ${APPLE_ID_PASSWORD+x} ]; then
-  read -s -p "Apple ID Password:" APPLE_ID_PASSWORD
-  export APPLE_ID_PASSWORD=$APPLE_ID_PASSWORD
-  echo ''
-fi
-
-cached_sudo -v
-
 boxecho "Homebrew"
 
-
-if [[ $(command -v brew) == "" ]]; then
+if command_exists brew; then
     boxecho "Installing Hombrew"
     # < /dev/null to prevent "Press RETURN to continue or any other key to abort"
     cached_psudo '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null'

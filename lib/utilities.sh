@@ -51,12 +51,16 @@ retry_command () {
 # Use psudo for those scripts.
 cached_psudo () {
   if [ -z ${SUDOPASS+x} ]; then
+    echo
     read -s -p "SUDO Password:" SUDOPASS
     export SUDOPASS=$SUDOPASS
-    echo ''
+    echo
   fi
 
   base64_cmd=$(echo $@ | base64 | tr -d '\n')
+  echo
+  echo "base64_cmd: $base64_cmd"
+  echo
 
   /usr/bin/expect <<EOD
     set timeout -1
@@ -75,11 +79,13 @@ cached_sudo () {
   if [ -z ${SUDOPASS+x} ]; then
     read -s -p "SUDO Password:" SUDOPASS
     export SUDOPASS=$SUDOPASS
-    echo ''
+    echo
   fi
 
   base64_cmd=$(echo sudo $@ | base64 | tr -d '\n')
+  echo
   echo "base64_cmd: $base64_cmd"
+  echo
 
   /usr/bin/expect <<EOD
     set timeout -1

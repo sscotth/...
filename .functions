@@ -1,10 +1,3 @@
-caskup() {
-  rm -rf "$(brew --cache)"
-  brew update
-  brew cask uninstall --force "$@"
-  brew cask install "$@"
-}
-
 command_exists () {
   type "$1" &> /dev/null;
 }
