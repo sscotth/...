@@ -11,6 +11,9 @@ install_node_stable_packages () {
 
   nvm use node
 
+  echo "(pure-prompt)" >&3
+  npm install -g pure-prompt
+
   # echo "(babel-eslint)" >&3
   # npm install -g babel-eslint
   # echo "(bower)" >&3

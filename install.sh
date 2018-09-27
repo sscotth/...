@@ -99,8 +99,9 @@ cached_psudo brew bundle --file=.Brewfile || true
 cached_psudo brew bundle --file=.Brewfile || true
 
 boxecho "Cask upgrade details"
-yes n | brew cu --no-brew-update && echo && echo
+yes n | brew cu --no-brew-update && echo
 
+echo
 boxecho "Homebrew cleanup"
 brew cleanup -s
 cached_sudo rm -rf "$(brew --cache)"
