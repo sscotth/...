@@ -273,15 +273,6 @@ cask 'font-monoid'
 cask 'asix-ax88179'
 cask 'xbox360-controller-driver-unofficial'
 
-# APP STORE
-mas 'Day One Classic', id: 422304217
-mas 'Deckset', id: 847496013
-mas 'LimeChat', id: 414030210
-mas 'Microsoft Remote Desktop', id: 1295203466
-mas 'Pixelmator', id: 407963104
-mas 'Reeder', id: 880001334
-mas 'Xcode', id: 497799835
-
 # PREREQ
 cask 'osxfuse'
 # cask 'xquartz'
@@ -290,3 +281,12 @@ cask 'osxfuse'
 # brew 'sshfs' # Requires osxfuse
 # cask 'fontforge' # Requires xforce
 brew 'macvim', args: ['with-custom-icons'] # Requires Xcode
+
+# APP STORE
+mas 'Day One Classic', id: 422304217
+mas 'Deckset', id: 847496013
+mas 'LimeChat', id: 414030210
+mas 'Microsoft Remote Desktop', id: 1295203466
+mas 'Pixelmator', id: 407963104
+mas 'Reeder', id: 880001334
+mas 'Xcode', id: 497799835
