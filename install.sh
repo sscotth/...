@@ -89,14 +89,14 @@ tput bel
 sleep 1
 afplay /System/Library/Sounds/Ping.aiff
 sleep 1
-boxecho "Sleep 30"
+boxecho "Sleep 30 (Restart if prior command failed instantly)"
 say "sleep 30"
 sleep 30
 
 boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
-cached_psudo brew bundle --file=.Brewfile
-cached_psudo brew bundle --file=.Brewfile
-cached_psudo brew bundle --file=.Brewfile
+cached_psudo brew bundle --file=.Brewfile || true
+cached_psudo brew bundle --file=.Brewfile || true
+cached_psudo brew bundle --file=.Brewfile || true
 
 boxecho "Cask upgrade details"
 yes n | brew cu --no-brew-update
