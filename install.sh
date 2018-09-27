@@ -74,8 +74,6 @@ cd bash-concurrent
 git checkout nocompact
 cd ..
 
-exit 1
-
 boxecho "Concurrent tasks"
 bash ./lib/tasks/index.sh
 
