@@ -31,14 +31,11 @@ brew install lolcat
 boxecho "Coreutils"
 brew install coreutils
 
-boxecho "Bash"
+boxecho "Bash v4.2+"
 brew install bash
 
 boxecho "mas-cli"
-
 mas_cli_signin
-
-boxecho "Bash v4.2+"
 
 # if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
 #   boxecho "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"

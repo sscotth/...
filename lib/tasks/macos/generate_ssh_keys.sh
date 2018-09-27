@@ -10,7 +10,7 @@ generate_ssh_keys () {
   # echo ""
 
   if [ ! -f ~/.ssh/id_rsa ]; then
-    ssh-keygen -t rsa -b 4096 -C "scott@sscotth.io" -N ${SSH_KEY_PW:-} -f ~/.ssh/id_rsa
+    ssh-keygen -t rsa -b 4096 -C "scott@sscotth.io" -N ${SSH_KEY_PW:-''} -f ~/.ssh/id_rsa
   fi
 
   ssh-add ~/.ssh/id_rsa
