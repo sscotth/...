@@ -19,15 +19,6 @@ mas_cli_signin () {
       read -p "Apple ID Email:" APPLE_ID_EMAIL
       mas signin --dialog $APPLE_ID_EMAIL
       mas_cli_signin
-    fi
-  else
-    if command_exists brew; then
-      echo
-      echo "You need the mac app store command line interface"
-      echo
-      brew install mas
-      mas_cli_signin
-      echo
       echo
       echo "Sorry, the mas-cli is not working. Please log in to the app store..."
       echo "https://github.com/mas-cli/mas/issues/107"
@@ -36,6 +27,14 @@ mas_cli_signin () {
       until (mas account > /dev/null); do
         sleep 3
       done
+    fi
+  else
+    if command_exists brew; then
+      echo
+      echo "You need the mac app store command line interface"
+      echo
+      brew install mas
+      mas_cli_signin
     else
       echo "You need the mac app store command line interface. Install homebrew first"
       exit 1
