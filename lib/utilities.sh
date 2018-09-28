@@ -39,10 +39,10 @@ mas_cli_signin () {
 }
 
 git_clone_or_pull () {
-  if [ -d $2 ]; then
+  if [ -d ${2:-.} ]; then
     echo "(Pull)" >&3
-    git -C $2 reset --hard
-    git -C $2 pull origin master
+    git -C ${2:-.} reset --hard
+    git -C ${2:-.} pull origin master
   else
     echo "(Clone)" >&3
     GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone $1 $2 "${@:3}"
