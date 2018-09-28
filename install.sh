@@ -81,16 +81,18 @@ tput bel
 sleep 1
 afplay /System/Library/Sounds/Ping.aiff
 sleep 1
-say "Are you ready?"
+say "Are you ready? System will restart once finished."
 
 # https://stackoverflow.com/a/1885534
-read -p "Are you ready? " -n 1 -r
+read -p "Are you ready? System will restart once finished. " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
   [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
 fi
 
 cached_psudo lib/tasks/macos/load_macos_defaults.sh
+
+cached_sudo reboot
 
 # Apps that still need to be activated for new installs
 #
