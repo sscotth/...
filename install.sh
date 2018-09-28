@@ -26,7 +26,7 @@ boxecho "Homebrew Doctor"
 brew doctor || true
 
 boxecho "Lolcat"
-brew install lolcat
+brew install lolcat || true
 
 boxecho "mas-cli"
 brew install mas || true
