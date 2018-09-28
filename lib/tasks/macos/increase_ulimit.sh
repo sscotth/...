@@ -31,7 +31,7 @@ increase_ulimit () {
 </plist>
 '
 
-  cached_psudo 'echo $file | sudo tee /Library/LaunchDaemons/limit.maxfiles.plist'
+  cached_psudo "echo $file | sudo tee /Library/LaunchDaemons/limit.maxfiles.plist"
   cached_sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist
   cached_sudo chmod 0644 /Library/LaunchDaemons/limit.maxfiles.plist
 
