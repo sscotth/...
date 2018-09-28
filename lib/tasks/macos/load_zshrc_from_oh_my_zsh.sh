@@ -6,7 +6,7 @@ set -Eeoux pipefail
 
 load_zshrc_from_oh_my_zsh () {
   # make sure .zshrc is fresh
-  rm ~/.zshrc
+  rm ~/.zshrc || true
   cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
   # add .zsh_profile reference to .zshrc
