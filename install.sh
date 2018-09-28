@@ -47,8 +47,9 @@ boxecho "Bash-Concurrent"
 # (Re-)Download my fork of bash-concurrent and use nocompact branch
 rm -rf bash-concurrent
 # git clone https://github.com/themattrix/bash-concurrent/
-git clone https://github.com/sscotth/bash-concurrent
-git -C ./bash_concurrent checkout nocompact
+# git clone https://github.com/sscotth/bash-concurrent
+git_clone_or_pull https://github.com/sscotth/bash-concurrent
+git -C ./bash-concurrent checkout nocompact
 
 boxecho "Concurrent tasks (Restart if this fails instantly)"
 /usr/local/bin/bash ./lib/tasks/index.sh || true

@@ -13,7 +13,7 @@ mathiasbynens_dotfiles_download () {
     git -C ./math_dotfiles pull origin master
   else
     echo "(Clone)" >&3
-    GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone --depth 1 https://github.com/mathiasbynens/dotfiles math_dotfiles
+    git_clone_or_pull https://github.com/mathiasbynens/dotfiles math_dotfiles --depth 1
   fi
 }
 
