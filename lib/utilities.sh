@@ -40,11 +40,11 @@ mas_cli_signin () {
 
 git_clone_or_pull () {
 
-  if [ -z ${2} ] {
+  if [ -z ${2} ]; then
     local dir=$(basename $1 .git)
-  } else {
+  else
     local dir=$2
-  }
+  fi
 
   if [ -d $dir ]; then
     echo "(Pull)" >&3
