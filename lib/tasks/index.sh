@@ -18,7 +18,6 @@ concurrent_install () {
         - "Homebrew Quick Atom"                 retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_atom.sh
         - "Homebrew Quick Python"               retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_python.sh
         - "Homebrew Quick Ruby"                 retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_ruby.sh
-        - "Homebrew Quick Sublime Text"         retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_sublime_text.sh
         - "Homebrew Quick Node Version Manager" retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_nvm.sh
         # - "Homebrew bundle"                     retry_command gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
 
@@ -73,12 +72,8 @@ concurrent_install () {
         --before "python"
 
         --require "Homebrew Quick Ruby"
-        --before "Homebrew Quick Sublime Text"
-        --before "ruby"
-
-        --require "Homebrew Quick Sublime Text"
         --before "Homebrew Quick Node Version Manager"
-        --before "sublime text"
+        --before "ruby"
 
         --require "Homebrew Quick Node Version Manager"
         --before  "Install Node.js Stable"
