@@ -26,15 +26,22 @@ boxecho "Homebrew Doctor"
 brew doctor || true
 
 boxecho "Lolcat"
-brew install lolcat || true
+brew_install_or_upgrade lolcat
 
 boxecho "mas-cli"
-brew install mas || true
-brew upgrade mas || true
+brew_install_or_upgrade mas
+
+boxecho "mas-cli signin"
 mas_cli_signin
 
-boxecho "Bash v4.2+, Zsh, & Coreutils"
-brew install bash zsh coreutils || true
+boxecho "Bash v4.2+"
+brew_install_or_upgrade bash
+
+boxecho "Zsh"
+brew_install_or_upgrade zsh
+
+boxecho "coreutils"
+brew_install_or_upgrade coreutils
 
 boxecho "Bash-Concurrent"
 # (Re-)Download my fork of bash-concurrent and use nocompact branch
