@@ -31,6 +31,7 @@ concurrent_install () {
         - "Prepare MongoDB"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/mongodb_prepare.sh
         - "Prepare NTFS"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/ntfs_prepare.sh # Except for SIP check, SKIP FOR NOW
         - "Setup assistive devices"             retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/setup_assistive_devices.sh
+        - "Increate ulimit"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/increase_ulimit.sh
         # - "Use NTP pool servers"                retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/use_ntp_pool_servers.sh # Broken in mojave
 
         - "Remove previous Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
