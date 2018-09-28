@@ -29,41 +29,12 @@ boxecho "Lolcat"
 brew install lolcat
 
 boxecho "mas-cli"
+brew install mas || true
+brew upgrade mas || true
 mas_cli_signin
 
 boxecho "Bash v4.2+, Zsh, & Coreutils"
-brew install bash zsh coreutils
-
-# if [[ -z "${BASH_VERSINFO[@]}" || "${BASH_VERSINFO[0]}" -lt 4 || "${BASH_VERSINFO[1]}" -lt 2 ]]; then
-#   boxecho "Requires Bash version 4.2 (you have ${BASH_VERSION:-a different shell})"
-#   boxecho "Attempting to install. Script will attmpet to restart itself. Otherwise, reload terminal when finished and try again"
-#   boxecho "Install Updated Bash"
-#   brew install bash
-#
-#   # In order to use this build of bash as your login shell, it must be added to /etc/shells.
-#
-#   if cat /etc/shells | grep /usr/local/bin/bash &> /dev/null; then
-#     boxecho "Add Homebrew's bash to available shells"
-#
-#     # Requires subshell
-#     # sudo echo /usr/local/bin/bash >> /etc/shells
-#     # -bash: /etc/shells: Permission denied
-#
-#     cached_sudo 'bash -c "echo /usr/local/bin/bash >> /etc/shells"'
-#   fi
-#
-#   boxecho "Change default shell to Homebrew bash"
-#   # could use cached_psudo here, but password request is slightly different than normal sudo "Password for scott: "
-#   cached_sudo chsh -s /usr/local/bin/bash $(whoami)
-#
-#   boxecho "Attempting to reload shell"
-#   exec bash --login -c "./install.sh"
-#
-#   # If you reach this line, the reload failed
-#   boxecho "Reload Failed. Reload terminal and try again."
-#   exit 1
-# fi
-# boxecho "BASH v4.2+ INSTALLED - BEGIN INSTALLATION"
+brew install bash zsh coreutils || true
 
 boxecho "Bash-Concurrent"
 # (Re-)Download my fork of bash-concurrent and use nocompact branch
