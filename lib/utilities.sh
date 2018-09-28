@@ -53,11 +53,11 @@ git_clone_or_pull () {
   fi
 
   if [ -d $dir ]; then
-    echo "(Pull)" >&3
+    echo "Pull"
     git -C $dir reset --hard
     git -C $dir pull origin master
   else
-    echo "(Clone)" >&3
+    echo "Clone"
     GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone $1 $dir ${@:3}
   fi
 }
