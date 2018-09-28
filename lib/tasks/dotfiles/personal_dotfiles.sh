@@ -15,10 +15,15 @@ personal_dotfiles_symlink_unique () {
 }
 
 personal_dotfiles_symlink_normal () {
-  for file in $(find . -name '.*' ! -name '.' \
-    ! -name '.git' ! -name '.gitignore' ! -name '.zshrc' \
-    ! -name '.oh-my-zsh' ! -name '.logs' \
-    ! -path '*.atom*' ! -path '*math_dotfiles*'); do
+  for file in $(find . -name '.*' \
+    ! -name '.' \
+    ! -name '.git' \
+    ! -name '.gitignore' \
+    ! -name '.logs' \
+    ! -name '.zshrc' \
+    ! -path '*.atom*' \
+    ! -path '*math_dotfiles*' \
+  ); do
 
     src="$(pwd)/$(basename $file)"
     dst="$HOME/$(basename $file)"

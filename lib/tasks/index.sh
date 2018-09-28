@@ -25,8 +25,8 @@ concurrent_install () {
         - "Clean .DS_Store files"               retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/clean_ds_store.sh
         - "Generate SSH Keys"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/generate_ssh_keys.sh
         # - "Install Hosts file"                  retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_hosts_file.sh # Use Gas Mask app
-        - "Install Oh-My-ZSH"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_oh_my_zsh.sh
-        - "Install macOS updates"               retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/install_macos_updates.sh
+        - "Install Oh-My-ZSH"                   retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/install_oh_my_zsh.sh
+        - "Install macOS updates"               retry_command gtimeout --preserve-status 600 ./lib/tasks/macos/install_macos_updates.sh
         - "Install ZSH Syntax Highlighting"     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_zsh_syntax_highlighting.sh
         - "Load .zshrc from Oh-My-ZSH"          retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/load_zshrc_from_oh_my_zsh.sh
 
