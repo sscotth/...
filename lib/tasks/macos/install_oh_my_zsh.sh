@@ -9,20 +9,20 @@ source ./lib/utilities.sh
 install_oh_my_zsh () {
   rm -rf ${HOME}/.oh-my-zsh
 
-  cached_psudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  # cached_psudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-  # # Manual Installation
-  # echo "(Clone the repository)" >&3
-  # git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-  #
-  # echo "(Optionally, backup your existing ~/.zshrc file)" >&3
-  # # cp ~/.zshrc ~/.zshrc.orig
-  #
-  # echo "(Create a new zsh configuration file)" >&3
-  # # cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-  #
-  # echo "(Change your default shell)" >&3
-  # cached_psudo chsh -s /bin/zsh
+  # Manual Installation
+  echo "(Clone the repository)" >&3
+  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+  echo "(Optionally, backup your existing ~/.zshrc file)" >&3
+  # cp ~/.zshrc ~/.zshrc.orig
+
+  echo "(Create a new zsh configuration file)" >&3
+  # cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
+  echo "(Change your default shell)" >&3
+  cached_psudo chsh -s /bin/zsh
 
   echo "(done)" >&3
 }
