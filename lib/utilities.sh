@@ -123,48 +123,6 @@ cached_sudo () {
 EOD
 }
 
-# cached_sudo () {
-#   request_password_and_cache
-#
-#   base64_cmd=$(echo sudo $@ | base64 | tr -d '\n')
-#   echo
-#   echo "base64_cmd: $base64_cmd"
-#   echo
-#   expect_use_cached_password
-# }
-#
-# cached_psudo () {
-#   request_password_and_cache
-#
-#   base64_cmd=$(echo $@ | base64 | tr -d '\n')
-#   echo
-#   echo "base64_cmd: $base64_cmd"
-#   echo
-#   expect_use_cached_password
-# }
-#
-# request_password_and_cache () {
-#   if [ -z ${SUDOPASS+x} ]; then
-#     read -s -p "SUDO Password:" SUDOPASS
-#     SUDOPASS=$SUDOPASS
-#     echo
-#   fi
-# }
-#
-# expect_use_cached_password () {
-#   /usr/bin/expect <<EOD
-#     set timeout -1
-#     spawn ./lib/base64_eval.sh $base64_cmd
-#     expect {
-#       "*?assword:*" { send "$SUDOPASS\n"; exp_continue }
-#       eof
-#     }
-#
-#     catch wait result
-#     exit [lindex \$result 3]
-# EOD
-# }
-
 # Loads nvm into the current shell
 load_nvm () {
   echo "LOADING nvm.sh"
