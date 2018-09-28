@@ -7,7 +7,7 @@ set -Eeoux pipefail
 source ./lib/utilities.sh
 
 get_current_time () {
-  cached_sudo sntp -sS pool.ntp.org
+  cached_sudo sntp -sS us.pool.ntp.org
 }
 
 use_ntp_pool_servers () {
