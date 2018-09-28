@@ -103,7 +103,7 @@ cached_psudo () {
 request_password_and_cache () {
   if [ -z ${SUDOPASS+x} ]; then
     read -s -p "SUDO Password:" SUDOPASS
-    export SUDOPASS=$SUDOPASS
+    SUDOPASS=$SUDOPASS
     echo
   fi
 }
