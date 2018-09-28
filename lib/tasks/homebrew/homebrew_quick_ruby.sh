@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-set -Eeoux pipefail
+set -Eeox pipefail
+# Cant use -u: /usr/local/opt/chruby/share/chruby/chruby.sh: line 4: PREFIX: unbound variable
 
 source ./lib/utilities.sh
 

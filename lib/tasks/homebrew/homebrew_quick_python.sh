@@ -10,10 +10,10 @@ homebrew_quick_python () {
   boxecho "Python"
   echo "(Python)" >&3
   ! command_exists pip && echo "Installing python v2" && brew install python@2
-  local installed_versions=$(python --version 2>&1 | sed 's/Python\s//')
+  local installed_versions=$(python --version)
   echo "($installed_versions)" >&3
   ! command_exists pip3 && echo "Installing python v3" && brew install python
-  installed_versions="$installed_versions, $(python3 --version 2>&1 | sed 's/Python\s//')"
+  installed_versions="$installed_versions, $(python3 --version)"
   echo "($installed_versions)" >&3
 }
 
