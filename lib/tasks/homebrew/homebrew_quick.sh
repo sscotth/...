@@ -11,6 +11,10 @@ homebrew_quick () {
   echo "(Atom)" >&3
   ! command_exists apm && echo "Installing Atom" && brew cask install atom
 
+  boxecho "jq"
+  echo "(jq)" >&3
+  ! command_exists jq && echo "Installing jq" && brew install jq
+
   boxecho "Python"
   echo "(Python)" >&3
   ! command_exists pip && echo "Installing python v2" && brew install python@2

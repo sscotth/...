@@ -5,19 +5,31 @@ set -Eeoux pipefail
 source ./lib/utilities.sh
 
 atom_plugins () {
-
   boxecho $(atom -v)
 
-  boxecho "Install atom plugins"
-  echo "(Installing...)" >&3
-  apm stars --user sscotth
-  apm stars --user sscotth --install
+  boxecho "Getting Starred Packages"
+  echo "(Getting Starred Packages...)" >&3
+  apm stars --user sscotth --json | jq 'map(.name) | to_entries[] | .value' -r > /tmp/atom_starred_packages.txt
 
-  boxecho "Upgrade atom packages"
-  echo "(Upgrading)" >&3
+  boxecho "Checking Installed Packages"
+  echo "(Checking Installed Packages...)" >&3
+  apm list --installed --bare | sed 's/@.*//' > /tmp/atom_installed_packages.txt
+
+  boxecho "Finding missing packages"
+  echo "(Finding missing packages...)" >&3
+  # https://stackoverflow.com/a/11100045
+  local missing_packages=$(grep -Fxv -f /tmp/atom_installed_packages.txt /tmp/atom_starred_packages.txt)
+
+
+  for i in ${missing_packages[@]}; do
+    boxecho "Downloading: $i"
+    echo "($i)" >&3
+  done
+
+  boxecho "Upgrading packages"
+  echo "(Upgrading packages...)" >&3
   yes | apm upgrade || true
 
-  boxecho "done"
   echo "(done)" >&3
 }
 

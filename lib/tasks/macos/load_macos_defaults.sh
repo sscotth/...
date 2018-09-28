@@ -2,7 +2,7 @@
 #
 # SUDO: Load OSX defaults
 
-set -Eeoux pipefail
+# set -Eeoux pipefail
 
 source ./lib/utilities.sh
 
@@ -13,7 +13,7 @@ load_macos_defaults () {
   mathiasbynens_macos_load
 
   boxecho "personal"
-  personal_macos_load
+  # personal_macos_load
 
   echo "(done. restart computer.)" >&3
 }
