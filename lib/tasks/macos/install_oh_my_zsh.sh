@@ -12,9 +12,8 @@ install_oh_my_zsh () {
   # Manual Installation
   if [ -d ${HOME}/.oh-my-zsh ]; then
     echo "(Pull)" >&3
-    cd ${HOME}/.oh-my-zsh
-    git checkout .
-    git pull origin master
+    git -C ${HOME}/.oh-my-zsh reset --hard
+    git -C ${HOME}/.oh-my-zsh pull origin master
   else
     echo "(Clone)" >&3
     GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh

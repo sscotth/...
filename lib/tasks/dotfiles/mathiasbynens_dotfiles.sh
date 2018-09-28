@@ -9,10 +9,8 @@ source ./lib/utilities.sh
 mathiasbynens_dotfiles_download () {
   if [ -d "math_dotfiles" ]; then
     echo "(Pull)" >&3
-    cd math_dotfiles
-    git checkout .
-    git pull origin master
-    cd ..
+    git -C ./math_dotfiles reset --hard
+    git -C ./math_dotfiles pull origin master
   else
     echo "(Clone)" >&3
     GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone --depth 1 https://github.com/mathiasbynens/dotfiles math_dotfiles
