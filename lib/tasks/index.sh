@@ -22,10 +22,6 @@ concurrent_install () {
         - "Homebrew Quick Node Version Manager" retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_nvm.sh
         # - "Homebrew bundle"                     retry_command gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
 
-        - "atom"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
-        - "ruby"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
-        - "python"                              retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
-
         - "Clean .DS_Store files"               retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/clean_ds_store.sh
         - "Generate SSH Keys"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/generate_ssh_keys.sh
         # - "Install Hosts file"                  retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_hosts_file.sh # Use Gas Mask app
@@ -38,21 +34,23 @@ concurrent_install () {
         - "Setup assistive devices"             retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/setup_assistive_devices.sh
         # - "Use NTP pool servers"                retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/use_ntp_pool_servers.sh # Broken in mojave
 
-        - "Install Node.js Version Manager"     retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_version_manager.sh # BREW
-        - "Install Node.js LTS"                 retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_lts.sh
-        - "Install Node.js LTS Packages"        retry_command gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_lts_packages.sh
-        - "Install Node.js Stable"              retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_stable.sh
-        - "Install Node.js Stable Packages"     retry_command gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
-        - "Clean npm cache"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
-
         - "Remove previous Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
         - "Mathias Bynens' Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
         - "Personal Dotfiles"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles.sh
 
         - "asepsis"                             retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
+        - "atom"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
         - "iterm2"                              retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
+        - "python"                              retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
+        - "ruby"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
         - "spoofmac"                            retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/spoofmac.sh
         - "sublime text"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/sublime-text.sh
+
+        - "Install Node.js LTS"                 retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_lts.sh
+        - "Install Node.js LTS Packages"        retry_command gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_lts_packages.sh
+        - "Install Node.js Stable"              retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/install_node_stable.sh
+        - "Install Node.js Stable Packages"     retry_command gtimeout --preserve-status 300 ./lib/tasks/nodejs/install_node_stable_packages.sh
+        - "Clean npm cache"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/nodejs/clean_npm_cache.sh
 
         --require "Remove previous Dotfiles"
         --before  "Mathias Bynens' Dotfiles"
