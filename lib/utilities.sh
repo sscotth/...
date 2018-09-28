@@ -39,6 +39,13 @@ mas_cli_signin () {
 }
 
 git_clone_or_pull () {
+  echo "GIT_CLONE_OR_PULL"
+  echo "1: $1"
+  echo "1: $2"
+  echo "1: $3"
+  echo "1: $4"
+  echo "1: $5"
+
   if [ -z ${2:-} ]; then
     local dir=$(basename $1 .git)
   else
