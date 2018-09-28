@@ -80,35 +80,15 @@ retry_command () {
 # Caches the sudo password as a variable for scripts.
 # Some scripts cannot be as sudo like homebrew, but requires a password during certain tasks.
 # Use psudo for those scripts.
-cached_sudo () {
-  request_password_and_cache
-
-  base64_cmd=$(echo sudo $@ | base64 | tr -d '\n')
-  echo
-  echo "base64_cmd: $base64_cmd"
-  echo
-  expect_use_cached_password
-}
-
 cached_psudo () {
-  request_password_and_cache
-
-  base64_cmd=$(echo $@ | base64 | tr -d '\n')
-  echo
-  echo "base64_cmd: $base64_cmd"
-  echo
-  expect_use_cached_password
-}
-
-request_password_and_cache () {
   if [ -z ${SUDOPASS+x} ]; then
     read -s -p "SUDO Password:" SUDOPASS
-    SUDOPASS=$SUDOPASS
-    echo
+    export SUDOPASS=$SUDOPASS
+    echo ''
   fi
-}
 
-expect_use_cached_password () {
+  base64_cmd=$(echo $@ | base64 | tr -d '\n')
+
   /usr/bin/expect <<EOD
     set timeout -1
     spawn ./lib/base64_eval.sh $base64_cmd
@@ -116,11 +96,74 @@ expect_use_cached_password () {
       "*?assword:*" { send "$SUDOPASS\n"; exp_continue }
       eof
     }
-
     catch wait result
     exit [lindex \$result 3]
 EOD
 }
+
+cached_sudo () {
+  if [ -z ${SUDOPASS+x} ]; then
+    read -s -p "SUDO Password:" SUDOPASS
+    export SUDOPASS=$SUDOPASS
+    echo ''
+  fi
+
+  base64_cmd=$(echo sudo $@ | base64 | tr -d '\n')
+  echo "base64_cmd: $base64_cmd"
+
+  /usr/bin/expect <<EOD
+    set timeout -1
+    spawn ./lib/base64_eval.sh $base64_cmd
+    expect {
+      "*?assword:*" { send "$SUDOPASS\n"; exp_continue }
+      eof
+    }
+    catch wait result
+    exit [lindex \$result 3]
+EOD
+}
+
+# cached_sudo () {
+#   request_password_and_cache
+#
+#   base64_cmd=$(echo sudo $@ | base64 | tr -d '\n')
+#   echo
+#   echo "base64_cmd: $base64_cmd"
+#   echo
+#   expect_use_cached_password
+# }
+#
+# cached_psudo () {
+#   request_password_and_cache
+#
+#   base64_cmd=$(echo $@ | base64 | tr -d '\n')
+#   echo
+#   echo "base64_cmd: $base64_cmd"
+#   echo
+#   expect_use_cached_password
+# }
+#
+# request_password_and_cache () {
+#   if [ -z ${SUDOPASS+x} ]; then
+#     read -s -p "SUDO Password:" SUDOPASS
+#     SUDOPASS=$SUDOPASS
+#     echo
+#   fi
+# }
+#
+# expect_use_cached_password () {
+#   /usr/bin/expect <<EOD
+#     set timeout -1
+#     spawn ./lib/base64_eval.sh $base64_cmd
+#     expect {
+#       "*?assword:*" { send "$SUDOPASS\n"; exp_continue }
+#       eof
+#     }
+#
+#     catch wait result
+#     exit [lindex \$result 3]
+# EOD
+# }
 
 # Loads nvm into the current shell
 load_nvm () {

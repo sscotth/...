@@ -7,11 +7,21 @@ set -Eeoux pipefail
 source ./lib/utilities.sh
 
 install_oh_my_zsh () {
-  rm -rf ${HOME}/.oh-my-zsh
+  # rm -rf ${HOME}/.oh-my-zsh
 
   # Manual Installation
-  echo "(Clone the repository)" >&3
-  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+  if [ -d ${HOME}/.oh-my-zsh ]; then
+    echo "(Pull)" >&3
+    cd ${HOME}/.oh-my-zsh
+    git checkout .
+    git pull origin master
+  else
+    echo "(Clone)" >&3
+    GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git ${HOME}/.oh-my-zsh
+  fi
+
+  # echo "(Clone the repository)" >&3
+  # git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
   echo "(Optionally, backup your existing ~/.zshrc file)" >&3
   # cp ~/.zshrc ~/.zshrc.orig
