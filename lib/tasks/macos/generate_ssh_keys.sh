@@ -4,6 +4,8 @@
 
 set -Eeoux pipefail
 
+source ./lib/utilities.sh
+
 generate_ssh_keys () {
   # Ask for password
   # read -s -p "SSH KEYPassword:" SSH_KEY_PW
