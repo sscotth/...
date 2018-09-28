@@ -14,7 +14,7 @@ homebrew_quick_atom () {
   echo "($installed_versions)" >&3
 
   boxecho "jq"
-  ! command_exists apm && echo "Installing Atom" && brew cask install atom
+  ! command_exists jq && echo "Installing Atom" && brew install jq
 
   installed_versions="$installed_versions, $(jq --version)"
   echo "($installed_versions)" >&3
