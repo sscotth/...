@@ -42,9 +42,7 @@ git_clone_or_pull () {
   echo "GIT_CLONE_OR_PULL"
   echo "1: $1"
   echo "2: ${2:-}"
-  echo "3: ${3:-}"
-  echo "4: ${4:-}"
-  echo "5: ${5:-}"
+  echo "3+: ${@:3}"
 
   if [ -z ${2:-} ]; then
     local dir=$(basename $1 .git)
@@ -58,7 +56,7 @@ git_clone_or_pull () {
     git -C $dir pull origin master
   else
     echo "Clone"
-    GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git clone $1 $dir ${@:3}
+    git clone $1 $dir ${@:3}
   fi
 }
 
