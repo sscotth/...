@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-#
-# Node.js functions
 
 set -Eeoux pipefail
 
 source ./lib/utilities.sh
 
-export NVM_SYMLINK_CURRENT=true
+homebrew_quick_nvm () {
+  boxecho "Homebrew quick installs"
 
-install_node_version_manager () {
   boxecho "remove nvm, npm, and installed nodes"
   echo "(deleting...)" >&3
   rm -rf ~/.nvm ~/.npm
@@ -26,4 +24,4 @@ install_node_version_manager () {
   echo "($(nvm --version))" >&3
 }
 
-install_node_version_manager
+homebrew_quick_nvm

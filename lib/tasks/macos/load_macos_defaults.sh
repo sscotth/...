@@ -13,7 +13,7 @@ load_macos_defaults () {
   mathiasbynens_macos_load
 
   boxecho "personal"
-  # personal_macos_load
+  personal_macos_load
 
   echo "(done. restart computer.)" >&3
 }

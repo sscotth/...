@@ -15,7 +15,11 @@ concurrent_install () {
 
         - "Homebrew cask"                       retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
-        - "Homebrew quick"                      retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick.sh
+        - "Homebrew Quick Atom"                 retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_atom.sh
+        - "Homebrew Quick Python"               retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_python.sh
+        - "Homebrew Quick Ruby"                 retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_ruby.sh
+        - "Homebrew Quick Sublime Text"         retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_sublime_text.sh
+        - "Homebrew Quick Node Version Manager" retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_nvm.sh
         # - "Homebrew bundle"                     retry_command gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
 
         - "atom"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
@@ -58,7 +62,27 @@ concurrent_install () {
         --before  "Load .zshrc from Oh-My-ZSH"
         --before  "Install ZSH Syntax Highlighting"
 
-        --require "Install Node.js Version Manager"
+        --require "Homebrew cask"
+        --before  "Homebrew zap"
+        --before  "Homebrew Quick Atom"
+
+        --require "Homebrew Quick Atom"
+        --before "Homebrew Quick Python"
+        --before "atom"
+
+        --require "Homebrew Quick Python"
+        --before "Homebrew Quick Ruby"
+        --before "python"
+
+        --require "Homebrew Quick Ruby"
+        --before "Homebrew Quick Sublime Text"
+        --before "ruby"
+
+        --require "Homebrew Quick Sublime Text"
+        --before "Homebrew Quick Node Version Manager"
+        --before "sublime text"
+
+        --require "Homebrew Quick Node Version Manager"
         --before  "Install Node.js Stable"
         --before  "Install Node.js LTS"
 
@@ -71,21 +95,6 @@ concurrent_install () {
         --require "Install Node.js Stable Packages"
         --require "Install Node.js LTS Packages"
         --before  "Clean npm cache"
-
-        --require "Homebrew cask"
-        --before  "Homebrew zap"
-        --before  "Homebrew quick"
-
-        # --require "Install Node.js Version Manager"
-        # --require "Homebrew zap"
-        # --require "Homebrew quick"
-        # --before  "Homebrew bundle"
-
-        --require "Homebrew quick"
-        --before  "atom"
-        --before  "python"
-        --before  "ruby"
-        --before  "sublime text"
 
         --require "python"
         --before  "spoofmac"
