@@ -12,6 +12,7 @@ concurrent_install () {
 
     local args=(
         - "Disable energy savings"              retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/disable_energy_savings.sh
+        - "NTP time setup"                      retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/ntp_time_setup.sh
 
         - "Homebrew cask"                       retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_cask.sh
         - "Homebrew zap"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/homebrew/homebrew_zap.sh
@@ -32,7 +33,6 @@ concurrent_install () {
         - "Prepare NTFS"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/ntfs_prepare.sh # Except for SIP check, SKIP FOR NOW
         - "Setup assistive devices"             retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/setup_assistive_devices.sh
         - "Increate ulimit"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/increase_ulimit.sh
-        # - "Use NTP pool servers"                retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/use_ntp_pool_servers.sh # Broken in mojave
 
         - "Remove previous Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/dotfiles_remove.sh
         - "Mathias Bynens' Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
