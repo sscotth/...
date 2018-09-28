@@ -16,7 +16,7 @@ homebrew_quick_ruby () {
   boxecho "chruby"
 
   ! command_exists chruby && echo "Installing chruby" && brew install chruby
-  local installed_versions="$installed_versions, $(chruby --version)"
+  installed_versions="$installed_versions, $(chruby --version)"
   echo "($installed_versions)" >&3
 }
 

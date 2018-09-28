@@ -9,7 +9,15 @@ homebrew_quick_atom () {
 
   boxecho "Atom"
   ! command_exists apm && echo "Installing Atom" && brew cask install atom
-  echo "($(atom --version | grep Atom | sed 's/^.*://' | awk '{$1=$1};1'))" >&3
+
+  local installed_versions="Atom v$(atom --version | grep Atom | sed 's/^.*://' | awk '{$1=$1};1')"
+  echo "($installed_versions)" >&3
+
+  boxecho "jq"
+  ! command_exists apm && echo "Installing Atom" && brew cask install atom
+
+  installed_versions="$installed_versions, $(jq --version)"
+  echo "($installed_versions)" >&3
 }
 
 homebrew_quick_atom
