@@ -52,6 +52,7 @@ brew 'ack'
 brew 'archey'
 brew 'argtable'
 brew 'aria2'
+brew 'bat'
 brew 'cask-repair'
 brew 'chruby'
 brew 'diff-so-fancy'
@@ -72,6 +73,7 @@ brew 'mysql@5.7'
 brew 'neovim'
 brew 'node'
 brew 'nvm'
+brew 'prettyping'
 brew 'python3'
 brew 'r'
 brew 'ranger'
@@ -172,6 +174,7 @@ cask 'marked' # preview markdown from any editor
 cask 'meshcommander' # Intel AMT
 cask 'microsoft-office' # Office applications
 cask 'mongodb-compass' # MongoDB GUI
+cask 'mongodb' # MongoDB.app
 cask 'monodraw' # Plain text drawing
 cask 'moom' # Window manager
 cask 'mp3tag' # Mp3 metadata editor
@@ -190,6 +193,7 @@ cask 'plex-media-player' # Media player
 cask 'plex-media-server' # Media server
 cask 'postgres' # Database
 cask 'postico' # PostgresSQL GUI
+cask 'private-internet-access' # VPN
 cask 'qsyncthingtray' # Syncthing tray icon
 cask 'quickbooks2016' # Accounting
 cask 'rclone-browser' # rclone GUI
@@ -201,6 +205,7 @@ cask 'screens' # VNC client
 cask 'scroll-reverser' # Mouse scroll wheel change
 cask 'sketch-beta' # Vector drawing
 cask 'slack' # Chat
+cask 'sound-control' # HDMI volume changer
 cask 'soundflower' # Virtual audio interface
 cask 'sourcetree' # Git repo manager
 cask 'spectacle' # Window manager
@@ -272,6 +277,7 @@ cask 'font-monoid'
 # DRIVERS
 cask 'asix-ax88179'
 cask 'xbox360-controller-driver-unofficial'
+cask 'solarflare-network-adapter'
 
 # PREREQ
 cask 'osxfuse'

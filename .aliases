@@ -42,3 +42,7 @@ alias sha1="$(brew --prefix)/opt/openssl/bin/openssl sha1"
 alias sha256="$(brew --prefix)/opt/openssl/bin/openssl sha256"
 
 alias repair_disk_permissions="sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /"
+
+# https://remysharp.com/2018/08/23/cli-improved
+alias prettyping="prettyping --nolegend"
+alias ping="echo 'ALIAS: prettyping --nolegend' && prettyping"
