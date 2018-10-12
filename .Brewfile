@@ -93,6 +93,7 @@ brew 'tmux'
 brew 'trash'
 brew 'tree'
 brew 'watchman'
+brew 'yarn'
 brew 'z'
 
 # CASK APPS
