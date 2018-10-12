@@ -37,17 +37,20 @@ ruby_install () {
 
   boxecho "Install ruby apps"
 
+  echo "(cocoapods)" >&3
+  gem install cocoapods --no-ri --no-rdoc
+
   echo "(rails)" >&3
-  gem install rails
-
-  echo "(rubocop)" >&3
-  gem install rubocop
-
-  echo "(travis)" >&3
-  gem install travis
+  gem install rails --no-ri --no-rdoc
 
   echo "(reek)" >&3
-  gem install reek
+  gem install reek --no-ri --no-rdoc
+
+  echo "(rubocop)" >&3
+  gem install rubocop --no-ri --no-rdoc
+
+  echo "(travis)" >&3
+  gem install travis --no-ri --no-rdoc
 
   echo "(done)" >&3
 }
