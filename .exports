@@ -37,7 +37,7 @@ git config --global --replace-all alias.lg  "log --pretty=format:'%Cred%h %C(bol
 git config --global --replace-all alias.log "log --pretty=format:'%Cred%h %C(bold blue)[%an]%C(blue) -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit"
 # git config --global --replace-all alias.sync "!bash -c 'REM=$(git remote | grep upstream &> /dev/null && echo upstream || echo origin) && git pull $REM && git checkout master && git merge $REM master && git push origin master'"
 
-git config --global --replace-all core.pager "diff-highlight | diff-so-fancy | less --tabs=1,5 -R"
+git config --global --replace-all core.pager "diff-so-fancy | less --tabs=1,5 -R"
 
 git config --global --replace-all alias.pr '!f() { local PR=0; local REMOTE=origin; if [ $1 -gt 0 2> /dev/null ]; then PR=$1; REMOTE=${2:-origin}; else PR=$2; REMOTE=${1:-origin}; fi; echo "git fetch $REMOTE refs/pull/$PR/head:pr/$PR"; git fetch $REMOTE refs/pull/$PR/head:pr/$PR && git checkout pr/$PR; }; f'
 
