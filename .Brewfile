@@ -95,6 +95,7 @@ brew 'tree'
 brew 'watchman'
 brew 'yarn'
 brew 'z'
+brew 'zsh-completions'
 
 # CASK APPS
 cask '1password6' # Password manager -- newest requires subscription
