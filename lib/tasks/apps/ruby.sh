@@ -37,6 +37,9 @@ ruby_install () {
 
   boxecho "Install ruby apps"
 
+  echo "(bundler)" >&3
+  gem install bundler --no-ri --no-rdoc
+
   echo "(cocoapods)" >&3
   gem install cocoapods --no-ri --no-rdoc
 
