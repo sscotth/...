@@ -55,7 +55,7 @@ if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
 fi
 
 # Android
-export ANDROID_HOME=/usr/local/opt/android-sdk
+export ANDROID_HOME=~/Library/Android/sdk
 
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1

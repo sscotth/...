@@ -38,6 +38,7 @@ concurrent_install () {
         - "Mathias Bynens' Dotfiles"            retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/mathiasbynens_dotfiles.sh
         - "Personal Dotfiles"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/dotfiles/personal_dotfiles.sh
 
+        - "Android Studio"                      retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/android-studio.sh
         - "asepsis"                             retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
         - "atom"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
         - "iterm2"                              retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
