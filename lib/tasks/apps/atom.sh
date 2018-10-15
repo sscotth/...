@@ -21,10 +21,11 @@ atom_plugins () {
   local missing_packages=$(grep -Fxv -f /tmp/atom_installed_packages.txt /tmp/atom_starred_packages.txt)
 
 
-  for i in ${missing_packages[@]}; do
-    boxecho "Downloading: $i"
-    echo "($i)" >&3
-  done
+  while read -r pkg; do
+    boxecho "Installing: $pkg"
+    echo "($pkg)" >&3
+    apm install $pkg
+  done <<< $missing_packages
 
   boxecho "Upgrading packages"
   echo "(Upgrading packages...)" >&3

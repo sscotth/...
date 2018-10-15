@@ -16,6 +16,9 @@
       panelContrast: true
       panelShadows: true
   core:
+    packagesWithKeymapsDisabled: [
+      "sort-lines"
+    ]
     telemetryConsent: "no"
     titleBar: "custom"
   "dark-flat-ui":

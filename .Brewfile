@@ -3,8 +3,8 @@ tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 
-tap 'vitorgalvao/tiny-scripts'
 tap 'buo/cask-upgrade'
+tap 'vitorgalvao/tiny-scripts'
 
 tap 'sscotth/homebrew-sip'
 
@@ -84,8 +84,8 @@ brew 'ruby-install', args: ['HEAD']
 brew 's3cmd'
 brew 'shellcheck'
 brew 'sshuttle'
-brew 'syncthing-inotify'
 brew 'syncthing'
+brew 'syncthing-inotify'
 brew 'tccutil'
 brew 'the_platinum_searcher'
 brew 'the_silver_searcher'
@@ -110,8 +110,8 @@ cask 'apache-couchdb' # Database
 cask 'appcleaner' # App uninstaller
 cask 'arduino' # IDE for Arduino
 # cask 'asepsis' # Prevents .DS_Store files (disable SIP)
-cask 'atom-beta' # Text editor
 cask 'atom' # Text editor
+cask 'atom-beta' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
 cask 'balsamiq-mockups' # Wireframing
 cask 'bartender' # Hides menubar items
@@ -126,16 +126,16 @@ cask 'chromium' # Web browser
 cask 'clover-configurator' # Clover bootloader editor
 cask 'dash' # Offline API Documentation
 cask 'devonthink-pro-office' # Evernote alternative
-cask 'discord-canary' # Chat
 cask 'discord' # Chat
+cask 'discord-canary' # Chat
 cask 'docker' # App containers
 cask 'dropbox' # Cloud backup
 cask 'duet' # ipad as second monitor
 cask 'etcher' # Image writer
 cask 'fantastical' # Calendar
 cask 'filezilla' # FTP
-cask 'firefox-developer-edition' # Web broswer
 cask 'firefox' # Web broswer
+cask 'firefox-developer-edition' # Web broswer
 cask 'flash-npapi' # Flash for Safari & Firefox. PPAPI is for Chromium & Opera
 cask 'flux' # Screen colorization based on time
 cask 'fontplop' # create webfonts from .ttf
@@ -147,8 +147,8 @@ cask 'github' # Github repo manager
 cask 'gitkraken' # Git repo manager
 cask 'gitter' # Chat
 cask 'glyphs' # Font editor
-cask 'google-chrome-canary' # Browser
 cask 'google-chrome' # Browser
+cask 'google-chrome-canary' # Browser
 cask 'google-drive-file-stream' # Cloud backup
 cask 'gpg-suite' # OpenPGP
 cask 'grandperspective' # File system analyzer
@@ -176,8 +176,8 @@ cask 'mamp' # macOS, apache, mysql, php stack app
 cask 'marked' # preview markdown from any editor
 cask 'meshcommander' # Intel AMT
 cask 'microsoft-office' # Office applications
-cask 'mongodb-compass' # MongoDB GUI
 cask 'mongodb' # MongoDB.app
+cask 'mongodb-compass' # MongoDB GUI
 cask 'monodraw' # Plain text drawing
 cask 'moom' # Window manager
 cask 'mp3tag' # Mp3 metadata editor
@@ -228,8 +228,8 @@ cask 'transmission' # Torrent downloader
 cask 'tripmode' # Mobile data blocker
 cask 'tunnelblick' # VPN client
 cask 'veracrypt' # Encryption. TrueCrypt fork
-cask 'virtualbox-extension-pack' # Support for USB 2.0 and USB 3.0 devices, VirtualBox RDP, disk encryption, NVMe and PXE boot for Intel cards
 cask 'virtualbox' # Virtual machines
+cask 'virtualbox-extension-pack' # Support for USB 2.0 and USB 3.0 devices, VirtualBox RDP, disk encryption, NVMe and PXE boot for Intel cards
 cask 'viscosity' # VPN client
 cask 'visual-studio-code' # Text editor
 cask 'vlc' # Media player
@@ -279,8 +279,8 @@ cask 'font-monoid'
 
 # DRIVERS
 cask 'asix-ax88179'
-cask 'xbox360-controller-driver-unofficial'
 cask 'solarflare-network-adapter'
+cask 'xbox360-controller-driver-unofficial'
 
 # PREREQ
 cask 'osxfuse'
