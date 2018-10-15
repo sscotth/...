@@ -67,6 +67,9 @@ cached_psudo brew bundle --file=.Brewfile || true
 cached_psudo brew bundle --file=.Brewfile || true
 cached_psudo brew bundle --file=.Brewfile || true
 
+boxecho "Additional Homebrew fonts"
+brew search /nerd-font-mono/ | grep font | xargs brew cask install
+
 boxecho "Cask upgrade details"
 yes n | brew cu --no-brew-update && echo
 

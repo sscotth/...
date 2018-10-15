@@ -256,26 +256,7 @@ cask 'quicklookapk'
 cask 'quicklook-pat'
 
 # FONTS
-# brew search /powerline/ | grep font | xargs brew cask install
-cask 'font-anonymice-powerline'
-cask 'font-consolas-for-powerline'
-cask 'font-dejavu-sans-mono-for-powerline'
-cask 'font-droid-sans-mono-for-powerline'
-cask 'font-fira-mono-for-powerline'
-cask 'font-inconsolata-dz-for-powerline'
-cask 'font-inconsolata-for-powerline'
-cask 'font-inconsolata-g-for-powerline'
-cask 'font-liberation-mono-for-powerline'
-cask 'font-menlo-for-powerline'
-cask 'font-meslo-for-powerline'
-cask 'font-monofur-for-powerline'
-cask 'font-noto-mono-for-powerline'
-cask 'font-roboto-mono-for-powerline'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-ubuntu-mono-derivative-powerline'
-
-cask 'font-hack'
-cask 'font-monoid'
+# brew search /nerd-font-mono/ | grep font | xargs brew cask install
 
 # DRIVERS
 cask 'asix-ax88179'
