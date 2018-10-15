@@ -15,7 +15,6 @@ load_own_zsh_dotfiles () {
 }
 
 load_mathiasbynens_zsh_dotfiles
-load_own_zsh_dotfiles
 
 # ZSH NUMPAD now working
 # http://superuser.com/questions/742171/zsh-z-shell-numpad-numlock-doesnt-work
@@ -149,6 +148,9 @@ fi
 #
 # # Add `killall` tab completion for common apps
 # complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+
+load_own_zsh_dotfiles
 
 autoload -U promptinit; promptinit
 prompt pure

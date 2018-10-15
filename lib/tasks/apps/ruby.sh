@@ -43,6 +43,9 @@ ruby_install () {
   echo "(cocoapods)" >&3
   gem install cocoapods --no-ri --no-rdoc
 
+  echo "(colorls)" >&3
+  gem install colorls --no-ri --no-rdoc
+
   echo "(rails)" >&3
   gem install rails --no-ri --no-rdoc
 

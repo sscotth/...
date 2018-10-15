@@ -27,11 +27,6 @@ alias mkdircd=md
 alias mkdiro=md
 alias mkdiropen=md
 
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
-
 # Alias `git` as `hub`
 type hub &>/dev/null && eval "$(hub alias -s)"
 
@@ -46,3 +41,8 @@ alias repair_disk_permissions="sudo /usr/libexec/repair_packages --repair --stan
 # https://remysharp.com/2018/08/23/cli-improved
 alias prettyping="prettyping --nolegend"
 alias ping="echo 'ALIAS: prettyping --nolegend' && prettyping"
+alias l='colorls --sort-dirs -lA'
+alias la='colorls --sort-dirs -lA'
+alias ll='colorls --sort-dirs -lA'
+alias lsa='colorls --sort-dirs -lA'
+alias lt='colorls --sort-dirs --tree'
