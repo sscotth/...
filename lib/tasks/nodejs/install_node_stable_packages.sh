@@ -14,6 +14,9 @@ install_node_stable_packages () {
   echo "(pure-prompt)" >&3
   npm install -g pure-prompt
 
+  echo "(react-devtools)" >&3
+  npm install -g react-devtools
+
   # echo "(babel-eslint)" >&3
   # npm install -g babel-eslint
   # echo "(bower)" >&3
