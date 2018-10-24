@@ -30,6 +30,13 @@ install_node_lts () {
   nvm install --lts=Carbon
   installed_versions="${installed_versions}, $(node -v)"
   echo "($installed_versions)" >&3
+
+  boxecho "Dubnium v10.x"
+  echo "(Installing Dubnium v10.x...)" >&3
+  nvm install --lts=Dubnium
+  installed_versions="${installed_versions}, $(node -v)"
+  echo "($installed_versions)" >&3
+
 }
 
 install_node_lts
