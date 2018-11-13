@@ -58,6 +58,12 @@
     fontSize: 10
     layoutMode: "Compact"
     tabSizing: "Minimum"
+  "prettier-atom":
+    formatOnSaveOptions:
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
+    useEslint: true
+    useStylelint: true
   tabs:
     usePreviewTabs: true
   "theme-switch":

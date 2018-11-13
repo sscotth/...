@@ -2,6 +2,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
+tap 'homebrew/services'
 
 tap 'buo/cask-upgrade'
 tap 'vitorgalvao/tiny-scripts'
@@ -53,6 +54,7 @@ brew 'archey'
 brew 'argtable'
 brew 'aria2'
 brew 'bat'
+brew 'carthage'
 brew 'cask-repair'
 brew 'chruby'
 brew 'diff-so-fancy'
@@ -196,6 +198,7 @@ cask 'plex-media-player' # Media player
 cask 'plex-media-server' # Media server
 cask 'postgres' # Database
 cask 'postico' # PostgresSQL GUI
+cask 'postman' # API tester
 cask 'private-internet-access' # VPN
 cask 'qsyncthingtray' # Syncthing tray icon
 cask 'quickbooks2016' # Accounting
@@ -223,6 +226,7 @@ cask 'tableplus' # Multi-database GUI
 cask 'teamviewer' # Screen sharing
 cask 'telegram' # Chat
 cask 'tomighty' # Task timer
+cask 'tableplus' # Multi-database GUI
 cask 'tower' # Git repo manager
 cask 'transmission' # Torrent downloader
 cask 'tripmode' # Mobile data blocker
