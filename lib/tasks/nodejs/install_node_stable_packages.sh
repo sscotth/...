@@ -11,6 +11,9 @@ install_node_stable_packages () {
 
   nvm use node
 
+  echo "(expo-cli)" >&3
+  npm install -g expo-cli
+
   echo "(pure-prompt)" >&3
   npm install -g pure-prompt
 
