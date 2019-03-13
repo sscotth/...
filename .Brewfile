@@ -116,6 +116,7 @@ cask 'arduino' # IDE for Arduino
 cask 'atom' # Text editor
 cask 'atom-beta' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
+cask 'balenaetcher' # Image writer
 cask 'balsamiq-mockups' # Wireframing
 cask 'bartender' # Hides menubar items
 cask 'burn' # CD burner
@@ -134,7 +135,6 @@ cask 'discord-canary' # Chat
 cask 'docker' # App containers
 cask 'dropbox' # Cloud backup
 cask 'duet' # ipad as second monitor
-cask 'etcher' # Image writer
 cask 'fantastical' # Calendar
 cask 'filezilla' # FTP
 cask 'firefox' # Web broswer
