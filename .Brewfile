@@ -62,6 +62,7 @@ brew 'ffmpeg'
 brew 'flow'
 brew 'git-lfs'
 brew 'graphicsmagick'
+brew 'gron'
 brew 'handbrake'
 brew 'heroku'
 brew 'htop'
@@ -107,6 +108,8 @@ cask 'airmail-beta' # Email client (beta only cask)
 cask 'airserver' # Airplay & Google Cast screen mirroring receiver
 cask 'airtool' # Wireless configuration and capture
 cask 'alfred' # Spotlight alternative
+cask 'android-platform-tools' # Android command line tools -- adb
+cask 'android-studio' # Android IDE & Emulators
 cask 'angry-ip-scanner' # IP/Port scanner
 cask 'anydesk' # Screen sharing
 cask 'apache-couchdb' # Database
