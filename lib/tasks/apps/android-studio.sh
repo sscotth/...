@@ -19,6 +19,12 @@ android_studio () {
   echo "(accepting licenses)" >&3
   yes | ./sdkmanager --licenses
 
+  boxecho "Wipe data"
+  echo "(wipe data)" >&3
+  for i in $(./emulator -list-avds); do
+    ./emulator -avd $i -wipe-data -quit-after-boot 10
+  done
+
   echo "(done)" >&3
 }
 
