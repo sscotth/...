@@ -4,7 +4,7 @@ set -Eeoux pipefail
 
 source ./lib/utilities.sh
 
-iterm2 () {
+chromecanary () {
   boxecho "Chrome Canary 1password fix"
   # https://discussions.agilebits.com/discussion/97362/using-the-browser-extension-on-chrome-canary-not-working-anymore
 
@@ -20,4 +20,4 @@ iterm2 () {
   echo "(done)" >&3
 }
 
-iterm2
+chromecanary
