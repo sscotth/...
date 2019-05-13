@@ -41,6 +41,7 @@ concurrent_install () {
         - "Android Studio"                      retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/android-studio.sh
         - "asepsis"                             retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/asepsis.sh # Except for SIP check, SKIP FOR NOW
         - "atom"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/atom.sh
+        - "chrome canary"                       retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/chrome-canary.sh
         - "iterm2"                              retry_command gtimeout --preserve-status 120 ./lib/tasks/apps/iterm2.sh
         - "python"                              retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/python.sh
         - "ruby"                                retry_command gtimeout --preserve-status 600 ./lib/tasks/apps/ruby.sh
