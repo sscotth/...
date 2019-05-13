@@ -40,6 +40,9 @@ ruby_install () {
   echo "(bundler)" >&3
   gem install bundler --no-ri --no-rdoc
 
+  echo "(carthage)" >&3
+  brew install carthage
+
   echo "(cocoapods)" >&3
   gem install cocoapods --no-ri --no-rdoc
 

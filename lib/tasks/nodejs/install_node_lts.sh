@@ -36,7 +36,6 @@ install_node_lts () {
   nvm install --lts=Dubnium
   installed_versions="${installed_versions}, $(node -v)"
   echo "($installed_versions)" >&3
-
 }
 
 install_node_lts
