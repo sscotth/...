@@ -29,9 +29,18 @@ function ssid () {
 }
 
 function restart_network () {
-  sudo ifconfig en0 down && sudo ifconfig en0 up
+  sudo ifconfig en0 down && flush_dns_cache && sudo ifconfig en0 up
 }
 
 function network_restart () {
   restart_network
+}
+
+function flush_dns_cache () {
+  sudo killall -HUP mDNSResponder
+  sudo killall mDNSResponderHelper
+  sudo dscacheutil -flushcache
+
+  sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 }
