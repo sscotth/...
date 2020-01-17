@@ -15,25 +15,25 @@ brew 'binutils'
 brew 'coreutils'
 brew 'diffstat'
 brew 'diffutils'
-brew 'ed', args: ['with-default-names']
+brew 'ed'
 brew 'emacs'
 brew 'expect'
 brew 'file-formula'
 brew 'findutils'
 brew 'gawk'
 brew 'git'
-brew 'gnu-indent', args: ['with-default-names']
-brew 'gnu-sed', args: ['with-default-names']
-brew 'gnu-tar', args: ['with-default-names']
-brew 'gnu-units', args: ['with-default-names']
-brew 'gnu-which', args: ['with-default-names']
+brew 'gnu-indent'
+brew 'gnu-sed'
+brew 'gnu-tar'
+brew 'gnu-units'
+brew 'gnu-which'
 brew 'gpatch'
 brew 'gperf'
-brew 'grep', args: ['with-default-names']
+brew 'grep'
 brew 'groff'
 brew 'gzip'
 brew 'less'
-brew 'make', args: ['with-default-names']
+brew 'make'
 brew 'moreutils'
 brew 'nano'
 brew 'openssh'
