@@ -38,6 +38,7 @@ ruby_install () {
   boxecho "rvm"
 
   ! command_exists rvm && echo "Installing rvm" && \curl -sSL https://get.rvm.io | bash -s stable --ruby
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
   local installed_versions=$(rvm --version)
   echo "($installed_versions)" >&3
 
