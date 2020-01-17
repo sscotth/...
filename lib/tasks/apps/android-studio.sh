@@ -4,6 +4,8 @@
 
 set -Eeoux pipefail
 
+source ./lib/utilities.sh
+
 android_studio () {
   boxecho "Creating directories"
   echo "(creating directories)" >&3
