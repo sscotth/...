@@ -8,21 +8,21 @@ source ./lib/utilities.sh
 homebrew_quick_ruby () {
   boxecho "Homebrew quick installs"
 
-  boxecho "ruby-install"
+  # boxecho "ruby-install"
 
-  ! command_exists ruby-install && echo "Installing ruby-install" && brew install ruby-install
-  local installed_versions=$(ruby-install --version)
-  echo "($installed_versions)" >&3
+  # ! command_exists ruby-install && echo "Installing ruby-install" && brew install ruby-install
+  # local installed_versions=$(ruby-install --version)
+  # echo "($installed_versions)" >&3
 
-  boxecho "chruby"
-  source /usr/local/opt/chruby/share/chruby/chruby.sh || true
+  # boxecho "chruby"
+  # source /usr/local/opt/chruby/share/chruby/chruby.sh || true
 
-  ! command_exists chruby && echo "Installing chruby" && brew install chruby
+  # ! command_exists chruby && echo "Installing chruby" && brew install chruby
 
-  source /usr/local/opt/chruby/share/chruby/chruby.sh
+  # source /usr/local/opt/chruby/share/chruby/chruby.sh
 
-  installed_versions="$installed_versions, $(chruby --version)"
-  echo "($installed_versions)" >&3
+  # installed_versions="$installed_versions, $(chruby --version)"
+  # echo "($installed_versions)" >&3
 }
 
 homebrew_quick_ruby
