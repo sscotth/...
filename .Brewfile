@@ -73,7 +73,6 @@ brew 'jq'
 brew 'lolcat'
 brew 'mackup'
 brew 'mas'
-brew 'mongodb'
 brew 'mysql@5.7'
 brew 'neovim'
 brew 'node'
@@ -181,8 +180,6 @@ cask 'mamp' # macOS, apache, mysql, php stack app
 cask 'marked' # preview markdown from any editor
 cask 'meshcommander' # Intel AMT
 cask 'microsoft-office' # Office applications
-cask 'mongodb' # MongoDB.app
-cask 'mongodb-compass' # MongoDB GUI
 cask 'monodraw' # Plain text drawing
 cask 'moom' # Window manager
 cask 'mp3tag' # Mp3 metadata editor
@@ -207,7 +204,6 @@ cask 'qsyncthingtray' # Syncthing tray icon
 cask 'quickbooks2016' # Accounting
 cask 'rclone-browser' # rclone GUI
 cask 'rescuetime' # Time tracker
-cask 'robo-3t' # MongoDB GUI
 cask 'robofont' # Font editor
 cask 'rstudio' # IDE for R
 cask 'screens' # VNC client
@@ -221,7 +217,6 @@ cask 'spectacle' # Window manager
 cask 'steam' # Games
 cask 'steelseries-exactmouse-tool' # Mouse deacceleration
 cask 'stremio' # Media streaming
-cask 'studio-3t' # IDE for MongoDB
 cask 'sublime-merge' # Git repo manager
 cask 'sublime-text' # Text editor
 cask 'synergy' # Mouse and keyboard sharing
