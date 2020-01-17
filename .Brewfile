@@ -117,7 +117,6 @@ cask 'appcleaner' # App uninstaller
 cask 'arduino' # IDE for Arduino
 # cask 'asepsis' # Prevents .DS_Store files (disable SIP)
 cask 'atom' # Text editor
-cask 'atom-beta' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
 cask 'balenaetcher' # Image writer
 cask 'balsamiq-mockups' # Wireframing
