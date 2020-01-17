@@ -101,68 +101,68 @@ brew 'z'
 brew 'zsh-completions'
 
 # CASK APPS
-cask '1password6' # Password manager -- newest requires subscription
+cask '1password' # Password manager
+cask 'adoptopenjdk8' # Java8
 cask 'aerial' # Apple TV Aerial Views Screen Saver
-cask 'airmail-beta' # Email client (beta only cask)
 cask 'airserver' # Airplay & Google Cast screen mirroring receiver
 cask 'airtool' # Wireless configuration and capture
 cask 'alfred' # Spotlight alternative
 cask 'android-platform-tools' # Android command line tools -- adb
+cask 'android-sdk' # Android
 cask 'android-studio' # Android IDE & Emulators
 cask 'angry-ip-scanner' # IP/Port scanner
-cask 'anydesk' # Screen sharing
-cask 'apache-couchdb' # Database
 cask 'appcleaner' # App uninstaller
 cask 'arduino' # IDE for Arduino
 # cask 'asepsis' # Prevents .DS_Store files (disable SIP)
+cask 'avocode' # Mockup to code
 cask 'atom' # Text editor
 cask 'audiobookbinder' # Create iTunes compatible .m4b audiobooks
 cask 'balenaetcher' # Image writer
-cask 'balsamiq-mockups' # Wireframing
 cask 'bartender' # Hides menubar items
 cask 'burn' # CD burner
-cask 'busycal' # Calendar manager
-cask 'busycontacts' # Contacts manager
+# cask 'busycal' # Calendar manager (setapp)
+# cask 'busycontacts' # Contacts manager (setapp)
 cask 'cardhop' # Contacts manager
 cask 'ccleaner' # System cleanup
 cask 'charles' # Debugging Proxy
-cask 'chatology' # iMessage enhancer
+cask 'chatology' # iMessage enhancer and search
 cask 'chromium' # Web browser
+cask 'clone-hero' # Rhythm Game
 cask 'clover-configurator' # Clover bootloader editor
-cask 'dash' # Offline API Documentation
-cask 'devonthink-pro-office' # Evernote alternative
+# cask 'dash' # Offline API Documentation
+cask 'denemo' # Music notation (LilyPond)
+cask 'devonthink' # Evernote alternative
 cask 'discord' # Chat
 cask 'discord-canary' # Chat
 cask 'docker' # App containers
 cask 'dropbox' # Cloud backup
 cask 'duet' # ipad as second monitor
 cask 'fantastical' # Calendar
-cask 'filezilla' # FTP
 cask 'firefox' # Web broswer
 cask 'firefox-developer-edition' # Web broswer
 cask 'flash-npapi' # Flash for Safari & Firefox. PPAPI is for Chromium & Opera
 cask 'flux' # Screen colorization based on time
 cask 'fontplop' # create webfonts from .ttf
+cask 'fork' # Git GUI
 cask 'free-ruler' # Pixel ruler
-cask 'frescobaldi' # Music notation
+cask 'frescobaldi' # Music notation (LilyPond)
 cask 'gas-mask' # Hosts file manager
 cask 'gisto' # Github gist manager
 cask 'github' # Github repo manager
-cask 'gitkraken' # Git repo manager
-cask 'gitter' # Chat
 cask 'glyphs' # Font editor
 cask 'google-chrome' # Browser
 cask 'google-chrome-canary' # Browser
 cask 'google-drive-file-stream' # Cloud backup
 cask 'gpg-suite' # OpenPGP
 cask 'grandperspective' # File system analyzer
+cask 'graphiql' # GraphQL GUI
+cask 'graphql-playground' # GraphQL GUI
 cask 'handbrake' # Video transcoder
 cask 'haskell-for-mac' # IDE for haskell
 cask 'integrity' # Website link checker (Also on app store)
 cask 'istat-menus' # Menubar widgets
 cask 'iterm2' # Terminal emulator
 cask 'itsycal' # Menubar calendar
-cask 'java8' # Required for Java Apps
 cask 'jdownloader' # Download manager
 cask 'kaleidoscope' # File diff
 cask 'karabiner-elements' # Keyboard customization
@@ -171,17 +171,18 @@ cask 'kodi' # Media player
 cask 'leech' # Download manager
 cask 'libreoffice' # Office applications
 cask 'lilypond-dev' # Music notation
-cask 'little-snitch' # Firewall
-cask 'lmms' # Digital audio
+# cask 'little-snitch' # Firewall
+cask 'lmms' # Digital audio workstation
 cask 'logitech-unifying' # Logitech drivers
+cask 'lepton' # Snippets
 cask 'losslesscut' # Trim video and audio files
 cask 'makemkv' # Bluray rip - Free registration https://www.makemkv.com/forum/viewtopic.php?f=5&t=1053
-cask 'mamp' # macOS, apache, mysql, php stack app
 cask 'marked' # preview markdown from any editor
 cask 'meshcommander' # Intel AMT
 cask 'microsoft-office' # Office applications
 cask 'monodraw' # Plain text drawing
 cask 'moom' # Window manager
+cask 'musicbrainz-picard' # Mp3 metadata editor
 cask 'mp3tag' # Mp3 metadata editor
 cask 'mpv' # Media player
 cask 'musescore' # Music notation
@@ -190,56 +191,58 @@ cask 'navicat-premium' # Multi-database GUI
 cask 'ngrok' # Public tunnel to localhost
 cask 'nvalt' # Notes
 cask 'obs' # Screen broadcasting
-cask 'omnifocus' # Task manager
 cask 'onyx' # System maintence
 cask 'parallels' # Virtual machines
 cask 'paw' # API tester
+cask 'plex' # Media player
 cask 'plex-media-player' # Media player
 cask 'plex-media-server' # Media server
 cask 'postgres' # Database
 cask 'postico' # PostgresSQL GUI
 cask 'postman' # API tester
-cask 'private-internet-access' # VPN
 cask 'qsyncthingtray' # Syncthing tray icon
 cask 'quickbooks2016' # Accounting
 cask 'rclone-browser' # rclone GUI
+cask 'rectangle' # Window manager
 cask 'rescuetime' # Time tracker
+cask 'react-native-debugger' # React Native GUI
 cask 'robofont' # Font editor
-cask 'rstudio' # IDE for R
-cask 'screens' # VNC client
+# cask 'screens' # VNC client (setapp)
 cask 'scroll-reverser' # Mouse scroll wheel change
+cask 'setapp' # Multi app installer
 cask 'sketch-beta' # Vector drawing
+cask 'skype' # Chat
+cask 'sloth' # Open files and sockets monitor
 cask 'slack' # Chat
-cask 'sound-control' # HDMI volume changer
-cask 'soundflower' # Virtual audio interface
+cask 'soundflower' # Virtual audio interface (HDMI volume changer)
+cask 'soundflowerbed' # soundflower GUI
 cask 'sourcetree' # Git repo manager
 cask 'spectacle' # Window manager
 cask 'steam' # Games
 cask 'steelseries-exactmouse-tool' # Mouse deacceleration
-cask 'stremio' # Media streaming
 cask 'sublime-merge' # Git repo manager
 cask 'sublime-text' # Text editor
 cask 'synergy' # Mouse and keyboard sharing
-cask 'tableplus' # Multi-database GUI
+# cask 'tableplus' # Multi-database GUI (setapp)
 cask 'teamviewer' # Screen sharing
 cask 'telegram' # Chat
+# cask 'timing' # Time tracker (setapp)
 cask 'tomighty' # Task timer
-cask 'tableplus' # Multi-database GUI
 cask 'tower' # Git repo manager
 cask 'transmission' # Torrent downloader
-cask 'tripmode' # Mobile data blocker
+# cask 'tripmode' # Mobile data blocker (setapp)
 cask 'tunnelblick' # VPN client
 cask 'veracrypt' # Encryption. TrueCrypt fork
 cask 'virtualbox' # Virtual machines
-cask 'virtualbox-extension-pack' # Support for USB 2.0 and USB 3.0 devices, VirtualBox RDP, disk encryption, NVMe and PXE boot for Intel cards
+cask 'virtualbox-extension-pack' # Support USB, RDP, Encryption, NVMe, and PXE
 cask 'viscosity' # VPN client
 cask 'visual-studio-code-insiders' # Text editor
 cask 'vlc' # Media player
 cask 'vmware-fusion' # Virtual machines
-cask 'webstorm' # IDE for JavaScript
 cask 'wireshark' # Network analyzer
-cask 'xld' # FLAC lossless audio
+cask 'xld' # FLAC/MP3 Conversion, Ripper, Burner
 cask 'xtrafinder' # Finder enhancer (disable SIP)
+cask 'zoomus' # Chat
 
 # [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins)
 # Not sorted
