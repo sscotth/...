@@ -5,3 +5,4 @@
 .zshrc
 bash-concurrent
 math_dotfiles
+!lib
