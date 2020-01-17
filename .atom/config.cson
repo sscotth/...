@@ -24,8 +24,8 @@
   "dark-flat-ui":
     accentColor: "green"
   editor:
-    fontFamily: "Operator Mono Lig, Operator Mono, Menlo, monospace"
-    fontSize: 18
+    fontFamily: "Operator Mono SSm Lig, Operator Mono, Menlo, monospace"
+    fontSize: 32
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
