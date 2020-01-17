@@ -32,7 +32,9 @@ boxecho "mas-cli"
 brew_install_or_upgrade mas
 
 boxecho "mas-cli signin"
-mas_cli_signin
+# Sorry, mas-cli signin is not working. Please login to the app store...
+# https://github.com/mas-cli/mas/issues/107
+mas_cli_signin || true
 
 boxecho "Bash v4.2+"
 brew_install_or_upgrade bash
