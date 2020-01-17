@@ -238,7 +238,7 @@ cask 'veracrypt' # Encryption. TrueCrypt fork
 cask 'virtualbox' # Virtual machines
 cask 'virtualbox-extension-pack' # Support for USB 2.0 and USB 3.0 devices, VirtualBox RDP, disk encryption, NVMe and PXE boot for Intel cards
 cask 'viscosity' # VPN client
-cask 'visual-studio-code' # Text editor
+cask 'visual-studio-code-insiders' # Text editor
 cask 'vlc' # Media player
 cask 'vmware-fusion' # Virtual machines
 cask 'webstorm' # IDE for JavaScript

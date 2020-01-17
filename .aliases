@@ -3,6 +3,8 @@ unalias dl
 unalias dt
 unalias p
 
+alias ci=code-insiders
+
 # List direcory contents with / after directory names
 alias lsa='ls -lahF'
 alias l='ls -lahF'
