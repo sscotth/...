@@ -266,7 +266,7 @@ cask 'quicklook-pat'
 
 # DRIVERS
 cask 'asix-ax88179'
-cask 'solarflare-network-adapter'
+# cask 'solarflare-network-adapter' # 404
 cask 'xbox360-controller-driver-unofficial'
 
 # PREREQ
