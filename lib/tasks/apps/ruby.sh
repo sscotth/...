@@ -45,28 +45,28 @@ ruby_install () {
   boxecho "Install ruby apps"
 
   echo "(bundler)" >&3
-  gem install bundler --no-ri --no-rdoc
+  gem install bundler --no-document
 
   echo "(carthage)" >&3
   brew install carthage
 
   echo "(cocoapods)" >&3
-  gem install cocoapods --no-ri --no-rdoc
+  gem install cocoapods --no-document
 
   echo "(colorls)" >&3
-  gem install colorls --no-ri --no-rdoc
+  gem install colorls --no-document
 
   echo "(rails)" >&3
-  gem install rails --no-ri --no-rdoc
+  gem install rails --no-document
 
   echo "(reek)" >&3
-  gem install reek --no-ri --no-rdoc
+  gem install reek --no-document
 
   echo "(rubocop)" >&3
-  gem install rubocop --no-ri --no-rdoc
+  gem install rubocop --no-document
 
   echo "(travis)" >&3
-  gem install travis --no-ri --no-rdoc
+  gem install travis --no-document
 
   echo "(done)" >&3
 }
