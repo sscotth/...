@@ -13,19 +13,23 @@ android_studio () {
 
   cd ~/Library/Android/sdk/tools/bin
 
-  boxecho "Update SDKs"
-  echo "(updating SDKs)" >&3
-  ./sdkmanager --update
+  if [[ -f "./sdkmanager" ]]; then
+    echo "$FILE exist"
 
-  boxecho "Accept Licenses"
-  echo "(accepting licenses)" >&3
-  yes | ./sdkmanager --licenses
+    boxecho "Update SDKs"
+    echo "(updating SDKs)" >&3
+    ./sdkmanager --update || true
 
-  boxecho "Wipe data"
-  echo "(wipe data)" >&3
-  for i in $(./emulator -list-avds); do
-    ./emulator -avd $i -wipe-data -quit-after-boot 10
-  done
+    boxecho "Accept Licenses"
+    echo "(accepting licenses)" >&3
+    yes | ./sdkmanager --licenses || true
+
+    boxecho "Wipe data"
+    echo "(wipe data)" >&3
+    for i in $(./emulator -list-avds); do
+      ./emulator -avd $i -wipe-data -quit-after-boot 10
+    done
+  fi
 
   echo "(done)" >&3
 }
