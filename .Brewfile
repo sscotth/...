@@ -234,6 +234,7 @@ cask 'transmission' # Torrent downloader
 # cask 'tripmode' # Mobile data blocker (setapp)
 cask 'tunnelblick' # VPN client
 cask 'veracrypt' # Encryption. TrueCrypt fork
+cask 'vimr' # macvim replacement
 cask 'virtualbox' # Virtual machines
 cask 'virtualbox-extension-pack' # Support USB, RDP, Encryption, NVMe, and PXE
 cask 'viscosity' # VPN client
@@ -276,7 +277,6 @@ cask 'osxfuse'
 # brew 'ntfs-3g' # Requires osxfuse
 # brew 'sshfs' # Requires osxfuse
 # cask 'fontforge' # Requires xforce
-brew 'macvim', args: ['with-custom-icons'] # Requires Xcode
 
 # APP STORE
 mas 'Day One Classic', id: 422304217
