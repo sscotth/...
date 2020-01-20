@@ -5,6 +5,7 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/services'
 
 tap 'buo/cask-upgrade'
+tap 'heroku/brew'
 tap 'vitorgalvao/tiny-scripts'
 
 tap 'sscotth/homebrew-sip'
