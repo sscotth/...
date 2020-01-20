@@ -22,6 +22,7 @@ concurrent_install () {
         - "Homebrew Quick Node Version Manager" retry_command gtimeout --preserve-status 300 ./lib/tasks/homebrew/homebrew_quick_nvm.sh
         # - "Homebrew bundle"                     retry_command gtimeout --preserve-status 600 ./lib/tasks/homebrew/homebrew_bundle.sh
 
+        - "Disable malicious check"             retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/disable_malicious_check.sh
         - "Clean .DS_Store files"               retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/clean_ds_store.sh
         - "Generate SSH Keys"                   retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/generate_ssh_keys.sh
         # - "Install Hosts file"                  retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_hosts_file.sh # Use Gas Mask app
