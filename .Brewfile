@@ -45,7 +45,7 @@ brew 'screen'
 brew 'svn'
 brew 'tccutil'
 brew 'tidy-html5'
-brew 'vim', args: ['with-override-system-vi']
+brew 'vim'
 brew 'wget'
 brew 'zsh'
 
