@@ -30,7 +30,6 @@ concurrent_install () {
         - "Install Oh-My-ZSH"                   retry_command gtimeout --preserve-status 300 ./lib/tasks/macos/install_oh_my_zsh.sh
         - "Install ZSH Syntax Highlighting"     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/install_zsh_syntax_highlighting.sh
         - "Load .zshrc from Oh-My-ZSH"          retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/load_zshrc_from_oh_my_zsh.sh
-        - "Prepare MongoDB"                     retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/mongodb_prepare.sh
         - "Prepare NTFS"                        retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/ntfs_prepare.sh # Except for SIP check, SKIP FOR NOW
         - "Setup assistive devices"             retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/setup_assistive_devices.sh
         - "Setup folders"                       retry_command gtimeout --preserve-status 120 ./lib/tasks/macos/setup_folders.sh
