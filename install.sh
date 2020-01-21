@@ -65,6 +65,7 @@ say "sleep 30"
 sleep 30
 
 boxecho "Homebrew bundle" # 3 more times to allow for ctrl-c in case of stall
+export HOMEBREW_CASK_OPTS="--no-quarantine"
 cached_psudo brew bundle --file=.Brewfile || true
 cached_psudo brew bundle --file=.Brewfile || true
 cached_psudo brew bundle --file=.Brewfile || true

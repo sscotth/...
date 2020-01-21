@@ -60,4 +60,5 @@ export ANDROID_HOME=~/Library/Android/sdk
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_AUTO_UPDATE=1
+export HOMEBREW_CASK_OPTS="--no-quarantine"
 rm -f "$HOME/.homebrew_analytics_user_uuid"

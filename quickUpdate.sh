@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export HOMEBREW_CASK_OPTS="--no-quarantine"
+
 brew update && brew upgrade && brew cu -a -y && brew cleanup
 
 load_nvm () {
