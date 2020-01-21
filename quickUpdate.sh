@@ -2,7 +2,7 @@
 
 export HOMEBREW_CASK_OPTS="--no-quarantine"
 
-brew update && brew upgrade && brew cu -a -y && brew cleanup
+brew update && brew upgrade && brew cu -y && brew cu -a -y && brew cleanup
 
 load_nvm () {
   export NVM_DIR=~/.nvm
