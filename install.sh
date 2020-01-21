@@ -74,7 +74,7 @@ boxecho "Additional Homebrew fonts"
 brew search /nerd-font-mono/ | grep font | xargs brew cask install
 
 boxecho "Cask upgrade details"
-yes n | brew cu --all --force --no-brew-update --no-quarantine --cleanup && echo
+brew cu --all --force --no-brew-update --no-quarantine --yes --cleanup && echo
 
 echo
 boxecho "Homebrew cleanup"
