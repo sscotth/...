@@ -8,7 +8,8 @@ tap 'buo/cask-upgrade'
 tap 'heroku/brew'
 tap 'vitorgalvao/tiny-scripts'
 
-tap 'sscotth/homebrew-sip'
+tap 'sscotth/sip'
+tap 'sscotth/personal'
 
 # UPDATE OS X APPS
 brew 'bash'
