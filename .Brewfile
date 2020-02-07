@@ -210,7 +210,6 @@ cask 'rescuetime' # Time tracker
 cask 'react-native-debugger' # React Native GUI
 cask 'robofont' # Font editor
 # cask 'screens' # VNC client (setapp)
-cask 'scroll-reverser' # Mouse scroll wheel change
 cask 'setapp' # Multi app installer
 cask 'sketch-beta' # Vector drawing
 cask 'skype' # Chat
