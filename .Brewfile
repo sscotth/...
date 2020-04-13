@@ -264,7 +264,7 @@ cask 'quicklookapk'
 cask 'quicklook-pat'
 
 # FONTS
-# brew search /nerd-font-mono/ | grep font | xargs brew cask install
+# brew search /nerd-font/ | grep font | xargs brew cask install -f
 
 # DRIVERS
 cask 'asix-ax88179'
