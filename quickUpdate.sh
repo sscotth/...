@@ -15,10 +15,14 @@ load_nvm
 # nvm install 6 --reinstall-packages-from=6 # lts/boron (2019-04-30)
 # nvm install 8 --reinstall-packages-from=8 # lts/carbon (2019-12-31)
 nvm install 10 --reinstall-packages-from=10 # lts/dubnium (2021-04-30)
+  nvm use 10
+  npm update -g
 nvm install 12 --reinstall-packages-from=12 # lts/erbium (2022-04-30)
+  nvm use 12
+  npm update -g
 nvm install 13 --reinstall-packages-from=13
-
-nvm use 13
+  nvm use 13
+  npm update -g
 
 # npm list -g --depth=0
 # + bit-bin@14.0.6
