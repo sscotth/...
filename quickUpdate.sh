@@ -52,7 +52,7 @@ grep '^v6' /tmp/nvmls  | sed '$d' | while read v ; do nvm uninstall $v ; done
 grep '^v8' /tmp/nvmls  | sed '$d' | while read v ; do nvm uninstall $v ; done
 grep '^v10' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
 grep '^v12' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
-grep '^v13' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
+grep '^v14' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
 
 # Remove all from these versions
 grep '^iojs-' /tmp/nvmls          | while read v ; do nvm uninstall $v ; done
@@ -60,6 +60,7 @@ grep '^v5' /tmp/nvmls             | while read v ; do nvm uninstall $v ; done
 grep '^v7' /tmp/nvmls             | while read v ; do nvm uninstall $v ; done
 grep '^v9' /tmp/nvmls             | while read v ; do nvm uninstall $v ; done
 grep '^v11' /tmp/nvmls            | while read v ; do nvm uninstall $v ; done
+grep '^v13' /tmp/nvmls            | while read v ; do nvm uninstall $v ; done
 
 rm /tmp/nvmls
 
