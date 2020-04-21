@@ -20,8 +20,8 @@ nvm install 10 --reinstall-packages-from=10 # lts/dubnium (2021-04-30)
 nvm install 12 --reinstall-packages-from=12 # lts/erbium (2022-04-30)
   nvm use 12
   npm update -g
-nvm install 13 --reinstall-packages-from=13
-  nvm use 13
+nvm install 14 --reinstall-packages-from=14
+  nvm use 14
   npm update -g
 
 # npm list -g --depth=0
