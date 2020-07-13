@@ -21,6 +21,9 @@ install_oh_my_zsh () {
   echo "(Create a new zsh configuration file)" >&3
   # cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
+  echo "(Fix Insecure completion-dependent directories)" >&3
+  compaudit | xargs chmod g-w,o-w
+
   echo "(Change your default shell)" >&3
   cached_sudo chsh -s /usr/local/bin/zsh $(whoami) # brew version
 
