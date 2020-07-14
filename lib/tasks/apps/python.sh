@@ -42,6 +42,9 @@ python_virtualenv () {
   boxecho "Exec Workon"
   workon || true
 
+  boxecho "Python apps"
+  pip3 install fonttools
+
   echo "(done)" >&3
 }
 
