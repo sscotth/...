@@ -151,6 +151,3 @@ fi
 
 
 load_own_zsh_dotfiles
-
-autoload -U promptinit; promptinit
-prompt pure
