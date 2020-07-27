@@ -6,6 +6,7 @@ tap 'homebrew/services'
 
 tap 'buo/cask-upgrade'
 tap 'heroku/brew'
+tap 'jakehilborn/jakehilborn'
 tap 'vitorgalvao/tiny-scripts'
 
 tap 'sscotth/sip'
@@ -60,6 +61,7 @@ brew 'carthage'
 brew 'cask-repair'
 brew 'chruby'
 brew 'diff-so-fancy'
+brew 'displayplacer' # command line display changes
 brew 'ffmpeg'
 brew 'flow'
 brew 'git-lfs'
