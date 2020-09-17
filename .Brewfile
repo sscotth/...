@@ -64,6 +64,7 @@ brew 'diff-so-fancy'
 brew 'displayplacer' # command line display changes
 brew 'ffmpeg'
 brew 'flow'
+brew 'gh'
 brew 'git-lfs'
 brew 'graphicsmagick'
 brew 'gron'
