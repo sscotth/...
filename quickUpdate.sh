@@ -17,14 +17,15 @@ load_nvm
 # nvm install 4 --reinstall-packages-from=4 # lts/argon (2018-04-30)
 # nvm install 6 --reinstall-packages-from=6 # lts/boron (2019-04-30)
 # nvm install 8 --reinstall-packages-from=8 # lts/carbon (2019-12-31)
-nvm install 10 --reinstall-packages-from=10 # lts/dubnium (2021-04-30)
-  nvm use 10
-  npm update -g
+# nvm install 10 --reinstall-packages-from=10 # lts/dubnium (2021-04-30)
 nvm install 12 --reinstall-packages-from=12 # lts/erbium (2022-04-30)
   nvm use 12
   npm update -g
-nvm install 14 --reinstall-packages-from=14
+nvm install 14 --reinstall-packages-from=14 # lts/fermium (2023-04-30)
   nvm use 14
+  npm update -g
+nvm install 16 --reinstall-packages-from=16 # lts/gallium (2021-10-31 - 2024-04-30)
+  nvm use 16
   npm update -g
 
 # npm list -g --depth=0
@@ -53,6 +54,7 @@ grep '^v8' /tmp/nvmls  | sed '$d' | while read v ; do nvm uninstall $v ; done
 grep '^v10' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
 grep '^v12' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
 grep '^v14' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
+grep '^v16' /tmp/nvmls | sed '$d' | while read v ; do nvm uninstall $v ; done
 
 # Remove all from these versions
 grep '^iojs-' /tmp/nvmls          | while read v ; do nvm uninstall $v ; done
@@ -61,6 +63,7 @@ grep '^v7' /tmp/nvmls             | while read v ; do nvm uninstall $v ; done
 grep '^v9' /tmp/nvmls             | while read v ; do nvm uninstall $v ; done
 grep '^v11' /tmp/nvmls            | while read v ; do nvm uninstall $v ; done
 grep '^v13' /tmp/nvmls            | while read v ; do nvm uninstall $v ; done
+grep '^v15' /tmp/nvmls            | while read v ; do nvm uninstall $v ; done
 
 rm /tmp/nvmls
 
