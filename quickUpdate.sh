@@ -5,7 +5,7 @@ export HOMEBREW_CASK_OPTS="--no-quarantine"
 brew update && brew upgrade && brew cu -y && brew cu -a -y && brew cleanup
 
 # Temp uninstalls
-brew cask uninstall timing -f
+brew uninstall timing --cask -f
 
 load_nvm () {
   export NVM_DIR=~/.nvm
