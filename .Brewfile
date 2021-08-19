@@ -7,6 +7,7 @@ tap 'homebrew/services'
 tap 'buo/cask-upgrade'
 tap 'heroku/brew'
 tap 'jakehilborn/jakehilborn'
+tap 'nrlquaker/createzap'
 tap 'vitorgalvao/tiny-scripts'
 
 tap 'sscotth/sip'
@@ -165,7 +166,7 @@ cask 'graphql-playground' # GraphQL GUI
 cask 'handbrake' # Video transcoder
 cask 'haskell-for-mac' # IDE for haskell
 cask 'integrity' # Website link checker (Also on app store)
-cask 'istat-menus' # Menubar widgets
+cask 'intel-power-gadget' # Hardware Monitor
 cask 'iterm2' # Terminal emulator
 cask 'itsycal' # Menubar calendar
 cask 'jdownloader' # Download manager

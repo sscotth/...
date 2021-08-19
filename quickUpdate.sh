@@ -80,3 +80,5 @@ pod repo update
 # To update use: `gem install cocoapods`
 gem install cocoapods
 # pod repo update | grep \`gem install cocoapods\` ? then gem install cocoapods
+
+python3 -m pip install --upgrade pip
